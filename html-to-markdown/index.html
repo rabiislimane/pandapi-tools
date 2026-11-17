@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML to Markdown Converter (free, private, main content only)</title>
+<meta name="description" content="Convert HTML to clean Markdown in your browser. Keep only the main content, paste straight from a web page, batch-convert files to a .zip. Free, no sign-up, nothing uploaded.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/html-to-markdown/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HTML to Markdown Converter (free, private, main content only)">
+<meta property="og:description" content="Convert HTML to clean Markdown in your browser. Keep only the main content, paste straight from a web page, batch-convert files to a .zip. Free, no sign-up, nothing uploaded.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/tool-html-to-markdown.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "HTML to Markdown converter", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Convert HTML to clean Markdown in your browser. Keep only the main content, paste straight from a web page, batch-convert files to a .zip. Free, no sign-up, nothing uploaded.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "url": "https://rabiislimane.github.io/pandapi-tools/html-to-markdown/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my HTML uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The conversion runs in your browser with open-source libraries (Turndown and Mozilla Readability). Nothing you paste or drop leaves your device, and the page works offline once it has loaded."}}, {"@type": "Question", "name": "What does \"main content only\" do?", "acceptedAnswer": {"@type": "Answer", "text": "It uses Mozilla's Readability, the same engine as Firefox Reader View, to find the article in a full page and drop menus, footers, sidebars, cookie banners and ads. Snippets are converted as they are."}}, {"@type": "Question", "name": "Which Markdown flavor do I get?", "acceptedAnswer": {"@type": "Answer", "text": "GitHub-flavored Markdown: # headings, - lists, ``` fenced code blocks with the language kept, pipe tables, ~~strikethrough~~ and task lists. Tables with merged cells stay as HTML, because Markdown tables can't merge cells."}}, {"@type": "Question", "name": "Is this good for ChatGPT, Claude or a RAG pipeline?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Markdown keeps the structure that models use, at a fraction of the tokens of raw HTML. The tool shows a token estimate and can add YAML front matter with the title and source URL."}}, {"@type": "Question", "name": "Can it convert a whole website?", "acceptedAnswer": {"@type": "Answer", "text": "This page converts the HTML you give it. To crawl many URLs or a sitemap, render JavaScript and get chunks for RAG, use the Web Page to Markdown API linked below."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/" aria-current="page">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a></nav>
+</div></header>
+<main><div class="wrap">
+<div class="hero"><img src="../assets/icons/tool-html-to-markdown.png" alt="" width="64" height="64"><h1>HTML to Markdown converter</h1></div>
+<p class="lede">Paste HTML or copy part of any web page and paste it here. You get clean GitHub-flavored Markdown with tables, code blocks and links. Turn on <b>main content only</b> to drop menus, footers and cookie banners.</p>
+<ul class="badges"><li>Runs in your browser</li><li>Main content only</li><li>Paste from any page</li><li>Batch to .zip</li><li>Free, no sign-up</li></ul>
+
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="html-in">HTML</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="html-in" spellcheck="false" placeholder="Paste HTML here, or copy part of a web page and paste it (formatting is kept)."></textarea>
+    <div class="opts" role="group" aria-label="Options">
+      <label><input type="checkbox" id="opt-main" checked> Main content only</label>
+      <label><input type="checkbox" id="opt-rich" checked> Paste keeps formatting</label>
+      <label><input type="checkbox" id="opt-noimg"> Drop images</label>
+      <label><input type="checkbox" id="opt-reflinks"> Reference-style links</label>
+      <label><input type="checkbox" id="opt-fm"> YAML front matter</label>
+      <label>Page URL <input type="text" id="opt-base" placeholder="https://example.com/page" size="22" aria-label="Page URL, used to fix relative links"></label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="md-out">Markdown</label></h2><span class="status" id="stats" aria-live="polite"></span></div>
+    <textarea id="md-out" spellcheck="false" readonly placeholder="Markdown appears here as you type."></textarea>
+    <div class="row"><button type="button" id="btn-copy">Copy</button><button type="button" class="secondary" id="btn-download">Download .md</button></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+<div class="card" style="margin-top:16px">
+  <div class="pane-head"><h2>Convert many files at once</h2></div>
+  <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose HTML files to convert"><strong>Drop .html files here</strong> or click to choose. You get one .zip of .md files, made with the options above.</div>
+  <input type="file" id="file-in" accept=".html,.htm,.xhtml,text/html" multiple hidden>
+  <p class="status" id="batch-status" role="status" aria-live="polite"></p>
+  <ul class="files" id="batch-list"></ul>
+</div>
+<script type="text/plain" id="sample-html"><!doctype html><html><head><title>How to brew pour-over coffee</title></head><body>
+<header><nav><a href="/">Home</a> <a href="/shop">Shop</a> <a href="/blog">Blog</a></nav></header>
+<div class="cookie-banner">We use cookies. <button>Accept</button></div>
+<main><article><h1>How to brew pour-over coffee</h1>
+<p>Pour-over gives you a <strong>clean, bright cup</strong>. You need a dripper, a filter and a kettle. This guide takes about <em>four minutes</em>, and you can read more in our <a href="/guides/grind">grind size guide</a>.</p>
+<h2>What you need</h2><ul><li>20 g of coffee, medium-fine</li><li>320 g of water at 94 °C</li><li>A paper filter, rinsed</li></ul>
+<h2>Ratios</h2><table><thead><tr><th>Cups</th><th>Coffee</th><th>Water</th></tr></thead><tbody><tr><td>1</td><td>20 g</td><td>320 g</td></tr><tr><td>2</td><td>36 g</td><td>580 g</td></tr></tbody></table>
+<h2>Timer script</h2><pre><code class="language-python">for step, seconds in [("bloom", 45), ("pour", 90)]:
+    print(step, seconds)</code></pre>
+<blockquote>Tip: grind just before you brew.</blockquote></article></main>
+<aside><h3>Related posts</h3><a href="/a">French press</a></aside>
+<footer>© 2026 Example Coffee · <a href="/privacy">Privacy</a></footer></body></html></script>
+
+<div class="card upsell"><img src="../assets/icons/web-page-to-markdown.png" alt="" width="56" height="56"><p>Need whole websites as Markdown, for RAG or an AI agent? <b>Web Page to Markdown</b> crawls URLs or sitemaps, renders JavaScript pages and returns clean, chunked Markdown through an API. About $1 per 1,000 pages.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/web-page-to-markdown">See the Web Page to Markdown API</a></div>
+<section class="content">
+<h2>How to use it</h2>
+<ol><li>Paste HTML into the left box, or copy part of a web page (Ctrl+C) and paste it there: the formatting comes over, not just the text.</li><li>Leave <b>Main content only</b> on for whole pages. It keeps the article and drops navigation, sidebars, footers, cookie banners and ads.</li><li>Add the page URL if the HTML has relative links, so links and images point to the right place.</li><li>Copy the Markdown or download it as a .md file. For many files, drop them in the batch box and get a .zip.</li></ol>
+<h2>Questions</h2>
+<details><summary>Is my HTML uploaded anywhere?</summary><p>No. The conversion runs in your browser with open-source libraries (Turndown and Mozilla Readability). Nothing you paste or drop leaves your device, and the page works offline once it has loaded.</p></details><details><summary>What does &quot;main content only&quot; do?</summary><p>It uses Mozilla&#x27;s Readability, the same engine as Firefox Reader View, to find the article in a full page and drop menus, footers, sidebars, cookie banners and ads. Snippets are converted as they are.</p></details><details><summary>Which Markdown flavor do I get?</summary><p>GitHub-flavored Markdown: # headings, - lists, ``` fenced code blocks with the language kept, pipe tables, ~~strikethrough~~ and task lists. Tables with merged cells stay as HTML, because Markdown tables can&#x27;t merge cells.</p></details><details><summary>Is this good for ChatGPT, Claude or a RAG pipeline?</summary><p>Yes. Markdown keeps the structure that models use, at a fraction of the tokens of raw HTML. The tool shows a token estimate and can add YAML front matter with the title and source URL.</p></details><details><summary>Can it convert a whole website?</summary><p>This page converts the HTML you give it. To crawl many URLs or a sitemap, render JavaScript and get chunks for RAG, use the Web Page to Markdown API linked below.</p></details>
+<h2>More free tools</h2>
+<div class="grid"><a class="card tile" href="../pdf-to-markdown/"><img src="../assets/icons/tool-pdf-to-markdown.png" alt="" width="56" height="56"><div><h3>PDF to Markdown</h3><p>Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed.</p></div></a><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56"><div><h3>JSON to Excel</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a></div>
+</section>
+</div></main>
+<script src="../assets/site.js"></script>
+<script src="../vendor/turndown.js"></script><script src="../vendor/turndown-plugin-gfm.js"></script><script src="../vendor/readability.js"></script><script src="../vendor/fflate.js"></script><script src="convert.js"></script><script src="app.js"></script>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

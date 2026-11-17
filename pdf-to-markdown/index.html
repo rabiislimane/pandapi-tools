@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF to Markdown Converter (free, no upload, no limits)</title>
+<meta name="description" content="Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed. No upload, no file size or daily limit, batch to .zip. Free.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/pdf-to-markdown/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDF to Markdown Converter (free, no upload, no limits)">
+<meta property="og:description" content="Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed. No upload, no file size or daily limit, batch to .zip. Free.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/tool-pdf-to-markdown.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PDF to Markdown converter", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed. No upload, no file size or daily limit, batch to .zip. Free.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "url": "https://rabiislimane.github.io/pandapi-tools/pdf-to-markdown/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are my PDFs uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. They are read in your browser with Mozilla's pdf.js. Nothing is sent to a server, which is why there is no size limit, no daily limit and no account."}}, {"@type": "Question", "name": "Does it work on scanned PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "Not on its own. A scanned page is a picture with no text layer, and this page has no OCR. The tool tells you when a file looks scanned. The PDF API linked below reads scans with OCR in 12 languages."}}, {"@type": "Question", "name": "What happens to tables?", "acceptedAnswer": {"@type": "Answer", "text": "Each table row comes out on its own line with cells separated by |, which keeps the data readable. For real spreadsheets (numbers you can sum, tables joined across pages), use the PDF API, which exports Excel and CSV."}}, {"@type": "Question", "name": "How are headings found?", "acceptedAnswer": {"@type": "Answer", "text": "From font sizes: text clearly larger than the body text and used for short lines becomes #, ## or ### headings. Two-column pages, like research papers, are read column by column."}}, {"@type": "Question", "name": "Is it good for ChatGPT, Claude or RAG?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Markdown keeps headings and lists that models use for context, and dropping repeated headers and page numbers saves tokens. The tool shows a token estimate for each file."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/" aria-current="page">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a></nav>
+</div></header>
+<main><div class="wrap">
+<div class="hero"><img src="../assets/icons/tool-pdf-to-markdown.png" alt="" width="64" height="64"><h1>PDF to Markdown converter</h1></div>
+<p class="lede">Drop one PDF or a hundred. Each is read <b>in your browser</b>, so private files never leave your computer. You get Markdown with headings, lists and joined paragraphs, without the running headers, footers and page numbers.</p>
+<ul class="badges"><li>Nothing uploaded</li><li>No size or daily limit</li><li>Batch to .zip</li><li>Headers and page numbers removed</li><li>Free, no sign-up</li></ul>
+
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2>PDF files</h2><button type="button" class="secondary" id="btn-sample">Try a sample</button></div>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose PDF files to convert"><strong>Drop PDF files here</strong> or click to choose.<br>One or many. They stay on your computer.</div>
+    <input type="file" id="file-in" accept=".pdf,application/pdf" multiple hidden>
+    <div class="opts" role="group" aria-label="Options">
+      <label><input type="checkbox" id="opt-markers"> Mark page breaks</label>
+      <label><input type="checkbox" id="opt-keep"> Keep running headers and footers</label>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <ul class="files" id="file-list"></ul>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="md-out">Markdown</label></h2><span class="status" id="stats" aria-live="polite"></span></div>
+    <textarea id="md-out" spellcheck="false" readonly placeholder="The Markdown of the first PDF appears here."></textarea>
+    <div class="row"><button type="button" id="btn-copy" disabled>Copy</button><button type="button" class="secondary" id="btn-download" disabled>Download .md</button></div>
+  </div>
+</div>
+
+<div class="card upsell"><img src="../assets/icons/pdf-to-text-markdown.png" alt="" width="56" height="56"><p>Scanned PDFs, tables you need in Excel, or thousands of files through an API? <b>PDF to Text, Markdown &amp; Excel</b> adds OCR, real spreadsheet tables (borderless ones too) and RAG chunks. $3 per 1,000 PDFs.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown">See the PDF API</a></div>
+<section class="content">
+<h2>How to use it</h2>
+<ol><li>Drop your PDFs on the box, or click it to choose files. Several files are converted one after another.</li><li>Check the Markdown of the first file on the right. Headings come from the font sizes, lists and contents entries are kept, and broken lines and hyphenated words are joined.</li><li>Download one .md file, or a .zip with one .md per PDF.</li><li>Turn on <b>Mark page breaks</b> if you need page numbers for citations (it adds <code>&lt;!-- page 3 --&gt;</code> comments).</li></ol>
+<h2>Questions</h2>
+<details><summary>Are my PDFs uploaded?</summary><p>No. They are read in your browser with Mozilla&#x27;s pdf.js. Nothing is sent to a server, which is why there is no size limit, no daily limit and no account.</p></details><details><summary>Does it work on scanned PDFs?</summary><p>Not on its own. A scanned page is a picture with no text layer, and this page has no OCR. The tool tells you when a file looks scanned. The PDF API linked below reads scans with OCR in 12 languages.</p></details><details><summary>What happens to tables?</summary><p>Each table row comes out on its own line with cells separated by |, which keeps the data readable. For real spreadsheets (numbers you can sum, tables joined across pages), use the PDF API, which exports Excel and CSV.</p></details><details><summary>How are headings found?</summary><p>From font sizes: text clearly larger than the body text and used for short lines becomes #, ## or ### headings. Two-column pages, like research papers, are read column by column.</p></details><details><summary>Is it good for ChatGPT, Claude or RAG?</summary><p>Yes. Markdown keeps headings and lists that models use for context, and dropping repeated headers and page numbers saves tokens. The tool shows a token estimate for each file.</p></details>
+<h2>More free tools</h2>
+<div class="grid"><a class="card tile" href="../html-to-markdown/"><img src="../assets/icons/tool-html-to-markdown.png" alt="" width="56" height="56"><div><h3>HTML to Markdown</h3><p>Convert HTML to clean Markdown in your browser.</p></div></a><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56"><div><h3>JSON to Excel</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a></div>
+</section>
+</div></main>
+<script src="../assets/site.js"></script>
+<script src="../vendor/pdf.min.js"></script><script src="../vendor/fflate.js"></script><script src="convert.js"></script><script src="app.js"></script>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

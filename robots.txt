@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rabiislimane.github.io/pandapi-tools/sitemap.xml

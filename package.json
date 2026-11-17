@@ -1,0 +1,13 @@
+{
+  "name": "pandapi-tools",
+  "private": true,
+  "description": "Pandapi Tools: free single-purpose tools that run in the browser. Static site, no build step.",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:browser": "node test/browser.js"
+  },
+  "devDependencies": {
+    "pdfjs-dist": "3.11.174"
+  },
+  "license": "MIT"
+}
