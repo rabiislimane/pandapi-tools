@@ -80,6 +80,7 @@ for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
         print(item[&quot;rating&quot;], item[&quot;date&quot;], item[&quot;title&quot;])</code></pre>
 <p>Each run also writes a <b>free insights summary</b> per app: rating by version and country, top complaint and praise phrases, and the worst recent reviews. Reviewer names are not stored.</p>
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/app-reviews-export">export App Store and Google Play reviews to CSV</a> (MIT licence, copy and adapt).</p>
 <h2>What it costs</h2>
 <div class="table-scroll"><table class="cmp"><thead><tr><th scope="col">Job</th><th scope="col">Rows</th><th scope="col">Price</th></tr></thead><tbody><tr><th scope="row">One app, 1,000 US reviews</th><td>1,000 reviews</td><td>$0.15</td></tr><tr><th scope="row">5 competitors × 4 countries × 500</th><td>10,000 reviews</td><td>$1.50</td></tr><tr><th scope="row">Weekly monitoring of 10 apps</th><td>only new reviews</td><td>a few cents a week</td></tr><tr><th scope="row">App details row</th><td>1 per app</td><td>$0.001</td></tr></tbody></table></div>
 <p>Apify's free $5 monthly credit covers over 30,000 reviews. Need Google Play too? See <a href="../export-google-play-reviews/">export Google Play reviews</a>.</p>

@@ -82,6 +82,7 @@ for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
     if item.get(&quot;type&quot;) == &quot;review&quot;:
         print(item[&quot;rating&quot;], item[&quot;text&quot;][:80], item.get(&quot;developerReply&quot;))</code></pre>
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/app-reviews-export">export App Store and Google Play reviews to CSV</a> (MIT licence, copy and adapt).</p>
 <h2>What you get</h2>
 <p>Rating, text, date, app version, thumbs-up count, the developer's reply and its date, language and country. Optional app details (installs, rating histogram, Data safety, similar apps), search and top charts. A free per-app summary shows rating by version and language, developer reply rate and median reply time, and top complaint phrases. Reviewer names are not stored.</p>
 

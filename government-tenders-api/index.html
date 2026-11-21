@@ -83,6 +83,7 @@ run = client.actor(&quot;blueberry_rainstorm/public-tenders-feed&quot;).call(run
 for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
     print(item[&quot;source&quot;], item[&quot;title&quot;], item.get(&quot;deadline&quot;), item.get(&quot;valueUsd&quot;))</code></pre>
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/government-tenders-feed">a daily government tenders feed</a> (MIT licence, copy and adapt).</p>
 <h2>What each notice looks like</h2>
 <p>Every source is mapped to the same fields: title, buyer, country, notice type (tender, pre-notice, award), published date, deadline and days left, estimated value in the original currency and in USD/EUR, CPV/NAICS/UNSPSC codes, set-aside (SAM), a description, the link to the official notice, and buyer contacts where the portal publishes them. Expired tenders are hidden by default.</p>
 

@@ -71,6 +71,7 @@ for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
     for chunk in item.get(&quot;chunks&quot;, []):
         print(chunk[&quot;headingPath&quot;], chunk[&quot;approxTokens&quot;], chunk[&quot;url&quot;])</code></pre>
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/rag-docs-sync">keep a RAG index in sync with a docs site</a> (MIT licence, copy and adapt).</p>
 <h2>What you get for each page</h2>
 <p>One row per page: <code>url</code>, <code>title</code>, <code>description</code>, <code>language</code>, <code>canonicalUrl</code>, <code>markdown</code>, <code>wordCount</code>, <code>approxTokens</code>, whether a browser was needed, and (with chunking on) <code>chunks</code> with <code>headingPath</code>, <code>text</code>, <code>approxTokens</code>, <code>anchor</code> and <code>url</code>. Code blocks keep their language, tables stay Markdown tables, and docs tabs (MkDocs, Docusaurus, Mintlify, sphinx-design) can be "selected only" or "all tabs".</p>
 

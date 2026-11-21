@@ -72,6 +72,7 @@ run = client.actor(&quot;blueberry_rainstorm/pdf-to-text-markdown&quot;).call(ru
 for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
     print(item[&quot;fileName&quot;], item[&quot;tableCount&quot;], item.get(&quot;excelUrl&quot;))</code></pre>
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/pdf-tables-to-excel">PDF tables to Excel in Python</a> (MIT licence, copy and adapt).</p>
 <h2>What makes PDF tables hard (and what the API does about it)</h2>
 <div class="table-scroll"><table class="cmp"><thead><tr><th scope="col">Problem</th><th scope="col">What usually happens</th><th scope="col">What the API does</th></tr></thead><tbody><tr><th scope="row">No ruling lines (bank statements)</th><td>Columns run together</td><td>Finds columns from text alignment</td></tr><tr><th scope="row">Table continues on the next page</th><td>Two tables, header repeated</td><td>Joins them into one table</td></tr><tr><th scope="row">Wrapped cell text</th><td>Extra half-empty rows</td><td>Merges wrapped lines into the cell</td></tr><tr><th scope="row">1,234.56 and (12.00)</th><td>Stored as text in Excel</td><td>Real numbers, negatives kept</td></tr><tr><th scope="row">Scanned pages</th><td>Nothing extracted</td><td>OCR text in 12 languages (tables from scans are not detected yet)</td></tr></tbody></table></div>
 

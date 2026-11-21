@@ -33,6 +33,7 @@ page(
 {curl("web-page-to-markdown", {"urls": [{"url": "https://docs.python.org/3/tutorial/"}], "crawl": True, "crawlScope": "path", "maxPages": 200, "chunkSize": 800})}
 {python("web-page-to-markdown", {"sitemapUrls": [{"url": "https://react.dev/sitemap.xml"}], "maxPages": 500, "chunkSize": 800}, '    for chunk in item.get("chunks", []):\n        print(chunk["headingPath"], chunk["approxTokens"], chunk["url"])')}
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/rag-docs-sync">keep a RAG index in sync with a docs site</a> (MIT licence, copy and adapt).</p>
 <h2>What you get for each page</h2>
 <p>One row per page: <code>url</code>, <code>title</code>, <code>description</code>, <code>language</code>, <code>canonicalUrl</code>, <code>markdown</code>, <code>wordCount</code>, <code>approxTokens</code>, whether a browser was needed, and (with chunking on) <code>chunks</code> with <code>headingPath</code>, <code>text</code>, <code>approxTokens</code>, <code>anchor</code> and <code>url</code>. Code blocks keep their language, tables stay Markdown tables, and docs tabs (MkDocs, Docusaurus, Mintlify, sphinx-design) can be "selected only" or "all tabs".</p>
 
@@ -91,6 +92,7 @@ page(
 {curl("pdf-to-text-markdown", {"urls": [{"url": "https://example.com/statements/2026-10.pdf"}], "tableDetection": "all", "spreadsheetOutput": "xlsx", "numbersAsNumbers": True, "includeMarkdown": False})}
 {python("pdf-to-text-markdown", {"urls": [{"url": "https://example.com/report.pdf"}], "spreadsheetOutput": "xlsx"}, '    print(item["fileName"], item["tableCount"], item.get("excelUrl"))')}
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/pdf-tables-to-excel">PDF tables to Excel in Python</a> (MIT licence, copy and adapt).</p>
 <h2>What makes PDF tables hard (and what the API does about it)</h2>
 {table(["Problem", "What usually happens", "What the API does"], [
     ["No ruling lines (bank statements)", "Columns run together", "Finds columns from text alignment"],
@@ -150,6 +152,7 @@ page(
 {curl("public-tenders-feed", {"keywords": ["software", "cloud", "cybersecurity"], "countries": ["US", "GB", "DE", "FR", "CA"], "noticeTypes": ["tender", "pre-notice"], "postedWithinDays": 7, "minDaysLeft": 10, "minValueUsd": 50000, "onlyNew": True, "stateKey": "it-tenders"})}
 {python("public-tenders-feed", {"keywords": ["translation services"], "sources": ["ted", "uk-fts", "canadabuys"], "postedWithinDays": 3}, '    print(item["source"], item["title"], item.get("deadline"), item.get("valueUsd"))')}
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/government-tenders-feed">a daily government tenders feed</a> (MIT licence, copy and adapt).</p>
 <h2>What each notice looks like</h2>
 <p>Every source is mapped to the same fields: title, buyer, country, notice type (tender, pre-notice, award), published date, deadline and days left, estimated value in the original currency and in USD/EUR, CPV/NAICS/UNSPSC codes, set-aside (SAM), a description, the link to the official notice, and buyer contacts where the portal publishes them. Expired tenders are hidden by default.</p>
 
@@ -202,6 +205,7 @@ page(
 {python("app-store-reviews-scraper", {"apps": ["notion", "evernote"], "countries": ["us"], "maxReviewsPerApp": 500, "includeSummary": True}, '    if item.get("type") == "review":\n        print(item["rating"], item["date"], item["title"])')}
 <p>Each run also writes a <b>free insights summary</b> per app: rating by version and country, top complaint and praise phrases, and the worst recent reviews. Reviewer names are not stored.</p>
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/app-reviews-export">export App Store and Google Play reviews to CSV</a> (MIT licence, copy and adapt).</p>
 <h2>What it costs</h2>
 {table(["Job", "Rows", "Price"], [
     ["One app, 1,000 US reviews", "1,000 reviews", "$0.15"],
@@ -250,6 +254,7 @@ result, _ = reviews("com.duolingo", lang="en", country="us", sort=Sort.NEWEST, c
 {curl("google-play-reviews-scraper", {"apps": ["https://play.google.com/store/apps/details?id=com.duolingo"], "languages": ["en", "de", "fr"], "countries": ["us"], "maxReviewsPerApp": 2000, "minRating": 1, "maxRating": 3})}
 {python("google-play-reviews-scraper", {"apps": ["com.spotify.music"], "maxReviewsPerApp": 1000, "keywords": ["crash", "battery"]}, '    if item.get("type") == "review":\n        print(item["rating"], item["text"][:80], item.get("developerReply"))')}
 
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/app-reviews-export">export App Store and Google Play reviews to CSV</a> (MIT licence, copy and adapt).</p>
 <h2>What you get</h2>
 <p>Rating, text, date, app version, thumbs-up count, the developer's reply and its date, language and country. Optional app details (installs, rating histogram, Data safety, similar apps), search and top charts. A free per-app summary shows rating by version and language, developer reply rate and median reply time, and top complaint phrases. Reviewer names are not stored.</p>
 
