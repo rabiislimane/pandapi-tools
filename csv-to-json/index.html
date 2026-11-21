@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV to JSON and Excel to JSON Converter (free, private, batch)</title>
+<meta name="description" content="Convert CSV, TSV or Excel (.xlsx) to JSON in your browser. Real numbers and dates, leading zeros kept, nested JSON, JSON Lines, every sheet at once, many files to a .zip. Free, nothing uploaded.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/csv-to-json/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CSV to JSON and Excel to JSON Converter (free, private, batch)">
+<meta property="og:description" content="Convert CSV, TSV or Excel (.xlsx) to JSON in your browser. Real numbers and dates, leading zeros kept, nested JSON, JSON Lines, every sheet at once, many files to a .zip. Free, nothing uploaded.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/tool-csv-to-json.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "CSV and Excel to JSON converter", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Convert CSV, TSV or Excel (.xlsx) to JSON in your browser. Real numbers and dates, leading zeros kept, nested JSON, JSON Lines, every sheet at once, many files to a .zip. Free, nothing uploaded.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "url": "https://rabiislimane.github.io/pandapi-tools/csv-to-json/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are my files uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The CSV and Excel files are read in your browser, so customer lists, exports and reports never leave your computer, and the page works offline once loaded."}}, {"@type": "Question", "name": "Why do my Excel dates come out as dates?", "acceptedAnswer": {"@type": "Answer", "text": "Excel stores a date as a day number (46086 is 5 March 2026) and only its cell format says it is a date. This tool reads the cell formats, so dates come out as 2026-03-05, date-times as 2026-03-06T14:30:00 and times as 09:15:00. Numbers come out as Excel shows them, so 0.1+0.2 is 0.3, not 0.30000000000000004."}}, {"@type": "Question", "name": "Which values become numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Plain numbers like 42, -3.5 or 1e3. Values with a leading zero (00721), more than 15 digits, a plus sign or spaces stay text, because turning them into numbers would change them. Choose \"everything as text\" to keep every value as a string."}}, {"@type": "Question", "name": "My CSV shows strange characters like Ã©. What now?", "acceptedAnswer": {"@type": "Answer", "text": "Files are read as UTF-8 when they are valid UTF-8, and as Windows-1252 (what older Excel saves) when they are not, so accents like é and ü come out right without picking an encoding."}}, {"@type": "Question", "name": "Can it read .xls or .ods files?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. Save old .xls (Excel 97-2003) and .ods files as .xlsx or .csv first. Password-protected workbooks can't be read either."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/" aria-current="page">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a></nav>
+</div></header>
+<main><div class="wrap">
+<div class="hero"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="64" height="64"><h1>CSV and Excel to JSON converter</h1></div>
+<p class="lede">Paste CSV or cells copied from Excel or Google Sheets, or drop <code>.csv</code> and <code>.xlsx</code> files. You get clean JSON with <b>real numbers, true/false and ISO dates</b>, while zip codes and IDs like <code>00721</code> stay text. Drop several files to get a .zip of JSON files.</p>
+<ul class="badges"><li>CSV, TSV and .xlsx</li><li>Dates as 2026-03-05, not 46086</li><li>Nested JSON and JSON Lines</li><li>Many files to .zip</li><li>Nothing uploaded</li></ul>
+
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="csv-in">CSV, TSV or Excel cells</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="csv-in" spellcheck="false" placeholder="Paste CSV here, or copy cells in Excel or Google Sheets and paste them."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose CSV or Excel files"><strong>Drop .csv, .tsv or .xlsx files</strong> or click to choose. One file opens here; several files become a .zip of JSON files.</div>
+    <input type="file" id="file-in" accept=".csv,.tsv,.txt,.tab,.xlsx,.xlsm,.xls,text/csv,text/tab-separated-values,text/plain,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple hidden>
+    <p class="meta" id="file-note" aria-live="polite"></p>
+    <div class="opts" role="group" aria-label="Options">
+      <label id="sheet-wrap" class="wide" hidden>Sheet <select id="opt-sheet"></select></label>
+      <label>Separator <select id="opt-delim"><option value="auto">auto-detect</option><option value=",">comma</option><option value=";">semicolon</option><option value="tab">tab</option><option value="|">pipe</option></select></label>
+      <label><input type="checkbox" id="opt-header" checked> First row is the header</label>
+      <label>Values <select id="opt-types"><option value="smart">numbers, true/false, null</option><option value="text">everything as text</option></select></label>
+      <label>Empty cells <select id="opt-empty"><option value="string">""</option><option value="null">null</option><option value="omit">leave out</option></select></label>
+      <label>Nested keys <select id="opt-nested"><option value="off">off</option><option value=".">from a.b and a[0]</option><option value="/">from a/b</option></select></label>
+      <label><input type="checkbox" id="opt-decimal"> Decimal comma (1.234,5)</label>
+      <label><input type="checkbox" id="opt-transpose"> Swap rows and columns</label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="json-out">JSON</label></h2><span class="status" id="summary" aria-live="polite"></span></div>
+    <div class="opts" role="group" aria-label="Output">
+      <label>Shape <select id="opt-shape"><option value="array">array of objects</option><option value="jsonl">JSON Lines (one per line)</option><option value="keyed">object keyed by a column</option><option value="arrays">array of arrays</option><option value="columns">one array per column</option></select></label>
+      <label id="key-wrap" hidden>Key <select id="opt-key"></select></label>
+      <label>Indent <select id="opt-indent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">tab</option><option value="0">none (minified)</option></select></label>
+    </div>
+    <textarea id="json-out" spellcheck="false" readonly placeholder="JSON appears here as you type."></textarea>
+    <div class="row"><button type="button" id="btn-copy" disabled>Copy</button><button type="button" class="secondary" id="btn-download" disabled>Download .json</button></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <div id="cols" hidden><p class="meta"><b>Columns and the type found:</b></p><ul class="col-list" id="col-list"></ul></div>
+  </div>
+</div>
+<div class="card" style="margin-top:16px">
+  <div class="pane-head"><h2>Many files at once</h2></div>
+  <p class="meta">Drop two or more files in the box above. Each becomes its own .json file with the options above (all sheets for workbooks), and you get one .zip.</p>
+  <p class="status" id="batch-status" role="status" aria-live="polite"></p>
+  <ul class="files" id="batch-list"></ul>
+</div>
+<script type="text/plain" id="sample-csv">
+order_id,date,customer.name,customer.email,items,total,paid,zip
+00721,2026-03-05,Ann Lee,ann@example.com,2,49.90,true,02134
+00722,2026-03-06,"Chen, Bo",,1,1234.50,false,10001
+00723,2026-03-07,"Zoë ""Z"" Martin",zoe@example.com,3,-7,TRUE,94105
+</script>
+
+<div class="card upsell"><img src="../assets/icons/pdf-to-text-markdown.png" alt="" width="56" height="56"><p>Is your table stuck in a PDF? <b>PDF to Excel, Markdown &amp; Text</b> pulls tables out of PDFs in bulk, scans and borderless bank statements included, and returns each table's header and rows as JSON plus an Excel workbook, through an API. About $3 per 1,000 PDFs.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown">See the PDF tables API</a></div>
+<section class="content">
+<h2>How to use it</h2>
+<ol><li>Paste CSV, or copy cells in Excel or Google Sheets and paste them (they arrive tab-separated, which is detected). You can also drop a .csv, .tsv or .xlsx file; for a workbook, pick one sheet or all sheets.</li><li>Check the options: the separator is found for you, numbers and true/false become real JSON values, and anything with a leading zero or more than 15 digits stays text so zip codes and IDs survive. Turn on <b>Nested keys</b> to make <code>customer.name</code> a nested object.</li><li>Pick the shape: an array of objects (most APIs), JSON Lines (one record per line, for BigQuery, MongoDB or AI fine-tuning files), an object keyed by a column, or arrays. Copy the JSON or download it.</li><li>To convert a folder of files, drop them all at once and download one .zip.</li></ol>
+<h2>Questions</h2>
+<details><summary>Are my files uploaded?</summary><p>No. The CSV and Excel files are read in your browser, so customer lists, exports and reports never leave your computer, and the page works offline once loaded.</p></details><details><summary>Why do my Excel dates come out as dates?</summary><p>Excel stores a date as a day number (46086 is 5 March 2026) and only its cell format says it is a date. This tool reads the cell formats, so dates come out as 2026-03-05, date-times as 2026-03-06T14:30:00 and times as 09:15:00. Numbers come out as Excel shows them, so 0.1+0.2 is 0.3, not 0.30000000000000004.</p></details><details><summary>Which values become numbers?</summary><p>Plain numbers like 42, -3.5 or 1e3. Values with a leading zero (00721), more than 15 digits, a plus sign or spaces stay text, because turning them into numbers would change them. Choose &quot;everything as text&quot; to keep every value as a string.</p></details><details><summary>My CSV shows strange characters like Ã©. What now?</summary><p>Files are read as UTF-8 when they are valid UTF-8, and as Windows-1252 (what older Excel saves) when they are not, so accents like é and ü come out right without picking an encoding.</p></details><details><summary>Can it read .xls or .ods files?</summary><p>Not yet. Save old .xls (Excel 97-2003) and .ods files as .xlsx or .csv first. Password-protected workbooks can&#x27;t be read either.</p></details>
+<h2>More free tools</h2>
+<div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56"><div><h3>JSON to Excel</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../html-table-to-excel/"><img src="../assets/icons/tool-html-table-to-excel.png" alt="" width="56" height="56"><div><h3>HTML Table to Excel</h3><p>Copy a table from any web page and get a clean Excel .xlsx or CSV.</p></div></a></div>
+</section>
+</div></main>
+<script src="../assets/site.js"></script>
+<script src="../vendor/fflate.js"></script><script src="convert.js"></script><script src="app.js"></script>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

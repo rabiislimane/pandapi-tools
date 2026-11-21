@@ -1,0 +1,59 @@
+/* Markdown preview and print styles (Pandapi Tools, Markdown to PDF). The preview is shown as white paper, like the PDF. */
+.md-body {
+  color: #1f2328; background: #fff; font: 14.7px/1.55 Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  word-wrap: break-word; overflow-wrap: anywhere;
+}
+.md-body > :first-child { margin-top: 0; }
+.md-body h1, .md-body h2, .md-body h3, .md-body h4, .md-body h5, .md-body h6 { font-weight: 600; line-height: 1.2; margin: 1.3em 0 .5em; break-after: avoid; }
+.md-body h1 { font-size: 2em; padding-bottom: .25em; border-bottom: 1px solid #d1d9e0; }
+.md-body h2 { font-size: 1.55em; padding-bottom: .25em; border-bottom: 1px solid #d1d9e0; }
+.md-body h3 { font-size: 1.27em; }
+.md-body h4 { font-size: 1.09em; }
+.md-body h5 { font-size: 1em; }
+.md-body h6 { font-size: .95em; color: #59636e; }
+.md-body p, .md-body ul, .md-body ol, .md-body blockquote, .md-body pre, .md-body table, .md-body dl { margin: 0 0 .8em; }
+.md-body a { color: #0969da; }
+.md-body ul, .md-body ol { padding-left: 1.8em; }
+.md-body li + li { margin-top: .2em; }
+.md-body li > ul, .md-body li > ol { margin: .2em 0 0; }
+.md-body li:has(> input[type="checkbox"]) { list-style: none; margin-left: -1.4em; }
+.md-body input[type="checkbox"] { margin: 0 .4em 0 0; vertical-align: -1px; }
+.md-body code, .md-body pre { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.md-body code { font-size: .86em; background: #eff1f3; border-radius: 4px; padding: .1em .35em; }
+.md-body pre { background: #f6f8fa; border-radius: 6px; padding: 10px 12px; font-size: .82em; line-height: 1.45; white-space: pre-wrap; word-break: break-all; }
+.md-body pre code { background: none; padding: 0; font-size: 1em; border-radius: 0; }
+.md-body blockquote { margin-left: 0; padding: 0 0 0 1em; color: #59636e; border-left: 3px solid #d1d9e0; }
+.md-body blockquote > :last-child { margin-bottom: 0; }
+.md-body .md-alert { color: #1f2328; }
+.md-body .md-alert-title { font-weight: 600; margin-bottom: .2em; }
+.md-body .md-alert-note { border-color: #0969da; } .md-body .md-alert-note .md-alert-title { color: #0969da; }
+.md-body .md-alert-tip { border-color: #1a7f37; } .md-body .md-alert-tip .md-alert-title { color: #1a7f37; }
+.md-body .md-alert-important { border-color: #8250df; } .md-body .md-alert-important .md-alert-title { color: #8250df; }
+.md-body .md-alert-warning { border-color: #9a6700; } .md-body .md-alert-warning .md-alert-title { color: #9a6700; }
+.md-body .md-alert-caution { border-color: #d1242f; } .md-body .md-alert-caution .md-alert-title { color: #d1242f; }
+.md-body table { border-collapse: collapse; display: block; max-width: 100%; overflow: auto; font-size: .95em; }
+.md-body th, .md-body td { border: 1px solid #d1d9e0; padding: 4px 8px; }
+.md-body th { background: #f6f8fa; font-weight: 600; }
+.md-body tr { break-inside: avoid; }
+.md-body hr { border: 0; border-top: 2px solid #d1d9e0; margin: 1.2em 0; }
+.md-body img { max-width: 100%; height: auto; display: block; margin: .3em auto; }
+.md-body .img-missing { font-style: italic; color: #59636e; }
+.md-body .pdf-page-break { break-after: page; height: 0; border-top: 1px dashed #c0c7cf; margin: 1.2em 0; position: relative; }
+.md-body .pdf-page-break::after { content: "page break"; position: absolute; top: -.7em; left: 50%; transform: translateX(-50%); background: #fff; color: #8c959f; font-size: 11px; padding: 0 6px; }
+.md-body .fm-title { border: 0; margin-bottom: .1em; }
+.md-body .fm-by { color: #59636e; }
+/* highlight.js colors (GitHub light) */
+.md-body .hljs-keyword, .md-body .hljs-operator, .md-body .hljs-doctag { color: #cf222e; }
+.md-body .hljs-title, .md-body .hljs-built_in, .md-body .hljs-selector-class { color: #8250df; }
+.md-body .hljs-title.class_, .md-body .hljs-type, .md-body .hljs-variable, .md-body .hljs-template-variable, .md-body .hljs-bullet { color: #953800; }
+.md-body .hljs-attr, .md-body .hljs-attribute, .md-body .hljs-literal, .md-body .hljs-meta, .md-body .hljs-number, .md-body .hljs-property, .md-body .hljs-selector-id, .md-body .hljs-symbol, .md-body .hljs-section { color: #0550ae; }
+.md-body .hljs-string, .md-body .hljs-regexp { color: #0a3069; }
+.md-body .hljs-comment, .md-body .hljs-quote { color: #6e7781; }
+.md-body .hljs-tag, .md-body .hljs-name, .md-body .hljs-selector-tag, .md-body .hljs-addition { color: #116329; }
+.md-body .hljs-deletion { color: #82071e; }
+@media print {
+  .md-body .pdf-page-break { border: 0; margin: 0; }
+  .md-body .pdf-page-break::after { content: none; }
+  .md-body a { text-decoration: none; }
+  .md-body pre, .md-body blockquote, .md-body img { break-inside: avoid; }
+}

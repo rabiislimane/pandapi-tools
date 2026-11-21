@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markdown to PDF Converter (free, no watermark, private)</title>
+<meta name="description" content="Convert Markdown to a clean PDF in your browser: real selectable text, code colors, tables, images, clickable table of contents and page numbers. Many .md files at once. Free, no watermark, nothing uploaded.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/markdown-to-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Markdown to PDF Converter (free, no watermark, private)">
+<meta property="og:description" content="Convert Markdown to a clean PDF in your browser: real selectable text, code colors, tables, images, clickable table of contents and page numbers. Many .md files at once. Free, no watermark, nothing uploaded.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/tool-markdown-to-pdf.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Markdown to PDF converter", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Convert Markdown to a clean PDF in your browser: real selectable text, code colors, tables, images, clickable table of contents and page numbers. Many .md files at once. Free, no watermark, nothing uploaded.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "url": "https://rabiislimane.github.io/pandapi-tools/markdown-to-pdf/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my Markdown uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The PDF is made in your browser with open-source libraries (marked, highlight.js and pdfmake), so notes, specs and drafts never leave your computer. The page works offline once it has loaded."}}, {"@type": "Question", "name": "Is there a limit or a watermark?", "acceptedAnswer": {"@type": "Answer", "text": "No. Convert as many documents as you like, as often as you like. There is no account, no daily limit and no watermark."}}, {"@type": "Question", "name": "Is the text in the PDF real text?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The PDF has vector text with embedded fonts, not a picture of the page, so it stays sharp when you zoom, the file is small, and you can select, copy and search the text. Links and the table of contents are clickable."}}, {"@type": "Question", "name": "Which Markdown does it support?", "acceptedAnswer": {"@type": "Answer", "text": "GitHub Flavored Markdown: headings, bold, italic, strikethrough, links, lists, task lists, tables with alignment, code blocks with colors for common languages, block quotes, GitHub alerts like [!NOTE], images, horizontal rules and YAML front matter (title, author, date). Math and Mermaid diagrams are shown as their source text."}}, {"@type": "Question", "name": "Why are some characters missing from my PDF?", "acceptedAnswer": {"@type": "Answer", "text": "Download PDF embeds fonts for Latin, Greek and Cyrillic text. For Chinese, Japanese, Korean, Arabic, Hebrew, Indian scripts or emoji, click Print / Save as PDF and choose \"Save as PDF\" as the printer: your browser has fonts for those."}}]}</script>
+<link rel="stylesheet" href="md.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/" aria-current="page">Markdown to PDF</a></nav>
+</div></header>
+<main><div class="wrap">
+<div class="hero"><img src="../assets/icons/tool-markdown-to-pdf.png" alt="" width="64" height="64"><h1>Markdown to PDF converter</h1></div>
+<p class="lede">Paste Markdown (a README, notes, or an answer from ChatGPT or Claude) or drop <code>.md</code> files. You get a PDF with <b>real, searchable text</b>, colored code, tables that repeat their header on each page, your images, and an optional <b>clickable table of contents</b>. No limits and no watermark.</p>
+<ul class="badges"><li>Real text, not a screenshot</li><li>Clickable table of contents</li><li>Code colors and tables</li><li>Many .md files at once</li><li>No watermark, nothing uploaded</li></ul>
+
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="md-in">Markdown</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="md-in" spellcheck="false" placeholder="Paste or type Markdown here. You can paste a screenshot too."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose Markdown files"><strong>Drop .md files</strong> (and their images) or click to choose. One file opens here; several become a .zip of PDFs or one combined PDF.</div>
+    <input type="file" id="file-in" accept=".md,.markdown,.mdown,.mkd,.txt,text/markdown,text/plain,image/*" multiple hidden>
+    <div class="opts" role="group" aria-label="Page options">
+      <label>Page <select id="opt-size"><option value="A4">A4</option><option value="LETTER">US Letter</option><option value="LEGAL">US Legal</option><option value="A5">A5</option></select></label>
+      <label><select id="opt-orient" aria-label="Orientation"><option value="portrait">portrait</option><option value="landscape">landscape</option></select></label>
+      <label>Margins <select id="opt-margins"><option value="narrow">narrow</option><option value="normal" selected>normal</option><option value="wide">wide</option></select></label>
+      <label>Text size <select id="opt-font"><option value="10">10 pt</option><option value="11" selected>11 pt</option><option value="12">12 pt</option></select></label>
+      <label><input type="checkbox" id="opt-toc"> Table of contents</label>
+      <label><input type="checkbox" id="opt-nums" checked> Page numbers</label>
+      <label><input type="checkbox" id="opt-header"> Title at the top of each page</label>
+      <label><input type="checkbox" id="opt-break"> Each # heading on a new page</label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2>Preview</h2></div>
+    <div class="paper md-body" id="preview" aria-live="off"></div>
+    <div class="row"><button type="button" id="btn-pdf" disabled>Download PDF</button><button type="button" class="secondary" id="btn-print" disabled>Print / Save as PDF</button></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <ul class="notes" id="notes" aria-live="polite"></ul>
+  </div>
+</div>
+<div class="tool" style="margin-top:16px">
+  <div class="card">
+    <div class="pane-head"><h2>Images</h2></div>
+    <div class="drop" id="img-drop" tabindex="0" role="button" aria-label="Add images"><strong>Add images</strong> used in your Markdown. They are matched by file name, so <code>![chart](img/chart.png)</code> uses chart.png.</div>
+    <input type="file" id="img-in" accept="image/*" multiple hidden>
+    <p class="meta" id="img-note" aria-live="polite"></p>
+  </div>
+  <div class="card">
+    <div class="pane-head"><h2>Many files at once</h2></div>
+    <p class="meta">Drop two or more .md files in the Markdown box. Each becomes a PDF with the options above, sorted by name.</p>
+    <label class="meta"><input type="checkbox" id="opt-combine"> Combine them into one PDF</label>
+    <p class="status" id="batch-status" role="status" aria-live="polite"></p>
+    <ul class="files" id="batch-list"></ul>
+  </div>
+</div>
+<script type="text/plain" id="sample-md">
+---
+title: Pour-over coffee guide
+author: Pandapi Tools
+---
+# Pour-over coffee guide
+
+Pour-over gives a **clean, bright cup**. This guide takes about *four minutes*. Jump to [the ratios](#ratios) or read the [SCA brewing standards](https://sca.coffee/research/coffee-standards).
+
+## What you need
+
+- [x] A dripper and a paper filter
+- [x] A kettle, ideally gooseneck
+- [ ] Fresh beans, ground medium-fine
+
+## Ratios
+
+| Cups | Coffee | Water | Time |
+|:-----|-------:|------:|:----:|
+| 1 | 20 g | 320 g | 3:00 |
+| 2 | 36 g | 580 g | 3:30 |
+| 4 | 64 g | 1,040 g | 4:15 |
+
+> [!TIP]
+> Rinse the filter with hot water first, so the coffee doesn't taste of paper.
+
+## Steps
+
+1. Heat the water to `94 °C`.
+2. Bloom: pour 50 g and wait 45 seconds.
+3. Pour the rest in slow circles.
+
+```python
+for step, seconds in [("bloom", 45), ("pour", 90), ("drain", 45)]:
+    print(f"{step:>6}: {seconds} s")  # timer script
+```
+
+---
+
+<!-- pagebreak -->
+
+## Notes
+
+Grind just before you brew. A finer grind slows the flow; a coarser one speeds it up.
+</script>
+
+<div class="card upsell"><img src="../assets/icons/html-to-pdf.png" alt="" width="56" height="56"><p>Making PDFs from your app or a workflow? <b>HTML to PDF</b> turns HTML, Markdown-made pages or any URL into PDFs through an API, in bulk, with headers, footers and page sizes, ready for n8n, Make or your own code. Pay per PDF, no monthly plan.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/html-to-pdf">See the HTML to PDF API</a></div>
+<section class="content">
+<h2>How to use it</h2>
+<ol><li>Paste Markdown in the left box, or drop a .md file. The preview shows how it will look. If your Markdown uses images, add the image files in the Images box (or paste a screenshot into the text).</li><li>Pick the page size, margins and text size. Turn on <b>Table of contents</b> for a contents page whose entries link to each heading, and <b>Each # heading on a new page</b> for chapters. Put <code>&lt;!-- pagebreak --&gt;</code> on its own line wherever you want a new page.</li><li>Click <b>Download PDF</b>. The PDF has real text you can select and search, page numbers, working links and a title from your first heading or front matter.</li><li>Writing in Chinese, Japanese, Korean, Arabic, Hebrew or with emoji? Use <b>Print / Save as PDF</b>: it uses your browser's own PDF engine, which has fonts for every language.</li><li>For many files, drop them all at once and get a .zip of PDFs, or tick <b>Combine them into one PDF</b>.</li></ol>
+<h2>Questions</h2>
+<details><summary>Is my Markdown uploaded?</summary><p>No. The PDF is made in your browser with open-source libraries (marked, highlight.js and pdfmake), so notes, specs and drafts never leave your computer. The page works offline once it has loaded.</p></details><details><summary>Is there a limit or a watermark?</summary><p>No. Convert as many documents as you like, as often as you like. There is no account, no daily limit and no watermark.</p></details><details><summary>Is the text in the PDF real text?</summary><p>Yes. The PDF has vector text with embedded fonts, not a picture of the page, so it stays sharp when you zoom, the file is small, and you can select, copy and search the text. Links and the table of contents are clickable.</p></details><details><summary>Which Markdown does it support?</summary><p>GitHub Flavored Markdown: headings, bold, italic, strikethrough, links, lists, task lists, tables with alignment, code blocks with colors for common languages, block quotes, GitHub alerts like [!NOTE], images, horizontal rules and YAML front matter (title, author, date). Math and Mermaid diagrams are shown as their source text.</p></details><details><summary>Why are some characters missing from my PDF?</summary><p>Download PDF embeds fonts for Latin, Greek and Cyrillic text. For Chinese, Japanese, Korean, Arabic, Hebrew, Indian scripts or emoji, click Print / Save as PDF and choose &quot;Save as PDF&quot; as the printer: your browser has fonts for those.</p></details>
+<h2>More free tools</h2>
+<div class="grid"><a class="card tile" href="../html-to-markdown/"><img src="../assets/icons/tool-html-to-markdown.png" alt="" width="56" height="56"><div><h3>HTML to Markdown</h3><p>Convert HTML to clean Markdown in your browser.</p></div></a><a class="card tile" href="../pdf-to-markdown/"><img src="../assets/icons/tool-pdf-to-markdown.png" alt="" width="56" height="56"><div><h3>PDF to Markdown</h3><p>Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed.</p></div></a></div>
+</section>
+</div></main>
+<script src="../assets/site.js"></script>
+<script src="../vendor/marked.js"></script><script src="../vendor/highlight.min.js"></script><script src="../vendor/pdfmake.min.js"></script><script src="../vendor/pdfmake-mono.js"></script><script src="../vendor/pdfmake-fonts.js"></script><script src="../vendor/fflate.js"></script><script src="convert.js"></script><script src="app.js"></script>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

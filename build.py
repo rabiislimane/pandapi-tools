@@ -363,6 +363,200 @@ TOOLS = [
         ],
         "related": ["html-table-to-excel", "html-to-markdown"],
     },
+    {
+        "slug": "csv-to-json",
+        "name": "CSV & Excel to JSON",
+        "title": "CSV to JSON and Excel to JSON Converter (free, private, batch)",
+        "h1": "CSV and Excel to JSON converter",
+        "description": "Convert CSV, TSV or Excel (.xlsx) to JSON in your browser. Real numbers and dates, leading zeros kept, nested JSON, JSON Lines, every sheet at once, many files to a .zip. Free, nothing uploaded.",
+        "lede": "Paste CSV or cells copied from Excel or Google Sheets, or drop <code>.csv</code> and <code>.xlsx</code> files. You get clean JSON with <b>real numbers, true/false and ISO dates</b>, while zip codes and IDs like <code>00721</code> stay text. Drop several files to get a .zip of JSON files.",
+        "badges": ["CSV, TSV and .xlsx", "Dates as 2026-03-05, not 46086", "Nested JSON and JSON Lines", "Many files to .zip", "Nothing uploaded"],
+        "icon": "tool-csv-to-json.png",
+        "scripts": ["../vendor/fflate.js", "convert.js", "app.js"],
+        "upsell_icon": "pdf-to-text-markdown.png",
+        "upsell": "Is your table stuck in a PDF? <b>PDF to Excel, Markdown &amp; Text</b> pulls tables out of PDFs in bulk, scans and borderless bank statements included, and returns each table's header and rows as JSON plus an Excel workbook, through an API. About $3 per 1,000 PDFs.",
+        "upsell_url": APIFY + "pdf-to-text-markdown",
+        "upsell_cta": "See the PDF tables API",
+        "tool": """
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="csv-in">CSV, TSV or Excel cells</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="csv-in" spellcheck="false" placeholder="Paste CSV here, or copy cells in Excel or Google Sheets and paste them."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose CSV or Excel files"><strong>Drop .csv, .tsv or .xlsx files</strong> or click to choose. One file opens here; several files become a .zip of JSON files.</div>
+    <input type="file" id="file-in" accept=".csv,.tsv,.txt,.tab,.xlsx,.xlsm,.xls,text/csv,text/tab-separated-values,text/plain,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple hidden>
+    <p class="meta" id="file-note" aria-live="polite"></p>
+    <div class="opts" role="group" aria-label="Options">
+      <label id="sheet-wrap" class="wide" hidden>Sheet <select id="opt-sheet"></select></label>
+      <label>Separator <select id="opt-delim"><option value="auto">auto-detect</option><option value=",">comma</option><option value=";">semicolon</option><option value="tab">tab</option><option value="|">pipe</option></select></label>
+      <label><input type="checkbox" id="opt-header" checked> First row is the header</label>
+      <label>Values <select id="opt-types"><option value="smart">numbers, true/false, null</option><option value="text">everything as text</option></select></label>
+      <label>Empty cells <select id="opt-empty"><option value="string">""</option><option value="null">null</option><option value="omit">leave out</option></select></label>
+      <label>Nested keys <select id="opt-nested"><option value="off">off</option><option value=".">from a.b and a[0]</option><option value="/">from a/b</option></select></label>
+      <label><input type="checkbox" id="opt-decimal"> Decimal comma (1.234,5)</label>
+      <label><input type="checkbox" id="opt-transpose"> Swap rows and columns</label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="json-out">JSON</label></h2><span class="status" id="summary" aria-live="polite"></span></div>
+    <div class="opts" role="group" aria-label="Output">
+      <label>Shape <select id="opt-shape"><option value="array">array of objects</option><option value="jsonl">JSON Lines (one per line)</option><option value="keyed">object keyed by a column</option><option value="arrays">array of arrays</option><option value="columns">one array per column</option></select></label>
+      <label id="key-wrap" hidden>Key <select id="opt-key"></select></label>
+      <label>Indent <select id="opt-indent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">tab</option><option value="0">none (minified)</option></select></label>
+    </div>
+    <textarea id="json-out" spellcheck="false" readonly placeholder="JSON appears here as you type."></textarea>
+    <div class="row"><button type="button" id="btn-copy" disabled>Copy</button><button type="button" class="secondary" id="btn-download" disabled>Download .json</button></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <div id="cols" hidden><p class="meta"><b>Columns and the type found:</b></p><ul class="col-list" id="col-list"></ul></div>
+  </div>
+</div>
+<div class="card" style="margin-top:16px">
+  <div class="pane-head"><h2>Many files at once</h2></div>
+  <p class="meta">Drop two or more files in the box above. Each becomes its own .json file with the options above (all sheets for workbooks), and you get one .zip.</p>
+  <p class="status" id="batch-status" role="status" aria-live="polite"></p>
+  <ul class="files" id="batch-list"></ul>
+</div>
+<script type="text/plain" id="sample-csv">
+order_id,date,customer.name,customer.email,items,total,paid,zip
+00721,2026-03-05,Ann Lee,ann@example.com,2,49.90,true,02134
+00722,2026-03-06,"Chen, Bo",,1,1234.50,false,10001
+00723,2026-03-07,"Zoë ""Z"" Martin",zoe@example.com,3,-7,TRUE,94105
+</script>
+""",
+        "howto": [
+            "Paste CSV, or copy cells in Excel or Google Sheets and paste them (they arrive tab-separated, which is detected). You can also drop a .csv, .tsv or .xlsx file; for a workbook, pick one sheet or all sheets.",
+            "Check the options: the separator is found for you, numbers and true/false become real JSON values, and anything with a leading zero or more than 15 digits stays text so zip codes and IDs survive. Turn on <b>Nested keys</b> to make <code>customer.name</code> a nested object.",
+            "Pick the shape: an array of objects (most APIs), JSON Lines (one record per line, for BigQuery, MongoDB or AI fine-tuning files), an object keyed by a column, or arrays. Copy the JSON or download it.",
+            "To convert a folder of files, drop them all at once and download one .zip.",
+        ],
+        "faq": [
+            ("Are my files uploaded?", "No. The CSV and Excel files are read in your browser, so customer lists, exports and reports never leave your computer, and the page works offline once loaded."),
+            ("Why do my Excel dates come out as dates?", "Excel stores a date as a day number (46086 is 5 March 2026) and only its cell format says it is a date. This tool reads the cell formats, so dates come out as 2026-03-05, date-times as 2026-03-06T14:30:00 and times as 09:15:00. Numbers come out as Excel shows them, so 0.1+0.2 is 0.3, not 0.30000000000000004."),
+            ("Which values become numbers?", "Plain numbers like 42, -3.5 or 1e3. Values with a leading zero (00721), more than 15 digits, a plus sign or spaces stay text, because turning them into numbers would change them. Choose \"everything as text\" to keep every value as a string."),
+            ("My CSV shows strange characters like Ã©. What now?", "Files are read as UTF-8 when they are valid UTF-8, and as Windows-1252 (what older Excel saves) when they are not, so accents like é and ü come out right without picking an encoding."),
+            ("Can it read .xls or .ods files?", "Not yet. Save old .xls (Excel 97-2003) and .ods files as .xlsx or .csv first. Password-protected workbooks can't be read either."),
+        ],
+        "related": ["json-to-excel", "html-table-to-excel"],
+    },
+    {
+        "slug": "markdown-to-pdf",
+        "name": "Markdown to PDF",
+        "title": "Markdown to PDF Converter (free, no watermark, private)",
+        "h1": "Markdown to PDF converter",
+        "description": "Convert Markdown to a clean PDF in your browser: real selectable text, code colors, tables, images, clickable table of contents and page numbers. Many .md files at once. Free, no watermark, nothing uploaded.",
+        "lede": "Paste Markdown (a README, notes, or an answer from ChatGPT or Claude) or drop <code>.md</code> files. You get a PDF with <b>real, searchable text</b>, colored code, tables that repeat their header on each page, your images, and an optional <b>clickable table of contents</b>. No limits and no watermark.",
+        "badges": ["Real text, not a screenshot", "Clickable table of contents", "Code colors and tables", "Many .md files at once", "No watermark, nothing uploaded"],
+        "icon": "tool-markdown-to-pdf.png",
+        "styles": ["md.css"],
+        "scripts": ["../vendor/marked.js", "../vendor/highlight.min.js", "../vendor/pdfmake.min.js", "../vendor/pdfmake-mono.js", "../vendor/pdfmake-fonts.js", "../vendor/fflate.js", "convert.js", "app.js"],
+        "upsell_icon": "html-to-pdf.png",
+        "upsell": "Making PDFs from your app or a workflow? <b>HTML to PDF</b> turns HTML, Markdown-made pages or any URL into PDFs through an API, in bulk, with headers, footers and page sizes, ready for n8n, Make or your own code. Pay per PDF, no monthly plan.",
+        "upsell_url": APIFY + "html-to-pdf",
+        "upsell_cta": "See the HTML to PDF API",
+        "tool": """
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="md-in">Markdown</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="md-in" spellcheck="false" placeholder="Paste or type Markdown here. You can paste a screenshot too."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose Markdown files"><strong>Drop .md files</strong> (and their images) or click to choose. One file opens here; several become a .zip of PDFs or one combined PDF.</div>
+    <input type="file" id="file-in" accept=".md,.markdown,.mdown,.mkd,.txt,text/markdown,text/plain,image/*" multiple hidden>
+    <div class="opts" role="group" aria-label="Page options">
+      <label>Page <select id="opt-size"><option value="A4">A4</option><option value="LETTER">US Letter</option><option value="LEGAL">US Legal</option><option value="A5">A5</option></select></label>
+      <label><select id="opt-orient" aria-label="Orientation"><option value="portrait">portrait</option><option value="landscape">landscape</option></select></label>
+      <label>Margins <select id="opt-margins"><option value="narrow">narrow</option><option value="normal" selected>normal</option><option value="wide">wide</option></select></label>
+      <label>Text size <select id="opt-font"><option value="10">10 pt</option><option value="11" selected>11 pt</option><option value="12">12 pt</option></select></label>
+      <label><input type="checkbox" id="opt-toc"> Table of contents</label>
+      <label><input type="checkbox" id="opt-nums" checked> Page numbers</label>
+      <label><input type="checkbox" id="opt-header"> Title at the top of each page</label>
+      <label><input type="checkbox" id="opt-break"> Each # heading on a new page</label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2>Preview</h2></div>
+    <div class="paper md-body" id="preview" aria-live="off"></div>
+    <div class="row"><button type="button" id="btn-pdf" disabled>Download PDF</button><button type="button" class="secondary" id="btn-print" disabled>Print / Save as PDF</button></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <ul class="notes" id="notes" aria-live="polite"></ul>
+  </div>
+</div>
+<div class="tool" style="margin-top:16px">
+  <div class="card">
+    <div class="pane-head"><h2>Images</h2></div>
+    <div class="drop" id="img-drop" tabindex="0" role="button" aria-label="Add images"><strong>Add images</strong> used in your Markdown. They are matched by file name, so <code>![chart](img/chart.png)</code> uses chart.png.</div>
+    <input type="file" id="img-in" accept="image/*" multiple hidden>
+    <p class="meta" id="img-note" aria-live="polite"></p>
+  </div>
+  <div class="card">
+    <div class="pane-head"><h2>Many files at once</h2></div>
+    <p class="meta">Drop two or more .md files in the Markdown box. Each becomes a PDF with the options above, sorted by name.</p>
+    <label class="meta"><input type="checkbox" id="opt-combine"> Combine them into one PDF</label>
+    <p class="status" id="batch-status" role="status" aria-live="polite"></p>
+    <ul class="files" id="batch-list"></ul>
+  </div>
+</div>
+<script type="text/plain" id="sample-md">
+---
+title: Pour-over coffee guide
+author: Pandapi Tools
+---
+# Pour-over coffee guide
+
+Pour-over gives a **clean, bright cup**. This guide takes about *four minutes*. Jump to [the ratios](#ratios) or read the [SCA brewing standards](https://sca.coffee/research/coffee-standards).
+
+## What you need
+
+- [x] A dripper and a paper filter
+- [x] A kettle, ideally gooseneck
+- [ ] Fresh beans, ground medium-fine
+
+## Ratios
+
+| Cups | Coffee | Water | Time |
+|:-----|-------:|------:|:----:|
+| 1 | 20 g | 320 g | 3:00 |
+| 2 | 36 g | 580 g | 3:30 |
+| 4 | 64 g | 1,040 g | 4:15 |
+
+> [!TIP]
+> Rinse the filter with hot water first, so the coffee doesn't taste of paper.
+
+## Steps
+
+1. Heat the water to `94 °C`.
+2. Bloom: pour 50 g and wait 45 seconds.
+3. Pour the rest in slow circles.
+
+```python
+for step, seconds in [("bloom", 45), ("pour", 90), ("drain", 45)]:
+    print(f"{step:>6}: {seconds} s")  # timer script
+```
+
+---
+
+<!-- pagebreak -->
+
+## Notes
+
+Grind just before you brew. A finer grind slows the flow; a coarser one speeds it up.
+</script>
+""",
+        "howto": [
+            "Paste Markdown in the left box, or drop a .md file. The preview shows how it will look. If your Markdown uses images, add the image files in the Images box (or paste a screenshot into the text).",
+            "Pick the page size, margins and text size. Turn on <b>Table of contents</b> for a contents page whose entries link to each heading, and <b>Each # heading on a new page</b> for chapters. Put <code>&lt;!-- pagebreak --&gt;</code> on its own line wherever you want a new page.",
+            "Click <b>Download PDF</b>. The PDF has real text you can select and search, page numbers, working links and a title from your first heading or front matter.",
+            "Writing in Chinese, Japanese, Korean, Arabic, Hebrew or with emoji? Use <b>Print / Save as PDF</b>: it uses your browser's own PDF engine, which has fonts for every language.",
+            "For many files, drop them all at once and get a .zip of PDFs, or tick <b>Combine them into one PDF</b>.",
+        ],
+        "faq": [
+            ("Is my Markdown uploaded?", "No. The PDF is made in your browser with open-source libraries (marked, highlight.js and pdfmake), so notes, specs and drafts never leave your computer. The page works offline once it has loaded."),
+            ("Is there a limit or a watermark?", "No. Convert as many documents as you like, as often as you like. There is no account, no daily limit and no watermark."),
+            ("Is the text in the PDF real text?", "Yes. The PDF has vector text with embedded fonts, not a picture of the page, so it stays sharp when you zoom, the file is small, and you can select, copy and search the text. Links and the table of contents are clickable."),
+            ("Which Markdown does it support?", "GitHub Flavored Markdown: headings, bold, italic, strikethrough, links, lists, task lists, tables with alignment, code blocks with colors for common languages, block quotes, GitHub alerts like [!NOTE], images, horizontal rules and YAML front matter (title, author, date). Math and Mermaid diagrams are shown as their source text."),
+            ("Why are some characters missing from my PDF?", "Download PDF embeds fonts for Latin, Greek and Cyrillic text. For Chinese, Japanese, Korean, Arabic, Hebrew, Indian scripts or emoji, click Print / Save as PDF and choose \"Save as PDF\" as the printer: your browser has fonts for those."),
+        ],
+        "related": ["html-to-markdown", "pdf-to-markdown"],
+    },
 ]
 
 BY_SLUG = {t["slug"]: t for t in TOOLS}
@@ -422,6 +616,7 @@ def tool_page(t):
     if SITE_URL:
         ld[0]["url"] = f"{SITE_URL}/{path}"
     extra = "\n".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
+    extra += "".join(f'\n<link rel="stylesheet" href="{c}">' for c in t.get("styles", []))
     out = [head(t["title"], t["description"], path, t["icon"], extra)]
     out.append(f"""<main><div class="wrap">
 <div class="hero"><img src="../assets/icons/{t['icon']}" alt="" width="64" height="64"><h1>{E(t['h1'])}</h1></div>
@@ -451,7 +646,7 @@ def tile(t, depth):
 
 
 def home():
-    desc = "Free, private tools for developers and data people: HTML to Markdown, PDF to Markdown, JSON to Excel, HTML tables to Excel, a link extractor. Everything runs in your browser; nothing is uploaded."
+    desc = "Free, private tools for developers and data people: HTML to Markdown, PDF to Markdown, JSON to Excel, HTML tables to Excel, a link extractor, CSV and Excel to JSON, Markdown to PDF. Everything runs in your browser; nothing is uploaded."
     return (head("Pandapi Tools: free converters that run in your browser", desc, "", "tool-html-to-markdown.png")
             + f"""<main><div class="wrap">
 <h1>Free tools that run in your browser</h1>
