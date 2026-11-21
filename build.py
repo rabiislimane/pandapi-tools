@@ -8,7 +8,7 @@ import json
 import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-SITE_URL = os.environ.get("SITE_URL", "").rstrip("/")  # e.g. https://riaa3102.github.io/pandapi-tools
+SITE_URL = os.environ.get("SITE_URL", "").rstrip("/")  # e.g. https://rabiislimane.github.io/pandapi-tools
 APIFY = "https://apify.com/blueberry_rainstorm/"
 E = html.escape
 
@@ -196,6 +196,173 @@ TOOLS = [
         ],
         "related": ["html-to-markdown", "pdf-to-markdown"],
     },
+    {
+        "slug": "html-table-to-excel",
+        "name": "HTML Table to Excel",
+        "title": "HTML Table to Excel & CSV Converter (any web page, free, private)",
+        "h1": "HTML table to Excel and CSV converter",
+        "description": "Copy a table from any web page and get a clean Excel .xlsx or CSV. Finds every table, handles merged cells, turns 1,234.5 into real numbers and drops [1] footnotes. Free, nothing uploaded.",
+        "lede": "Select a table on any web page, copy it and paste it here, or paste the page's HTML. You get every table on the page, merged cells filled in, footnote marks like <code>[1]</code> removed and numbers like <code>1,234.5</code> turned into real numbers, as a <b>real .xlsx</b> (one sheet per table) or CSV.",
+        "badges": ["Every table on the page", "Merged cells handled", "Real numbers in Excel", "One sheet per table", "Nothing uploaded"],
+        "icon": "tool-html-table-to-excel.png",
+        "scripts": ["../vendor/fflate.js", "../json-to-excel/convert.js", "convert.js", "app.js"],
+        "upsell_icon": "web-page-to-markdown.png",
+        "upsell": "Need tables from hundreds of pages, or the same page every day? <b>Web Page to Markdown</b> fetches any list of URLs or a whole sitemap, renders JavaScript pages and returns each page with its tables as clean Markdown tables, through an API or on a schedule.",
+        "upsell_url": APIFY + "web-page-to-markdown",
+        "upsell_cta": "See the Web Page to Markdown API",
+        "tool": """
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="html-in">Web page or HTML</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="html-in" spellcheck="false" placeholder="Select a table on a web page, copy it (Ctrl+C) and paste it here. Or paste a page's HTML source (Ctrl+U)."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose an HTML file"><strong>Drop a saved web page (.html)</strong> or click to choose.</div>
+    <input type="file" id="file-in" accept=".html,.htm,.xhtml,.xls,text/html" hidden>
+    <div class="opts" role="group" aria-label="Options">
+      <label><input type="checkbox" id="opt-rich" checked> Paste keeps the table</label>
+      <label><input type="checkbox" id="opt-footnotes" checked> Remove footnote marks like [1]</label>
+      <label><input type="checkbox" id="opt-numbers" checked> 1,234.5 and (12) become numbers</label>
+      <label><input type="checkbox" id="opt-symbols"> Also strip $ € £ and %</label>
+      <label><input type="checkbox" id="opt-links"> Add link columns</label>
+      <label>Header <select id="opt-header"><option value="auto">detect</option><option value="yes">first row</option><option value="no">none</option></select></label>
+      <label>Merged cells <select id="opt-merged"><option value="repeat">repeat the value</option><option value="blank">first cell only</option></select></label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2>Tables</h2></div>
+    <p class="status" id="summary" aria-live="polite"></p>
+    <div id="tables-wrap" hidden>
+      <div class="row"><button type="button" class="secondary" id="btn-all">Select all / none</button></div>
+      <ul class="table-list" id="table-list" aria-label="Tables found; tick the ones to download, click a name to preview"></ul>
+      <p class="meta" id="preview-note"></p>
+      <div class="table-wrap"><table class="preview" id="preview" aria-label="Preview of the chosen table"></table></div>
+    </div>
+    <div class="row"><button type="button" id="btn-xlsx" disabled>Download Excel (.xlsx)</button><button type="button" class="secondary" id="btn-csv" disabled>Download CSV</button><button type="button" class="secondary" id="btn-copy" disabled>Copy for Excel / Sheets</button>
+      <label class="meta">CSV <select id="opt-delim" aria-label="CSV separator"><option value=",">comma</option><option value=";">semicolon</option><option value="tab">tab</option></select></label></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+<script type="text/plain" id="sample-html"><h2>Largest cities</h2>
+<table class="wikitable sortable">
+<caption>Largest metropolitan areas, 2025<sup class="reference"><a href="#cite_note-1">[1]</a></sup></caption>
+<thead>
+<tr><th rowspan="2">Rank</th><th rowspan="2">City</th><th rowspan="2">Country</th><th colspan="2">Population</th></tr>
+<tr><th>Metro</th><th>Change since 2015</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><a href="https://en.wikipedia.org/wiki/Tokyo">Tokyo</a></td><td>Japan</td><td>37,036,200</td><td>(1.2%)</td></tr>
+<tr><td>2</td><td><a href="https://en.wikipedia.org/wiki/Delhi">Delhi</a><sup class="reference"><a href="#cite_note-2">[2]</a></sup></td><td>India</td><td>34,665,600</td><td>31.4%</td></tr>
+<tr><td>3</td><td><a href="https://en.wikipedia.org/wiki/Shanghai">Shanghai</a></td><td rowspan="2">China</td><td>30,482,100</td><td>18.0%</td></tr>
+<tr><td>4</td><td><a href="https://en.wikipedia.org/wiki/Chongqing">Chongqing</a></td><td>17,773,000</td><td>8.9%</td></tr>
+<tr><td>5</td><td><a href="https://en.wikipedia.org/wiki/Dhaka">Dhaka</a></td><td>Bangladesh</td><td>24,652,900</td><td>36.1%</td></tr>
+</tbody>
+</table>
+<h2>Exchange rates</h2>
+<table>
+<tr><th>Currency</th><th>Code</th><th>Per US dollar</th></tr>
+<tr><td>Euro</td><td>EUR</td><td>0.9213</td></tr>
+<tr><td>Japanese yen</td><td>JPY</td><td>1,512.40</td></tr>
+<tr><td>Swiss franc</td><td>CHF</td><td>0.8841</td></tr>
+</table></script>
+""",
+        "howto": [
+            "Select the table on the web page (drag from its first cell to its last), copy it with Ctrl+C and paste it here. To get every table, paste the page source instead (Ctrl+U, then Ctrl+A, Ctrl+C) or drop a saved .html file.",
+            "Pick the tables you want in the list and click a name to preview it. Merged cells, header rows and footnote marks are handled for you.",
+            "Download Excel (one sheet per table), CSV (a .zip when you pick several), or copy the table and paste it straight into Excel or Google Sheets.",
+        ],
+        "faq": [
+            ("Is my data uploaded?", "No. The HTML is read and the Excel file is made in your browser, so tables from intranet pages, admin panels or private reports never leave your computer."),
+            ("Can I paste a URL?", "Not here: a page running in your browser can't fetch other websites. Copy the table from the page, paste the page source, or drop a saved .html file. To pull tables from many URLs automatically, use the Web Page to Markdown API linked on this page."),
+            ("What happens to merged cells?", "A cell that spans several rows or columns is repeated in each of them, so every row is complete for sorting and filtering. Choose “first cell only” to leave the others empty, like the original layout."),
+            ("Why do some numbers stay as text?", "Values like 007 or long ID numbers stay text so Excel doesn't drop the zeros or round them. Numbers with thousands separators (1,234.5), accounting minus signs ((12)) and the − sign become real numbers. Tick “strip $ € £ and %” to turn $12.50 or 45% into numbers too."),
+            ("Does it work with Wikipedia tables?", "Yes. Footnote marks like [1] and hidden sort keys are removed, stacked header rows become names like “Population / Metro”, and each table gets its caption or section heading as its name."),
+        ],
+        "related": ["json-to-excel", "html-to-markdown"],
+    },
+    {
+        "slug": "link-extractor",
+        "name": "Link Extractor",
+        "title": "Link Extractor: Get All Links from a Web Page, Text or Sitemap (free)",
+        "h1": "Link extractor: every link from a page, text or sitemap",
+        "description": "Extract every link from a web page's HTML, part of a page, plain text or a sitemap.xml. Anchor text, internal or external, nofollow, duplicates counted. Export Excel, CSV or a URL list. Free, nothing uploaded.",
+        "lede": "Paste a page's HTML, copy part of a page, paste any text, or drop a <code>sitemap.xml</code> or saved pages. You get <b>every link</b> with its anchor text, internal or external, nofollow and how often it appears, as Excel, CSV or a plain URL list.",
+        "badges": ["HTML, text and sitemaps", "Anchor text and nofollow", "Internal vs external", "Many files at once", "Nothing uploaded"],
+        "icon": "tool-link-extractor.png",
+        "scripts": ["../vendor/fflate.js", "../json-to-excel/convert.js", "../html-table-to-excel/convert.js", "convert.js", "app.js"],
+        "upsell_icon": "broken-link-checker.png",
+        "upsell": "Want to know which of these links are dead? <b>Broken Link Checker</b> crawls your whole site, checks every link and image, and lists each 404, server error and redirect with the page it is on and its anchor text. Run it once or every week.",
+        "upsell_url": APIFY + "broken-link-checker",
+        "upsell_cta": "See the Broken Link Checker",
+        "tool": """
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="links-in">Page, text or sitemap</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="links-in" spellcheck="false" placeholder="Paste a page's HTML source (Ctrl+U), copy part of a web page, paste text with URLs, or paste a sitemap.xml."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose files"><strong>Drop saved pages (.html), a sitemap (.xml) or text files</strong> or click to choose. Several at once is fine.</div>
+    <input type="file" id="file-in" accept=".html,.htm,.xhtml,.xml,.txt,.md,.csv,.json,text/html,text/xml,text/plain" multiple hidden>
+    <p class="meta" id="file-note" aria-live="polite"></p>
+    <div class="opts" role="group" aria-label="Options">
+      <label class="wide">Page URL <input type="url" id="opt-base" placeholder="https://example.com/page" autocomplete="off"></label>
+      <p class="meta" id="base-hint" hidden>Add the page URL to turn relative links like /about into full URLs and sort them into internal and external.</p>
+      <label><input type="checkbox" id="opt-rich" checked> Paste keeps the links</label>
+      <label><input type="checkbox" id="opt-dedupe" checked> Merge duplicates and count them</label>
+      <label><input type="checkbox" id="opt-hash" checked> Ignore #fragments</label>
+      <label><input type="checkbox" id="opt-tracking"> Remove utm_ and other tracking tags</label>
+      <label><input type="checkbox" id="opt-images"> Include images</label>
+      <label><input type="checkbox" id="opt-resources"> Include scripts, styles and iframes</label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2>Links</h2></div>
+    <p class="status" id="summary" aria-live="polite"></p>
+    <div id="results-wrap" hidden>
+      <div class="opts" role="group" aria-label="Filter">
+        <label>Show <select id="f-type"></select></label>
+        <label>Sort <select id="f-sort"><option value="page">page order</option><option value="url">URL</option><option value="domain">domain</option><option value="count">most used</option><option value="lastmod" id="sort-lastmod" hidden>last modified</option></select></label>
+        <label class="wide">Search <input type="search" id="f-q" placeholder="part of a URL or anchor text"></label>
+      </div>
+      <p class="meta" id="preview-note"></p>
+      <div class="table-wrap"><table class="preview" id="preview" aria-label="Links found"></table></div>
+      <p class="meta"><b>Top domains:</b></p>
+      <ul class="domain-list" id="domains"></ul>
+      <p class="meta" id="domains-more"></p>
+    </div>
+    <div class="row"><button type="button" id="btn-xlsx" disabled>Download Excel (.xlsx)</button><button type="button" class="secondary" id="btn-csv" disabled>Download CSV</button><button type="button" class="secondary" id="btn-copy-urls" disabled>Copy URLs</button><button type="button" class="secondary" id="btn-copy" disabled>Copy table</button>
+      <label class="meta">CSV <select id="opt-delim" aria-label="CSV separator"><option value=",">comma</option><option value=";">semicolon</option><option value="tab">tab</option></select></label></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+<script type="text/plain" id="sample-html"><!doctype html>
+<html><head><title>Pour-over coffee guide</title>
+<link rel="canonical" href="https://coffee.example/guides/pour-over">
+<link rel="stylesheet" href="/assets/site.css"></head>
+<body>
+<nav><a href="/">Home</a> <a href="/guides/">Guides</a> <a href="/shop/?utm_source=nav">Shop</a> <a href="#main">Skip to content</a></nav>
+<main id="main"><h1>How to brew pour-over coffee</h1>
+<p>Start with our <a href="/guides/grind#pour-over">grind size guide</a>, then weigh 20 g of coffee. The <a href="https://www.sca.coffee/research/coffee-standards" title="SCA brewing standards">SCA golden ratio</a> is a good start.</p>
+<p>We like the <a href="https://shop.example.org/v60?utm_source=coffee&amp;utm_medium=affiliate" rel="sponsored nofollow" target="_blank">Hario V60</a> and a <a href="https://shop.example.org/kettle" rel="sponsored nofollow">gooseneck kettle</a>.</p>
+<p><a href="/guides/grind">Read the grind guide</a> or watch <a href="https://video.example.com/watch?v=abc123" rel="nofollow ugc">a reader's video</a>.</p>
+<a href="/guides/french-press"><img src="/img/french-press.jpg" alt="French press guide"></a>
+<iframe src="https://video.example.com/embed/abc123" title="Brewing video"></iframe>
+</main>
+<footer><a href="mailto:hello@coffee.example">hello@coffee.example</a> · <a href="tel:+15550100">Call us</a> · <a href="/privacy">Privacy</a> · <a href="/">Home</a></footer>
+</body></html></script>
+""",
+        "howto": [
+            "Paste a page's HTML (open the page, press Ctrl+U, then Ctrl+A and Ctrl+C), or select part of a page and copy it: the links come with it. Plain text with URLs and sitemap.xml files work too, and you can drop several saved pages at once.",
+            "Add the page URL if the page doesn't name itself, so /about becomes a full URL and links are sorted into internal and external. Filter by type, search, or sort by URL, domain or how often a link is used.",
+            "Download Excel (a Links sheet and a Domains sheet), CSV, or copy the URLs one per line. To find which links are broken, run the Broken Link Checker on your site.",
+        ],
+        "faq": [
+            ("Is my data uploaded?", "No. The page is read in your browser, so links from intranet pages, admin panels or pages behind a login never leave your computer."),
+            ("Can I paste a URL?", "Not here: a page running in your browser can't fetch other websites. Open the page, press Ctrl+U to see its source and paste that, or save the page (Ctrl+S) and drop the .html file. The Broken Link Checker linked on this page fetches whole sites for you."),
+            ("What counts as internal?", "A link to the same host as the page, with or without www. The page's own address comes from the Page URL box, or from the page's canonical link or base tag when it has one."),
+            ("What does nofollow mean here?", "The column says yes when the link's rel attribute has nofollow, sponsored or ugc, which tell search engines not to pass ranking credit. The Rel column shows the exact value."),
+            ("Does it read sitemap index files?", "Yes. A sitemap index lists its child sitemaps (Kind: Sitemap) and a normal sitemap lists its pages with last modified date, change frequency, priority and image count. Drop several sitemap files to merge them."),
+        ],
+        "related": ["html-table-to-excel", "html-to-markdown"],
+    },
 ]
 
 BY_SLUG = {t["slug"]: t for t in TOOLS}
@@ -284,7 +451,7 @@ def tile(t, depth):
 
 
 def home():
-    desc = "Free, private tools for developers and data people: HTML to Markdown, PDF to Markdown, JSON to Excel. Everything runs in your browser; nothing is uploaded."
+    desc = "Free, private tools for developers and data people: HTML to Markdown, PDF to Markdown, JSON to Excel, HTML tables to Excel, a link extractor. Everything runs in your browser; nothing is uploaded."
     return (head("Pandapi Tools: free converters that run in your browser", desc, "", "tool-html-to-markdown.png")
             + f"""<main><div class="wrap">
 <h1>Free tools that run in your browser</h1>

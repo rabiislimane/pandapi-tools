@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML Table to Excel &amp; CSV Converter (any web page, free, private)</title>
+<meta name="description" content="Copy a table from any web page and get a clean Excel .xlsx or CSV. Finds every table, handles merged cells, turns 1,234.5 into real numbers and drops [1] footnotes. Free, nothing uploaded.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/html-table-to-excel/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HTML Table to Excel &amp; CSV Converter (any web page, free, private)">
+<meta property="og:description" content="Copy a table from any web page and get a clean Excel .xlsx or CSV. Finds every table, handles merged cells, turns 1,234.5 into real numbers and drops [1] footnotes. Free, nothing uploaded.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/tool-html-table-to-excel.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "HTML table to Excel and CSV converter", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Copy a table from any web page and get a clean Excel .xlsx or CSV. Finds every table, handles merged cells, turns 1,234.5 into real numbers and drops [1] footnotes. Free, nothing uploaded.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "url": "https://rabiislimane.github.io/pandapi-tools/html-table-to-excel/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my data uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The HTML is read and the Excel file is made in your browser, so tables from intranet pages, admin panels or private reports never leave your computer."}}, {"@type": "Question", "name": "Can I paste a URL?", "acceptedAnswer": {"@type": "Answer", "text": "Not here: a page running in your browser can't fetch other websites. Copy the table from the page, paste the page source, or drop a saved .html file. To pull tables from many URLs automatically, use the Web Page to Markdown API linked on this page."}}, {"@type": "Question", "name": "What happens to merged cells?", "acceptedAnswer": {"@type": "Answer", "text": "A cell that spans several rows or columns is repeated in each of them, so every row is complete for sorting and filtering. Choose “first cell only” to leave the others empty, like the original layout."}}, {"@type": "Question", "name": "Why do some numbers stay as text?", "acceptedAnswer": {"@type": "Answer", "text": "Values like 007 or long ID numbers stay text so Excel doesn't drop the zeros or round them. Numbers with thousands separators (1,234.5), accounting minus signs ((12)) and the − sign become real numbers. Tick “strip $ € £ and %” to turn $12.50 or 45% into numbers too."}}, {"@type": "Question", "name": "Does it work with Wikipedia tables?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Footnote marks like [1] and hidden sort keys are removed, stacked header rows become names like “Population / Metro”, and each table gets its caption or section heading as its name."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/" aria-current="page">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a></nav>
+</div></header>
+<main><div class="wrap">
+<div class="hero"><img src="../assets/icons/tool-html-table-to-excel.png" alt="" width="64" height="64"><h1>HTML table to Excel and CSV converter</h1></div>
+<p class="lede">Select a table on any web page, copy it and paste it here, or paste the page's HTML. You get every table on the page, merged cells filled in, footnote marks like <code>[1]</code> removed and numbers like <code>1,234.5</code> turned into real numbers, as a <b>real .xlsx</b> (one sheet per table) or CSV.</p>
+<ul class="badges"><li>Every table on the page</li><li>Merged cells handled</li><li>Real numbers in Excel</li><li>One sheet per table</li><li>Nothing uploaded</li></ul>
+
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="html-in">Web page or HTML</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="html-in" spellcheck="false" placeholder="Select a table on a web page, copy it (Ctrl+C) and paste it here. Or paste a page's HTML source (Ctrl+U)."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose an HTML file"><strong>Drop a saved web page (.html)</strong> or click to choose.</div>
+    <input type="file" id="file-in" accept=".html,.htm,.xhtml,.xls,text/html" hidden>
+    <div class="opts" role="group" aria-label="Options">
+      <label><input type="checkbox" id="opt-rich" checked> Paste keeps the table</label>
+      <label><input type="checkbox" id="opt-footnotes" checked> Remove footnote marks like [1]</label>
+      <label><input type="checkbox" id="opt-numbers" checked> 1,234.5 and (12) become numbers</label>
+      <label><input type="checkbox" id="opt-symbols"> Also strip $ € £ and %</label>
+      <label><input type="checkbox" id="opt-links"> Add link columns</label>
+      <label>Header <select id="opt-header"><option value="auto">detect</option><option value="yes">first row</option><option value="no">none</option></select></label>
+      <label>Merged cells <select id="opt-merged"><option value="repeat">repeat the value</option><option value="blank">first cell only</option></select></label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2>Tables</h2></div>
+    <p class="status" id="summary" aria-live="polite"></p>
+    <div id="tables-wrap" hidden>
+      <div class="row"><button type="button" class="secondary" id="btn-all">Select all / none</button></div>
+      <ul class="table-list" id="table-list" aria-label="Tables found; tick the ones to download, click a name to preview"></ul>
+      <p class="meta" id="preview-note"></p>
+      <div class="table-wrap"><table class="preview" id="preview" aria-label="Preview of the chosen table"></table></div>
+    </div>
+    <div class="row"><button type="button" id="btn-xlsx" disabled>Download Excel (.xlsx)</button><button type="button" class="secondary" id="btn-csv" disabled>Download CSV</button><button type="button" class="secondary" id="btn-copy" disabled>Copy for Excel / Sheets</button>
+      <label class="meta">CSV <select id="opt-delim" aria-label="CSV separator"><option value=",">comma</option><option value=";">semicolon</option><option value="tab">tab</option></select></label></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+<script type="text/plain" id="sample-html"><h2>Largest cities</h2>
+<table class="wikitable sortable">
+<caption>Largest metropolitan areas, 2025<sup class="reference"><a href="#cite_note-1">[1]</a></sup></caption>
+<thead>
+<tr><th rowspan="2">Rank</th><th rowspan="2">City</th><th rowspan="2">Country</th><th colspan="2">Population</th></tr>
+<tr><th>Metro</th><th>Change since 2015</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><a href="https://en.wikipedia.org/wiki/Tokyo">Tokyo</a></td><td>Japan</td><td>37,036,200</td><td>(1.2%)</td></tr>
+<tr><td>2</td><td><a href="https://en.wikipedia.org/wiki/Delhi">Delhi</a><sup class="reference"><a href="#cite_note-2">[2]</a></sup></td><td>India</td><td>34,665,600</td><td>31.4%</td></tr>
+<tr><td>3</td><td><a href="https://en.wikipedia.org/wiki/Shanghai">Shanghai</a></td><td rowspan="2">China</td><td>30,482,100</td><td>18.0%</td></tr>
+<tr><td>4</td><td><a href="https://en.wikipedia.org/wiki/Chongqing">Chongqing</a></td><td>17,773,000</td><td>8.9%</td></tr>
+<tr><td>5</td><td><a href="https://en.wikipedia.org/wiki/Dhaka">Dhaka</a></td><td>Bangladesh</td><td>24,652,900</td><td>36.1%</td></tr>
+</tbody>
+</table>
+<h2>Exchange rates</h2>
+<table>
+<tr><th>Currency</th><th>Code</th><th>Per US dollar</th></tr>
+<tr><td>Euro</td><td>EUR</td><td>0.9213</td></tr>
+<tr><td>Japanese yen</td><td>JPY</td><td>1,512.40</td></tr>
+<tr><td>Swiss franc</td><td>CHF</td><td>0.8841</td></tr>
+</table></script>
+
+<div class="card upsell"><img src="../assets/icons/web-page-to-markdown.png" alt="" width="56" height="56"><p>Need tables from hundreds of pages, or the same page every day? <b>Web Page to Markdown</b> fetches any list of URLs or a whole sitemap, renders JavaScript pages and returns each page with its tables as clean Markdown tables, through an API or on a schedule.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/web-page-to-markdown">See the Web Page to Markdown API</a></div>
+<section class="content">
+<h2>How to use it</h2>
+<ol><li>Select the table on the web page (drag from its first cell to its last), copy it with Ctrl+C and paste it here. To get every table, paste the page source instead (Ctrl+U, then Ctrl+A, Ctrl+C) or drop a saved .html file.</li><li>Pick the tables you want in the list and click a name to preview it. Merged cells, header rows and footnote marks are handled for you.</li><li>Download Excel (one sheet per table), CSV (a .zip when you pick several), or copy the table and paste it straight into Excel or Google Sheets.</li></ol>
+<h2>Questions</h2>
+<details><summary>Is my data uploaded?</summary><p>No. The HTML is read and the Excel file is made in your browser, so tables from intranet pages, admin panels or private reports never leave your computer.</p></details><details><summary>Can I paste a URL?</summary><p>Not here: a page running in your browser can&#x27;t fetch other websites. Copy the table from the page, paste the page source, or drop a saved .html file. To pull tables from many URLs automatically, use the Web Page to Markdown API linked on this page.</p></details><details><summary>What happens to merged cells?</summary><p>A cell that spans several rows or columns is repeated in each of them, so every row is complete for sorting and filtering. Choose “first cell only” to leave the others empty, like the original layout.</p></details><details><summary>Why do some numbers stay as text?</summary><p>Values like 007 or long ID numbers stay text so Excel doesn&#x27;t drop the zeros or round them. Numbers with thousands separators (1,234.5), accounting minus signs ((12)) and the − sign become real numbers. Tick “strip $ € £ and %” to turn $12.50 or 45% into numbers too.</p></details><details><summary>Does it work with Wikipedia tables?</summary><p>Yes. Footnote marks like [1] and hidden sort keys are removed, stacked header rows become names like “Population / Metro”, and each table gets its caption or section heading as its name.</p></details>
+<h2>More free tools</h2>
+<div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56"><div><h3>JSON to Excel</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../html-to-markdown/"><img src="../assets/icons/tool-html-to-markdown.png" alt="" width="56" height="56"><div><h3>HTML to Markdown</h3><p>Convert HTML to clean Markdown in your browser.</p></div></a></div>
+</section>
+</div></main>
+<script src="../assets/site.js"></script>
+<script src="../vendor/fflate.js"></script><script src="../json-to-excel/convert.js"></script><script src="convert.js"></script><script src="app.js"></script>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

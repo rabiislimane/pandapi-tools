@@ -72,7 +72,7 @@ textarea:focus, button:focus-visible, select:focus-visible, input:focus-visible,
 .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .opts { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--muted); }
 .opts label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
-select, input[type="text"], input[type="number"] {
+select, input[type="text"], input[type="number"], input[type="url"], input[type="search"] {
   border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 8px; padding: 6px 8px; font: inherit; font-size: 14px;
 }
 button, .btn {
@@ -115,3 +115,19 @@ details p { margin: 8px 0 0; color: var(--muted); }
 .site-footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; padding: 20px 0 32px; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* HTML table tool: list of tables found */
+.table-list { list-style: none; margin: .5rem 0; padding: 0; display: grid; gap: .25rem; }
+.table-list li { display: flex; align-items: center; gap: .5rem; }
+.table-list input { width: 1.1rem; height: 1.1rem; flex: none; }
+.linklike { background: none; border: 0; padding: .2rem 0; color: inherit; text-align: left; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; font: inherit; }
+.linklike.active { font-weight: 700; text-decoration: none; }
+.preview td.num { text-align: right; font-variant-numeric: tabular-nums; }
+/* Link Extractor */
+.opts .wide { flex: 1 1 100%; }
+.opts .wide input { flex: 1; min-width: 0; }
+.opts p.meta { flex: 1 1 100%; margin: 0; }
+.domain-list { list-style: none; margin: .25rem 0; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
+.domain-list li { font-size: 13px; padding: .15rem .55rem; border-radius: 999px; background: var(--accent-soft); color: var(--text); overflow-wrap: anywhere; }
+.preview td a { overflow-wrap: anywhere; }
+.meta:empty { display: none; }
