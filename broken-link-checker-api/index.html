@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find Broken Links on Your Website (free check + bulk API)</title>
+<meta name="description" content="Find every broken link on a website and the page it&#x27;s on: free methods compared, plus a scheduled cloud checker at $0.80 per 1,000 links.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/broken-link-checker-api/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Find Broken Links on Your Website (free check + bulk API)">
+<meta property="og:description" content="Find every broken link on a website and the page it&#x27;s on: free methods compared, plus a scheduled cloud checker at $0.80 per 1,000 links.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/broken-link-checker.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Find broken links on any website, and the page each one is on", "description": "Crawl a website and check every link for 404s, dead external links, server errors and redirects. See the page each broken link is on and its anchor text. Free ways compared, plus an API at $0.80 per 1,000 links.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/broken-link-checker-api/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/broken-link-checker.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I find broken links on my website for free?", "acceptedAnswer": {"@type": "Answer", "text": "Use Google Search Console's Not found report, Screaming Frog's free version (500 URLs per crawl), or the Broken Link Checker with Apify's free $5 monthly credit, which covers about 6,000 links."}}, {"@type": "Question", "name": "Does it show where the broken link is?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every broken link comes with the page it's on, its anchor text and how many pages link to it."}}, {"@type": "Question", "name": "Does it check external links?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, checkExternalLinks is on by default. Sites that block bots are marked blocked so they don't flood your report."}}, {"@type": "Question", "name": "Can I check images too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, turn on checkImages to test image URLs as well."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Find broken links on any website, and the page each one is on", "item": "https://rabiislimane.github.io/pandapi-tools/broken-link-checker-api/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/broken-link-checker.png" alt="" width="64" height="64"><h1>Find broken links on any website, and the page each one is on</h1></div>
+<p class="lede">Broken links lose visitors and waste crawl budget. The hard part isn't finding a 404, it's knowing which page links to it so you can fix it. Here's how to do it free, and how to run it on a schedule.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/broken-link-checker.png" alt="" width="56" height="56" loading="lazy"><p><b>Broken Link Checker</b>: $0.80 per 1,000 links checked. Apify's free plan gives you $5 of credit every month, which covers about 6,000 links a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/broken-link-checker?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=broken-link-checker&amp;utm_content=broken-link-checker-api">Try Broken Link Checker</a></div>
+<section class="content prose">
+
+<h2>Free ways</h2>
+<ul>
+<li><b>Google Search Console</b> › Pages › Not found (404): shows 404 URLs Google found, with some referring pages. Free and slow to update.</li>
+<li><b>Screaming Frog SEO Spider</b> (desktop): the free version crawls up to 500 URLs per crawl. See <a href="../screaming-frog-alternative/">Screaming Frog alternatives</a> for bigger sites.</li>
+<li><b>Our free <a href="../link-extractor/">link extractor</a></b>: paste a page's HTML or a sitemap to list every link, then spot-check them.</li>
+</ul>
+
+<h2>The API way: crawl, check, report</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/broken-link-checker?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=broken-link-checker&amp;utm_content=broken-link-checker-api">Broken Link Checker on Apify</a>.</li><li>Enter your start URL, how many pages to crawl and whether to check external links and images.</li><li>Turn on <b>onlyBroken</b> to get just the problems.</li><li>Schedule it weekly and send results to Slack or email, so new 404s show up before your visitors find them.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~broken-link-checker/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;startUrls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://example.com/&quot;
+    }
+  ],
+  &quot;maxPagesToCrawl&quot;: 200,
+  &quot;checkExternalLinks&quot;: true,
+  &quot;onlyBroken&quot;: true
+}&#x27;</code></pre>
+<p>Each row: the link, its HTTP status, a category (<code>broken</code>, <code>blocked</code>, <code>error</code>, <code>ok</code>), whether it redirects and where, internal or external, the page it was found on, its anchor text, and how many pages link to it.</p>
+
+<h2>What it costs</h2>
+<p>$0.80 per 1,000 links checked. A site with 3,000 links costs $2.40; Apify's free credit covers about 6,000 links a month. It doesn't use a browser, so it's fast, and it respects robots.txt.</p>
+
+<h2>Limits</h2>
+<ul><li>Some sites (LinkedIn, some shops) block automated checks; those links are reported as <code>blocked</code>, not broken.</li><li>Links added by JavaScript after load are not seen.</li></ul>
+
+<h2>Questions</h2>
+<details><summary>How do I find broken links on my website for free?</summary><p>Use Google Search Console's Not found report, Screaming Frog's free version (500 URLs per crawl), or the Broken Link Checker with Apify's free $5 monthly credit, which covers about 6,000 links.</p></details><details><summary>Does it show where the broken link is?</summary><p>Yes. Every broken link comes with the page it's on, its anchor text and how many pages link to it.</p></details><details><summary>Does it check external links?</summary><p>Yes, checkExternalLinks is on by default. Sites that block bots are marked blocked so they don't flood your report.</p></details><details><summary>Can I check images too?</summary><p>Yes, turn on checkImages to test image URLs as well.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/broken-link-checker.png" alt="" width="56" height="56" loading="lazy"><p><b>Broken Link Checker</b>: $0.80 per 1,000 links checked. Apify's free plan gives you $5 of credit every month, which covers about 6,000 links a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/broken-link-checker?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=broken-link-checker&amp;utm_content=broken-link-checker-api">Try Broken Link Checker</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../screaming-frog-alternative/"><img src="../assets/icons/api/broken-link-checker.png" alt="" width="56" height="56" loading="lazy"><div><h3>A Screaming Frog alternative for finding broken links</h3><p>Screaming Frog&#x27;s free version stops at 500 URLs.</p></div></a><a class="card tile" href="../website-screenshots-in-bulk/"><img src="../assets/icons/api/website-screenshot.png" alt="" width="56" height="56" loading="lazy"><div><h3>Screenshot a list of URLs: full page, desktop and mobile, in one run</h3><p>Screenshot a list of URLs in one run: full page, desktop and mobile, PNG, JPEG or PDF, cookie banners hidden.</p></div></a><a class="card tile" href="../website-to-markdown-api/"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Website to Markdown for RAG and LLMs: crawl, clean, chunk</h3><p>Turn URLs, a sitemap or a whole docs site into clean Markdown for RAG and LLMs, with chunks and token counts.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../link-extractor/"><img src="../assets/icons/tool-link-extractor.png" alt="" width="56" height="56" loading="lazy"><div><h3>Link Extractor (free)</h3><p>Extract every link from a web page&#x27;s HTML, part of a page, plain text or a sitemap.xml.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

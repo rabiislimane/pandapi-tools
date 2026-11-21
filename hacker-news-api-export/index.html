@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export Hacker News Stories and Comments to CSV</title>
+<meta name="description" content="Export Hacker News stories, comments, Show HN and job posts to CSV. The free Algolia API explained, plus a no-code scraper.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/hacker-news-api-export/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Export Hacker News Stories and Comments to CSV">
+<meta property="og:description" content="Export Hacker News stories, comments, Show HN and job posts to CSV. The free Algolia API explained, plus a no-code scraper.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/hacker-news-scraper.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Export Hacker News stories, comments and jobs to CSV", "description": "Search Hacker News stories, comments, Ask HN, Show HN and job posts by keyword, date, points or author, and export them to CSV or JSON. The free Algolia API explained, plus a no-code scraper at $0.20 per 1,000 items.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/hacker-news-api-export/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/hacker-news-scraper.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the Hacker News API free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Both the Algolia search API and the Firebase API are free and need no key. The scraper adds date splitting past the 1,000-result cap, filters and CSV export for $0.20 per 1,000 items."}}, {"@type": "Question", "name": "How do I export Who is Hiring posts?", "acceptedAnswer": {"@type": "Answer", "text": "Set contentType to job for HN job posts, or comment with a query such as \"remote python\" and a date range to search the hiring threads' comments. Export to CSV and filter in Excel."}}, {"@type": "Question", "name": "Can I track mentions of my product?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Schedule a daily run with your product name as the query, sorted by date, and send new rows to Slack or email."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Export Hacker News stories, comments and jobs to CSV", "item": "https://rabiislimane.github.io/pandapi-tools/hacker-news-api-export/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/hacker-news-scraper.png" alt="" width="64" height="64"><h1>Export Hacker News stories, comments and jobs to CSV</h1></div>
+<p class="lede">Founders track mentions of their product, recruiters read Who is Hiring threads and researchers study what developers talk about. Hacker News has two free official APIs. Here's how to use them, and when a hosted scraper saves you time.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/hacker-news-scraper.png" alt="" width="56" height="56" loading="lazy"><p><b>Hacker News Scraper</b>: $0.20 per 1,000 items. Apify's free plan gives you $5 of credit every month, which covers about 25,000 items a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/hacker-news-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=hacker-news-scraper&amp;utm_content=hacker-news-api-export">Try Hacker News Scraper</a></div>
+<section class="content prose">
+
+<h2>The free way: HN's official APIs</h2>
+<ul>
+<li><b>Algolia HN Search API</b> (<code>hn.algolia.com/api/v1/search</code>): full-text search with filters on tags, points and dates. Free, no key.</li>
+<li><b>Firebase API</b> (<code>hacker-news.firebaseio.com/v0</code>): one item at a time by ID, plus top, new, best, ask, show and job lists.</li>
+</ul>
+<pre><code class="language-bash">curl &quot;https://hn.algolia.com/api/v1/search_by_date?query=postgres&amp;tags=story&amp;numericFilters=points&gt;50&quot;</code></pre>
+<p>The catch: a search returns at most 1,000 hits (50 pages), so big exports have to be split by date range, and you write the pagination and CSV code yourself. More in <a href="../hacker-news-api-vs-scraper/">HN API vs a scraper</a>.</p>
+
+<h2>The no-code way</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/hacker-news-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=hacker-news-scraper&amp;utm_content=hacker-news-api-export">Hacker News Scraper on Apify</a>.</li><li>Enter a query, content type (story, comment, Ask HN, Show HN, job, poll or front page), a date range, an author, and minimum points or comments.</li><li>Run and download CSV, Excel or JSON. Paging past the API's 1,000-result cap is handled for you.</li><li>Schedule it daily to watch new mentions of your product or competitors.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~hacker-news-scraper/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;searchQuery&quot;: &quot;AI agents&quot;,
+  &quot;contentType&quot;: &quot;story&quot;,
+  &quot;sortBy&quot;: &quot;date&quot;,
+  &quot;minPoints&quot;: 20,
+  &quot;maxItems&quot;: 500
+}&#x27;</code></pre>
+
+<h2>What it costs</h2>
+<p>$0.20 per 1,000 items. 5,000 stories and comments cost $1, and Apify's free credit covers about 25,000 items a month.</p>
+
+<h2>Questions</h2>
+<details><summary>Is the Hacker News API free?</summary><p>Yes. Both the Algolia search API and the Firebase API are free and need no key. The scraper adds date splitting past the 1,000-result cap, filters and CSV export for $0.20 per 1,000 items.</p></details><details><summary>How do I export Who is Hiring posts?</summary><p>Set contentType to job for HN job posts, or comment with a query such as "remote python" and a date range to search the hiring threads' comments. Export to CSV and filter in Excel.</p></details><details><summary>Can I track mentions of my product?</summary><p>Yes. Schedule a daily run with your product name as the query, sorted by date, and send new rows to Slack or email.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/hacker-news-scraper.png" alt="" width="56" height="56" loading="lazy"><p><b>Hacker News Scraper</b>: $0.20 per 1,000 items. Apify's free plan gives you $5 of credit every month, which covers about 25,000 items a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/hacker-news-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=hacker-news-scraper&amp;utm_content=hacker-news-api-export">Try Hacker News Scraper</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../hacker-news-api-vs-scraper/"><img src="../assets/icons/api/hacker-news-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>Hacker News Firebase API vs Algolia search vs a scraper</h3><p>Hacker News Firebase API vs Algolia search vs a scraper: what each does, the 1,000-result cap, and when no-code is easier.</p></div></a><a class="card tile" href="../company-jobs-api/"><img src="../assets/icons/api/company-jobs-tracker.png" alt="" width="56" height="56" loading="lazy"><div><h3>Get every open job from the companies you name (Greenhouse, Lever, Ashby and 8 more)</h3><p>Every open job at the companies you name, live from Greenhouse, Lever, Ashby and 8 more ATS.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../link-extractor/"><img src="../assets/icons/tool-link-extractor.png" alt="" width="56" height="56" loading="lazy"><div><h3>Link Extractor (free)</h3><p>Extract every link from a web page&#x27;s HTML, part of a page, plain text or a sitemap.xml.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

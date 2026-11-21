@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find Contact Emails from a List of Websites (CRM-ready)</title>
+<meta name="description" content="Paste company websites, get one CRM-ready row each: business emails, phones, socials and address. $5 per 1,000 sites with contacts.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/find-emails-from-websites/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Find Contact Emails from a List of Websites (CRM-ready)">
+<meta property="og:description" content="Paste company websites, get one CRM-ready row each: business emails, phones, socials and address. $5 per 1,000 sites with contacts.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/website-contact-finder.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Find business emails, phones and socials from a list of websites", "description": "Paste company websites and get one CRM-ready row per site: business emails, phone numbers, LinkedIn, Facebook, Instagram, X and address. Contact pages read first. $5 per 1,000 sites with contacts; sites with nothing found are free.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/find-emails-from-websites/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/website-contact-finder.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I find the email address of a website?", "acceptedAnswer": {"@type": "Answer", "text": "Check the footer, Contact, About and Imprint pages. To do it for many sites, the Website Contact Finder reads those pages for you and returns one row per site."}}, {"@type": "Question", "name": "Do I pay for sites with no email?", "acceptedAnswer": {"@type": "Answer", "text": "No. You pay $5 per 1,000 websites where contacts were found; sites with nothing found or that block the crawler are free."}}, {"@type": "Question", "name": "Does it find personal emails?", "acceptedAnswer": {"@type": "Answer", "text": "By default it returns role and business addresses (info@, sales@, support@) published on the site. It doesn't guess or pattern-match personal addresses."}}, {"@type": "Question", "name": "Can I export to my CRM?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Download CSV or Excel, or send rows to HubSpot, Pipedrive or Google Sheets with Apify, Make or n8n integrations."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Find business emails, phones and socials from a list of websites", "item": "https://rabiislimane.github.io/pandapi-tools/find-emails-from-websites/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/website-contact-finder.png" alt="" width="64" height="64"><h1>Find business emails, phones and socials from a list of websites</h1></div>
+<p class="lede">You have a list of company websites and need their public contact details in your CRM. Checking each Contact page by hand takes about two minutes a site. Here's the free way for a few, and how to do 1,000 in one run.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/website-contact-finder.png" alt="" width="56" height="56" loading="lazy"><p><b>Website Contact Finder</b>: $5 per 1,000 websites with contacts (no contacts = free). Apify's free plan gives you $5 of credit every month, which covers about 1,000 websites a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/website-contact-finder?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=website-contact-finder&amp;utm_content=find-emails-from-websites">Try Website Contact Finder</a></div>
+<section class="content prose">
+
+<h2>The free way</h2>
+<p>Open the site, look at the footer, the Contact and About pages, and copy the email and phone. Browser extensions that pull emails from the open page help a little. Our free <a href="../link-extractor/">link extractor</a> lists every <code>mailto:</code> and <code>tel:</code> link on a page you paste, which is quick for a handful of sites.</p>
+
+<h2>The API way: one row per website</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/website-contact-finder?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=website-contact-finder&amp;utm_content=find-emails-from-websites">Website Contact Finder on Apify</a>.</li><li>Paste your list of websites (or upload a CSV in the console).</li><li>Keep <b>genericEmailsOnly</b> on to return role addresses like info@ and sales@ rather than people's personal addresses.</li><li>Run it and export to CSV, Excel, Google Sheets, HubSpot (via Make or n8n) or JSON.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~website-contact-finder/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;startUrls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://apify.com&quot;
+    },
+    {
+      &quot;url&quot;: &quot;https://crawlee.dev&quot;
+    }
+  ],
+  &quot;maxPagesPerSite&quot;: 8,
+  &quot;genericEmailsOnly&quot;: true
+}&#x27;</code></pre>
+<p>The crawler reads the home page first, then the pages most likely to hold contacts (contact, about, imprint, team, support), up to <b>maxPagesPerSite</b>. You get one row per site: emails, phones, LinkedIn, Facebook, Instagram, X, YouTube, TikTok and the postal address when the site shows it, with the page each item came from.</p>
+
+<h2>What it costs</h2>
+<p>$5 per 1,000 websites where contacts were found. Sites with nothing found, or that block the crawler, are free. A list of 400 sites where 300 have contacts costs $1.50.</p>
+
+<h2>Use it responsibly</h2>
+<ul>
+<li>It reads only public pages and respects robots.txt by default.</li>
+<li>It's built for enriching companies you already work with or research, not for bulk cold email. Follow anti-spam and data protection law (GDPR, CAN-SPAM, CASL) where you use the data.</li>
+<li>It doesn't guess or verify personal addresses; for that kind of tool see <a href="../hunter-io-alternative/">Hunter.io alternatives</a>.</li>
+</ul>
+
+<h2>Questions</h2>
+<details><summary>How do I find the email address of a website?</summary><p>Check the footer, Contact, About and Imprint pages. To do it for many sites, the Website Contact Finder reads those pages for you and returns one row per site.</p></details><details><summary>Do I pay for sites with no email?</summary><p>No. You pay $5 per 1,000 websites where contacts were found; sites with nothing found or that block the crawler are free.</p></details><details><summary>Does it find personal emails?</summary><p>By default it returns role and business addresses (info@, sales@, support@) published on the site. It doesn't guess or pattern-match personal addresses.</p></details><details><summary>Can I export to my CRM?</summary><p>Yes. Download CSV or Excel, or send rows to HubSpot, Pipedrive or Google Sheets with Apify, Make or n8n integrations.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/website-contact-finder.png" alt="" width="56" height="56" loading="lazy"><p><b>Website Contact Finder</b>: $5 per 1,000 websites with contacts (no contacts = free). Apify's free plan gives you $5 of credit every month, which covers about 1,000 websites a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/website-contact-finder?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=website-contact-finder&amp;utm_content=find-emails-from-websites">Try Website Contact Finder</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../hunter-io-alternative/"><img src="../assets/icons/api/website-contact-finder.png" alt="" width="56" height="56" loading="lazy"><div><h3>Hunter.io alternatives for finding company contact details</h3><p>Need company contacts, not verified personal emails? A pay-per-site alternative to Hunter.io for info@, phones and socials, compared.</p></div></a><a class="card tile" href="../website-screenshots-in-bulk/"><img src="../assets/icons/api/website-screenshot.png" alt="" width="56" height="56" loading="lazy"><div><h3>Screenshot a list of URLs: full page, desktop and mobile, in one run</h3><p>Screenshot a list of URLs in one run: full page, desktop and mobile, PNG, JPEG or PDF, cookie banners hidden.</p></div></a><a class="card tile" href="../company-jobs-api/"><img src="../assets/icons/api/company-jobs-tracker.png" alt="" width="56" height="56" loading="lazy"><div><h3>Get every open job from the companies you name (Greenhouse, Lever, Ashby and 8 more)</h3><p>Every open job at the companies you name, live from Greenhouse, Lever, Ashby and 8 more ATS.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../link-extractor/"><img src="../assets/icons/tool-link-extractor.png" alt="" width="56" height="56" loading="lazy"><div><h3>Link Extractor (free)</h3><p>Extract every link from a web page&#x27;s HTML, part of a page, plain text or a sitemap.xml.</p></div></a><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

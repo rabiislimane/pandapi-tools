@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screenshot Multiple URLs at Once: Full Page, Desktop + Mobile</title>
+<meta name="description" content="Screenshot a list of URLs in one run: full page, desktop and mobile, PNG, JPEG or PDF, cookie banners hidden. $4 per 1,000, failures free.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/website-screenshots-in-bulk/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Screenshot Multiple URLs at Once: Full Page, Desktop + Mobile">
+<meta property="og:description" content="Screenshot a list of URLs in one run: full page, desktop and mobile, PNG, JPEG or PDF, cookie banners hidden. $4 per 1,000, failures free.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/website-screenshot.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Screenshot a list of URLs: full page, desktop and mobile, in one run", "description": "Take full-page screenshots of many websites at once, desktop and mobile in one run, as PNG, JPEG or PDF. Cookie banners hidden, pages left to settle. $4 per 1,000 screenshots, failed ones free.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/website-screenshots-in-bulk/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/website-screenshot.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I screenshot multiple URLs at once?", "acceptedAnswer": {"@type": "Answer", "text": "Paste the list into the Website Screenshot API, pick devices and format, and run it. You get one image link per URL and device."}}, {"@type": "Question", "name": "Can it take full-page screenshots?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, fullPage is on by default, with lazy images loaded and cookie banners hidden."}}, {"@type": "Question", "name": "Can I get a PDF instead of an image?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, set format to pdf. For proper printable documents with page sizes and headers, use the HTML to PDF API."}}, {"@type": "Question", "name": "Do failed screenshots cost money?", "acceptedAnswer": {"@type": "Answer", "text": "No. You pay only for screenshots that succeed."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Screenshot a list of URLs: full page, desktop and mobile, in one run", "item": "https://rabiislimane.github.io/pandapi-tools/website-screenshots-in-bulk/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/website-screenshot.png" alt="" width="64" height="64"><h1>Screenshot a list of URLs: full page, desktop and mobile, in one run</h1></div>
+<p class="lede">For one page, your browser can take a full-page screenshot. For 200 client sites, a landing-page audit or weekly visual records, you want a list in and a folder of images out.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/website-screenshot.png" alt="" width="56" height="56" loading="lazy"><p><b>Website Screenshot API</b>: $4 per 1,000 screenshots. Apify's free plan gives you $5 of credit every month, which covers about 1,250 screenshots a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/website-screenshot?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=website-screenshot&amp;utm_content=website-screenshots-in-bulk">Try Website Screenshot API</a></div>
+<section class="content prose">
+
+<h2>The free way: one page</h2>
+<p>In Chrome, open DevTools (F12), press Ctrl+Shift+P (Cmd+Shift+P on Mac), type <b>screenshot</b> and choose <b>Capture full size screenshot</b>. Firefox has <b>Take Screenshot › Save full page</b> in the right-click menu. For mobile, switch DevTools to device mode first. Great for one page, slow for fifty.</p>
+<p>With code, Playwright does it in a few lines (<code>page.screenshot(full_page=True)</code>), and you handle the browser, cookie pop-ups, lazy images and failures yourself.</p>
+
+<h2>The API way: a list in, images out</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/website-screenshot?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=website-screenshot&amp;utm_content=website-screenshots-in-bulk">Website Screenshot API on Apify</a>.</li><li>Paste your URLs. Choose devices (desktop, mobile, tablet), full page or viewport, and PNG, JPEG or PDF.</li><li>Leave <b>hideCookieBanners</b> on. Add a delay or a selector to wait for if a page animates in.</li><li>Run it. Each row has a <code>screenshotUrl</code> link that opens the image, plus the page title and HTTP status.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~website-screenshot/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;urls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://apify.com&quot;
+    },
+    {
+      &quot;url&quot;: &quot;https://en.wikipedia.org/wiki/Web_scraping&quot;
+    }
+  ],
+  &quot;devices&quot;: [
+    &quot;desktop&quot;,
+    &quot;mobile&quot;
+  ],
+  &quot;fullPage&quot;: true,
+  &quot;format&quot;: &quot;png&quot;
+}&#x27;</code></pre>
+<pre><code class="language-python"># pip install apify-client
+from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;blueberry_rainstorm/website-screenshot&quot;).call(run_input={
+    &quot;urls&quot;: [
+        {
+            &quot;url&quot;: &quot;https://example.com&quot;
+        }
+    ],
+    &quot;devices&quot;: [
+        &quot;desktop&quot;
+    ],
+    &quot;format&quot;: &quot;jpeg&quot;
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item[&quot;url&quot;], item[&quot;status&quot;], item.get(&quot;screenshotUrl&quot;))</code></pre>
+
+<h2>What it costs</h2>
+<p>$4 per 1,000 screenshots; failed pages are free and pages that answer 4xx/5xx are reported as failures, not charged. 250 sites on desktop and mobile (500 shots) cost $2. Apify's free credit covers about 1,250 shots a month. Comparing with subscription screenshot APIs? See <a href="../screenshotone-alternative/">ScreenshotOne alternatives</a>.</p>
+
+<h2>Limits</h2>
+<ul><li>No logins: pages behind a sign-in come out as the sign-in page.</li><li>Very long pages are cut at <code>maxHeightPx</code> (15,000 px by default) to keep images usable.</li></ul>
+
+<h2>Questions</h2>
+<details><summary>How do I screenshot multiple URLs at once?</summary><p>Paste the list into the Website Screenshot API, pick devices and format, and run it. You get one image link per URL and device.</p></details><details><summary>Can it take full-page screenshots?</summary><p>Yes, fullPage is on by default, with lazy images loaded and cookie banners hidden.</p></details><details><summary>Can I get a PDF instead of an image?</summary><p>Yes, set format to pdf. For proper printable documents with page sizes and headers, use the HTML to PDF API.</p></details><details><summary>Do failed screenshots cost money?</summary><p>No. You pay only for screenshots that succeed.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/website-screenshot.png" alt="" width="56" height="56" loading="lazy"><p><b>Website Screenshot API</b>: $4 per 1,000 screenshots. Apify's free plan gives you $5 of credit every month, which covers about 1,250 screenshots a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/website-screenshot?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=website-screenshot&amp;utm_content=website-screenshots-in-bulk">Try Website Screenshot API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../screenshotone-alternative/"><img src="../assets/icons/api/website-screenshot.png" alt="" width="56" height="56" loading="lazy"><div><h3>ScreenshotOne alternatives for bulk website screenshots</h3><p>ScreenshotOne vs Apify Screenshot URL vs Pandapi: free tiers, price per 1,000 shots, mobile, cookie banners, real-time vs batch.</p></div></a><a class="card tile" href="../html-to-pdf-api/"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="56" height="56" loading="lazy"><div><h3>HTML to PDF API: web pages, HTML and invoice templates in bulk</h3><p>Turn URLs, HTML or a template plus JSON rows into PDFs: invoices, certificates, reports.</p></div></a><a class="card tile" href="../broken-link-checker-api/"><img src="../assets/icons/api/broken-link-checker.png" alt="" width="56" height="56" loading="lazy"><div><h3>Find broken links on any website, and the page each one is on</h3><p>Find every broken link on a website and the page it&#x27;s on: free methods compared, plus a scheduled cloud checker at $0.80 per 1,000 links.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../markdown-to-pdf/"><img src="../assets/icons/tool-markdown-to-pdf.png" alt="" width="56" height="56" loading="lazy"><div><h3>Markdown to PDF (free)</h3><p>Convert Markdown to a clean PDF in your browser: real selectable text, code colors, tables, images, clickable table of contents and page numbers.</p></div></a><a class="card tile" href="../link-extractor/"><img src="../assets/icons/tool-link-extractor.png" alt="" width="56" height="56" loading="lazy"><div><h3>Link Extractor (free)</h3><p>Extract every link from a web page&#x27;s HTML, part of a page, plain text or a sitemap.xml.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

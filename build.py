@@ -561,6 +561,15 @@ Grind just before you brew. A finer grind slows the flow; a coarser one speeds i
 
 BY_SLUG = {t["slug"]: t for t in TOOLS}
 
+# SEO guide pages (see SEO-PAGES.md): one folder per page at the site root.
+import seo_pages  # noqa: E402
+from seo_content_tools import PAGES as _API_PAGES  # noqa: E402
+from seo_content_compare import PAGES as _COMPARE_PAGES  # noqa: E402
+SEO_PAGES = _API_PAGES + _COMPARE_PAGES
+HOME_GUIDES = ["export-app-store-reviews", "extract-tables-from-pdf-to-excel", "website-to-markdown-api", "government-tenders-api", "firecrawl-alternative", "tableconvert-alternative"]
+assert len({p["slug"] for p in SEO_PAGES}) == len(SEO_PAGES), "duplicate SEO page slug"
+assert not {p["slug"] for p in SEO_PAGES} & set(BY_SLUG), "SEO page slug clashes with a tool"
+
 
 def head(title, description, path, icon, extra=""):
     canon = f'<link rel="canonical" href="{SITE_URL}/{path}">' if SITE_URL else ""
@@ -589,7 +598,7 @@ def head(title, description, path, icon, extra=""):
 <body>
 <header class="site-header"><div class="wrap">
   <a class="brand" href="{depth or './'}"><img src="{depth}assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
-  <nav class="site-nav" aria-label="Tools">{''.join(f'<a href="{depth}{t["slug"]}/"{" aria-current=\"page\"" if path == t["slug"] + "/" else ""}>{E(t["name"])}</a>' for t in TOOLS)}</nav>
+  <nav class="site-nav" aria-label="Tools">{''.join(f'<a href="{depth}{t["slug"]}/"{" aria-current=\"page\"" if path == t["slug"] + "/" else ""}>{E(t["name"])}</a>' for t in TOOLS)}<a href="{depth}guides/"{' aria-current="page"' if path == "guides/" else ""}>API guides</a></nav>
 </div></header>
 """
 
@@ -597,7 +606,7 @@ def head(title, description, path, icon, extra=""):
 def foot(depth):
     return f"""<footer class="site-footer"><div class="wrap">
   <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
-  <span><a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="{depth}privacy.html">Privacy</a></span>
+  <span><a href="{depth}guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="{depth}privacy.html">Privacy</a></span>
 </div></footer>
 </body>
 </html>
@@ -652,6 +661,9 @@ def home():
 <h1>Free tools that run in your browser</h1>
 <p class="lede">Small, careful converters for everyday data jobs. No sign-up, no limits, no upload: your files never leave your computer. When you need the same job done in bulk or through an API, each tool links to the matching Pandapi API.</p>
 <div class="grid">{''.join(tile(t, '') for t in TOOLS)}</div>
+<h2 style="margin-top:32px">Guides: do the same job in bulk</h2>
+<p class="lede">How to export app reviews, pull tables out of hundreds of PDFs, turn a docs site into Markdown for RAG, track government tenders and more, plus honest comparisons with Firecrawl, Hunter, ScreenshotOne and others. <a href="guides/">All guides</a>.</p>
+<div class="grid">{''.join(seo_pages.guide_tile(p, '') for p in SEO_PAGES if p['slug'] in HOME_GUIDES)}</div>
 </div></main>
 """ + foot(""))
 
@@ -677,12 +689,17 @@ def write(rel, text):
 if __name__ == "__main__":
     for t in TOOLS:
         write(f"{t['slug']}/index.html", tool_page(t))
+    for p in SEO_PAGES:
+        write(f"{p['slug']}/index.html", seo_pages.page_html(p, head, foot, BY_SLUG, SEO_PAGES, SITE_URL))
+    write("guides/index.html", seo_pages.hub_html(head, foot, SEO_PAGES, SITE_URL))
     write("index.html", home())
     write("privacy.html", privacy())
     write(".nojekyll", "")
     if SITE_URL:
-        urls = [""] + [t["slug"] + "/" for t in TOOLS]
+        urls = [""] + [t["slug"] + "/" for t in TOOLS] + ["guides/"]
+        lastmod = {p["slug"] + "/": seo_pages.UPDATED for p in SEO_PAGES}
+        urls += list(lastmod)
         write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-              + "".join(f"<url><loc>{SITE_URL}/{u}</loc></url>" for u in urls) + "</urlset>\n")
+              + "".join(f"<url><loc>{SITE_URL}/{u}</loc>" + (f"<lastmod>{lastmod[u]}</lastmod>" if u in lastmod else "") + "</url>" for u in urls) + "</urlset>\n")
         write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
-    print("built", len(TOOLS), "tools")
+    print("built", len(TOOLS), "tools and", len(SEO_PAGES), "guide pages")

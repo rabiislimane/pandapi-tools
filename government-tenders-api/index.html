@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Government Tenders API: SAM.gov, TED, UK, Canada in One Feed</title>
+<meta name="description" content="Government tenders from SAM.gov, TED, UK, CanadaBuys and the World Bank in one API with one schema. Filters and daily alerts. $2 per 1,000 notices.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/government-tenders-api/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Government Tenders API: SAM.gov, TED, UK, Canada in One Feed">
+<meta property="og:description" content="Government tenders from SAM.gov, TED, UK, CanadaBuys and the World Bank in one API with one schema. Filters and daily alerts. $2 per 1,000 notices.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/public-tenders-feed.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Government tenders API: SAM.gov, TED EU, UK, Canada and the World Bank in one feed", "description": "One API for public tenders and contract awards from SAM.gov, TED (EU), UK Find a Tender and Contracts Finder, CanadaBuys and the World Bank. Keyword, country, CPV and NAICS filters, daily alerts. $2 per 1,000 notices.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/government-tenders-api/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/public-tenders-feed.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there a free government tenders API?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, each portal has one: SAM.gov (with an API key), TED, UK Find a Tender and Contracts Finder, CanadaBuys open data and the World Bank. They use different formats. The Pandapi feed combines them for $2 per 1,000 notices, and Apify's free credit covers about 2,500 notices a month."}}, {"@type": "Question", "name": "How do I get daily tender alerts?", "acceptedAnswer": {"@type": "Answer", "text": "Turn on onlyNew with a stateKey, schedule the run daily on Apify, and add an email, Slack or Google Sheets integration. You only pay for new notices."}}, {"@type": "Question", "name": "Can I filter by CPV or NAICS codes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. CPV prefixes work on TED and UK notices, NAICS and PSC on SAM.gov, UNSPSC and GSIN on CanadaBuys. Sources that can't apply a filter are skipped and the run says why."}}, {"@type": "Question", "name": "Does it include contract awards?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Add award to noticeTypes to get awarded contracts with the winner and value where the portal publishes them."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Government tenders API: SAM.gov, TED EU, UK, Canada and the World Bank in one feed", "item": "https://rabiislimane.github.io/pandapi-tools/government-tenders-api/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="64" height="64"><h1>Government tenders API: SAM.gov, TED EU, UK, Canada and the World Bank in one feed</h1></div>
+<p class="lede">Bidders, BD teams and consultants check five portals every morning, each with its own search, codes and format. This page shows how to read each official source for free, and how to get all of them as one daily feed with one schema.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="56" height="56" loading="lazy"><p><b>Government Tenders API</b>: $2 per 1,000 notices. Apify's free plan gives you $5 of credit every month, which covers about 2,500 notices a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/public-tenders-feed?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=public-tenders-feed&amp;utm_content=government-tenders-api">Try Government Tenders API</a></div>
+<section class="content prose">
+
+<h2>The free way: the official portals and their APIs</h2>
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col">Source</th><th scope="col">Covers</th><th scope="col">Free access</th><th scope="col">Catch</th></tr></thead><tbody><tr><th scope="row">SAM.gov</th><td>US federal opportunities</td><td>Opportunities API with a personal API key</td><td>GSA documents 10 requests a day for a non-federal user with no SAM.gov role</td></tr><tr><th scope="row">TED</th><td>EU/EEA tenders above EU thresholds</td><td>Search API, no key for search</td><td>Its own query syntax and eForms fields</td></tr><tr><th scope="row">UK Find a Tender + Contracts Finder</th><td>UK public sector</td><td>OCDS APIs, no key</td><td>Two services, rate limits, OCDS nesting</td></tr><tr><th scope="row">CanadaBuys</th><td>Canadian federal tenders</td><td>Open data CSV files</td><td>Daily files, not a search API</td></tr><tr><th scope="row">World Bank</th><td>Projects in 100+ countries</td><td>Procurement notices API</td><td>Different fields again</td></tr></tbody></table></div>
+<p>If you watch one country, the official portal and its email alerts are enough. The work starts when you need several countries, the same keywords everywhere, and one spreadsheet.</p>
+
+<h2>The API way: one feed, one schema</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/public-tenders-feed?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=public-tenders-feed&amp;utm_content=government-tenders-api">Government Tenders API on Apify</a>.</li><li>Enter keywords (e.g. <code>software</code>, <code>cybersecurity</code>), countries, and optionally CPV, NAICS or UNSPSC codes, a minimum value and how many days must be left.</li><li>Turn on <b>onlyNew</b> with a <b>stateKey</b> name to get only notices you haven't seen, and schedule the run daily on Apify.</li><li>Send the results to Google Sheets, Slack or email with Apify's integrations, or call it from n8n, Make or code.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~public-tenders-feed/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;keywords&quot;: [
+    &quot;software&quot;,
+    &quot;cloud&quot;,
+    &quot;cybersecurity&quot;
+  ],
+  &quot;countries&quot;: [
+    &quot;US&quot;,
+    &quot;GB&quot;,
+    &quot;DE&quot;,
+    &quot;FR&quot;,
+    &quot;CA&quot;
+  ],
+  &quot;noticeTypes&quot;: [
+    &quot;tender&quot;,
+    &quot;pre-notice&quot;
+  ],
+  &quot;postedWithinDays&quot;: 7,
+  &quot;minDaysLeft&quot;: 10,
+  &quot;minValueUsd&quot;: 50000,
+  &quot;onlyNew&quot;: true,
+  &quot;stateKey&quot;: &quot;it-tenders&quot;
+}&#x27;</code></pre>
+<pre><code class="language-python"># pip install apify-client
+from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;blueberry_rainstorm/public-tenders-feed&quot;).call(run_input={
+    &quot;keywords&quot;: [
+        &quot;translation services&quot;
+    ],
+    &quot;sources&quot;: [
+        &quot;ted&quot;,
+        &quot;uk-fts&quot;,
+        &quot;canadabuys&quot;
+    ],
+    &quot;postedWithinDays&quot;: 3
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item[&quot;source&quot;], item[&quot;title&quot;], item.get(&quot;deadline&quot;), item.get(&quot;valueUsd&quot;))</code></pre>
+
+<h2>What each notice looks like</h2>
+<p>Every source is mapped to the same fields: title, buyer, country, notice type (tender, pre-notice, award), published date, deadline and days left, estimated value in the original currency and in USD/EUR, CPV/NAICS/UNSPSC codes, set-aside (SAM), a description, the link to the official notice, and buyer contacts where the portal publishes them. Expired tenders are hidden by default.</p>
+
+<h2>What it costs</h2>
+<p>$2 per 1,000 notices, no start fee. A daily alert that finds 40 new notices costs $0.08 a day, about $2.40 a month. For comparison, commercial bid databases are sold as subscriptions (GovWin and similar tools are priced per seat per year). Apify's free $5 credit covers about 2,500 notices a month.</p>
+
+<h2>Limits</h2>
+<ul>
+<li>US state and local portals, Australia's AusTender and UNGM are not included yet.</li>
+<li>Tender documents (attachments) are linked, not downloaded.</li>
+<li>Smaller EU tenders below the EU thresholds only appear if the country also publishes them to TED.</li>
+</ul>
+<p>Only need US data? Read <a href="../sam-gov-api-alternative/">SAM.gov API alternatives</a>.</p>
+
+<h2>Questions</h2>
+<details><summary>Is there a free government tenders API?</summary><p>Yes, each portal has one: SAM.gov (with an API key), TED, UK Find a Tender and Contracts Finder, CanadaBuys open data and the World Bank. They use different formats. The Pandapi feed combines them for $2 per 1,000 notices, and Apify's free credit covers about 2,500 notices a month.</p></details><details><summary>How do I get daily tender alerts?</summary><p>Turn on onlyNew with a stateKey, schedule the run daily on Apify, and add an email, Slack or Google Sheets integration. You only pay for new notices.</p></details><details><summary>Can I filter by CPV or NAICS codes?</summary><p>Yes. CPV prefixes work on TED and UK notices, NAICS and PSC on SAM.gov, UNSPSC and GSIN on CanadaBuys. Sources that can't apply a filter are skipped and the run says why.</p></details><details><summary>Does it include contract awards?</summary><p>Yes. Add award to noticeTypes to get awarded contracts with the winner and value where the portal publishes them.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="56" height="56" loading="lazy"><p><b>Government Tenders API</b>: $2 per 1,000 notices. Apify's free plan gives you $5 of credit every month, which covers about 2,500 notices a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/public-tenders-feed?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=public-tenders-feed&amp;utm_content=government-tenders-api">Try Government Tenders API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../sam-gov-api-alternative/"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="56" height="56" loading="lazy"><div><h3>SAM.gov API alternatives for contract opportunities</h3><p>SAM.gov&#x27;s API allows 10 requests a day without a role.</p></div></a><a class="card tile" href="../company-jobs-api/"><img src="../assets/icons/api/company-jobs-tracker.png" alt="" width="56" height="56" loading="lazy"><div><h3>Get every open job from the companies you name (Greenhouse, Lever, Ashby and 8 more)</h3><p>Every open job at the companies you name, live from Greenhouse, Lever, Ashby and 8 more ATS.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56" loading="lazy"><div><h3>CSV &amp; Excel to JSON (free)</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

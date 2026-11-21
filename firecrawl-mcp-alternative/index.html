@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firecrawl MCP Alternatives: Web, PDF and Data MCP Servers</title>
+<meta name="description" content="MCP servers for web data compared: Firecrawl MCP, Apify, Bright Data and Pandapi. Tools, pricing, context size and fit.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/firecrawl-mcp-alternative/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Firecrawl MCP Alternatives: Web, PDF and Data MCP Servers">
+<meta property="og:description" content="MCP servers for web data compared: Firecrawl MCP, Apify, Bright Data and Pandapi. Tools, pricing, context size and fit.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/pandapi-mcp-server.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Firecrawl MCP alternatives for Claude, Cursor and other agents", "description": "MCP servers for web data compared: Firecrawl MCP, Apify's MCP server, Bright Data MCP and the Pandapi MCP server. Tools, pricing, context size and when each one fits.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/firecrawl-mcp-alternative/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/pandapi-mcp-server.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there a free Firecrawl MCP alternative?", "acceptedAnswer": {"@type": "Answer", "text": "The Pandapi MCP server is free; tool calls are billed per result on your Apify account, and Apify's free plan includes $5 a month."}}, {"@type": "Question", "name": "Which MCP server is best for PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "One with a real PDF tool. Pandapi's pdf_extract returns Markdown, text and tables (Excel), and reads scans with OCR."}}, {"@type": "Question", "name": "Do MCP tools use up my context window?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, every tool definition is sent to the model. Smaller servers leave more room for your task; we measured our tools at about a sixth of the same actors through a generic connection."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Firecrawl MCP alternatives for Claude, Cursor and other agents", "item": "https://rabiislimane.github.io/pandapi-tools/firecrawl-mcp-alternative/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>Comparisons</span></nav>
+<div class="hero"><img src="../assets/icons/api/pandapi-mcp-server.png" alt="" width="64" height="64"><h1>Firecrawl MCP alternatives for Claude, Cursor and other agents</h1></div>
+<p class="lede">An MCP server gives your agent hands. For web work, the choices are a focused scraper (Firecrawl), a huge catalogue (Apify, Bright Data), or a small set of data tools. The trade-off is context size against reach.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team · We make one of the tools compared here, so we list where the others are better too.</p>
+<div class="card cta"><img src="../assets/icons/api/pandapi-mcp-server.png" alt="" width="56" height="56" loading="lazy"><p><b>Pandapi MCP Server</b>: free server; each tool call costs that API's own price. Apify's free plan gives you $5 of credit every month, which covers the same $5 of monthly credit. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pandapi-mcp-server?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pandapi-mcp-server&amp;utm_content=firecrawl-mcp-alternative">Try Pandapi MCP Server</a></div>
+<section class="content prose">
+
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col"></th><th scope="col">Firecrawl MCP</th><th scope="col">Apify MCP server</th><th scope="col">Bright Data MCP</th><th scope="col">Pandapi MCP</th></tr></thead><tbody><tr><th scope="row">Tools</th><td>Scrape, crawl, map, search, extract</td><td>Generic tools plus any Apify actor</td><td>Many (search, scrape, browser)</td><td>14 data tools: web, PDF, screenshots, links, contacts, tenders, reviews, jobs, postal codes, HN, profanity</td></tr><tr><th scope="row">Results</th><td>In the answer</td><td>call-actor, then fetch the dataset</td><td>In the answer</td><td>In the answer (long jobs return a run ID)</td></tr><tr><th scope="row">Pricing</th><td>Firecrawl credits (free 1,000 a month)</td><td>Each actor's price</td><td>Bright Data plans</td><td>Server free; each call at that API's price</td></tr><tr><th scope="row">PDFs and tables</th><td>Via scrape</td><td>Depends on the actor</td><td>Via scrape</td><td>Yes, tables to Excel</td></tr><tr><th scope="row">Spend cap per call</th><td>Not stated</td><td>Not stated</td><td>Not stated</td><td>maxCostUsd, default $1</td></tr></tbody></table></div>
+
+<h2>Pick by job</h2>
+<ul>
+<li>Web research with search: Firecrawl or Bright Data.</li>
+<li>Any of 10,000+ scrapers: Apify's MCP server.</li>
+<li>Read docs and PDFs, check sites, pull reviews, tenders or jobs with small tool definitions and a cost cap: Pandapi.</li>
+</ul>
+<p>Add it in Claude or Cursor with <code>https://mcp.apify.com/?tools=blueberry_rainstorm/pandapi-mcp-server</code>. Details on the <a href="https://apify.com/blueberry_rainstorm/pandapi-mcp-server?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pandapi-mcp-server&amp;utm_content=firecrawl-mcp-alternative">Pandapi MCP Server page</a> and in our <a href="../mcp-server-for-web-and-pdf/">MCP guide</a>.</p>
+<p class="sources">Sources, checked 21 November 2026: <a href="https://www.firecrawl.dev/pricing" rel="nofollow noopener">Firecrawl pricing</a>, <a href="https://mcp.apify.com/" rel="nofollow noopener">Apify MCP</a>. Prices change; check their pages before you buy.</p>
+
+<h2>Questions</h2>
+<details><summary>Is there a free Firecrawl MCP alternative?</summary><p>The Pandapi MCP server is free; tool calls are billed per result on your Apify account, and Apify's free plan includes $5 a month.</p></details><details><summary>Which MCP server is best for PDFs?</summary><p>One with a real PDF tool. Pandapi's pdf_extract returns Markdown, text and tables (Excel), and reads scans with OCR.</p></details><details><summary>Do MCP tools use up my context window?</summary><p>Yes, every tool definition is sent to the model. Smaller servers leave more room for your task; we measured our tools at about a sixth of the same actors through a generic connection.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/pandapi-mcp-server.png" alt="" width="56" height="56" loading="lazy"><p><b>Pandapi MCP Server</b>: free server; each tool call costs that API's own price. Apify's free plan gives you $5 of credit every month, which covers the same $5 of monthly credit. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pandapi-mcp-server?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pandapi-mcp-server&amp;utm_content=firecrawl-mcp-alternative">Try Pandapi MCP Server</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../mcp-server-for-web-and-pdf/"><img src="../assets/icons/api/pandapi-mcp-server.png" alt="" width="56" height="56" loading="lazy"><div><h3>One MCP server for web pages, PDFs, screenshots, reviews and tenders</h3><p>One MCP server for Claude and Cursor with 14 data tools: web pages and PDFs to Markdown, screenshots, reviews, tenders, jobs and more.</p></div></a><a class="card tile" href="../firecrawl-alternative/"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Firecrawl alternatives: free, open-source and pay-per-page options</h3><p>Firecrawl vs Jina Reader, Crawl4AI, Apify and Pandapi: prices, free tiers, crawling and RAG chunks, and when Firecrawl is still the right pick.</p></div></a><a class="card tile" href="../website-to-markdown-api/"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Website to Markdown for RAG and LLMs: crawl, clean, chunk</h3><p>Turn URLs, a sitemap or a whole docs site into clean Markdown for RAG and LLMs, with chunks and token counts.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../html-to-markdown/"><img src="../assets/icons/tool-html-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>HTML to Markdown (free)</h3><p>Convert HTML to clean Markdown in your browser.</p></div></a><a class="card tile" href="../pdf-to-markdown/"><img src="../assets/icons/tool-pdf-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>PDF to Markdown (free)</h3><p>Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greenhouse, Lever &amp; Ashby Jobs API: Track Company Hiring</title>
+<meta name="description" content="Every open job at the companies you name, live from Greenhouse, Lever, Ashby and 8 more ATS. New and closed jobs tracked. $1 per 1,000 jobs.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/company-jobs-api/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Greenhouse, Lever &amp; Ashby Jobs API: Track Company Hiring">
+<meta property="og:description" content="Every open job at the companies you name, live from Greenhouse, Lever, Ashby and 8 more ATS. New and closed jobs tracked. $1 per 1,000 jobs.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/company-jobs-tracker.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Get every open job from the companies you name (Greenhouse, Lever, Ashby and 8 more)", "description": "Pull every open job from named companies straight from their career sites: Greenhouse, Lever, Ashby, SmartRecruiters, Workable and 6 more. Tracks new and closed jobs between runs, salary, remote, plus a free hiring summary. $1 per 1,000 jobs.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/company-jobs-api/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/company-jobs-tracker.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there a free Greenhouse jobs API?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Greenhouse's job board API (boards-api.greenhouse.io) is public and free, as are Lever's and Ashby's. The Jobs Tracker reads 11 such systems and adds change tracking for $1 per 1,000 jobs."}}, {"@type": "Question", "name": "How do I track when a company closes a job?", "acceptedAnswer": {"@type": "Answer", "text": "Turn on trackChanges with a watchlist name. Each run compares with the last one and returns closed jobs with their first-seen date, closed date and days open, free of charge."}}, {"@type": "Question", "name": "Which ATS are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Greenhouse, Lever (US and EU), Ashby, SmartRecruiters, Workable, Recruitee, Personio, BambooHR, Rippling, Teamtailor and Breezy."}}, {"@type": "Question", "name": "Do I need to know the company's ATS?", "acceptedAnswer": {"@type": "Answer", "text": "No. Give a name, website or careers page and the ATS and board name are detected."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Get every open job from the companies you name (Greenhouse, Lever, Ashby and 8 more)", "item": "https://rabiislimane.github.io/pandapi-tools/company-jobs-api/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/company-jobs-tracker.png" alt="" width="64" height="64"><h1>Get every open job from the companies you name (Greenhouse, Lever, Ashby and 8 more)</h1></div>
+<p class="lede">Sales teams use hiring as a buying signal, recruiters watch competitors, investors watch headcount. The data is public on each company's career site. Here's how to read it free from the ATS APIs, and how to track a whole watchlist with new and closed jobs.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/company-jobs-tracker.png" alt="" width="56" height="56" loading="lazy"><p><b>Company Jobs Tracker</b>: $1 per 1,000 jobs (summaries and closed jobs free). Apify's free plan gives you $5 of credit every month, which covers about 5,000 jobs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/company-jobs-tracker?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=company-jobs-tracker&amp;utm_content=company-jobs-api">Try Company Jobs Tracker</a></div>
+<section class="content prose">
+
+<h2>The free way: the ATS job-board APIs</h2>
+<p>Most career sites run on an applicant tracking system with a public JSON feed:</p>
+<pre><code class="language-text">https://boards-api.greenhouse.io/v1/boards/airbnb/jobs?content=true
+https://api.lever.co/v0/postings/palantir?mode=json
+https://api.ashbyhq.com/posting-api/job-board/notion</code></pre>
+<p>Free and official. The work: finding which ATS each company uses and its board name, mapping 11 different formats, and remembering last week's jobs so you can see which ones are new or closed.</p>
+
+<h2>The API way: a watchlist</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/company-jobs-tracker?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=company-jobs-tracker&amp;utm_content=company-jobs-api">Company Jobs Tracker on Apify</a>.</li><li>List companies by name, website, careers page or board link. The ATS is detected for you.</li><li>Filter by keywords, locations, remote/hybrid, department, seniority or salary.</li><li>Turn on <b>trackChanges</b> with a watchlist name and schedule it weekly: you get new jobs (paid) and closed jobs with days open (free).</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~company-jobs-tracker/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;companies&quot;: [
+    &quot;Airbnb&quot;,
+    &quot;stripe.com&quot;,
+    &quot;https://jobs.lever.co/palantir&quot;,
+    &quot;https://jobs.ashbyhq.com/notion&quot;
+  ],
+  &quot;keywords&quot;: [
+    &quot;engineer&quot;,
+    &quot;data&quot;
+  ],
+  &quot;locations&quot;: [
+    &quot;US&quot;,
+    &quot;Canada&quot;,
+    &quot;remote&quot;
+  ],
+  &quot;trackChanges&quot;: true,
+  &quot;watchlistName&quot;: &quot;eng-north-america&quot;
+}&#x27;</code></pre>
+
+<h2>What you get</h2>
+<p>Title, department, location, remote/hybrid/onsite, employment type, seniority, salary normalized to min/max/currency/period (from the ATS or parsed from the text), posted date, apply link and description. A free summary row per company counts open roles by department and location, remote share, and new and closed jobs this run.</p>
+
+<h2>What it costs</h2>
+<p>$1 per 1,000 jobs; summaries and closed-job rows are free. A 40-company watchlist with 2,000 open jobs costs $2 the first time, and weekly runs after that charge only new jobs.</p>
+
+<h2>Limits</h2>
+<ul><li>Workday career sites are not supported yet (they block cloud servers).</li><li>LinkedIn and Indeed are not covered: this reads companies' own career sites only.</li></ul>
+<p>Comparing job data providers? See <a href="../theirstack-alternative/">TheirStack alternatives</a>.</p>
+
+<h2>Questions</h2>
+<details><summary>Is there a free Greenhouse jobs API?</summary><p>Yes. Greenhouse's job board API (boards-api.greenhouse.io) is public and free, as are Lever's and Ashby's. The Jobs Tracker reads 11 such systems and adds change tracking for $1 per 1,000 jobs.</p></details><details><summary>How do I track when a company closes a job?</summary><p>Turn on trackChanges with a watchlist name. Each run compares with the last one and returns closed jobs with their first-seen date, closed date and days open, free of charge.</p></details><details><summary>Which ATS are supported?</summary><p>Greenhouse, Lever (US and EU), Ashby, SmartRecruiters, Workable, Recruitee, Personio, BambooHR, Rippling, Teamtailor and Breezy.</p></details><details><summary>Do I need to know the company&#x27;s ATS?</summary><p>No. Give a name, website or careers page and the ATS and board name are detected.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/company-jobs-tracker.png" alt="" width="56" height="56" loading="lazy"><p><b>Company Jobs Tracker</b>: $1 per 1,000 jobs (summaries and closed jobs free). Apify's free plan gives you $5 of credit every month, which covers about 5,000 jobs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/company-jobs-tracker?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=company-jobs-tracker&amp;utm_content=company-jobs-api">Try Company Jobs Tracker</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../theirstack-alternative/"><img src="../assets/icons/api/company-jobs-tracker.png" alt="" width="56" height="56" loading="lazy"><div><h3>TheirStack alternatives for tracking company hiring</h3><p>Track jobs at the companies you name, live from their career sites, at $1 per 1,000 jobs.</p></div></a><a class="card tile" href="../government-tenders-api/"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="56" height="56" loading="lazy"><div><h3>Government tenders API: SAM.gov, TED EU, UK, Canada and the World Bank in one feed</h3><p>Government tenders from SAM.gov, TED, UK, CanadaBuys and the World Bank in one API with one schema.</p></div></a><a class="card tile" href="../find-emails-from-websites/"><img src="../assets/icons/api/website-contact-finder.png" alt="" width="56" height="56" loading="lazy"><div><h3>Find business emails, phones and socials from a list of websites</h3><p>Paste company websites, get one CRM-ready row each: business emails, phones, socials and address.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56" loading="lazy"><div><h3>CSV &amp; Excel to JSON (free)</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

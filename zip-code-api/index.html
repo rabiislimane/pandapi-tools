@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZIP &amp; Postal Code API: Distance, Radius, 120+ Countries</title>
+<meta name="description" content="ZIP and postal code lookups in 124 countries, distance between codes and radius search, in bulk or instantly. $0.30 per 1,000 results.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/zip-code-api/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZIP &amp; Postal Code API: Distance, Radius, 120+ Countries">
+<meta property="og:description" content="ZIP and postal code lookups in 124 countries, distance between codes and radius search, in bulk or instantly. $0.30 per 1,000 results.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/postal-code-lookup.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "ZIP and postal code API: lookup, distance and radius in 124 countries", "description": "Look up ZIP and postal codes in 124 countries: city, state, county and coordinates. Distance between two codes, all codes within a radius, codes for a city and the nearest code to a point. $0.30 per 1,000 results, not-found free.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/zip-code-api/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/postal-code-lookup.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there a free ZIP code API?", "acceptedAnswer": {"@type": "Answer", "text": "Zippopotam.us is free for lookups in about 60 countries, and ZipCodeAPI.com has a free tier of 10 requests per hour for the US and Canada. The Pandapi API covers 124 countries with distance and radius for $0.30 per 1,000 results."}}, {"@type": "Question", "name": "How do I find all ZIP codes within a radius?", "acceptedAnswer": {"@type": "Answer", "text": "Add the centre code to radiusCenters, set radius and unit (km or miles), and run. You get every code in range with its distance."}}, {"@type": "Question", "name": "Does it support UK postcodes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, matched on the outward code (e.g. SW1A), which is what open data publishes. Full address-level UK data needs Royal Mail's paid PAF."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "ZIP and postal code API: lookup, distance and radius in 124 countries", "item": "https://rabiislimane.github.io/pandapi-tools/zip-code-api/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/postal-code-lookup.png" alt="" width="64" height="64"><h1>ZIP and postal code API: lookup, distance and radius in 124 countries</h1></div>
+<p class="lede">Store locators, delivery zones and sales territories all need the same few things: what's at this ZIP code, how far apart are two codes, and which codes are within 25 km. Here are the free options and their limits, and a bulk API for all of it.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/postal-code-lookup.png" alt="" width="56" height="56" loading="lazy"><p><b>ZIP & Postal Code API</b>: $0.30 per 1,000 results (not found = free). Apify's free plan gives you $5 of credit every month, which covers about 16,000 results a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/postal-code-lookup?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=postal-code-lookup&amp;utm_content=zip-code-api">Try ZIP &amp; Postal Code API</a></div>
+<section class="content prose">
+
+<h2>Free options</h2>
+<ul>
+<li><b>Zippopotam.us</b>: free lookup of a code to its place in about 60 countries. Lookup only: no distance or radius.</li>
+<li><b>ZipCodeAPI.com</b>: US and Canada distance and radius; its free tier allows 10 requests per hour.</li>
+<li><b>GeoNames</b> postal code files: free downloads (CC BY 4.0) you load and query yourself.</li>
+</ul>
+<p>More in <a href="../zipcodeapi-alternative/">ZipCodeAPI and Zippopotam alternatives</a>.</p>
+
+<h2>The API way</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/postal-code-lookup?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=postal-code-lookup&amp;utm_content=zip-code-api">ZIP & Postal Code API on Apify</a>.</li><li>Add codes to look up (<code>US 90210</code>, <code>DE 10115</code>), pairs to measure, centres for a radius search, place names or coordinates. Mix them in one run.</li><li>Run it in bulk, or call the instant API endpoint for one lookup at a time.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~postal-code-lookup/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;postalCodes&quot;: [
+    &quot;US 90210&quot;,
+    &quot;GB SW1A 1AA&quot;,
+    &quot;DE 10115&quot;
+  ],
+  &quot;distancePairs&quot;: [
+    &quot;US 10001; US 94105&quot;
+  ],
+  &quot;radiusCenters&quot;: [
+    &quot;US 60601&quot;
+  ],
+  &quot;radius&quot;: 10,
+  &quot;radiusUnit&quot;: &quot;km&quot;
+}&#x27;</code></pre>
+
+<h2>What it costs</h2>
+<p>$0.30 per 1,000 results found; codes that aren't found are free. 10,000 lookups cost $3.</p>
+
+<h2>Limits, honestly</h2>
+<p>Data comes from GeoNames. For the UK, Canada, Ireland, the Netherlands and Malta only the first part of the code is published openly (e.g. <code>SW1A</code>, <code>M5V</code>), so full codes are matched on that part and the row says so. Coordinates are area centres, good for distance and radius, not for delivery routing.</p>
+
+<h2>Questions</h2>
+<details><summary>Is there a free ZIP code API?</summary><p>Zippopotam.us is free for lookups in about 60 countries, and ZipCodeAPI.com has a free tier of 10 requests per hour for the US and Canada. The Pandapi API covers 124 countries with distance and radius for $0.30 per 1,000 results.</p></details><details><summary>How do I find all ZIP codes within a radius?</summary><p>Add the centre code to radiusCenters, set radius and unit (km or miles), and run. You get every code in range with its distance.</p></details><details><summary>Does it support UK postcodes?</summary><p>Yes, matched on the outward code (e.g. SW1A), which is what open data publishes. Full address-level UK data needs Royal Mail's paid PAF.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/postal-code-lookup.png" alt="" width="56" height="56" loading="lazy"><p><b>ZIP & Postal Code API</b>: $0.30 per 1,000 results (not found = free). Apify's free plan gives you $5 of credit every month, which covers about 16,000 results a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/postal-code-lookup?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=postal-code-lookup&amp;utm_content=zip-code-api">Try ZIP &amp; Postal Code API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../zipcodeapi-alternative/"><img src="../assets/icons/api/postal-code-lookup.png" alt="" width="56" height="56" loading="lazy"><div><h3>ZipCodeAPI and Zippopotam.us alternatives</h3><p>ZipCodeAPI allows 10 free requests an hour; Zippopotam does lookups only.</p></div></a><a class="card tile" href="../company-jobs-api/"><img src="../assets/icons/api/company-jobs-tracker.png" alt="" width="56" height="56" loading="lazy"><div><h3>Get every open job from the companies you name (Greenhouse, Lever, Ashby and 8 more)</h3><p>Every open job at the companies you name, live from Greenhouse, Lever, Ashby and 8 more ATS.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56" loading="lazy"><div><h3>CSV &amp; Excel to JSON (free)</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

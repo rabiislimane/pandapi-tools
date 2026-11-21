@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Camelot vs Tabula: Which Extracts PDF Tables Better?</title>
+<meta name="description" content="Camelot vs tabula-py for PDF tables: lattice vs stream, setup, borderless and multi-page tables, with code, plus a no-code option.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/camelot-vs-tabula/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Camelot vs Tabula: Which Extracts PDF Tables Better?">
+<meta property="og:description" content="Camelot vs tabula-py for PDF tables: lattice vs stream, setup, borderless and multi-page tables, with code, plus a no-code option.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/pdf-to-text-markdown.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Camelot vs Tabula for PDF tables (and a no-code option)", "description": "Camelot vs tabula-py for extracting tables from PDFs in Python: lattice vs stream, setup, accuracy on borderless tables, multi-page tables, and when a hosted API is less work.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/camelot-vs-tabula/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/pdf-to-text-markdown.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Camelot better than Tabula?", "acceptedAnswer": {"@type": "Answer", "text": "On ruled tables they're close. Camelot gives you more control and a parsing report, which helps on borderless tables; tabula-py is simpler if Java is installed. Neither joins tables across pages."}}, {"@type": "Question", "name": "Does Camelot need Java?", "acceptedAnswer": {"@type": "Answer", "text": "No. Camelot is pure Python with a Ghostscript or pdfium backend. tabula-py needs Java because it wraps Tabula."}}, {"@type": "Question", "name": "Can either read scanned PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "No. Both need a text layer. Run OCR first (for example OCRmyPDF), or use an API with OCR."}}, {"@type": "Question", "name": "Is there a no-code option?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Pandapi PDF API takes PDF links and returns Excel or CSV, $3 per 1,000 PDFs, with Apify's free credit covering about 1,600 PDFs a month."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Camelot vs Tabula for PDF tables (and a no-code option)", "item": "https://rabiislimane.github.io/pandapi-tools/camelot-vs-tabula/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>Comparisons</span></nav>
+<div class="hero"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="64" height="64"><h1>Camelot vs Tabula for PDF tables (and a no-code option)</h1></div>
+<p class="lede">Both are free, open source and good. They differ in setup, in how they find columns, and in how much tuning they need per layout. Here's how to choose, with code for each.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team · We make one of the tools compared here, so we list where the others are better too.</p>
+<div class="card cta"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>PDF to Excel, Markdown & Text API</b>: $3 per 1,000 PDFs (OCR pages $5 per 1,000). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pdf-to-text-markdown&amp;utm_content=camelot-vs-tabula">Try PDF to Excel, Markdown &amp; Text API</a></div>
+<section class="content prose">
+
+<h2>At a glance</h2>
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col"></th><th scope="col">Camelot</th><th scope="col">tabula-py</th><th scope="col">Pandapi PDF API</th></tr></thead><tbody><tr><th scope="row">Language</th><td>Python</td><td>Python wrapper around Tabula (Java)</td><td>HTTP API, any language or no code</td></tr><tr><th scope="row">Setup</th><td>pip install camelot-py (plus Ghostscript or pdfium backend)</td><td>pip install tabula-py, needs Java</td><td>None</td></tr><tr><th scope="row">Ruled tables</th><td>lattice mode, very good</td><td>lattice mode, good</td><td>Yes</td></tr><tr><th scope="row">Borderless tables</th><td>stream mode, often needs column hints</td><td>stream mode, good on simple layouts</td><td>Yes, columns from text alignment</td></tr><tr><th scope="row">Table across pages</th><td>Separate tables; join yourself</td><td>Separate tables; join yourself</td><td>Joined automatically</td></tr><tr><th scope="row">Wrapped cell text</th><td>Extra rows</td><td>Extra rows</td><td>Merged into the cell</td></tr><tr><th scope="row">Scanned PDFs</th><td>No</td><td>No</td><td>OCR text (tables on scans not detected yet)</td></tr><tr><th scope="row">Accuracy report</th><td>Yes (parsing report, whitespace)</td><td>No</td><td>Method per table (ruled/borderless)</td></tr><tr><th scope="row">Cost</th><td>Free</td><td>Free</td><td>$3 per 1,000 PDFs</td></tr></tbody></table></div>
+
+<h2>Camelot</h2>
+<pre><code class="language-python">import camelot
+tables = camelot.read_pdf(&quot;report.pdf&quot;, pages=&quot;1-end&quot;, flavor=&quot;lattice&quot;)  # or &quot;stream&quot;
+print(tables[0].parsing_report)
+tables.export(&quot;report.xlsx&quot;, f=&quot;excel&quot;)</code></pre>
+<p>Pick Camelot when you can look at the output and tune it: <code>table_areas</code>, <code>columns</code> and <code>row_tol</code> fix most stream-mode problems.</p>
+
+<h2>tabula-py</h2>
+<pre><code class="language-python">import tabula
+dfs = tabula.read_pdf(&quot;report.pdf&quot;, pages=&quot;all&quot;, lattice=True)  # or stream=True
+tabula.convert_into(&quot;report.pdf&quot;, &quot;report.csv&quot;, output_format=&quot;csv&quot;, pages=&quot;all&quot;)</code></pre>
+<p>Pick tabula-py when Java is already there and the tables are simple. The Tabula desktop app is handy for drawing table areas by hand.</p>
+
+<h2>When neither is worth the time</h2>
+<p>When the PDFs come from many different sources (bank statements from ten banks, supplier invoices), each new layout means new tuning. A hosted API that handles borderless tables, page joins and numbers is less work:</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~pdf-to-text-markdown/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;urls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://example.com/statement.pdf&quot;
+    }
+  ],
+  &quot;spreadsheetOutput&quot;: &quot;xlsx&quot;,
+  &quot;mergeMultiPageTables&quot;: true
+}&#x27;</code></pre>
+<p>More in <a href="../extract-tables-from-pdf-to-excel/">extract tables from PDF to Excel</a>.</p>
+<p class="sources">Sources, checked 21 November 2026: <a href="https://camelot-py.readthedocs.io/" rel="nofollow noopener">Camelot docs</a>, <a href="https://tabula-py.readthedocs.io/" rel="nofollow noopener">tabula-py docs</a>. Prices change; check their pages before you buy.</p>
+
+<h2>Questions</h2>
+<details><summary>Is Camelot better than Tabula?</summary><p>On ruled tables they're close. Camelot gives you more control and a parsing report, which helps on borderless tables; tabula-py is simpler if Java is installed. Neither joins tables across pages.</p></details><details><summary>Does Camelot need Java?</summary><p>No. Camelot is pure Python with a Ghostscript or pdfium backend. tabula-py needs Java because it wraps Tabula.</p></details><details><summary>Can either read scanned PDFs?</summary><p>No. Both need a text layer. Run OCR first (for example OCRmyPDF), or use an API with OCR.</p></details><details><summary>Is there a no-code option?</summary><p>Yes. The Pandapi PDF API takes PDF links and returns Excel or CSV, $3 per 1,000 PDFs, with Apify's free credit covering about 1,600 PDFs a month.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>PDF to Excel, Markdown & Text API</b>: $3 per 1,000 PDFs (OCR pages $5 per 1,000). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pdf-to-text-markdown&amp;utm_content=camelot-vs-tabula">Try PDF to Excel, Markdown &amp; Text API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../extract-tables-from-pdf-to-excel/"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Extract tables from PDFs to Excel, in bulk</h3><p>Get tables out of PDFs into Excel or CSV: free ways for one file, and an API for hundreds.</p></div></a><a class="card tile" href="../bank-statement-pdf-to-excel/"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Convert bank statement PDFs to Excel, in bulk</h3><p>Convert bank statement PDFs to Excel with real numbers: why statements break converters, the free route, and bulk conversion.</p></div></a><a class="card tile" href="../best-free-pdf-to-excel-converters/"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>The best free ways to convert PDF tables to Excel</h3><p>Free ways to convert PDF tables to Excel compared: Excel, Smallpdf, iLovePDF, Tabula, Camelot and an API.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../pdf-to-markdown/"><img src="../assets/icons/tool-pdf-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>PDF to Markdown (free)</h3><p>Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed.</p></div></a><a class="card tile" href="../html-table-to-excel/"><img src="../assets/icons/tool-html-table-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>HTML Table to Excel (free)</h3><p>Copy a table from any web page and get a clean Excel .xlsx or CSV.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

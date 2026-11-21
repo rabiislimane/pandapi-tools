@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopify App Store Reviews Scraper + Fake-Review Signals</title>
+<meta name="description" content="Export any Shopify app&#x27;s reviews to CSV with developer replies and merchant country, plus a free fake-review signal score. $0.10 per 1,000.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/shopify-app-reviews-export/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shopify App Store Reviews Scraper + Fake-Review Signals">
+<meta property="og:description" content="Export any Shopify app&#x27;s reviews to CSV with developer replies and merchant country, plus a free fake-review signal score. $0.10 per 1,000.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/shopify-app-store-reviews.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Export Shopify App Store reviews, and spot suspicious ones", "description": "Export reviews of any Shopify app with developer replies, merchant country and time using the app, plus app details and pricing plans. Star, date and keyword filters, monitoring and a free fake-review signal score. $0.10 per 1,000 reviews.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/shopify-app-reviews-export/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/shopify-app-store-reviews.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I export reviews of a Shopify app I don't own?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Shopify App Store reviews are public, so the API can read any listed app."}}, {"@type": "Question", "name": "How are fake reviews detected?", "acceptedAnswer": {"@type": "Answer", "text": "We don't claim to detect them for sure. The summary flags patterns that often come with paid or incentivised reviews: bursts, 5 stars after under a day of use, repeated wording and very short 5-star texts, with a score and reasons."}}, {"@type": "Question", "name": "Does it include store names?", "acceptedAnswer": {"@type": "Answer", "text": "Off by default for privacy. Switch includeStoreNames on if you need them."}}, {"@type": "Question", "name": "Can I monitor a competitor's new reviews?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Turn on onlyNewReviews and schedule the run; each run returns only reviews written since the last one."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Export Shopify App Store reviews, and spot suspicious ones", "item": "https://rabiislimane.github.io/pandapi-tools/shopify-app-reviews-export/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/shopify-app-store-reviews.png" alt="" width="64" height="64"><h1>Export Shopify App Store reviews, and spot suspicious ones</h1></div>
+<p class="lede">Shopify app developers and agencies read competitor reviews to find feature gaps, and many suspect review bursts on rival apps. Shopify has no export button. Here's how to get the reviews into a spreadsheet and check them.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/shopify-app-store-reviews.png" alt="" width="56" height="56" loading="lazy"><p><b>Shopify App Store Reviews Scraper</b>: $0.10 per 1,000 reviews + $0.002 per app. Apify's free plan gives you $5 of credit every month, which covers tens of thousands of reviews a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/shopify-app-store-reviews?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=shopify-app-store-reviews&amp;utm_content=shopify-app-reviews-export">Try Shopify App Store Reviews Scraper</a></div>
+<section class="content prose">
+
+<h2>The free way</h2>
+<p>Every app's reviews are public at <code>apps.shopify.com/&lt;app&gt;/reviews</code>, 10 per page, with a newest-first sort and a star filter. For a few pages, copying them by hand works. For hundreds of pages it doesn't, and Shopify's Partner Dashboard shows only your own apps' reviews.</p>
+
+<h2>The API way</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/shopify-app-store-reviews?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=shopify-app-store-reviews&amp;utm_content=shopify-app-reviews-export">Shopify App Store Reviews Scraper on Apify</a>.</li><li>Paste app links or handles (e.g. <code>judgeme</code>). Several apps per run are fine.</li><li>Pick a star range (sent to Shopify, so 1-2 star runs are fast), a since-date and keywords.</li><li>Turn on monitoring to get only reviews written since the last run, and schedule it weekly.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~shopify-app-store-reviews/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;apps&quot;: [
+    &quot;https://apps.shopify.com/judgeme&quot;,
+    &quot;klaviyo-email-marketing&quot;
+  ],
+  &quot;maxReviewsPerApp&quot;: 500,
+  &quot;minRating&quot;: 1,
+  &quot;maxRating&quot;: 2,
+  &quot;includeSummary&quot;: true
+}&#x27;</code></pre>
+
+<h2>Fake-review signals, explained</h2>
+<p>The free summary row for each app adds a 0-100 suspicion score with plain reasons: <b>review bursts</b> (days with far more reviews than the app's normal rate, and how many of them are 5 stars), <b>5-star reviews after less than a day of use</b>, <b>repeated wording</b> across reviews, and <b>very short 5-star reviews</b>. A high score is a reason to look closer, not proof. Shopify developers have asked for exactly this in a long community thread about fake reviews.</p>
+
+<h2>What you get</h2>
+<p>Stars, date, text, merchant country, "N months using the app", the developer reply and its date. App details: rating, review count, full star histogram, pricing plans, developer, launch date, categories and the Built for Shopify badge. Merchant store names are left out unless you switch them on.</p>
+
+<h2>What it costs</h2>
+<p>$0.10 per 1,000 reviews and $0.002 per app details row; the summary is free. 5,000 reviews of 3 apps cost about $0.51.</p>
+
+<h2>Questions</h2>
+<details><summary>Can I export reviews of a Shopify app I don&#x27;t own?</summary><p>Yes. Shopify App Store reviews are public, so the API can read any listed app.</p></details><details><summary>How are fake reviews detected?</summary><p>We don't claim to detect them for sure. The summary flags patterns that often come with paid or incentivised reviews: bursts, 5 stars after under a day of use, repeated wording and very short 5-star texts, with a score and reasons.</p></details><details><summary>Does it include store names?</summary><p>Off by default for privacy. Switch includeStoreNames on if you need them.</p></details><details><summary>Can I monitor a competitor&#x27;s new reviews?</summary><p>Yes. Turn on onlyNewReviews and schedule the run; each run returns only reviews written since the last one.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/shopify-app-store-reviews.png" alt="" width="56" height="56" loading="lazy"><p><b>Shopify App Store Reviews Scraper</b>: $0.10 per 1,000 reviews + $0.002 per app. Apify's free plan gives you $5 of credit every month, which covers tens of thousands of reviews a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/shopify-app-store-reviews?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=shopify-app-store-reviews&amp;utm_content=shopify-app-reviews-export">Try Shopify App Store Reviews Scraper</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../export-app-store-reviews/"><img src="../assets/icons/api/app-store-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>Export App Store reviews to CSV or Excel, for any app</h3><p>Export App Store reviews to CSV for any app: the free 500-review RSS way, and an API for every country with filters and monitoring.</p></div></a><a class="card tile" href="../export-google-play-reviews/"><img src="../assets/icons/api/google-play-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>Export Google Play reviews to CSV, with developer replies</h3><p>Export Google Play reviews to CSV with developer replies: Play Console, the free library, and an API for many apps and languages.</p></div></a><a class="card tile" href="../appfollow-alternative/"><img src="../assets/icons/api/app-store-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>AppFollow alternatives when you just need the reviews</h3><p>Need app reviews in a spreadsheet, not a review inbox? AppFollow vs pay-per-review APIs for App Store and Google Play.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56" loading="lazy"><div><h3>CSV &amp; Excel to JSON (free)</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

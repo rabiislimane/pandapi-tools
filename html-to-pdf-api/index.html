@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML to PDF API: URLs, HTML and Invoice Templates in Bulk</title>
+<meta name="description" content="Turn URLs, HTML or a template plus JSON rows into PDFs: invoices, certificates, reports. $3 per 1,000 PDFs at any page count.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/html-to-pdf-api/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HTML to PDF API: URLs, HTML and Invoice Templates in Bulk">
+<meta property="og:description" content="Turn URLs, HTML or a template plus JSON rows into PDFs: invoices, certificates, reports. $3 per 1,000 PDFs at any page count.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/html-to-pdf.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "HTML to PDF API: web pages, HTML and invoice templates in bulk", "description": "Turn web pages, HTML or an HTML template plus JSON rows (invoices, certificates, reports) into PDFs. Page size, margins, headers, footers and page numbers. $3 per 1,000 PDFs whatever the page count; failures free.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/html-to-pdf-api/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/html-to-pdf.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I generate PDFs from an HTML template?", "acceptedAnswer": {"@type": "Answer", "text": "Paste a Handlebars template and an array of JSON rows into the HTML to PDF API. It renders one PDF per row with headless Chrome and names each file from your template."}}, {"@type": "Question", "name": "Can I convert a URL to PDF?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. List the URLs; cookie banners are hidden and lazy images loaded before printing."}}, {"@type": "Question", "name": "Does a 30-page PDF cost more?", "acceptedAnswer": {"@type": "Answer", "text": "No. The price is $3 per 1,000 PDFs whatever the page count."}}, {"@type": "Question", "name": "Can I add page numbers and headers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Turn on pageNumbers or write your own headerTemplate and footerTemplate."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "HTML to PDF API: web pages, HTML and invoice templates in bulk", "item": "https://rabiislimane.github.io/pandapi-tools/html-to-pdf-api/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="64" height="64"><h1>HTML to PDF API: web pages, HTML and invoice templates in bulk</h1></div>
+<p class="lede">Generating PDFs is easy until you need hundreds: invoices from order data, certificates for every attendee, reports for every client. Here are the free options, and an API that fills a template with your rows and returns one PDF per row.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="56" height="56" loading="lazy"><p><b>HTML to PDF API</b>: $3 per 1,000 PDFs (any page count). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/html-to-pdf?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=html-to-pdf&amp;utm_content=html-to-pdf-api">Try HTML to PDF API</a></div>
+<section class="content prose">
+
+<h2>Free options</h2>
+<ul>
+<li><b>Your browser</b>: Print › Save as PDF. Fine for one page.</li>
+<li><b>Our free <a href="../markdown-to-pdf/">Markdown to PDF</a></b> tool: real text, page numbers and a table of contents, in your browser.</li>
+<li><b>Code</b>: headless Chrome (Puppeteer, Playwright <code>page.pdf()</code>) or WeasyPrint. wkhtmltopdf is archived and uses an old WebKit, so modern CSS breaks. See <a href="../pdfshift-alternative/">PDFShift and wkhtmltopdf alternatives</a>.</li>
+</ul>
+
+<h2>The API way: a template plus your data</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/html-to-pdf?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=html-to-pdf&amp;utm_content=html-to-pdf-api">HTML to PDF API on Apify</a>.</li><li>Either list URLs, paste HTML, or paste a <b>Handlebars template</b> and a <b>data</b> array (one object per document).</li><li>Set page size, margins, landscape, header and footer templates and page numbers. <b>fileNameTemplate</b> names each file, e.g. <code>invoice-{{{{number}}}}</code>.</li><li>Run it. Each row links to its PDF in your Apify storage.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~html-to-pdf/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;template&quot;: &quot;&lt;h1&gt;Invoice {{number}}&lt;/h1&gt;&lt;p&gt;{{customer}}&lt;/p&gt;&lt;p&gt;Total: {{formatNumber total 2}} EUR&lt;/p&gt;&quot;,
+  &quot;data&quot;: [
+    {
+      &quot;number&quot;: &quot;2026-001&quot;,
+      &quot;customer&quot;: &quot;Acme GmbH&quot;,
+      &quot;total&quot;: 1200
+    },
+    {
+      &quot;number&quot;: &quot;2026-002&quot;,
+      &quot;customer&quot;: &quot;Globex&quot;,
+      &quot;total&quot;: 349.5
+    }
+  ],
+  &quot;fileNameTemplate&quot;: &quot;invoice-{{number}}&quot;,
+  &quot;pageFormat&quot;: &quot;A4&quot;,
+  &quot;pageNumbers&quot;: true
+}&#x27;</code></pre>
+<p>Template helpers include <code>multiply</code>, <code>sumProduct</code> and <code>formatNumber</code> for invoice lines and totals.</p>
+
+<h2>What it costs</h2>
+<p>$3 per 1,000 PDFs, any page count, no start fee. 500 invoices cost $1.50. Failed documents are free. Apify's free credit covers about 1,600 PDFs a month.</p>
+
+<h2>Questions</h2>
+<details><summary>How do I generate PDFs from an HTML template?</summary><p>Paste a Handlebars template and an array of JSON rows into the HTML to PDF API. It renders one PDF per row with headless Chrome and names each file from your template.</p></details><details><summary>Can I convert a URL to PDF?</summary><p>Yes. List the URLs; cookie banners are hidden and lazy images loaded before printing.</p></details><details><summary>Does a 30-page PDF cost more?</summary><p>No. The price is $3 per 1,000 PDFs whatever the page count.</p></details><details><summary>Can I add page numbers and headers?</summary><p>Yes. Turn on pageNumbers or write your own headerTemplate and footerTemplate.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="56" height="56" loading="lazy"><p><b>HTML to PDF API</b>: $3 per 1,000 PDFs (any page count). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/html-to-pdf?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=html-to-pdf&amp;utm_content=html-to-pdf-api">Try HTML to PDF API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../pdfshift-alternative/"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="56" height="56" loading="lazy"><div><h3>PDFShift, DocRaptor and wkhtmltopdf alternatives for HTML to PDF</h3><p>HTML to PDF options compared: wkhtmltopdf, Puppeteer, Gotenberg, PDFShift, DocRaptor and a $3 per 1,000 PDF API with templates.</p></div></a><a class="card tile" href="../website-screenshots-in-bulk/"><img src="../assets/icons/api/website-screenshot.png" alt="" width="56" height="56" loading="lazy"><div><h3>Screenshot a list of URLs: full page, desktop and mobile, in one run</h3><p>Screenshot a list of URLs in one run: full page, desktop and mobile, PNG, JPEG or PDF, cookie banners hidden.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../markdown-to-pdf/"><img src="../assets/icons/tool-markdown-to-pdf.png" alt="" width="56" height="56" loading="lazy"><div><h3>Markdown to PDF (free)</h3><p>Convert Markdown to a clean PDF in your browser: real selectable text, code colors, tables, images, clickable table of contents and page numbers.</p></div></a><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56" loading="lazy"><div><h3>CSV &amp; Excel to JSON (free)</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

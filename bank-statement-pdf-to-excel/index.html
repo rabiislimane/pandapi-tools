@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convert Bank Statement PDFs to Excel (Bulk, Real Numbers)</title>
+<meta name="description" content="Convert bank statement PDFs to Excel with real numbers: why statements break converters, the free route, and bulk conversion.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/bank-statement-pdf-to-excel/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Convert Bank Statement PDFs to Excel (Bulk, Real Numbers)">
+<meta property="og:description" content="Convert bank statement PDFs to Excel with real numbers: why statements break converters, the free route, and bulk conversion.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/pdf-to-text-markdown.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Convert bank statement PDFs to Excel, in bulk", "description": "Bank statements are borderless tables over many pages, which breaks most PDF converters. How to convert them to Excel or CSV with real numbers, one or hundreds at a time.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/bank-statement-pdf-to-excel/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/pdf-to-text-markdown.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I convert a bank statement PDF to Excel for free?", "acceptedAnswer": {"@type": "Answer", "text": "Try Excel's PDF import or Tabula's stream mode for one statement. For many, Apify's free $5 monthly credit covers about 1,600 PDFs through the Pandapi PDF API."}}, {"@type": "Question", "name": "Will the numbers be real numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with numbersAsNumbers on: separators and currency signs are removed and bracketed amounts become negatives."}}, {"@type": "Question", "name": "Does it work with scanned statements?", "acceptedAnswer": {"@type": "Answer", "text": "It returns OCR text for scanned pages, but doesn't rebuild table cells from scans yet. Digital PDFs from online banking work best."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Convert bank statement PDFs to Excel, in bulk", "item": "https://rabiislimane.github.io/pandapi-tools/bank-statement-pdf-to-excel/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>Comparisons</span></nav>
+<div class="hero"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="64" height="64"><h1>Convert bank statement PDFs to Excel, in bulk</h1></div>
+<p class="lede">Accountants and bookkeepers get statements as PDFs and need them in Excel, Xero, QuickBooks or Tally. Statements are the hardest PDF tables: no lines between columns, descriptions that wrap, and transactions that run over many pages.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team · We make one of the tools compared here, so we list where the others are better too.</p>
+<div class="card cta"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>PDF to Excel, Markdown & Text API</b>: $3 per 1,000 PDFs (OCR pages $5 per 1,000). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pdf-to-text-markdown&amp;utm_content=bank-statement-pdf-to-excel">Try PDF to Excel, Markdown &amp; Text API</a></div>
+<section class="content prose">
+
+<h2>Why statements break converters</h2>
+<ul><li>No ruling lines, so tools that look for cell borders find nothing.</li><li>The transaction table continues on every page, with the header repeated.</li><li>Long descriptions wrap onto a second line and become a fake row.</li><li>Amounts like <code>1,204.50</code> or <code>(85.00)</code> land as text.</li></ul>
+
+<h2>Free route for one statement</h2>
+<p>Try Excel's Data › Get Data › From PDF first. If columns run together, Tabula's desktop app lets you draw the table area and pick "stream" mode. Check that the closing balance matches before you trust it.</p>
+
+<h2>Many statements: the API route</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pdf-to-text-markdown&amp;utm_content=bank-statement-pdf-to-excel">PDF to Excel API on Apify</a>.</li><li>Add the statement PDFs (links, or upload in the console). Add the password if the bank protects them.</li><li>Keep <b>mergeMultiPageTables</b> and <b>numbersAsNumbers</b> on and pick xlsx. Each statement gets its own workbook, and <code>tables.xlsx</code> collects every statement's tables in one file.</li><li>Run, download the workbook, and check the balance column sums.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~pdf-to-text-markdown/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;urls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://example.com/statements/2026-09.pdf&quot;
+    },
+    {
+      &quot;url&quot;: &quot;https://example.com/statements/2026-10.pdf&quot;
+    }
+  ],
+  &quot;spreadsheetOutput&quot;: &quot;xlsx&quot;,
+  &quot;mergeMultiPageTables&quot;: true,
+  &quot;numbersAsNumbers&quot;: true
+}&#x27;</code></pre>
+<p>Price: $3 per 1,000 PDFs whatever the page count; a year of monthly statements for 25 clients (300 PDFs) costs $0.90. Scanned statements get OCR text at $5 per 1,000 pages, but table cells aren't detected on scans yet, so ask the bank for the digital PDF when you can.</p>
+<p>Dedicated statement converters (subscription tools priced per page) add bank-specific templates and direct exports to accounting software; worth it if that is your whole job.</p>
+
+<h2>Questions</h2>
+<details><summary>How do I convert a bank statement PDF to Excel for free?</summary><p>Try Excel's PDF import or Tabula's stream mode for one statement. For many, Apify's free $5 monthly credit covers about 1,600 PDFs through the Pandapi PDF API.</p></details><details><summary>Will the numbers be real numbers?</summary><p>Yes, with numbersAsNumbers on: separators and currency signs are removed and bracketed amounts become negatives.</p></details><details><summary>Does it work with scanned statements?</summary><p>It returns OCR text for scanned pages, but doesn't rebuild table cells from scans yet. Digital PDFs from online banking work best.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>PDF to Excel, Markdown & Text API</b>: $3 per 1,000 PDFs (OCR pages $5 per 1,000). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pdf-to-text-markdown&amp;utm_content=bank-statement-pdf-to-excel">Try PDF to Excel, Markdown &amp; Text API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../extract-tables-from-pdf-to-excel/"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Extract tables from PDFs to Excel, in bulk</h3><p>Get tables out of PDFs into Excel or CSV: free ways for one file, and an API for hundreds.</p></div></a><a class="card tile" href="../best-free-pdf-to-excel-converters/"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>The best free ways to convert PDF tables to Excel</h3><p>Free ways to convert PDF tables to Excel compared: Excel, Smallpdf, iLovePDF, Tabula, Camelot and an API.</p></div></a><a class="card tile" href="../camelot-vs-tabula/"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Camelot vs Tabula for PDF tables (and a no-code option)</h3><p>Camelot vs tabula-py for PDF tables: lattice vs stream, setup, borderless and multi-page tables, with code, plus a no-code option.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../pdf-to-markdown/"><img src="../assets/icons/tool-pdf-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>PDF to Markdown (free)</h3><p>Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

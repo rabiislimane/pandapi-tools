@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export App Store Reviews to CSV (any app, any country)</title>
+<meta name="description" content="Export App Store reviews to CSV for any app: the free 500-review RSS way, and an API for every country with filters and monitoring.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/export-app-store-reviews/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Export App Store Reviews to CSV (any app, any country)">
+<meta property="og:description" content="Export App Store reviews to CSV for any app: the free 500-review RSS way, and an API for every country with filters and monitoring.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/app-store-reviews-scraper.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Export App Store reviews to CSV or Excel, for any app", "description": "How to export Apple App Store reviews to CSV: the free RSS way (500 per country) and an API for many apps and countries, with star, date and keyword filters, monitoring and a free insights summary. $0.15 per 1,000 reviews.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/export-app-store-reviews/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/app-store-reviews-scraper.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I export App Store reviews for free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Apple's public RSS feed gives the latest 500 reviews per country and sort order for any app, and App Store Connect's API covers your own apps. For more countries, filters and monitoring, the API costs $0.15 per 1,000 reviews and Apify's free credit covers over 30,000 a month."}}, {"@type": "Question", "name": "Why can't I get more than 500 reviews?", "acceptedAnswer": {"@type": "Answer", "text": "Apple's feed caps each country and sort order at 500. The scraper combines most-recent and most-helpful orders (up to about 1,000 unique per country) and lets you add every storefront."}}, {"@type": "Question", "name": "Can I get competitor reviews?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Reviews are public, so any app on the App Store works: paste its link, ID or name."}}, {"@type": "Question", "name": "Does it include reviewer names?", "acceptedAnswer": {"@type": "Answer", "text": "No. We leave reviewer names out on purpose. You get the rating, title, text, date, app version and country."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Export App Store reviews to CSV or Excel, for any app", "item": "https://rabiislimane.github.io/pandapi-tools/export-app-store-reviews/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/app-store-reviews-scraper.png" alt="" width="64" height="64"><h1>Export App Store reviews to CSV or Excel, for any app</h1></div>
+<p class="lede">App Store Connect lets you read your own app's reviews but has no CSV button, and it doesn't cover competitors at all. Here are the free ways to export App Store reviews, where they stop, and how to get reviews from every country into one file.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/app-store-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><p><b>App Store Reviews Scraper</b>: $0.15 per 1,000 reviews. Apify's free plan gives you $5 of credit every month, which covers over 30,000 reviews a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/app-store-reviews-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=app-store-reviews-scraper&amp;utm_content=export-app-store-reviews">Try App Store Reviews Scraper</a></div>
+<section class="content prose">
+
+<h2>Free way 1: App Store Connect (your own apps)</h2>
+<p>You can read and reply to reviews in App Store Connect, and the App Store Connect API has a <code>customerReviews</code> endpoint. It needs an API key and covers only apps in your developer account.</p>
+
+<h2>Free way 2: Apple's public reviews feed (any app)</h2>
+<p>Apple serves each app's recent reviews as a public feed, 50 per page and 10 pages at most:</p>
+<pre><code class="language-text">https://itunes.apple.com/us/rss/customerreviews/page=1/id=570060128/sortby=mostrecent/json</code></pre>
+<p>Loop pages 1 to 10, read <code>feed.entry</code>, and write date, stars, version, title and text to CSV. It's free and works for any public app. The catch: the feed stops at <b>500 reviews per country and sort order</b>, each of about 175 storefronts is a separate feed, and running it again gives you the same reviews again.</p>
+
+<h2>The API way: many apps, every country, only new reviews</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/app-store-reviews-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=app-store-reviews-scraper&amp;utm_content=export-app-store-reviews">App Store Reviews Scraper on Apify</a>.</li><li>Paste App Store links, app IDs, bundle IDs or app names, and pick countries (or all of them).</li><li>Filter by stars (e.g. 1 to 2 for complaints), date and keywords before you pay for anything.</li><li>Turn on <b>onlyNewReviews</b> and schedule it weekly: later runs return only reviews written since the last run.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~app-store-reviews-scraper/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;apps&quot;: [
+    &quot;https://apps.apple.com/us/app/duolingo-language-lessons/id570060128&quot;
+  ],
+  &quot;countries&quot;: [
+    &quot;us&quot;,
+    &quot;gb&quot;,
+    &quot;ca&quot;,
+    &quot;au&quot;
+  ],
+  &quot;maxReviewsPerApp&quot;: 1000,
+  &quot;minRating&quot;: 1,
+  &quot;maxRating&quot;: 2
+}&#x27;</code></pre>
+<pre><code class="language-python"># pip install apify-client
+from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;blueberry_rainstorm/app-store-reviews-scraper&quot;).call(run_input={
+    &quot;apps&quot;: [
+        &quot;notion&quot;,
+        &quot;evernote&quot;
+    ],
+    &quot;countries&quot;: [
+        &quot;us&quot;
+    ],
+    &quot;maxReviewsPerApp&quot;: 500,
+    &quot;includeSummary&quot;: True
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    if item.get(&quot;type&quot;) == &quot;review&quot;:
+        print(item[&quot;rating&quot;], item[&quot;date&quot;], item[&quot;title&quot;])</code></pre>
+<p>Each run also writes a <b>free insights summary</b> per app: rating by version and country, top complaint and praise phrases, and the worst recent reviews. Reviewer names are not stored.</p>
+
+<h2>What it costs</h2>
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col">Job</th><th scope="col">Rows</th><th scope="col">Price</th></tr></thead><tbody><tr><th scope="row">One app, 1,000 US reviews</th><td>1,000 reviews</td><td>$0.15</td></tr><tr><th scope="row">5 competitors × 4 countries × 500</th><td>10,000 reviews</td><td>$1.50</td></tr><tr><th scope="row">Weekly monitoring of 10 apps</th><td>only new reviews</td><td>a few cents a week</td></tr><tr><th scope="row">App details row</th><td>1 per app</td><td>$0.001</td></tr></tbody></table></div>
+<p>Apify's free $5 monthly credit covers over 30,000 reviews. Need Google Play too? See <a href="../export-google-play-reviews/">export Google Play reviews</a>.</p>
+
+<h2>Questions</h2>
+<details><summary>Can I export App Store reviews for free?</summary><p>Yes. Apple's public RSS feed gives the latest 500 reviews per country and sort order for any app, and App Store Connect's API covers your own apps. For more countries, filters and monitoring, the API costs $0.15 per 1,000 reviews and Apify's free credit covers over 30,000 a month.</p></details><details><summary>Why can&#x27;t I get more than 500 reviews?</summary><p>Apple's feed caps each country and sort order at 500. The scraper combines most-recent and most-helpful orders (up to about 1,000 unique per country) and lets you add every storefront.</p></details><details><summary>Can I get competitor reviews?</summary><p>Yes. Reviews are public, so any app on the App Store works: paste its link, ID or name.</p></details><details><summary>Does it include reviewer names?</summary><p>No. We leave reviewer names out on purpose. You get the rating, title, text, date, app version and country.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/app-store-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><p><b>App Store Reviews Scraper</b>: $0.15 per 1,000 reviews. Apify's free plan gives you $5 of credit every month, which covers over 30,000 reviews a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/app-store-reviews-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=app-store-reviews-scraper&amp;utm_content=export-app-store-reviews">Try App Store Reviews Scraper</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../export-google-play-reviews/"><img src="../assets/icons/api/google-play-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>Export Google Play reviews to CSV, with developer replies</h3><p>Export Google Play reviews to CSV with developer replies: Play Console, the free library, and an API for many apps and languages.</p></div></a><a class="card tile" href="../appfollow-alternative/"><img src="../assets/icons/api/app-store-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>AppFollow alternatives when you just need the reviews</h3><p>Need app reviews in a spreadsheet, not a review inbox? AppFollow vs pay-per-review APIs for App Store and Google Play.</p></div></a><a class="card tile" href="../shopify-app-reviews-export/"><img src="../assets/icons/api/shopify-app-store-reviews.png" alt="" width="56" height="56" loading="lazy"><div><h3>Export Shopify App Store reviews, and spot suspicious ones</h3><p>Export any Shopify app&#x27;s reviews to CSV with developer replies and merchant country, plus a free fake-review signal score.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56" loading="lazy"><div><h3>CSV &amp; Excel to JSON (free)</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

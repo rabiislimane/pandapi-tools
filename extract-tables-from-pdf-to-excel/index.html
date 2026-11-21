@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Extract Tables from PDF to Excel in Bulk (free way + API)</title>
+<meta name="description" content="Get tables out of PDFs into Excel or CSV: free ways for one file, and an API for hundreds. Borderless tables, multi-page joins, real numbers.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/extract-tables-from-pdf-to-excel/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Extract Tables from PDF to Excel in Bulk (free way + API)">
+<meta property="og:description" content="Get tables out of PDFs into Excel or CSV: free ways for one file, and an API for hundreds. Borderless tables, multi-page joins, real numbers.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/pdf-to-text-markdown.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Extract tables from PDFs to Excel, in bulk", "description": "How to get tables out of PDFs into Excel or CSV: the free way for one file, and an API for hundreds of bank statements, reports or invoices. Borderless tables, multi-page tables joined, numbers as numbers.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/extract-tables-from-pdf-to-excel/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/pdf-to-text-markdown.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I convert a PDF table to Excel for free?", "acceptedAnswer": {"@type": "Answer", "text": "In Microsoft 365, use Data › Get Data › From PDF. For text only, our free PDF to Markdown tool works in the browser. For many files, Apify's free $5 monthly credit covers about 1,600 PDFs through the API."}}, {"@type": "Question", "name": "Can it convert bank statements to Excel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Bank statements are usually borderless tables over several pages, which is the case the API was built for: columns from alignment, pages joined, amounts as real numbers."}}, {"@type": "Question", "name": "Does it work on scanned PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "It reads scanned pages with OCR in 12 languages and returns the text. Table cells are not detected on scanned pages yet."}}, {"@type": "Question", "name": "Can I get CSV instead of Excel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Set spreadsheetOutput to csv. You also get every table as JSON rows in the dataset."}}, {"@type": "Question", "name": "Are my PDFs stored?", "acceptedAnswer": {"@type": "Answer", "text": "Files are processed in your own Apify account and the results stay in your storage, which you can delete at any time."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Extract tables from PDFs to Excel, in bulk", "item": "https://rabiislimane.github.io/pandapi-tools/extract-tables-from-pdf-to-excel/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="64" height="64"><h1>Extract tables from PDFs to Excel, in bulk</h1></div>
+<p class="lede">Copying a PDF table into Excel usually gives you one long column, merged cells or numbers stored as text. Here's what works for one file, what works for Python users, and how to turn hundreds of PDFs into clean spreadsheets without touching each one.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>PDF to Excel, Markdown & Text API</b>: $3 per 1,000 PDFs (OCR pages $5 per 1,000). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pdf-to-text-markdown&amp;utm_content=extract-tables-from-pdf-to-excel">Try PDF to Excel, Markdown &amp; Text API</a></div>
+<section class="content prose">
+
+<h2>One PDF: try the free routes first</h2>
+<ul>
+<li><b>Excel itself</b> (Microsoft 365, Windows): Data › Get Data › From File › From PDF. Power Query lists the tables it finds. Good for clean, ruled tables; weak on borderless ones and tables that run across pages.</li>
+<li><b>Online converters</b> (Smallpdf, iLovePDF, Adobe): fine for one or two files a day on the free tiers, but you upload the document, and scanned PDFs need a paid plan.</li>
+<li><b>Python</b>: <code>camelot</code> (lattice mode for ruled tables, stream for whitespace tables) or <code>tabula-py</code> (needs Java). Great when you can tune them per layout; see <a href="../camelot-vs-tabula/">Camelot vs Tabula</a>.</li>
+</ul>
+<p>If you only need the text, our free <a href="../pdf-to-markdown/">PDF to Markdown converter</a> works in your browser with no upload and no limit.</p>
+
+<h2>Hundreds of PDFs: the API way</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pdf-to-text-markdown&amp;utm_content=extract-tables-from-pdf-to-excel">PDF to Excel API on Apify</a>.</li><li>Add PDF links, or upload a file in the console. Leave <b>tableDetection</b> on <code>all</code> (ruled and borderless tables).</li><li>Pick <b>xlsx</b> or <b>csv</b>. You get a workbook per PDF (one sheet per table) and a <code>tables.xlsx</code> with every table from the run, so 200 statements land in one file. Multi-page tables are joined and wrapped lines merged.</li><li>Run. Each PDF row has an <code>excelUrl</code> to the workbook and the tables as JSON, so you can also load them straight into a database.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~pdf-to-text-markdown/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;urls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://example.com/statements/2026-10.pdf&quot;
+    }
+  ],
+  &quot;tableDetection&quot;: &quot;all&quot;,
+  &quot;spreadsheetOutput&quot;: &quot;xlsx&quot;,
+  &quot;numbersAsNumbers&quot;: true,
+  &quot;includeMarkdown&quot;: false
+}&#x27;</code></pre>
+<pre><code class="language-python"># pip install apify-client
+from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;blueberry_rainstorm/pdf-to-text-markdown&quot;).call(run_input={
+    &quot;urls&quot;: [
+        {
+            &quot;url&quot;: &quot;https://example.com/report.pdf&quot;
+        }
+    ],
+    &quot;spreadsheetOutput&quot;: &quot;xlsx&quot;
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item[&quot;fileName&quot;], item[&quot;tableCount&quot;], item.get(&quot;excelUrl&quot;))</code></pre>
+
+<h2>What makes PDF tables hard (and what the API does about it)</h2>
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col">Problem</th><th scope="col">What usually happens</th><th scope="col">What the API does</th></tr></thead><tbody><tr><th scope="row">No ruling lines (bank statements)</th><td>Columns run together</td><td>Finds columns from text alignment</td></tr><tr><th scope="row">Table continues on the next page</th><td>Two tables, header repeated</td><td>Joins them into one table</td></tr><tr><th scope="row">Wrapped cell text</th><td>Extra half-empty rows</td><td>Merges wrapped lines into the cell</td></tr><tr><th scope="row">1,234.56 and (12.00)</th><td>Stored as text in Excel</td><td>Real numbers, negatives kept</td></tr><tr><th scope="row">Scanned pages</th><td>Nothing extracted</td><td>OCR text in 12 languages (tables from scans are not detected yet)</td></tr></tbody></table></div>
+
+<h2>What it costs</h2>
+<p>$3 per 1,000 PDFs, whatever their page count, plus $5 per 1,000 pages when OCR runs on scanned pages. 300 monthly bank statements cost $0.90. PDFs that fail are free. Apify's free $5 monthly credit covers about 1,600 PDFs.</p>
+
+<h2>Limits, honestly</h2>
+<ul>
+<li>Tables inside scanned images come out as OCR text, not as spreadsheet cells.</li>
+<li>Very complex headers (three levels, merged across groups) may need a quick fix in Excel.</li>
+<li>Password-protected PDFs need the password in the input.</li>
+</ul>
+
+<h2>Questions</h2>
+<details><summary>How do I convert a PDF table to Excel for free?</summary><p>In Microsoft 365, use Data › Get Data › From PDF. For text only, our free PDF to Markdown tool works in the browser. For many files, Apify's free $5 monthly credit covers about 1,600 PDFs through the API.</p></details><details><summary>Can it convert bank statements to Excel?</summary><p>Yes. Bank statements are usually borderless tables over several pages, which is the case the API was built for: columns from alignment, pages joined, amounts as real numbers.</p></details><details><summary>Does it work on scanned PDFs?</summary><p>It reads scanned pages with OCR in 12 languages and returns the text. Table cells are not detected on scanned pages yet.</p></details><details><summary>Can I get CSV instead of Excel?</summary><p>Yes. Set spreadsheetOutput to csv. You also get every table as JSON rows in the dataset.</p></details><details><summary>Are my PDFs stored?</summary><p>Files are processed in your own Apify account and the results stay in your storage, which you can delete at any time.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>PDF to Excel, Markdown & Text API</b>: $3 per 1,000 PDFs (OCR pages $5 per 1,000). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=pdf-to-text-markdown&amp;utm_content=extract-tables-from-pdf-to-excel">Try PDF to Excel, Markdown &amp; Text API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../camelot-vs-tabula/"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Camelot vs Tabula for PDF tables (and a no-code option)</h3><p>Camelot vs tabula-py for PDF tables: lattice vs stream, setup, borderless and multi-page tables, with code, plus a no-code option.</p></div></a><a class="card tile" href="../convertio-alternative/"><img src="../assets/icons/api/pdf-to-text-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>A Convertio alternative for data files that never uploads them</h3><p>A Convertio alternative for PDF, Markdown, JSON and CSV files that converts in your browser: no upload, no limits, free.</p></div></a><a class="card tile" href="../mcp-server-for-web-and-pdf/"><img src="../assets/icons/api/pandapi-mcp-server.png" alt="" width="56" height="56" loading="lazy"><div><h3>One MCP server for web pages, PDFs, screenshots, reviews and tenders</h3><p>One MCP server for Claude and Cursor with 14 data tools: web pages and PDFs to Markdown, screenshots, reviews, tenders, jobs and more.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../pdf-to-markdown/"><img src="../assets/icons/tool-pdf-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>PDF to Markdown (free)</h3><p>Convert PDF to Markdown in your browser: headings, lists and paragraphs kept, running headers and page numbers removed.</p></div></a><a class="card tile" href="../html-table-to-excel/"><img src="../assets/icons/tool-html-table-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>HTML Table to Excel (free)</h3><p>Copy a table from any web page and get a clean Excel .xlsx or CSV.</p></div></a><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

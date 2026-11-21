@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website to Markdown API for RAG and LLMs ($1 per 1,000 pages)</title>
+<meta name="description" content="Turn URLs, a sitemap or a whole docs site into clean Markdown for RAG and LLMs, with chunks and token counts. $1 per 1,000 pages, failed pages free.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/website-to-markdown-api/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Website to Markdown API for RAG and LLMs ($1 per 1,000 pages)">
+<meta property="og:description" content="Turn URLs, a sitemap or a whole docs site into clean Markdown for RAG and LLMs, with chunks and token counts. $1 per 1,000 pages, failed pages free.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/web-page-to-markdown.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Website to Markdown for RAG and LLMs: crawl, clean, chunk", "description": "Turn a URL list, a sitemap or a whole docs site into clean Markdown for RAG and LLMs. Main content only, JavaScript pages, token counts and chunks with heading paths. $1 per 1,000 pages.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/website-to-markdown-api/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/web-page-to-markdown.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I convert a whole website to Markdown?", "acceptedAnswer": {"@type": "Answer", "text": "Give the API the start URL with Crawl on, or the site's sitemap.xml. It follows links inside the scope you choose, converts each page's main content to Markdown and returns one row per page. Set maxPages to cap the run."}}, {"@type": "Question", "name": "Does it work on JavaScript sites?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. renderMode auto fetches plain HTML first and switches to a real browser only when a page needs JavaScript, so static pages stay fast and cheap and React or Vue pages still come out complete."}}, {"@type": "Question", "name": "How big should RAG chunks be?", "acceptedAnswer": {"@type": "Answer", "text": "500 to 1,000 tokens with about 100 tokens of overlap is a good start for most embedding models. Chunks are cut at headings first, and each one carries its heading path so the model knows the context."}}, {"@type": "Question", "name": "Can I keep my index in sync?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Schedule the run daily or weekly on Apify and compare each page's text or token count with what you stored. You pay $1 per 1,000 pages each time, failed pages free."}}, {"@type": "Question", "name": "Is there a free option?", "acceptedAnswer": {"@type": "Answer", "text": "For a few pages, use our free HTML to Markdown converter in the browser. For bulk runs, Apify's free plan gives $5 of credit a month, about 5,000 pages."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Website to Markdown for RAG and LLMs: crawl, clean, chunk", "item": "https://rabiislimane.github.io/pandapi-tools/website-to-markdown-api/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="64" height="64"><h1>Website to Markdown for RAG and LLMs: crawl, clean, chunk</h1></div>
+<p class="lede">You want a website in your vector database or in a prompt, not its menus, cookie banners and footers. Here is the free way for a few pages, and the API way for a whole site: a list of URLs, a sitemap or a crawl from one start page, returned as clean Markdown with chunks ready to embed.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>Website to Markdown API</b>: $1 per 1,000 pages. Apify's free plan gives you $5 of credit every month, which covers about 5,000 pages a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/web-page-to-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=web-page-to-markdown&amp;utm_content=website-to-markdown-api">Try Website to Markdown API</a></div>
+<section class="content prose">
+
+<h2>The free way: one page at a time</h2>
+<p>For a handful of pages you don't need an API. Open the page, select the article, copy it and paste it into our free <a href="../html-to-markdown/">HTML to Markdown converter</a>. It runs in your browser, keeps only the main content (the same Readability engine as Firefox Reader View) and gives you GitHub-flavored Markdown with tables and code blocks.</p>
+<p>In Python, <code>requests</code> + <code>readability-lxml</code> + <code>markdownify</code> does the same for static pages. It stops working when the site renders with JavaScript (React, Vue, most modern docs), when you need every page of a site, or when you need the text split into chunks for embeddings.</p>
+
+<h2>The API way: a whole site in one run</h2>
+<ol class="steps"><li>Open <a href="https://apify.com/blueberry_rainstorm/web-page-to-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=web-page-to-markdown&amp;utm_content=website-to-markdown-api">Website to Markdown on Apify</a> and sign in (the free plan needs no card).</li><li>Give it <b>URLs</b>, a <b>sitemap.xml</b>, or one start URL with <b>Crawl</b> on. Crawl scope <code>path</code> stays inside the section you start from, e.g. only <code>/docs/</code>.</li><li>Set <b>chunkSize</b> (for example 800 tokens) if you want RAG chunks. Each chunk carries its heading path and a link to the nearest #anchor, so answers can cite the exact section.</li><li>Run it. Download Markdown, JSON or CSV, or call it from code, n8n, Make or an AI agent.</li></ol>
+<p>Calling it from code returns the pages in the same HTTP response:</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~web-page-to-markdown/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;urls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://docs.python.org/3/tutorial/&quot;
+    }
+  ],
+  &quot;crawl&quot;: true,
+  &quot;crawlScope&quot;: &quot;path&quot;,
+  &quot;maxPages&quot;: 200,
+  &quot;chunkSize&quot;: 800
+}&#x27;</code></pre>
+<pre><code class="language-python"># pip install apify-client
+from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;blueberry_rainstorm/web-page-to-markdown&quot;).call(run_input={
+    &quot;sitemapUrls&quot;: [
+        {
+            &quot;url&quot;: &quot;https://react.dev/sitemap.xml&quot;
+        }
+    ],
+    &quot;maxPages&quot;: 500,
+    &quot;chunkSize&quot;: 800
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    for chunk in item.get(&quot;chunks&quot;, []):
+        print(chunk[&quot;headingPath&quot;], chunk[&quot;approxTokens&quot;], chunk[&quot;url&quot;])</code></pre>
+
+<h2>What you get for each page</h2>
+<p>One row per page: <code>url</code>, <code>title</code>, <code>description</code>, <code>language</code>, <code>canonicalUrl</code>, <code>markdown</code>, <code>wordCount</code>, <code>approxTokens</code>, whether a browser was needed, and (with chunking on) <code>chunks</code> with <code>headingPath</code>, <code>text</code>, <code>approxTokens</code>, <code>anchor</code> and <code>url</code>. Code blocks keep their language, tables stay Markdown tables, and docs tabs (MkDocs, Docusaurus, Mintlify, sphinx-design) can be "selected only" or "all tabs".</p>
+
+<h2>What it costs</h2>
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col">Job</th><th scope="col">Pages</th><th scope="col">Price</th></tr></thead><tbody><tr><th scope="row">Blog of 120 posts</th><td>120</td><td>$0.12</td></tr><tr><th scope="row">Docs site from its sitemap</th><td>500</td><td>$0.50</td></tr><tr><th scope="row">Nightly re-sync of 2,000 docs pages</th><td>60,000 a month</td><td>$60 a month</td></tr><tr><th scope="row">Pages that fail (404, blocked, timeout)</th><td>any</td><td>free</td></tr></tbody></table></div>
+<p>No subscription and no start fee. Apify's free plan includes $5 of usage a month, so about 5,000 pages a month cost you nothing.</p>
+
+<h2>Where it is not the right tool</h2>
+<ul>
+<li>Sites behind a login or a hard bot wall: the API doesn't log in or solve CAPTCHAs.</li>
+<li>Web <i>search</i> (find pages for a query): it converts pages you name or crawl; pair it with a search API.</li>
+<li>Structured extraction with an LLM ("give me the price as JSON"): it gives you clean Markdown to feed your own model.</li>
+</ul>
+<p>Comparing options? Read <a href="../firecrawl-alternative/">Firecrawl alternatives</a> and <a href="../jina-reader-alternative/">Jina Reader alternatives</a>.</p>
+
+<h2>Questions</h2>
+<details><summary>How do I convert a whole website to Markdown?</summary><p>Give the API the start URL with Crawl on, or the site's sitemap.xml. It follows links inside the scope you choose, converts each page's main content to Markdown and returns one row per page. Set maxPages to cap the run.</p></details><details><summary>Does it work on JavaScript sites?</summary><p>Yes. renderMode auto fetches plain HTML first and switches to a real browser only when a page needs JavaScript, so static pages stay fast and cheap and React or Vue pages still come out complete.</p></details><details><summary>How big should RAG chunks be?</summary><p>500 to 1,000 tokens with about 100 tokens of overlap is a good start for most embedding models. Chunks are cut at headings first, and each one carries its heading path so the model knows the context.</p></details><details><summary>Can I keep my index in sync?</summary><p>Yes. Schedule the run daily or weekly on Apify and compare each page's text or token count with what you stored. You pay $1 per 1,000 pages each time, failed pages free.</p></details><details><summary>Is there a free option?</summary><p>For a few pages, use our free HTML to Markdown converter in the browser. For bulk runs, Apify's free plan gives $5 of credit a month, about 5,000 pages.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>Website to Markdown API</b>: $1 per 1,000 pages. Apify's free plan gives you $5 of credit every month, which covers about 5,000 pages a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/web-page-to-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=web-page-to-markdown&amp;utm_content=website-to-markdown-api">Try Website to Markdown API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../firecrawl-alternative/"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Firecrawl alternatives: free, open-source and pay-per-page options</h3><p>Firecrawl vs Jina Reader, Crawl4AI, Apify and Pandapi: prices, free tiers, crawling and RAG chunks, and when Firecrawl is still the right pick.</p></div></a><a class="card tile" href="../jina-reader-alternative/"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Jina Reader alternatives: when one URL at a time isn&#x27;t enough</h3><p>Jina Reader converts one URL at a time.</p></div></a><a class="card tile" href="../mcp-server-for-web-and-pdf/"><img src="../assets/icons/api/pandapi-mcp-server.png" alt="" width="56" height="56" loading="lazy"><div><h3>One MCP server for web pages, PDFs, screenshots, reviews and tenders</h3><p>One MCP server for Claude and Cursor with 14 data tools: web pages and PDFs to Markdown, screenshots, reviews, tenders, jobs and more.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../html-to-markdown/"><img src="../assets/icons/tool-html-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>HTML to Markdown (free)</h3><p>Convert HTML to clean Markdown in your browser.</p></div></a><a class="card tile" href="../link-extractor/"><img src="../assets/icons/tool-link-extractor.png" alt="" width="56" height="56" loading="lazy"><div><h3>Link Extractor (free)</h3><p>Extract every link from a web page&#x27;s HTML, part of a page, plain text or a sitemap.xml.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

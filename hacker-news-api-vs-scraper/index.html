@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hacker News API vs Algolia vs a Scraper: Which to Use</title>
+<meta name="description" content="Hacker News Firebase API vs Algolia search vs a scraper: what each does, the 1,000-result cap, and when no-code is easier.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/hacker-news-api-vs-scraper/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hacker News API vs Algolia vs a Scraper: Which to Use">
+<meta property="og:description" content="Hacker News Firebase API vs Algolia search vs a scraper: what each does, the 1,000-result cap, and when no-code is easier.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/hacker-news-scraper.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Hacker News Firebase API vs Algolia search vs a scraper", "description": "Hacker News has two free APIs: Firebase (items by ID, live lists) and Algolia (search). What each does, their limits like the 1,000-result cap, and when a no-code scraper is easier.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/hacker-news-api-vs-scraper/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/hacker-news-scraper.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the Hacker News API free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, both the Firebase API and the Algolia search API are free and need no key."}}, {"@type": "Question", "name": "How do I get more than 1,000 search results?", "acceptedAnswer": {"@type": "Answer", "text": "Split the query by date ranges with numericFilters on created_at_i, or use a scraper that does it for you."}}, {"@type": "Question", "name": "Which API has comments?", "acceptedAnswer": {"@type": "Answer", "text": "Both. Firebase gives comment trees by item ID; Algolia can search comments by keyword."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Hacker News Firebase API vs Algolia search vs a scraper", "item": "https://rabiislimane.github.io/pandapi-tools/hacker-news-api-vs-scraper/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>Comparisons</span></nav>
+<div class="hero"><img src="../assets/icons/api/hacker-news-scraper.png" alt="" width="64" height="64"><h1>Hacker News Firebase API vs Algolia search vs a scraper</h1></div>
+<p class="lede">Both official HN APIs are free and need no key. They solve different problems, and neither exports a CSV for you.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team · We make one of the tools compared here, so we list where the others are better too.</p>
+<div class="card cta"><img src="../assets/icons/api/hacker-news-scraper.png" alt="" width="56" height="56" loading="lazy"><p><b>Hacker News Scraper</b>: $0.20 per 1,000 items. Apify's free plan gives you $5 of credit every month, which covers about 25,000 items a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/hacker-news-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=hacker-news-scraper&amp;utm_content=hacker-news-api-vs-scraper">Try Hacker News Scraper</a></div>
+<section class="content prose">
+
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col"></th><th scope="col">Firebase API</th><th scope="col">Algolia HN Search</th><th scope="col">Pandapi HN Scraper</th></tr></thead><tbody><tr><th scope="row">Endpoint</th><td>hacker-news.firebaseio.com/v0</td><td>hn.algolia.com/api/v1</td><td>Apify actor</td></tr><tr><th scope="row">Best for</th><td>Live front page, one item by ID, comment trees</td><td>Keyword search with date and points filters</td><td>Exports and schedules without code</td></tr><tr><th scope="row">Search</th><td>No</td><td>Yes</td><td>Yes (uses Algolia)</td></tr><tr><th scope="row">Limits</th><td>One item per request</td><td>1,000 hits per query</td><td>Pages past 1,000 for you</td></tr><tr><th scope="row">Output</th><td>JSON per item</td><td>JSON pages</td><td>CSV, Excel, JSON</td></tr><tr><th scope="row">Cost</th><td>Free</td><td>Free</td><td>$0.20 per 1,000 items</td></tr></tbody></table></div>
+
+<h2>Firebase: the live site</h2>
+<pre><code class="language-bash">curl https://hacker-news.firebaseio.com/v0/topstories.json
+curl https://hacker-news.firebaseio.com/v0/item/8863.json</code></pre>
+<h2>Algolia: search</h2>
+<pre><code class="language-bash">curl &quot;https://hn.algolia.com/api/v1/search?query=sqlite&amp;tags=show_hn&amp;numericFilters=points&gt;100&quot;</code></pre>
+<h2>No code</h2>
+<p>When you want "every Show HN about AI agents since June with 50+ points, as a spreadsheet, every Monday", the <a href="https://apify.com/blueberry_rainstorm/hacker-news-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=hacker-news-scraper&amp;utm_content=hacker-news-api-vs-scraper">Hacker News Scraper</a> does the paging and export.</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~hacker-news-scraper/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;searchQuery&quot;: &quot;AI agents&quot;,
+  &quot;contentType&quot;: &quot;show_hn&quot;,
+  &quot;minPoints&quot;: 50,
+  &quot;dateFrom&quot;: &quot;2026-06-01&quot;,
+  &quot;maxItems&quot;: 1000
+}&#x27;</code></pre>
+<p class="sources">Sources, checked 21 November 2026: <a href="https://github.com/HackerNews/API" rel="nofollow noopener">HN Firebase API</a>, <a href="https://hn.algolia.com/api" rel="nofollow noopener">Algolia HN Search API</a>. Prices change; check their pages before you buy.</p>
+
+<h2>Questions</h2>
+<details><summary>Is the Hacker News API free?</summary><p>Yes, both the Firebase API and the Algolia search API are free and need no key.</p></details><details><summary>How do I get more than 1,000 search results?</summary><p>Split the query by date ranges with numericFilters on created_at_i, or use a scraper that does it for you.</p></details><details><summary>Which API has comments?</summary><p>Both. Firebase gives comment trees by item ID; Algolia can search comments by keyword.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/hacker-news-scraper.png" alt="" width="56" height="56" loading="lazy"><p><b>Hacker News Scraper</b>: $0.20 per 1,000 items. Apify's free plan gives you $5 of credit every month, which covers about 25,000 items a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/hacker-news-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=hacker-news-scraper&amp;utm_content=hacker-news-api-vs-scraper">Try Hacker News Scraper</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../hacker-news-api-export/"><img src="../assets/icons/api/hacker-news-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>Export Hacker News stories, comments and jobs to CSV</h3><p>Export Hacker News stories, comments, Show HN and job posts to CSV.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

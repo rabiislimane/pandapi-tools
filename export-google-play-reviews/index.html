@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export Google Play Reviews to CSV (developer replies included)</title>
+<meta name="description" content="Export Google Play reviews to CSV with developer replies: Play Console, the free library, and an API for many apps and languages.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/export-google-play-reviews/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Export Google Play Reviews to CSV (developer replies included)">
+<meta property="og:description" content="Export Google Play reviews to CSV with developer replies: Play Console, the free library, and an API for many apps and languages.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/google-play-reviews-scraper.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Export Google Play reviews to CSV, with developer replies", "description": "Export Google Play Store reviews for any Android app: Play Console's CSV for your own app, the free google-play-scraper library, and an API with many apps and languages, filters, monitoring and a free summary. $0.10 per 1,000 reviews.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/export-google-play-reviews/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/google-play-reviews-scraper.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I export Google Play reviews?", "acceptedAnswer": {"@type": "Answer", "text": "For your own app, use Play Console's review download or monthly reports. For any app, use the google-play-scraper library or the Pandapi API, which handles several apps and languages in one run for $0.10 per 1,000 reviews."}}, {"@type": "Question", "name": "Can I get reviews in all languages?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Google Play splits reviews by language; list the languages you need and the API merges them without duplicates."}}, {"@type": "Question", "name": "Do I get developer replies?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with the reply text and date, and the free summary reports reply rate and median reply time."}}, {"@type": "Question", "name": "How do I monitor new reviews?", "acceptedAnswer": {"@type": "Answer", "text": "Turn on onlyNewReviews and schedule the run on Apify. Later runs return only reviews written since the previous run, so you pay only for new ones."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "Export Google Play reviews to CSV, with developer replies", "item": "https://rabiislimane.github.io/pandapi-tools/export-google-play-reviews/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/google-play-reviews-scraper.png" alt="" width="64" height="64"><h1>Export Google Play reviews to CSV, with developer replies</h1></div>
+<p class="lede">Play Console exports your own reviews as monthly CSV files. For competitor apps, or several languages at once, you need something else. Here's the free route, where it breaks, and the no-code route.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/google-play-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><p><b>Google Play Reviews Scraper</b>: $0.10 per 1,000 reviews. Apify's free plan gives you $5 of credit every month, which covers about 50,000 reviews a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/google-play-reviews-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=google-play-reviews-scraper&amp;utm_content=export-google-play-reviews">Try Google Play Reviews Scraper</a></div>
+<section class="content prose">
+
+<h2>Free way 1: Play Console (your own app)</h2>
+<p>Play Console › Ratings and reviews › Reviews has a download, and monthly review reports land in your Cloud Storage bucket. One CSV per app per month, your apps only.</p>
+
+<h2>Free way 2: the google-play-scraper library</h2>
+<pre><code class="language-python">pip install google-play-scraper
+
+from google_play_scraper import Sort, reviews
+result, _ = reviews(&quot;com.duolingo&quot;, lang=&quot;en&quot;, country=&quot;us&quot;, sort=Sort.NEWEST, count=2000)</code></pre>
+<p>Works for any public app. Where it breaks: one language per call (German reviews need a second pass), no memory between runs, and when Google changes its page format the library breaks until someone patches it. You also keep it running yourself.</p>
+
+<h2>The API way</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/google-play-reviews-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=google-play-reviews-scraper&amp;utm_content=export-google-play-reviews">Google Play Reviews Scraper on Apify</a>.</li><li>Paste Play Store links, package IDs or app names. Add several languages and countries: results are merged without duplicates.</li><li>Filter by stars, date, keywords or app version, so you only pay for the reviews you need.</li><li>Turn on <b>onlyNewReviews</b> and schedule it: each run returns only reviews written since the last one.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~google-play-reviews-scraper/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;apps&quot;: [
+    &quot;https://play.google.com/store/apps/details?id=com.duolingo&quot;
+  ],
+  &quot;languages&quot;: [
+    &quot;en&quot;,
+    &quot;de&quot;,
+    &quot;fr&quot;
+  ],
+  &quot;countries&quot;: [
+    &quot;us&quot;
+  ],
+  &quot;maxReviewsPerApp&quot;: 2000,
+  &quot;minRating&quot;: 1,
+  &quot;maxRating&quot;: 3
+}&#x27;</code></pre>
+<pre><code class="language-python"># pip install apify-client
+from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;blueberry_rainstorm/google-play-reviews-scraper&quot;).call(run_input={
+    &quot;apps&quot;: [
+        &quot;com.spotify.music&quot;
+    ],
+    &quot;maxReviewsPerApp&quot;: 1000,
+    &quot;keywords&quot;: [
+        &quot;crash&quot;,
+        &quot;battery&quot;
+    ]
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    if item.get(&quot;type&quot;) == &quot;review&quot;:
+        print(item[&quot;rating&quot;], item[&quot;text&quot;][:80], item.get(&quot;developerReply&quot;))</code></pre>
+
+<h2>What you get</h2>
+<p>Rating, text, date, app version, thumbs-up count, the developer's reply and its date, language and country. Optional app details (installs, rating histogram, Data safety, similar apps), search and top charts. A free per-app summary shows rating by version and language, developer reply rate and median reply time, and top complaint phrases. Reviewer names are not stored.</p>
+
+<h2>What it costs</h2>
+<p>$0.10 per 1,000 reviews, no start fee. 10,000 reviews cost $1. Apify's free credit covers about 50,000 reviews a month.</p>
+
+<h2>Questions</h2>
+<details><summary>How do I export Google Play reviews?</summary><p>For your own app, use Play Console's review download or monthly reports. For any app, use the google-play-scraper library or the Pandapi API, which handles several apps and languages in one run for $0.10 per 1,000 reviews.</p></details><details><summary>Can I get reviews in all languages?</summary><p>Yes. Google Play splits reviews by language; list the languages you need and the API merges them without duplicates.</p></details><details><summary>Do I get developer replies?</summary><p>Yes, with the reply text and date, and the free summary reports reply rate and median reply time.</p></details><details><summary>How do I monitor new reviews?</summary><p>Turn on onlyNewReviews and schedule the run on Apify. Later runs return only reviews written since the previous run, so you pay only for new ones.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/google-play-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><p><b>Google Play Reviews Scraper</b>: $0.10 per 1,000 reviews. Apify's free plan gives you $5 of credit every month, which covers about 50,000 reviews a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/google-play-reviews-scraper?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=google-play-reviews-scraper&amp;utm_content=export-google-play-reviews">Try Google Play Reviews Scraper</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../export-app-store-reviews/"><img src="../assets/icons/api/app-store-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>Export App Store reviews to CSV or Excel, for any app</h3><p>Export App Store reviews to CSV for any app: the free 500-review RSS way, and an API for every country with filters and monitoring.</p></div></a><a class="card tile" href="../google-play-scraper-alternative/"><img src="../assets/icons/api/google-play-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>google-play-scraper vs hosted Google Play review scrapers</h3><p>google-play-scraper vs hosted Google Play review scrapers: maintenance, languages, monitoring, and Apify options by users and price.</p></div></a><a class="card tile" href="../appfollow-alternative/"><img src="../assets/icons/api/app-store-reviews-scraper.png" alt="" width="56" height="56" loading="lazy"><div><h3>AppFollow alternatives when you just need the reviews</h3><p>Need app reviews in a spreadsheet, not a review inbox? AppFollow vs pay-per-review APIs for App Store and Google Play.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56" loading="lazy"><div><h3>CSV &amp; Excel to JSON (free)</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

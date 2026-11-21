@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDFShift and wkhtmltopdf Alternatives for HTML to PDF</title>
+<meta name="description" content="HTML to PDF options compared: wkhtmltopdf, Puppeteer, Gotenberg, PDFShift, DocRaptor and a $3 per 1,000 PDF API with templates.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/pdfshift-alternative/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDFShift and wkhtmltopdf Alternatives for HTML to PDF">
+<meta property="og:description" content="HTML to PDF options compared: wkhtmltopdf, Puppeteer, Gotenberg, PDFShift, DocRaptor and a $3 per 1,000 PDF API with templates.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/html-to-pdf.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "PDFShift, DocRaptor and wkhtmltopdf alternatives for HTML to PDF", "description": "HTML to PDF options compared: wkhtmltopdf (archived), Puppeteer/Playwright, Gotenberg, PDFShift's credit plans and a pay-per-PDF API with templates. Price per 1,000 PDFs and when each fits.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/pdfshift-alternative/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/html-to-pdf.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What replaced wkhtmltopdf?", "acceptedAnswer": {"@type": "Answer", "text": "Most projects moved to headless Chrome (Puppeteer or Playwright), Gotenberg for a self-hosted API, or a hosted HTML to PDF API."}}, {"@type": "Question", "name": "Is PDFShift free?", "acceptedAnswer": {"@type": "Answer", "text": "It gives 50 free credits a month, per its FAQ, with paid plans for more."}}, {"@type": "Question", "name": "How do I make 1,000 invoices as PDFs?", "acceptedAnswer": {"@type": "Answer", "text": "Write one HTML invoice template with Handlebars placeholders, put the 1,000 invoices in a JSON array, and run the HTML to PDF API. It costs $3."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "PDFShift, DocRaptor and wkhtmltopdf alternatives for HTML to PDF", "item": "https://rabiislimane.github.io/pandapi-tools/pdfshift-alternative/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>Comparisons</span></nav>
+<div class="hero"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="64" height="64"><h1>PDFShift, DocRaptor and wkhtmltopdf alternatives for HTML to PDF</h1></div>
+<p class="lede">wkhtmltopdf was the default for years; it's archived now and its old WebKit doesn't understand modern CSS. The replacements are headless Chrome (do it yourself), a hosted API with a monthly plan, or a pay-per-PDF API.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team · We make one of the tools compared here, so we list where the others are better too.</p>
+<div class="card cta"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="56" height="56" loading="lazy"><p><b>HTML to PDF API</b>: $3 per 1,000 PDFs (any page count). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/html-to-pdf?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=html-to-pdf&amp;utm_content=pdfshift-alternative">Try HTML to PDF API</a></div>
+<section class="content prose">
+
+<h2>Options</h2>
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col">Option</th><th scope="col">Engine</th><th scope="col">Cost</th><th scope="col">Good for</th></tr></thead><tbody><tr><th scope="row">wkhtmltopdf</th><td>Old Qt WebKit</td><td>Free</td><td>Legacy only: the project is archived; flexbox and grid don't work</td></tr><tr><th scope="row">Puppeteer / Playwright</th><td>Chrome</td><td>Free + your servers</td><td>Developers who can run browsers</td></tr><tr><th scope="row">Gotenberg</th><td>Chrome + LibreOffice in Docker</td><td>Free + your servers</td><td>Self-hosted API</td></tr><tr><th scope="row">WeasyPrint</th><td>Own engine</td><td>Free</td><td>Print-style CSS, no JavaScript</td></tr><tr><th scope="row">PDFShift</th><td>Chrome</td><td>Free 50 credits a month; paid plans from about $9 a month for 500</td><td>Real-time conversions from your app</td></tr><tr><th scope="row">DocRaptor</th><td>Prince</td><td>Paid plans</td><td>Complex print layouts (footnotes, PDF/UA)</td></tr><tr><th scope="row">Pandapi HTML to PDF</th><td>Chrome</td><td>$3 per 1,000 PDFs, any page count</td><td>Batches: URLs, HTML, or template + JSON rows</td></tr></tbody></table></div>
+
+<h2>What makes Pandapi different</h2>
+<ul>
+<li><b>Template + data:</b> a Handlebars template and an array of rows give one PDF per row, named from your data (invoices, certificates, reports).</li>
+<li><b>No plan:</b> 500 invoices a month cost $1.50; failed documents are free.</li>
+<li><b>Page count doesn't matter:</b> a 40-page report costs the same as a 1-page invoice.</li>
+</ul>
+<p>Choose PDFShift or DocRaptor if you convert on demand inside a web request and need an answer in a second, or if you need Prince-level print typography.</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~html-to-pdf/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;urls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://example.com/report&quot;
+    }
+  ],
+  &quot;pageFormat&quot;: &quot;A4&quot;,
+  &quot;pageNumbers&quot;: true,
+  &quot;hideCookieBanners&quot;: true
+}&#x27;</code></pre>
+<p>Start with the <a href="https://apify.com/blueberry_rainstorm/html-to-pdf?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=html-to-pdf&amp;utm_content=pdfshift-alternative">HTML to PDF API</a>.</p>
+<p class="sources">Sources, checked 21 November 2026: <a href="https://pdfshift.io/faq" rel="nofollow noopener">PDFShift FAQ</a>, <a href="https://wkhtmltopdf.org/status.html" rel="nofollow noopener">wkhtmltopdf status</a>. Prices change; check their pages before you buy.</p>
+
+<h2>Questions</h2>
+<details><summary>What replaced wkhtmltopdf?</summary><p>Most projects moved to headless Chrome (Puppeteer or Playwright), Gotenberg for a self-hosted API, or a hosted HTML to PDF API.</p></details><details><summary>Is PDFShift free?</summary><p>It gives 50 free credits a month, per its FAQ, with paid plans for more.</p></details><details><summary>How do I make 1,000 invoices as PDFs?</summary><p>Write one HTML invoice template with Handlebars placeholders, put the 1,000 invoices in a JSON array, and run the HTML to PDF API. It costs $3.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="56" height="56" loading="lazy"><p><b>HTML to PDF API</b>: $3 per 1,000 PDFs (any page count). Apify's free plan gives you $5 of credit every month, which covers about 1,600 PDFs a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/html-to-pdf?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=html-to-pdf&amp;utm_content=pdfshift-alternative">Try HTML to PDF API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../html-to-pdf-api/"><img src="../assets/icons/api/html-to-pdf.png" alt="" width="56" height="56" loading="lazy"><div><h3>HTML to PDF API: web pages, HTML and invoice templates in bulk</h3><p>Turn URLs, HTML or a template plus JSON rows into PDFs: invoices, certificates, reports.</p></div></a><a class="card tile" href="../screenshotone-alternative/"><img src="../assets/icons/api/website-screenshot.png" alt="" width="56" height="56" loading="lazy"><div><h3>ScreenshotOne alternatives for bulk website screenshots</h3><p>ScreenshotOne vs Apify Screenshot URL vs Pandapi: free tiers, price per 1,000 shots, mobile, cookie banners, real-time vs batch.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../markdown-to-pdf/"><img src="../assets/icons/tool-markdown-to-pdf.png" alt="" width="56" height="56" loading="lazy"><div><h3>Markdown to PDF (free)</h3><p>Convert Markdown to a clean PDF in your browser: real selectable text, code colors, tables, images, clickable table of contents and page numbers.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>
