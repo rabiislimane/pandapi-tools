@@ -36,4 +36,6 @@ META = {
     "hacker-news-api-vs-scraper": "Hacker News Firebase API vs Algolia search vs a scraper: what each does, the 1,000-result cap, and when no-code is easier.",
     "firecrawl-mcp-alternative": "MCP servers for web data compared: Firecrawl MCP, Apify, Bright Data and Pandapi. Tools, pricing, context size and fit.",
     "ted-tenders-api": "Use the free TED (Tenders Electronic Daily) search API with a working Python example, or get EU tenders as a daily feed with CPV filters. $2 per 1,000.",
+    "contracts-finder-api": "Use the free UK Contracts Finder API (OCDS, no key) with a working Python example, or get Contracts Finder and Find a Tender as one daily feed.",
+    "llms-txt-generator": "Create llms.txt for your site: the format, a free Python script that builds it from your sitemap, and an API that also writes llms-full.txt.",
 }

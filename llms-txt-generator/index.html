@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>llms.txt Generator: Create llms.txt and llms-full.txt from a Sitemap</title>
+<meta name="description" content="Create llms.txt for your site: the format, a free Python script that builds it from your sitemap, and an API that also writes llms-full.txt.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/llms-txt-generator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="llms.txt Generator: Create llms.txt and llms-full.txt from a Sitemap">
+<meta property="og:description" content="Create llms.txt for your site: the format, a free Python script that builds it from your sitemap, and an API that also writes llms-full.txt.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/web-page-to-markdown.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "llms.txt generator: make llms.txt and llms-full.txt for any website", "description": "How to create an llms.txt file for your website: the format, a free Python script that builds one from your sitemap, and an API that also writes llms-full.txt with every page as clean Markdown. $1 per 1,000 pages.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/llms-txt-generator/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/web-page-to-markdown.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I create an llms.txt file?", "acceptedAnswer": {"@type": "Answer", "text": "Write a Markdown file with your site name as an H1, a one-line summary in a blockquote, and a list of your key pages with a short description each, then publish it at /llms.txt. A script can build it from your sitemap, and the Website to Markdown API generates it together with llms-full.txt."}}, {"@type": "Question", "name": "What is the difference between llms.txt and llms-full.txt?", "acceptedAnswer": {"@type": "Answer", "text": "llms.txt is a short index: name, summary and links. llms-full.txt contains the full text of the pages as Markdown in one file."}}, {"@type": "Question", "name": "Is there a free llms.txt generator?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: write it by hand, or run the Python script above on your sitemap. The API version costs $1 per 1,000 pages, and Apify's free credit covers about 5,000 pages a month."}}, {"@type": "Question", "name": "Do ChatGPT and Google use llms.txt?", "acceptedAnswer": {"@type": "Answer", "text": "llms.txt is a proposal, and support varies by tool. It's most useful for docs that developers paste into AI assistants, and it doesn't replace a normal sitemap or robots.txt."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "llms.txt generator: make llms.txt and llms-full.txt for any website", "item": "https://rabiislimane.github.io/pandapi-tools/llms-txt-generator/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../email-extractor/">Email Extractor</a><a href="../word-to-markdown/">Word to Markdown</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="64" height="64"><h1>llms.txt generator: make llms.txt and llms-full.txt for any website</h1></div>
+<p class="lede">llms.txt is a small Markdown file at the root of a site that tells AI tools what the site is and which pages matter. You can write it by hand, script it from your sitemap for free, or generate it together with llms-full.txt (all your pages as Markdown) in one run.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>Website to Markdown API</b>: $1 per 1,000 pages. Apify's free plan gives you $5 of credit every month, which covers about 5,000 pages a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/web-page-to-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=web-page-to-markdown&amp;utm_content=llms-txt-generator">Try Website to Markdown API</a></div>
+<section class="content prose">
+
+<h2>What goes in an llms.txt file</h2>
+<p>The <a href="https://llmstxt.org/">llms.txt proposal</a> asks for a Markdown file at <code>/llms.txt</code> with an H1 (the site or project name), a short summary in a blockquote, then sections of links with one line each. A common companion is <code>llms-full.txt</code>: the content of all the pages in one Markdown file, so a model can read the docs in one go.</p>
+<p>It's a proposal, not a standard. Some AI tools and docs platforms read it; many crawlers don't. It costs little to publish, and it's most useful for docs sites that people paste into coding assistants.</p>
+
+<h2>Free way 1: write it by hand</h2>
+<p>For a small site, open a text file, write the name, one sentence about the site and a list of your 10 to 20 most useful pages. Ten minutes, and you control every word.</p>
+
+<h2>Free way 2: build it from your sitemap with Python</h2>
+<p>This reads every URL in your sitemap, takes each page's title and meta description, and writes <code>llms.txt</code>:</p>
+<pre><code class="language-python">import html, re, requests
+
+SITEMAP = &quot;https://example.com/sitemap.xml&quot;
+urls = re.findall(r&quot;&lt;loc&gt;(.*?)&lt;/loc&gt;&quot;, requests.get(SITEMAP, timeout=30).text)
+
+def title_and_description(url):
+    page = requests.get(url, timeout=30).text
+    t = re.search(r&quot;&lt;title[^&gt;]*&gt;(.*?)&lt;/title&gt;&quot;, page, re.S)
+    d = re.search(r&#x27;&lt;meta[^&gt;]+name=&quot;description&quot;[^&gt;]+content=&quot;([^&quot;]*)&quot;&#x27;, page)
+    return (html.unescape(t.group(1).strip()) if t else url), (html.unescape(d.group(1)) if d else &quot;&quot;)
+
+pages = [(u, *title_and_description(u)) for u in urls]
+home_title, home_desc = pages[0][1], pages[0][2]
+lines = [f&quot;# {home_title}&quot;, &quot;&quot;, f&quot;&gt; {home_desc}&quot;, &quot;&quot;, &quot;## Pages&quot;, &quot;&quot;]
+lines += [f&quot;- [{t}]({u})&quot; + (f&quot;: {d}&quot; if d else &quot;&quot;) for u, t, d in pages[1:]]
+open(&quot;llms.txt&quot;, &quot;w&quot;).write(&quot;\n&quot;.join(lines) + &quot;\n&quot;)</code></pre>
+<p>We ran it on this site's own sitemap: 46 pages in 21.7 seconds. Where it stops: it fetches one page at a time, doesn't follow sitemap indexes, gets nothing useful from pages that need JavaScript to render, puts everything in one section, and doesn't make <code>llms-full.txt</code>, which needs each page's main content turned into clean Markdown.</p>
+
+<h2>The API way: llms.txt and llms-full.txt in one run</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/web-page-to-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=web-page-to-markdown&amp;utm_content=llms-txt-generator">Website to Markdown API on Apify</a>.</li><li>Paste your sitemap URL (or a start page and turn on Crawl), and set Max pages.</li><li>Turn on <b>llmsTxt</b> and click Start.</li><li>Download <code>llms.txt</code> and <code>llms-full.txt</code> from the run's key-value store (Storage tab). Each page is also in the dataset as Markdown, with its title, description and token count.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~web-page-to-markdown/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;sitemapUrls&quot;: [
+    {
+      &quot;url&quot;: &quot;https://docs.example.com/sitemap.xml&quot;
+    }
+  ],
+  &quot;maxPages&quot;: 500,
+  &quot;llmsTxt&quot;: true
+}&#x27;</code></pre>
+<p>What a generated <code>llms.txt</code> looks like (from a test run on one Python docs page, 24 November 2026):</p>
+<pre><code class="language-markdown"># Python documentation
+
+&gt; Source code: Lib/json/__init__.py JSON (JavaScript Object Notation), specified by RFC 7159 ...
+
+## Pages
+
+- [json — JSON encoder and decoder](https://docs.python.org/3/library/json.html): Source code: Lib/json/__init__.py JSON (JavaScript Object Notation) ...</code></pre>
+<p>Pages are grouped into sections by their first folder below the folders all pages share (for example <code>/guide/</code> and <code>/api/</code>), and the summary comes from the start page's description. Edit the result by hand before you publish it; it's a good first draft, not a finished text.</p>
+
+<h2>What it costs</h2>
+<p>$1 per 1,000 pages converted. The llms.txt and llms-full.txt files cost nothing extra. A 300-page docs site costs $0.30. Apify's free $5 monthly credit covers about 5,000 pages.</p>
+
+<h2>Limits</h2>
+<ul>
+<li>Pages behind a login are not read.</li>
+<li>The summary is only as good as your start page's meta description; rewrite it if it's vague.</li>
+<li>Publishing the file is up to you: put both files at your site root (e.g. <code>https://example.com/llms.txt</code>).</li>
+</ul>
+<p>Only need one page as Markdown? Use the free <a href="../html-to-markdown/">HTML to Markdown</a> converter, or read the <a href="../website-to-markdown-api/">website to Markdown API</a> guide for RAG.</p>
+
+<h2>Questions</h2>
+<details><summary>How do I create an llms.txt file?</summary><p>Write a Markdown file with your site name as an H1, a one-line summary in a blockquote, and a list of your key pages with a short description each, then publish it at /llms.txt. A script can build it from your sitemap, and the Website to Markdown API generates it together with llms-full.txt.</p></details><details><summary>What is the difference between llms.txt and llms-full.txt?</summary><p>llms.txt is a short index: name, summary and links. llms-full.txt contains the full text of the pages as Markdown in one file.</p></details><details><summary>Is there a free llms.txt generator?</summary><p>Yes: write it by hand, or run the Python script above on your sitemap. The API version costs $1 per 1,000 pages, and Apify's free credit covers about 5,000 pages a month.</p></details><details><summary>Do ChatGPT and Google use llms.txt?</summary><p>llms.txt is a proposal, and support varies by tool. It's most useful for docs that developers paste into AI assistants, and it doesn't replace a normal sitemap or robots.txt.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><p><b>Website to Markdown API</b>: $1 per 1,000 pages. Apify's free plan gives you $5 of credit every month, which covers about 5,000 pages a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/web-page-to-markdown?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=web-page-to-markdown&amp;utm_content=llms-txt-generator">Try Website to Markdown API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../website-to-markdown-api/"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Website to Markdown for RAG and LLMs: crawl, clean, chunk</h3><p>Turn URLs, a sitemap or a whole docs site into clean Markdown for RAG and LLMs, with chunks and token counts.</p></div></a><a class="card tile" href="../firecrawl-alternative/"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Firecrawl alternatives: free, open-source and pay-per-page options</h3><p>Firecrawl vs Jina Reader, Crawl4AI, Apify and Pandapi: prices, free tiers, crawling and RAG chunks, and when Firecrawl is still the right pick.</p></div></a><a class="card tile" href="../jina-reader-alternative/"><img src="../assets/icons/api/web-page-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>Jina Reader alternatives: when one URL at a time isn&#x27;t enough</h3><p>Jina Reader converts one URL at a time.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../html-to-markdown/"><img src="../assets/icons/tool-html-to-markdown.png" alt="" width="56" height="56" loading="lazy"><div><h3>HTML to Markdown (free)</h3><p>Convert HTML to clean Markdown in your browser.</p></div></a><a class="card tile" href="../link-extractor/"><img src="../assets/icons/tool-link-extractor.png" alt="" width="56" height="56" loading="lazy"><div><h3>Link Extractor (free)</h3><p>Extract every link from a web page&#x27;s HTML, part of a page, plain text or a sitemap.xml.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

@@ -757,3 +757,149 @@ page(
     related=["government-tenders-api", "sam-gov-api-alternative"],
     free_tools=["json-to-excel", "csv-to-json"],
 )
+
+# UK Contracts Finder API (added 2026-11-23; both UK OCDS endpoints checked live that day) ---------
+S = "contracts-finder-api"
+CF_PY = """import requests
+
+url = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search"
+params = {"publishedFrom": "2026-11-16T00:00:00", "publishedTo": "2026-11-23T00:00:00",
+          "stages": "tender", "limit": 100}
+keywords = ["software", "cyber", "digital", "cloud"]
+while url:
+    data = requests.get(url, params=params, timeout=60).json()
+    for r in data["releases"]:
+        t = r["tender"]
+        text = (t.get("title", "") + " " + t.get("description", "")).lower()
+        if any(k in text for k in keywords):
+            print(t.get("tenderPeriod", {}).get("endDate"), r["buyer"]["name"], "|", t["title"])
+    url, params = data.get("links", {}).get("next"), None  # the next link already has the filters"""
+page(
+    slug=S, tool="public-tenders-feed",
+    title="Contracts Finder API: UK Public Contracts in Python (Free)",
+    h1="UK Contracts Finder API: how to pull UK public contracts from code",
+    description="How to use the free UK Contracts Finder API (OCDS search, no key) with a working Python example, how it differs from Find a Tender, and a simpler daily feed of both with keyword and CPV filters. $2 per 1,000 notices.",
+    lede="The UK publishes public sector opportunities on two services: Contracts Finder for lower-value contracts and Find a Tender for contracts above the thresholds. Both have free APIs with no key. This page shows a working request, what to watch for, and how to get both as one daily feed.",
+    body=f"""
+<h2>The free way: the Contracts Finder OCDS search</h2>
+<p>Contracts Finder serves notices as <a href="https://standard.open-contracting.org/">Open Contracting (OCDS)</a> JSON at <code>/Published/Notices/OCDS/Search</code>. You filter by publication dates and stage, and page through the results with the <code>links.next</code> cursor. There is no keyword parameter on this endpoint, so the example filters titles and descriptions in Python. No API key is needed (we checked on 23 November 2026).</p>
+{code(CF_PY, 'python')}
+
+<h2>Contracts Finder or Find a Tender?</h2>
+{table(["", "Contracts Finder", "Find a Tender"], [
+    ["Covers", "Lower-value contracts from central government and the wider public sector", "Contracts above the UK procurement thresholds"],
+    ["Free API", "OCDS search, no key", "OCDS release packages (<code>/api/1.0/ocdsReleasePackages</code>), no key"],
+    ["Filters", "Published dates, stage", "Updated dates, stage"],
+    ["Watch for", "No keyword filter; buyers can publish the same opportunity on both", "Rate limits: too many requests return HTTP 429 and a wait"],
+])}
+<p>If you bid on UK work, you usually want both: the bigger tenders are on Find a Tender, the smaller and local ones on Contracts Finder.</p>
+
+<h2>The feed way: both UK services, keywords and only new notices</h2>
+{steps([
+    f"Open the {a('public-tenders-feed', S, 'Government Tenders API on Apify')}.",
+    "Set <code>sources</code> to <code>[&quot;uk-cf&quot;, &quot;uk-fts&quot;]</code> and add your keywords, and optionally CPV prefixes, a minimum value and the days left before the deadline.",
+    "Turn on <b>onlyNew</b> with a <b>stateKey</b> so each run returns only notices you haven't seen, and schedule it daily.",
+    "Send results to Google Sheets, Slack or email with Apify's integrations, or read them from n8n, Make or code.",
+])}
+{curl("public-tenders-feed", {"sources": ["uk-cf", "uk-fts"], "keywords": ["software", "cyber security", "digital"], "noticeTypes": ["tender", "pre-notice"], "postedWithinDays": 7, "minDaysLeft": 7, "onlyNew": True, "stateKey": "uk-digital"})}
+{python("public-tenders-feed", {"sources": ["uk-cf", "uk-fts"], "keywords": ["grounds maintenance"], "postedWithinDays": 3}, '    print(item["source"], item["buyerName"], item["title"], item.get("deadline"))')}
+<p>Every notice comes back with the same fields as SAM.gov, TED and Canada notices: title, buyer, notice type, published date, deadline and days left, value in GBP and in USD/EUR, CPV codes and the link to the official notice.</p>
+
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/government-tenders-feed">a daily government tenders feed</a> (MIT licence, copy and adapt).</p>
+
+<h2>What it costs</h2>
+<p>Both UK APIs are free. The feed costs $2 per 1,000 notices with no start fee, so a daily UK alert that finds 20 new notices costs about $0.04 a day. Apify's free $5 monthly credit covers about 2,500 notices.</p>
+
+<h2>Limits</h2>
+<ul>
+<li>Some councils and NHS bodies also publish on their own e-tendering portals; those notices only appear if they are also on Contracts Finder or Find a Tender.</li>
+<li>Tender documents are linked, not downloaded.</li>
+</ul>
+<p>Bidding in the EU or the US too? Read the <a href="../ted-tenders-api/">TED tenders API</a> guide or the <a href="../government-tenders-api/">government tenders API</a> overview.</p>
+""",
+    faq=[
+        ("Does Contracts Finder have an API?", "Yes. Contracts Finder publishes notices as OCDS JSON at https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search. You filter by published dates and stage and follow the links.next cursor. It needs no API key."),
+        ("Is the Contracts Finder API free?", "Yes, it's free and open. The cost is your time: there is no keyword filter on the OCDS search, so you filter text yourself, and you track which notices you've already seen."),
+        ("What is the difference between Contracts Finder and Find a Tender?", "Contracts Finder lists lower-value UK public contracts; Find a Tender lists contracts above the UK procurement thresholds. Both have free OCDS APIs, and many bidders watch both."),
+        ("How do I get daily UK tender alerts?", "Use the Pandapi feed with sources uk-cf and uk-fts, onlyNew and a stateKey, schedule it daily on Apify, and add an email, Slack or Google Sheets integration."),
+    ],
+    related=["government-tenders-api", "ted-tenders-api", "sam-gov-api-alternative"],
+    free_tools=["json-to-excel", "csv-to-json"],
+)
+
+# llms.txt generator (added 2026-11-24; DIY script run on our own sitemap that day, API output from run dqtz0ujK8JuccRHSS)
+S = "llms-txt-generator"
+LLMS_PY = """import html, re, requests
+
+SITEMAP = "https://example.com/sitemap.xml"
+urls = re.findall(r"<loc>(.*?)</loc>", requests.get(SITEMAP, timeout=30).text)
+
+def title_and_description(url):
+    page = requests.get(url, timeout=30).text
+    t = re.search(r"<title[^>]*>(.*?)</title>", page, re.S)
+    d = re.search(r'<meta[^>]+name="description"[^>]+content="([^"]*)"', page)
+    return (html.unescape(t.group(1).strip()) if t else url), (html.unescape(d.group(1)) if d else "")
+
+pages = [(u, *title_and_description(u)) for u in urls]
+home_title, home_desc = pages[0][1], pages[0][2]
+lines = [f"# {home_title}", "", f"> {home_desc}", "", "## Pages", ""]
+lines += [f"- [{t}]({u})" + (f": {d}" if d else "") for u, t, d in pages[1:]]
+open("llms.txt", "w").write("\\n".join(lines) + "\\n")"""
+LLMS_EX = """# Python documentation
+
+> Source code: Lib/json/__init__.py JSON (JavaScript Object Notation), specified by RFC 7159 ...
+
+## Pages
+
+- [json — JSON encoder and decoder](https://docs.python.org/3/library/json.html): Source code: Lib/json/__init__.py JSON (JavaScript Object Notation) ..."""
+page(
+    slug=S, tool="web-page-to-markdown",
+    title="llms.txt Generator: Create llms.txt and llms-full.txt from a Sitemap",
+    h1="llms.txt generator: make llms.txt and llms-full.txt for any website",
+    description="How to create an llms.txt file for your website: the format, a free Python script that builds one from your sitemap, and an API that also writes llms-full.txt with every page as clean Markdown. $1 per 1,000 pages.",
+    lede="llms.txt is a small Markdown file at the root of a site that tells AI tools what the site is and which pages matter. You can write it by hand, script it from your sitemap for free, or generate it together with llms-full.txt (all your pages as Markdown) in one run.",
+    body=f"""
+<h2>What goes in an llms.txt file</h2>
+<p>The <a href="https://llmstxt.org/">llms.txt proposal</a> asks for a Markdown file at <code>/llms.txt</code> with an H1 (the site or project name), a short summary in a blockquote, then sections of links with one line each. A common companion is <code>llms-full.txt</code>: the content of all the pages in one Markdown file, so a model can read the docs in one go.</p>
+<p>It's a proposal, not a standard. Some AI tools and docs platforms read it; many crawlers don't. It costs little to publish, and it's most useful for docs sites that people paste into coding assistants.</p>
+
+<h2>Free way 1: write it by hand</h2>
+<p>For a small site, open a text file, write the name, one sentence about the site and a list of your 10 to 20 most useful pages. Ten minutes, and you control every word.</p>
+
+<h2>Free way 2: build it from your sitemap with Python</h2>
+<p>This reads every URL in your sitemap, takes each page's title and meta description, and writes <code>llms.txt</code>:</p>
+{code(LLMS_PY, 'python')}
+<p>We ran it on this site's own sitemap: 46 pages in 21.7 seconds. Where it stops: it fetches one page at a time, doesn't follow sitemap indexes, gets nothing useful from pages that need JavaScript to render, puts everything in one section, and doesn't make <code>llms-full.txt</code>, which needs each page's main content turned into clean Markdown.</p>
+
+<h2>The API way: llms.txt and llms-full.txt in one run</h2>
+{steps([
+    f"Open the {a('web-page-to-markdown', S, 'Website to Markdown API on Apify')}.",
+    "Paste your sitemap URL (or a start page and turn on Crawl), and set Max pages.",
+    "Turn on <b>llmsTxt</b> and click Start.",
+    "Download <code>llms.txt</code> and <code>llms-full.txt</code> from the run's key-value store (Storage tab). Each page is also in the dataset as Markdown, with its title, description and token count.",
+])}
+{curl("web-page-to-markdown", {"sitemapUrls": [{"url": "https://docs.example.com/sitemap.xml"}], "maxPages": 500, "llmsTxt": True})}
+<p>What a generated <code>llms.txt</code> looks like (from a test run on one Python docs page, 24 November 2026):</p>
+{code(LLMS_EX, 'markdown')}
+<p>Pages are grouped into sections by their first folder below the folders all pages share (for example <code>/guide/</code> and <code>/api/</code>), and the summary comes from the start page's description. Edit the result by hand before you publish it; it's a good first draft, not a finished text.</p>
+
+<h2>What it costs</h2>
+<p>$1 per 1,000 pages converted. The llms.txt and llms-full.txt files cost nothing extra. A 300-page docs site costs $0.30. Apify's free $5 monthly credit covers about 5,000 pages.</p>
+
+<h2>Limits</h2>
+<ul>
+<li>Pages behind a login are not read.</li>
+<li>The summary is only as good as your start page's meta description; rewrite it if it's vague.</li>
+<li>Publishing the file is up to you: put both files at your site root (e.g. <code>https://example.com/llms.txt</code>).</li>
+</ul>
+<p>Only need one page as Markdown? Use the free <a href="../html-to-markdown/">HTML to Markdown</a> converter, or read the <a href="../website-to-markdown-api/">website to Markdown API</a> guide for RAG.</p>
+""",
+    faq=[
+        ("How do I create an llms.txt file?", "Write a Markdown file with your site name as an H1, a one-line summary in a blockquote, and a list of your key pages with a short description each, then publish it at /llms.txt. A script can build it from your sitemap, and the Website to Markdown API generates it together with llms-full.txt."),
+        ("What is the difference between llms.txt and llms-full.txt?", "llms.txt is a short index: name, summary and links. llms-full.txt contains the full text of the pages as Markdown in one file."),
+        ("Is there a free llms.txt generator?", "Yes: write it by hand, or run the Python script above on your sitemap. The API version costs $1 per 1,000 pages, and Apify's free credit covers about 5,000 pages a month."),
+        ("Do ChatGPT and Google use llms.txt?", "llms.txt is a proposal, and support varies by tool. It's most useful for docs that developers paste into AI assistants, and it doesn't replace a normal sitemap or robots.txt."),
+    ],
+    related=["website-to-markdown-api", "firecrawl-alternative", "jina-reader-alternative"],
+    free_tools=["html-to-markdown", "link-extractor"],
+)
