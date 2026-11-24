@@ -336,7 +336,7 @@ page(
         ("Does the contact finder verify emails?", "No. It returns addresses the site itself publishes, with the page they were found on."),
     ],
     related=["find-emails-from-websites", "company-jobs-api"],
-    free_tools=["link-extractor", "json-to-excel"],
+    free_tools=["email-extractor", "link-extractor"],
 )
 
 # ScreenshotOne ----------------------------------------------------------------------------------------------

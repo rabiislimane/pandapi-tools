@@ -22,7 +22,7 @@
 <body>
 <header class="site-header"><div class="wrap">
   <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
-  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../csv-to-json/" aria-current="page">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../email-extractor/">Email Extractor</a><a href="../word-to-markdown/">Word to Markdown</a><a href="../csv-to-json/" aria-current="page">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
 </div></header>
 <main><div class="wrap">
 <div class="hero"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="64" height="64"><h1>CSV and Excel to JSON converter</h1></div>
@@ -74,7 +74,7 @@ order_id,date,customer.name,customer.email,items,total,paid,zip
 00723,2026-03-07,"Zoë ""Z"" Martin",zoe@example.com,3,-7,TRUE,94105
 </script>
 
-<div class="card upsell"><img src="../assets/icons/pdf-to-text-markdown.png" alt="" width="56" height="56"><p>Is your table stuck in a PDF? <b>PDF to Excel, Markdown &amp; Text</b> pulls tables out of PDFs in bulk, scans and borderless bank statements included, and returns each table's header and rows as JSON plus an Excel workbook, through an API. About $3 per 1,000 PDFs.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown">See the PDF tables API</a></div>
+<div class="card upsell"><img src="../assets/icons/pdf-to-text-markdown.png" alt="" width="56" height="56"><p>Is your table stuck in a PDF? <b>PDF to Excel, Markdown &amp; Text</b> pulls tables out of PDFs in bulk, scans and borderless bank statements included, and returns each table's header and rows as JSON plus an Excel workbook, through an API. About $3 per 1,000 PDFs.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/pdf-to-text-markdown?utm_source=pandapi-tools&amp;utm_medium=tool&amp;utm_campaign=csv-to-json">See the PDF tables API</a></div>
 <section class="content">
 <h2>How to use it</h2>
 <ol><li>Paste CSV, or copy cells in Excel or Google Sheets and paste them (they arrive tab-separated, which is detected). You can also drop a .csv, .tsv or .xlsx file; for a workbook, pick one sheet or all sheets.</li><li>Check the options: the separator is found for you, numbers and true/false become real JSON values, and anything with a leading zero or more than 15 digits stays text so zip codes and IDs survive. Turn on <b>Nested keys</b> to make <code>customer.name</code> a nested object.</li><li>Pick the shape: an array of objects (most APIs), JSON Lines (one record per line, for BigQuery, MongoDB or AI fine-tuning files), an object keyed by a column, or arrays. Copy the JSON or download it.</li><li>To convert a folder of files, drop them all at once and download one .zip.</li></ol>

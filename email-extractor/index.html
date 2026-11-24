@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Extractor: Pull Email Addresses from Text, PDF, Word &amp; Excel (free)</title>
+<meta name="description" content="Extract email addresses from pasted text, web pages, PDF, Word, Excel, CSV, .eml and vCard files. Names kept, duplicates merged, role and free-mail addresses flagged, [at] [dot] decoded. Free, nothing uploaded.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/email-extractor/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Email Extractor: Pull Email Addresses from Text, PDF, Word &amp; Excel (free)">
+<meta property="og:description" content="Extract email addresses from pasted text, web pages, PDF, Word, Excel, CSV, .eml and vCard files. Names kept, duplicates merged, role and free-mail addresses flagged, [at] [dot] decoded. Free, nothing uploaded.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/tool-email-extractor.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Email extractor: every address from text, PDFs, Word and Excel", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Extract email addresses from pasted text, web pages, PDF, Word, Excel, CSV, .eml and vCard files. Names kept, duplicates merged, role and free-mail addresses flagged, [at] [dot] decoded. Free, nothing uploaded.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "url": "https://rabiislimane.github.io/pandapi-tools/email-extractor/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my data uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything runs in your browser, so contracts, inboxes, CRM exports and customer lists never leave your computer. You can turn off your internet after the page loads and it still works."}}, {"@type": "Question", "name": "Which files can it read?", "acceptedAnswer": {"@type": "Answer", "text": "PDF (with a text layer, not scans), Word .docx, Excel .xlsx, CSV and TSV, saved emails (.eml and .mbox), vCard contact files (.vcf), calendar files (.ics), web pages (.html) and any plain text file. Old .doc and .xls files must be saved as .docx or .xlsx first."}}, {"@type": "Question", "name": "How does it find the name?", "acceptedAnswer": {"@type": "Answer", "text": "It takes the name written right before the address, as in Maria Ortega <maria@...> or \"Ortega, Maria\" <...>, or right after it in brackets, and the visible text of mailto links. If no name is next to an address, the Name column stays empty rather than guessing."}}, {"@type": "Question", "name": "What do the types mean?", "acceptedAnswer": {"@type": "Answer", "text": "Role is a shared inbox like info@, sales@ or support@. Free mailbox is a personal account at Gmail, Outlook, Yahoo and about 100 other providers. No-reply addresses can't receive mail. Everything else is marked personal."}}, {"@type": "Question", "name": "Does it check that the addresses work?", "acceptedAnswer": {"@type": "Answer", "text": "No. It finds and cleans addresses that are written correctly; it does not send mail or contact any server. Image names like logo@2x.png, template addresses such as name@example.com and tracking ids are left out."}}, {"@type": "Question", "name": "Can I paste a website address?", "acceptedAnswer": {"@type": "Answer", "text": "Not here: a page running in your browser can't visit other websites. Open the page, select all and copy, or save it and drop the .html file. To get the emails of many websites at once, use the Website Contact Finder linked on this page."}}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../email-extractor/" aria-current="page">Email Extractor</a><a href="../word-to-markdown/">Word to Markdown</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap">
+<div class="hero"><img src="../assets/icons/tool-email-extractor.png" alt="" width="64" height="64"><h1>Email extractor: every address from text, PDFs, Word and Excel</h1></div>
+<p class="lede">Paste anything with email addresses in it, or drop <b>PDF, Word, Excel, CSV, .eml, .vcf or .html</b> files, several at once. You get one clean list with the <b>name next to each address</b>, where it was found, and whether it is a person, a role inbox like info@, a free mailbox or a no-reply. Addresses written as <code>jane [at] acme [dot] com</code> are decoded too.</p>
+<ul class="badges"><li>PDF, Word, Excel, CSV, .eml</li><li>Names kept</li><li>[at] [dot] decoded</li><li>Role and free-mail flags</li><li>Nothing uploaded</li></ul>
+
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="emails-in">Text, page or files</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="emails-in" spellcheck="false" placeholder="Paste text, an email thread, a contact list, a web page (or its HTML source), CSV or cells copied from a spreadsheet."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose files"><strong>Drop PDF, Word (.docx), Excel (.xlsx), CSV, .eml, .vcf, .html or text files</strong> or click to choose. Several at once is fine.</div>
+    <input type="file" id="file-in" accept=".pdf,.docx,.xlsx,.xlsm,.csv,.tsv,.txt,.md,.json,.eml,.mbox,.vcf,.ics,.html,.htm,.xml,.log,application/pdf,text/plain,text/csv,text/html" multiple hidden>
+    <p class="meta" id="file-note" aria-live="polite"></p>
+    <div class="opts" role="group" aria-label="Options">
+      <label><input type="checkbox" id="opt-dedupe" checked> Merge duplicates and count them</label>
+      <label><input type="checkbox" id="opt-deob" checked> Decode [at] and [dot]</label>
+      <label><input type="checkbox" id="opt-lower" checked> Lowercase addresses</label>
+      <label><input type="checkbox" id="opt-rich" checked> Paste keeps hidden mailto addresses</label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2>Email addresses</h2></div>
+    <p class="status" id="summary" aria-live="polite"></p>
+    <div id="results-wrap" hidden>
+      <div class="opts" role="group" aria-label="Filter">
+        <label><input type="checkbox" id="f-personal" checked> Personal</label>
+        <label><input type="checkbox" id="f-role" checked> Role (info@, sales@)</label>
+        <label><input type="checkbox" id="f-free" checked> Free mailbox (Gmail...)</label>
+        <label><input type="checkbox" id="f-noreply"> No-reply</label>
+        <label>Sort <select id="f-sort"><option value="found">order found</option><option value="email">email</option><option value="domain">domain</option><option value="count">most seen</option></select></label>
+        <label class="wide">Search <input type="search" id="f-q" placeholder="part of an address or name"></label>
+      </div>
+      <p class="meta" id="preview-note"></p>
+      <div class="table-wrap"><table class="preview" id="preview" aria-label="Email addresses found"></table></div>
+      <p class="meta"><b>Top domains:</b></p>
+      <ul class="domain-list" id="domains"></ul>
+      <p class="meta" id="domains-more"></p>
+    </div>
+    <div class="row"><button type="button" id="btn-xlsx" disabled>Download Excel (.xlsx)</button><button type="button" class="secondary" id="btn-csv" disabled>Download CSV</button><button type="button" class="secondary" id="btn-copy-list" disabled>Copy addresses</button><button type="button" class="secondary" id="btn-copy" disabled>Copy table</button></div>
+    <div class="row"><label class="meta">Copy as <select id="opt-sep" aria-label="Address separator"><option value="lines">one per line</option><option value="comma">comma separated</option><option value="semicolon">semicolon (Outlook)</option></select></label>
+      <label class="meta">CSV <select id="opt-delim" aria-label="CSV separator"><option value=",">comma</option><option value=";">semicolon</option><option value="tab">tab</option></select></label></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+<script type="text/plain" id="sample-text">From: "Ortega, Maria" <maria.ortega@brightlane.io>
+To: Sam Lee <sam.lee@northwind-foods.com>; sales@northwind-foods.com
+Cc: priya.nair@gmail.com
+Subject: Re: Supplier list for Q3
+
+Hi Sam,
+
+Here are the contacts you asked for:
+- Packaging: Tom Becker, tom.becker@kartonwerk.de, +49 30 1234567
+- Logistics: logistics (at) shipfast-eu (dot) com
+- Our new buyer is Lena Park (lena.park@brightlane.io).
+- For invoices write to billing@brightlane.io, not to the no-reply address noreply@notify.brightlane.io.
+
+Thanks!
+Maria Ortega | Head of Purchasing
+maria.ortega@brightlane.io | brightlane.io
+<img src="logo@2x.png"> Template address: name@example.com</script>
+
+<div class="card upsell"><img src="../assets/icons/website-contact-finder.png" alt="" width="56" height="56"><p>Need the emails of a list of companies, not of a file? <b>Website Contact Finder</b> visits each website you give it, reads its contact, about and team pages, and returns emails, phone numbers and social profiles for every site. Paste 10 or 10,000 domains; sites with no contacts are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/website-contact-finder?utm_source=pandapi-tools&amp;utm_medium=tool&amp;utm_campaign=email-extractor">See the Website Contact Finder</a></div>
+<section class="content">
+<h2>How to use it</h2>
+<ol><li>Paste text from anywhere: an email thread, a web page, a spreadsheet, a CRM export or a document. Or drop files, several at once: PDF, Word (.docx), Excel (.xlsx), CSV, saved emails (.eml), contact cards (.vcf) and web pages (.html).</li><li>Check the list. Each address appears once, with the name written next to it, how often it was seen and where (file, page, sheet and row). Untick role addresses, free mailboxes or no-replies to drop them, or search for one company's domain.</li><li>Download Excel (an Emails sheet and a Domains sheet) or CSV, or copy the addresses one per line, comma separated, or semicolon separated to paste straight into Outlook's To box.</li></ol>
+<h2>Questions</h2>
+<details><summary>Is my data uploaded?</summary><p>No. Everything runs in your browser, so contracts, inboxes, CRM exports and customer lists never leave your computer. You can turn off your internet after the page loads and it still works.</p></details><details><summary>Which files can it read?</summary><p>PDF (with a text layer, not scans), Word .docx, Excel .xlsx, CSV and TSV, saved emails (.eml and .mbox), vCard contact files (.vcf), calendar files (.ics), web pages (.html) and any plain text file. Old .doc and .xls files must be saved as .docx or .xlsx first.</p></details><details><summary>How does it find the name?</summary><p>It takes the name written right before the address, as in Maria Ortega &lt;maria@...&gt; or &quot;Ortega, Maria&quot; &lt;...&gt;, or right after it in brackets, and the visible text of mailto links. If no name is next to an address, the Name column stays empty rather than guessing.</p></details><details><summary>What do the types mean?</summary><p>Role is a shared inbox like info@, sales@ or support@. Free mailbox is a personal account at Gmail, Outlook, Yahoo and about 100 other providers. No-reply addresses can&#x27;t receive mail. Everything else is marked personal.</p></details><details><summary>Does it check that the addresses work?</summary><p>No. It finds and cleans addresses that are written correctly; it does not send mail or contact any server. Image names like logo@2x.png, template addresses such as name@example.com and tracking ids are left out.</p></details><details><summary>Can I paste a website address?</summary><p>Not here: a page running in your browser can&#x27;t visit other websites. Open the page, select all and copy, or save it and drop the .html file. To get the emails of many websites at once, use the Website Contact Finder linked on this page.</p></details>
+<h2>More free tools</h2>
+<div class="grid"><a class="card tile" href="../link-extractor/"><img src="../assets/icons/tool-link-extractor.png" alt="" width="56" height="56"><div><h3>Link Extractor</h3><p>Extract every link from a web page&#x27;s HTML, part of a page, plain text or a sitemap.xml.</p></div></a><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56"><div><h3>CSV &amp; Excel to JSON</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a></div>
+</section>
+</div></main>
+<script src="../assets/site.js"></script>
+<script src="../vendor/pdf.min.js"></script><script src="../vendor/fflate.js"></script><script src="../pdf-to-markdown/convert.js"></script><script src="../csv-to-json/convert.js"></script><script src="../json-to-excel/convert.js"></script><script src="../html-table-to-excel/convert.js"></script><script src="convert.js"></script><script src="app.js"></script>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

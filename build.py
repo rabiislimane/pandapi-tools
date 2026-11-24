@@ -364,6 +364,149 @@ TOOLS = [
         "related": ["html-table-to-excel", "html-to-markdown"],
     },
     {
+        "slug": "email-extractor",
+        "name": "Email Extractor",
+        "title": "Email Extractor: Pull Email Addresses from Text, PDF, Word & Excel (free)",
+        "h1": "Email extractor: every address from text, PDFs, Word and Excel",
+        "description": "Extract email addresses from pasted text, web pages, PDF, Word, Excel, CSV, .eml and vCard files. Names kept, duplicates merged, role and free-mail addresses flagged, [at] [dot] decoded. Free, nothing uploaded.",
+        "lede": "Paste anything with email addresses in it, or drop <b>PDF, Word, Excel, CSV, .eml, .vcf or .html</b> files, several at once. You get one clean list with the <b>name next to each address</b>, where it was found, and whether it is a person, a role inbox like info@, a free mailbox or a no-reply. Addresses written as <code>jane [at] acme [dot] com</code> are decoded too.",
+        "badges": ["PDF, Word, Excel, CSV, .eml", "Names kept", "[at] [dot] decoded", "Role and free-mail flags", "Nothing uploaded"],
+        "icon": "tool-email-extractor.png",
+        "scripts": ["../vendor/pdf.min.js", "../vendor/fflate.js", "../pdf-to-markdown/convert.js", "../csv-to-json/convert.js", "../json-to-excel/convert.js", "../html-table-to-excel/convert.js", "convert.js", "app.js"],
+        "upsell_icon": "website-contact-finder.png",
+        "upsell": "Need the emails of a list of companies, not of a file? <b>Website Contact Finder</b> visits each website you give it, reads its contact, about and team pages, and returns emails, phone numbers and social profiles for every site. Paste 10 or 10,000 domains; sites with no contacts are free.",
+        "upsell_url": APIFY + "website-contact-finder",
+        "upsell_cta": "See the Website Contact Finder",
+        "tool": """
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="emails-in">Text, page or files</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <textarea id="emails-in" spellcheck="false" placeholder="Paste text, an email thread, a contact list, a web page (or its HTML source), CSV or cells copied from a spreadsheet."></textarea>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose files"><strong>Drop PDF, Word (.docx), Excel (.xlsx), CSV, .eml, .vcf, .html or text files</strong> or click to choose. Several at once is fine.</div>
+    <input type="file" id="file-in" accept=".pdf,.docx,.xlsx,.xlsm,.csv,.tsv,.txt,.md,.json,.eml,.mbox,.vcf,.ics,.html,.htm,.xml,.log,application/pdf,text/plain,text/csv,text/html" multiple hidden>
+    <p class="meta" id="file-note" aria-live="polite"></p>
+    <div class="opts" role="group" aria-label="Options">
+      <label><input type="checkbox" id="opt-dedupe" checked> Merge duplicates and count them</label>
+      <label><input type="checkbox" id="opt-deob" checked> Decode [at] and [dot]</label>
+      <label><input type="checkbox" id="opt-lower" checked> Lowercase addresses</label>
+      <label><input type="checkbox" id="opt-rich" checked> Paste keeps hidden mailto addresses</label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2>Email addresses</h2></div>
+    <p class="status" id="summary" aria-live="polite"></p>
+    <div id="results-wrap" hidden>
+      <div class="opts" role="group" aria-label="Filter">
+        <label><input type="checkbox" id="f-personal" checked> Personal</label>
+        <label><input type="checkbox" id="f-role" checked> Role (info@, sales@)</label>
+        <label><input type="checkbox" id="f-free" checked> Free mailbox (Gmail...)</label>
+        <label><input type="checkbox" id="f-noreply"> No-reply</label>
+        <label>Sort <select id="f-sort"><option value="found">order found</option><option value="email">email</option><option value="domain">domain</option><option value="count">most seen</option></select></label>
+        <label class="wide">Search <input type="search" id="f-q" placeholder="part of an address or name"></label>
+      </div>
+      <p class="meta" id="preview-note"></p>
+      <div class="table-wrap"><table class="preview" id="preview" aria-label="Email addresses found"></table></div>
+      <p class="meta"><b>Top domains:</b></p>
+      <ul class="domain-list" id="domains"></ul>
+      <p class="meta" id="domains-more"></p>
+    </div>
+    <div class="row"><button type="button" id="btn-xlsx" disabled>Download Excel (.xlsx)</button><button type="button" class="secondary" id="btn-csv" disabled>Download CSV</button><button type="button" class="secondary" id="btn-copy-list" disabled>Copy addresses</button><button type="button" class="secondary" id="btn-copy" disabled>Copy table</button></div>
+    <div class="row"><label class="meta">Copy as <select id="opt-sep" aria-label="Address separator"><option value="lines">one per line</option><option value="comma">comma separated</option><option value="semicolon">semicolon (Outlook)</option></select></label>
+      <label class="meta">CSV <select id="opt-delim" aria-label="CSV separator"><option value=",">comma</option><option value=";">semicolon</option><option value="tab">tab</option></select></label></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+<script type="text/plain" id="sample-text">From: "Ortega, Maria" <maria.ortega@brightlane.io>
+To: Sam Lee <sam.lee@northwind-foods.com>; sales@northwind-foods.com
+Cc: priya.nair@gmail.com
+Subject: Re: Supplier list for Q3
+
+Hi Sam,
+
+Here are the contacts you asked for:
+- Packaging: Tom Becker, tom.becker@kartonwerk.de, +49 30 1234567
+- Logistics: logistics (at) shipfast-eu (dot) com
+- Our new buyer is Lena Park (lena.park@brightlane.io).
+- For invoices write to billing@brightlane.io, not to the no-reply address noreply@notify.brightlane.io.
+
+Thanks!
+Maria Ortega | Head of Purchasing
+maria.ortega@brightlane.io | brightlane.io
+<img src="logo@2x.png"> Template address: name@example.com</script>
+""",
+        "howto": [
+            "Paste text from anywhere: an email thread, a web page, a spreadsheet, a CRM export or a document. Or drop files, several at once: PDF, Word (.docx), Excel (.xlsx), CSV, saved emails (.eml), contact cards (.vcf) and web pages (.html).",
+            "Check the list. Each address appears once, with the name written next to it, how often it was seen and where (file, page, sheet and row). Untick role addresses, free mailboxes or no-replies to drop them, or search for one company's domain.",
+            "Download Excel (an Emails sheet and a Domains sheet) or CSV, or copy the addresses one per line, comma separated, or semicolon separated to paste straight into Outlook's To box.",
+        ],
+        "faq": [
+            ("Is my data uploaded?", "No. Everything runs in your browser, so contracts, inboxes, CRM exports and customer lists never leave your computer. You can turn off your internet after the page loads and it still works."),
+            ("Which files can it read?", "PDF (with a text layer, not scans), Word .docx, Excel .xlsx, CSV and TSV, saved emails (.eml and .mbox), vCard contact files (.vcf), calendar files (.ics), web pages (.html) and any plain text file. Old .doc and .xls files must be saved as .docx or .xlsx first."),
+            ("How does it find the name?", "It takes the name written right before the address, as in Maria Ortega <maria@...> or \"Ortega, Maria\" <...>, or right after it in brackets, and the visible text of mailto links. If no name is next to an address, the Name column stays empty rather than guessing."),
+            ("What do the types mean?", "Role is a shared inbox like info@, sales@ or support@. Free mailbox is a personal account at Gmail, Outlook, Yahoo and about 100 other providers. No-reply addresses can't receive mail. Everything else is marked personal."),
+            ("Does it check that the addresses work?", "No. It finds and cleans addresses that are written correctly; it does not send mail or contact any server. Image names like logo@2x.png, template addresses such as name@example.com and tracking ids are left out."),
+            ("Can I paste a website address?", "Not here: a page running in your browser can't visit other websites. Open the page, select all and copy, or save it and drop the .html file. To get the emails of many websites at once, use the Website Contact Finder linked on this page."),
+        ],
+        "related": ["link-extractor", "csv-to-json"],
+    },
+    {
+        "slug": "word-to-markdown",
+        "name": "Word to Markdown",
+        "title": "Word to Markdown Converter: DOCX to MD with Images, Tables and Footnotes (free)",
+        "h1": "Word to Markdown converter",
+        "description": "Convert Word .docx files to clean Markdown in your browser: headings, lists, tables, footnotes, links and images (saved to a .zip). Many files at once, or paste from Word or Google Docs. Free, nothing uploaded.",
+        "lede": "Drop <b>.docx files</b>, several at once, or <b>paste straight from Word or Google Docs</b>. You get clean GitHub-flavored Markdown with headings, nested lists, tables, footnotes, links and code, and the document's <b>images saved as files</b> in a .zip next to the Markdown. Add front matter from the document's title, author and dates for a static site or Obsidian.",
+        "badges": ["Many .docx at once", "Paste from Word or Google Docs", "Images to a .zip", "Footnotes and tables", "Nothing uploaded"],
+        "icon": "tool-word-to-markdown.png",
+        "scripts": ["../vendor/mammoth.min.js", "../vendor/fflate.js", "../vendor/turndown.js", "../vendor/turndown-plugin-gfm.js", "convert.js", "app.js"],
+        "upsell_icon": "pdf-to-text-markdown.png",
+        "upsell": "Got PDFs too, or thousands of documents to convert from a script? <b>PDF to Text, Markdown &amp; Excel</b> turns PDFs into Markdown through an API, with OCR for scans, real tables and chunks ready for RAG. $3 per 1,000 PDFs.",
+        "upsell_url": APIFY + "pdf-to-text-markdown",
+        "upsell_cta": "See the PDF API",
+        "tool": """
+<div class="tool">
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="word-in">Word document</label></h2>
+      <div class="row"><button type="button" class="secondary" id="btn-sample">Try a sample</button><button type="button" class="secondary" id="btn-clear">Clear</button></div></div>
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose Word files"><strong>Drop .docx files here</strong> or click to choose. Several at once is fine.</div>
+    <input type="file" id="file-in" accept=".docx,.docm,.dotx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple hidden>
+    <p class="meta">Or paste from Word, Google Docs or a web page:</p>
+    <textarea id="word-in" spellcheck="false" placeholder="Copy text in Word or Google Docs (Ctrl+A, Ctrl+C) and paste it here (Ctrl+V). Headings, lists, bold, links and tables come along."></textarea>
+    <p class="meta" id="paste-note" aria-live="polite"></p>
+    <div class="opts" role="group" aria-label="Options">
+      <label>Images <select id="opt-images"><option value="files">save as files (.zip)</option><option value="inline">embed in the Markdown</option><option value="drop">leave out</option></select></label>
+      <label><input type="checkbox" id="opt-front"> Front matter (title, author, dates)</label>
+      <label><input type="checkbox" id="opt-underline"> Keep underline as &lt;u&gt;</label>
+    </div>
+  </div>
+  <div class="pane card">
+    <div class="pane-head"><h2><label for="md-out">Markdown</label></h2>
+      <select id="file-pick" aria-label="Show the Markdown of" hidden></select></div>
+    <p class="status" id="summary" aria-live="polite"></p>
+    <textarea id="md-out" spellcheck="false" readonly placeholder="Your Markdown appears here."></textarea>
+    <p class="meta" id="file-note2" aria-live="polite"></p>
+    <div class="row"><button type="button" id="btn-md" disabled>Download .md</button><button type="button" id="btn-zip" hidden disabled>Download .zip (Markdown + images)</button><button type="button" class="secondary" id="btn-copy" disabled>Copy Markdown</button></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+""",
+        "howto": [
+            "Drop one or more .docx files, or open your document in Word or Google Docs, select everything (Ctrl+A), copy and paste it into the box. Pasting keeps headings, lists, bold, italics, links and tables.",
+            "Pick how to handle images: save them as files (the .zip has your Markdown and an images/ folder, linked by relative paths), embed them in the Markdown, or leave them out. Tick front matter to start each file with its title, author and dates.",
+            "Download the .md file, the .zip with images, or copy the Markdown. With several files, use the menu above the Markdown to look at each one, and Download all to get every file in one .zip.",
+        ],
+        "faq": [
+            ("Is my document uploaded?", "No. The .docx file is read and converted in your browser, so contracts, drafts and internal documents never leave your computer. The page works offline once it has loaded."),
+            ("What is kept?", "Headings (Title and Heading 1-6), bold, italics, strike-through, links, bullet and numbered lists with nesting, tables, footnotes and endnotes (as [^1] notes), block quotes, code styles and images with their alt text. Underline has no Markdown form, so it is dropped unless you keep it as <u>."),
+            ("What happens to tables with merged cells?", "Markdown tables can't merge cells, so a table with merged cells, or with lists inside its cells, is written as a small HTML table inside the Markdown. GitHub, Obsidian and most static site generators show it as a table. Simple tables become normal Markdown tables."),
+            ("Can it read .doc files or password-protected documents?", "No. Old .doc files (Word 97-2003) and encrypted documents use a different format. Open them in Word or LibreOffice, save as .docx, and drop that file here."),
+            ("Why are images missing when I paste from Word?", "When you copy from Word, the clipboard points to temporary image files that a browser isn't allowed to read. Drop the .docx file instead and every image comes out. Pasting from Google Docs keeps images as links."),
+            ("Does it work for Google Docs?", "Yes, two ways: paste straight from the document (the page fixes Google Docs' bold-everything clipboard), or use File > Download > Microsoft Word (.docx) and drop that file to get the images too."),
+        ],
+        "related": ["html-to-markdown", "pdf-to-markdown"],
+    },
+    {
         "slug": "csv-to-json",
         "name": "CSV & Excel to JSON",
         "title": "CSV to JSON and Excel to JSON Converter (free, private, batch)",
@@ -613,6 +756,14 @@ def foot(depth):
 """
 
 
+def upsell_href(t):
+    """Paid-API link with the tracking tags every Tools-site upsell carries."""
+    url = t["upsell_url"]
+    if "utm_source=" in url:
+        return url
+    return url + ("&" if "?" in url else "?") + f"utm_source=pandapi-tools&utm_medium=tool&utm_campaign={t['slug']}"
+
+
 def tool_page(t):
     path = t["slug"] + "/"
     ld = [
@@ -632,7 +783,7 @@ def tool_page(t):
 <p class="lede">{t['lede']}</p>
 <ul class="badges">{''.join(f'<li>{E(b)}</li>' for b in t['badges'])}</ul>
 {t['tool']}
-<div class="card upsell"><img src="../assets/icons/{t['upsell_icon']}" alt="" width="56" height="56"><p>{t['upsell']}</p><a class="btn" href="{t['upsell_url']}">{E(t['upsell_cta'])}</a></div>
+<div class="card upsell"><img src="../assets/icons/{t['upsell_icon']}" alt="" width="56" height="56"><p>{t['upsell']}</p><a class="btn" href="{E(upsell_href(t))}">{E(t['upsell_cta'])}</a></div>
 <section class="content">
 <h2>How to use it</h2>
 <ol>{''.join(f'<li>{s}</li>' for s in t['howto'])}</ol>
@@ -655,7 +806,7 @@ def tile(t, depth):
 
 
 def home():
-    desc = "Free, private tools for developers and data people: HTML to Markdown, PDF to Markdown, JSON to Excel, HTML tables to Excel, a link extractor, CSV and Excel to JSON, Markdown to PDF. Everything runs in your browser; nothing is uploaded."
+    desc = "Free, private tools for developers and data people: HTML to Markdown, PDF to Markdown, JSON to Excel, HTML tables to Excel, a link extractor, an email extractor, Word to Markdown, CSV and Excel to JSON, Markdown to PDF. Everything runs in your browser; nothing is uploaded."
     return (head("Pandapi Tools: free converters that run in your browser", desc, "", "tool-html-to-markdown.png")
             + f"""<main><div class="wrap">
 <h1>Free tools that run in your browser</h1>

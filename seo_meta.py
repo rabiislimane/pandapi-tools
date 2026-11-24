@@ -35,4 +35,5 @@ META = {
     "zipcodeapi-alternative": "ZipCodeAPI allows 10 free requests an hour; Zippopotam does lookups only. Alternatives for distance, radius and bulk in 124 countries.",
     "hacker-news-api-vs-scraper": "Hacker News Firebase API vs Algolia search vs a scraper: what each does, the 1,000-result cap, and when no-code is easier.",
     "firecrawl-mcp-alternative": "MCP servers for web data compared: Firecrawl MCP, Apify, Bright Data and Pandapi. Tools, pricing, context size and fit.",
+    "ted-tenders-api": "Use the free TED (Tenders Electronic Daily) search API with a working Python example, or get EU tenders as a daily feed with CPV filters. $2 per 1,000.",
 }

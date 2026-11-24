@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TED Tenders API: Search EU Tenders (Tenders Electronic Daily)</title>
+<meta name="description" content="Use the free TED (Tenders Electronic Daily) search API with a working Python example, or get EU tenders as a daily feed with CPV filters. $2 per 1,000.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/ted-tenders-api/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TED Tenders API: Search EU Tenders (Tenders Electronic Daily)">
+<meta property="og:description" content="Use the free TED (Tenders Electronic Daily) search API with a working Python example, or get EU tenders as a daily feed with CPV filters. $2 per 1,000.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/api/public-tenders-feed.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "TED tenders API: how to search Tenders Electronic Daily from code", "description": "How to use the TED (Tenders Electronic Daily) API: the free v3 search endpoint with a working Python example, its query syntax and eForms fields, and a simpler feed with keyword, country and CPV filters and daily alerts. $2 per 1,000 notices.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"}, "mainEntityOfPage": "https://rabiislimane.github.io/pandapi-tools/ted-tenders-api/", "image": "https://rabiislimane.github.io/pandapi-tools/assets/icons/api/public-tenders-feed.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the TED API free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The TED v3 search endpoint is free and searching needs no API key. You pay nothing to TED; you only spend time on the query syntax, multilingual fields and tracking which notices are new."}}, {"@type": "Question", "name": "What is the TED API endpoint?", "acceptedAnswer": {"@type": "Answer", "text": "Search is a POST to https://api.ted.europa.eu/v3/notices/search with a JSON body holding an expert query, the fields to return, a limit and a page number."}}, {"@type": "Question", "name": "How do I get daily alerts for new TED tenders?", "acceptedAnswer": {"@type": "Answer", "text": "Either store the publication numbers you've seen and compare each day, or use the Pandapi feed with onlyNew and a stateKey and schedule it daily on Apify, so each run returns only new notices."}}, {"@type": "Question", "name": "Can I filter TED tenders by CPV code?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use classification-cpv in a TED query, or pass CPV prefixes such as 72 (IT services) in cpvCodes to the Pandapi feed."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pandapi Tools", "item": "https://rabiislimane.github.io/pandapi-tools/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://rabiislimane.github.io/pandapi-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "TED tenders API: how to search Tenders Electronic Daily from code", "item": "https://rabiislimane.github.io/pandapi-tools/ted-tenders-api/"}]}</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../email-extractor/">Email Extractor</a><a href="../word-to-markdown/">Word to Markdown</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap article">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>API guides</span></nav>
+<div class="hero"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="64" height="64"><h1>TED tenders API: how to search Tenders Electronic Daily from code</h1></div>
+<p class="lede">TED publishes every EU tender above the EU thresholds, and its search API is free with no key. This page shows a working request, the parts that take time (query syntax, multilingual eForms fields, de-duplication), and how to get TED as a clean daily feed instead.</p>
+<p class="byline">Updated 21 November 2026 · by the Pandapi team</p>
+<div class="card cta"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="56" height="56" loading="lazy"><p><b>Government Tenders API</b>: $2 per 1,000 notices. Apify's free plan gives you $5 of credit every month, which covers about 2,500 notices a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/public-tenders-feed?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=public-tenders-feed&amp;utm_content=ted-tenders-api">Try Government Tenders API</a></div>
+<section class="content prose">
+
+<h2>The free way: the TED v3 search API</h2>
+<p>Send a POST to <code>https://api.ted.europa.eu/v3/notices/search</code> with an expert query, the fields you want and a page size. Search needs no API key (we checked on 22 November 2026); a key is only needed to submit notices.</p>
+<pre><code class="language-python">import requests
+
+body = {
+    &quot;query&quot;: &#x27;FT~&quot;cybersecurity&quot; AND publication-date&gt;=20261115&#x27;,
+    &quot;fields&quot;: [&quot;publication-number&quot;, &quot;notice-title&quot;, &quot;buyer-name&quot;, &quot;buyer-country&quot;,
+               &quot;publication-date&quot;, &quot;deadline-receipt-tender-date-lot&quot;, &quot;classification-cpv&quot;, &quot;links&quot;],
+    &quot;limit&quot;: 50,
+    &quot;page&quot;: 1,
+}
+r = requests.post(&quot;https://api.ted.europa.eu/v3/notices/search&quot;, json=body, timeout=60)
+for n in r.json()[&quot;notices&quot;]:
+    buyer = (n.get(&quot;buyer-name&quot;) or {}).get(&quot;eng&quot;) or next(iter((n.get(&quot;buyer-name&quot;) or {}).values()), [&quot;&quot;])
+    print(n[&quot;publication-number&quot;], n.get(&quot;publication-date&quot;), buyer[0])</code></pre>
+<p>A few things to know before you build on it:</p>
+<div class="table-scroll"><table class="cmp"><thead><tr><th scope="col">Topic</th><th scope="col">What you get</th><th scope="col">What it means for you</th></tr></thead><tbody><tr><th scope="row">Query syntax</th><td>TED's expert search language, e.g. <code>FT~&quot;software&quot; AND buyer-country=DEU</code></td><td>Test queries in TED's own expert search first; field names follow eForms</td></tr><tr><th scope="row">Languages</th><td>Text fields such as <code>buyer-name</code> come as an object keyed by language</td><td>Pick a language and fall back to the first one present</td></tr><tr><th scope="row">Codes</th><td><code>classification-cpv</code> is a list of CPV codes</td><td>Filter by prefix (e.g. 72 for IT services) in the query or after</td></tr><tr><th scope="row">Links</th><td>XML, PDF and HTML links per language</td><td>Store the HTML link for people and the XML for parsing</td></tr><tr><th scope="row">Repeats</th><td>The same query returns the same notices every day</td><td>Keep the publication numbers you have seen to alert only on new ones</td></tr></tbody></table></div>
+<p>If you only need EU tenders and like writing code, this is a good, free route.</p>
+
+<h2>The feed way: TED with keywords, CPV codes and only new notices</h2>
+<ol class="steps"><li>Open the <a href="https://apify.com/blueberry_rainstorm/public-tenders-feed?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=public-tenders-feed&amp;utm_content=ted-tenders-api">Government Tenders API on Apify</a>.</li><li>Set <code>sources</code> to <code>[&quot;ted&quot;]</code>, add keywords and countries, and optionally CPV prefixes, a minimum value and the days left before the deadline.</li><li>Turn on <b>onlyNew</b> with a <b>stateKey</b> so each run returns only notices you haven't seen, and schedule it daily.</li><li>Send results to Google Sheets, Slack or email with Apify's integrations, or read them from n8n, Make or code.</li></ol>
+<pre><code class="language-bash">curl -X POST &quot;https://api.apify.com/v2/acts/blueberry_rainstorm~public-tenders-feed/run-sync-get-dataset-items?token=$APIFY_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+  &quot;sources&quot;: [
+    &quot;ted&quot;
+  ],
+  &quot;keywords&quot;: [
+    &quot;cybersecurity&quot;,
+    &quot;penetration testing&quot;
+  ],
+  &quot;countries&quot;: [
+    &quot;DE&quot;,
+    &quot;FR&quot;,
+    &quot;NL&quot;,
+    &quot;BE&quot;
+  ],
+  &quot;cpvCodes&quot;: [
+    &quot;72&quot;,
+    &quot;48&quot;
+  ],
+  &quot;postedWithinDays&quot;: 7,
+  &quot;minDaysLeft&quot;: 10,
+  &quot;onlyNew&quot;: true,
+  &quot;stateKey&quot;: &quot;eu-security&quot;
+}&#x27;</code></pre>
+<pre><code class="language-python"># pip install apify-client
+from apify_client import ApifyClient
+
+client = ApifyClient(&quot;YOUR_APIFY_TOKEN&quot;)
+run = client.actor(&quot;blueberry_rainstorm/public-tenders-feed&quot;).call(run_input={
+    &quot;sources&quot;: [
+        &quot;ted&quot;
+    ],
+    &quot;keywords&quot;: [
+        &quot;translation services&quot;
+    ],
+    &quot;postedWithinDays&quot;: 3
+})
+for item in client.dataset(run[&quot;defaultDatasetId&quot;]).iterate_items():
+    print(item[&quot;country&quot;], item[&quot;title&quot;], item.get(&quot;deadline&quot;), item.get(&quot;valueUsd&quot;))</code></pre>
+<p>Each notice comes back with the same fields as SAM.gov, UK and Canada notices: title, buyer, country, notice type, published date, deadline and days left, value in the original currency and in USD/EUR, CPV codes and the link to the official notice. Add <code>"uk-fts"</code> or <code>"sam"</code> to <code>sources</code> to watch more markets with the same query.</p>
+
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/government-tenders-feed">a daily government tenders feed</a> (MIT licence, copy and adapt).</p>
+
+<h2>What it costs</h2>
+<p>The TED API is free. The feed costs $2 per 1,000 notices with no start fee, so a daily EU alert that finds 30 new notices costs about $0.06 a day. Apify's free $5 monthly credit covers about 2,500 notices.</p>
+
+<h2>Limits</h2>
+<ul>
+<li>TED covers tenders above the EU thresholds and what member states choose to publish there. Many smaller national tenders are only on national portals.</li>
+<li>Tender documents are linked, not downloaded.</li>
+</ul>
+<p>Need more than the EU? Read the <a href="../government-tenders-api/">government tenders API</a> guide for SAM.gov, the UK, Canada and the World Bank.</p>
+
+<h2>Questions</h2>
+<details><summary>Is the TED API free?</summary><p>Yes. The TED v3 search endpoint is free and searching needs no API key. You pay nothing to TED; you only spend time on the query syntax, multilingual fields and tracking which notices are new.</p></details><details><summary>What is the TED API endpoint?</summary><p>Search is a POST to https://api.ted.europa.eu/v3/notices/search with a JSON body holding an expert query, the fields to return, a limit and a page number.</p></details><details><summary>How do I get daily alerts for new TED tenders?</summary><p>Either store the publication numbers you've seen and compare each day, or use the Pandapi feed with onlyNew and a stateKey and schedule it daily on Apify, so each run returns only new notices.</p></details><details><summary>Can I filter TED tenders by CPV code?</summary><p>Yes. Use classification-cpv in a TED query, or pass CPV prefixes such as 72 (IT services) in cpvCodes to the Pandapi feed.</p></details>
+</section>
+<div class="card cta"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="56" height="56" loading="lazy"><p><b>Government Tenders API</b>: $2 per 1,000 notices. Apify's free plan gives you $5 of credit every month, which covers about 2,500 notices a month. No start fee; failed items are free.</p><a class="btn" href="https://apify.com/blueberry_rainstorm/public-tenders-feed?utm_source=pandapi-tools&amp;utm_medium=seo&amp;utm_campaign=public-tenders-feed&amp;utm_content=ted-tenders-api">Try Government Tenders API</a></div>
+<section class="content"><h2>Related guides</h2><div class="grid"><a class="card tile" href="../government-tenders-api/"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="56" height="56" loading="lazy"><div><h3>Government tenders API: SAM.gov, TED EU, UK, Canada and the World Bank in one feed</h3><p>Government tenders from SAM.gov, TED, UK, CanadaBuys and the World Bank in one API with one schema.</p></div></a><a class="card tile" href="../sam-gov-api-alternative/"><img src="../assets/icons/api/public-tenders-feed.png" alt="" width="56" height="56" loading="lazy"><div><h3>SAM.gov API alternatives for contract opportunities</h3><p>SAM.gov&#x27;s API allows 10 requests a day without a role.</p></div></a></div></section><section class="content"><h2>Free tools for the same job</h2><div class="grid"><a class="card tile" href="../json-to-excel/"><img src="../assets/icons/tool-json-to-excel.png" alt="" width="56" height="56" loading="lazy"><div><h3>JSON to Excel (free)</h3><p>Convert JSON to a real Excel .xlsx or CSV in your browser.</p></div></a><a class="card tile" href="../csv-to-json/"><img src="../assets/icons/tool-csv-to-json.png" alt="" width="56" height="56" loading="lazy"><div><h3>CSV &amp; Excel to JSON (free)</h3><p>Convert CSV, TSV or Excel (.xlsx) to JSON in your browser.</p></div></a></div></section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="../privacy.html">Privacy</a></span>
+</div></footer>
+</body>
+</html>

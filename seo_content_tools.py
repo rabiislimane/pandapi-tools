@@ -350,7 +350,7 @@ page(
         ("Can I export to my CRM?", "Yes. Download CSV or Excel, or send rows to HubSpot, Pipedrive or Google Sheets with Apify, Make or n8n integrations."),
     ],
     related=["hunter-io-alternative", "website-screenshots-in-bulk", "company-jobs-api"],
-    free_tools=["link-extractor", "json-to-excel"],
+    free_tools=["email-extractor", "link-extractor"],
 )
 
 # 8. Screenshots ------------------------------------------------------------------------------------------------
@@ -688,4 +688,72 @@ Header:  Authorization: Bearer <your Apify token>''', 'text')}
     ],
     related=["website-to-markdown-api", "firecrawl-alternative", "extract-tables-from-pdf-to-excel"],
     free_tools=["html-to-markdown", "pdf-to-markdown"],
+)
+
+# TED tenders API (added 2026-11-22; TED v3 search checked live that day) ---------------------------
+S = "ted-tenders-api"
+TED_PY = '''import requests
+
+body = {
+    "query": 'FT~"cybersecurity" AND publication-date>=20261115',
+    "fields": ["publication-number", "notice-title", "buyer-name", "buyer-country",
+               "publication-date", "deadline-receipt-tender-date-lot", "classification-cpv", "links"],
+    "limit": 50,
+    "page": 1,
+}
+r = requests.post("https://api.ted.europa.eu/v3/notices/search", json=body, timeout=60)
+for n in r.json()["notices"]:
+    buyer = (n.get("buyer-name") or {}).get("eng") or next(iter((n.get("buyer-name") or {}).values()), [""])
+    print(n["publication-number"], n.get("publication-date"), buyer[0])'''
+page(
+    slug=S, tool="public-tenders-feed",
+    title="TED Tenders API: Search EU Tenders (Tenders Electronic Daily)",
+    h1="TED tenders API: how to search Tenders Electronic Daily from code",
+    description="How to use the TED (Tenders Electronic Daily) API: the free v3 search endpoint with a working Python example, its query syntax and eForms fields, and a simpler feed with keyword, country and CPV filters and daily alerts. $2 per 1,000 notices.",
+    lede="TED publishes every EU tender above the EU thresholds, and its search API is free with no key. This page shows a working request, the parts that take time (query syntax, multilingual eForms fields, de-duplication), and how to get TED as a clean daily feed instead.",
+    body=f"""
+<h2>The free way: the TED v3 search API</h2>
+<p>Send a POST to <code>https://api.ted.europa.eu/v3/notices/search</code> with an expert query, the fields you want and a page size. Search needs no API key (we checked on 22 November 2026); a key is only needed to submit notices.</p>
+{code(TED_PY, 'python')}
+<p>A few things to know before you build on it:</p>
+{table(["Topic", "What you get", "What it means for you"], [
+    ["Query syntax", "TED's expert search language, e.g. <code>FT~&quot;software&quot; AND buyer-country=DEU</code>", "Test queries in TED's own expert search first; field names follow eForms"],
+    ["Languages", "Text fields such as <code>buyer-name</code> come as an object keyed by language", "Pick a language and fall back to the first one present"],
+    ["Codes", "<code>classification-cpv</code> is a list of CPV codes", "Filter by prefix (e.g. 72 for IT services) in the query or after"],
+    ["Links", "XML, PDF and HTML links per language", "Store the HTML link for people and the XML for parsing"],
+    ["Repeats", "The same query returns the same notices every day", "Keep the publication numbers you have seen to alert only on new ones"],
+])}
+<p>If you only need EU tenders and like writing code, this is a good, free route.</p>
+
+<h2>The feed way: TED with keywords, CPV codes and only new notices</h2>
+{steps([
+    f"Open the {a('public-tenders-feed', S, 'Government Tenders API on Apify')}.",
+    "Set <code>sources</code> to <code>[&quot;ted&quot;]</code>, add keywords and countries, and optionally CPV prefixes, a minimum value and the days left before the deadline.",
+    "Turn on <b>onlyNew</b> with a <b>stateKey</b> so each run returns only notices you haven't seen, and schedule it daily.",
+    "Send results to Google Sheets, Slack or email with Apify's integrations, or read them from n8n, Make or code.",
+])}
+{curl("public-tenders-feed", {"sources": ["ted"], "keywords": ["cybersecurity", "penetration testing"], "countries": ["DE", "FR", "NL", "BE"], "cpvCodes": ["72", "48"], "postedWithinDays": 7, "minDaysLeft": 10, "onlyNew": True, "stateKey": "eu-security"})}
+{python("public-tenders-feed", {"sources": ["ted"], "keywords": ["translation services"], "postedWithinDays": 3}, '    print(item["country"], item["title"], item.get("deadline"), item.get("valueUsd"))')}
+<p>Each notice comes back with the same fields as SAM.gov, UK and Canada notices: title, buyer, country, notice type, published date, deadline and days left, value in the original currency and in USD/EUR, CPV codes and the link to the official notice. Add <code>"uk-fts"</code> or <code>"sam"</code> to <code>sources</code> to watch more markets with the same query.</p>
+
+<p class="example">Full working example on GitHub: <a href="https://github.com/rabroubx-coder/pandapi-examples/tree/main/government-tenders-feed">a daily government tenders feed</a> (MIT licence, copy and adapt).</p>
+
+<h2>What it costs</h2>
+<p>The TED API is free. The feed costs $2 per 1,000 notices with no start fee, so a daily EU alert that finds 30 new notices costs about $0.06 a day. Apify's free $5 monthly credit covers about 2,500 notices.</p>
+
+<h2>Limits</h2>
+<ul>
+<li>TED covers tenders above the EU thresholds and what member states choose to publish there. Many smaller national tenders are only on national portals.</li>
+<li>Tender documents are linked, not downloaded.</li>
+</ul>
+<p>Need more than the EU? Read the <a href="../government-tenders-api/">government tenders API</a> guide for SAM.gov, the UK, Canada and the World Bank.</p>
+""",
+    faq=[
+        ("Is the TED API free?", "Yes. The TED v3 search endpoint is free and searching needs no API key. You pay nothing to TED; you only spend time on the query syntax, multilingual fields and tracking which notices are new."),
+        ("What is the TED API endpoint?", "Search is a POST to https://api.ted.europa.eu/v3/notices/search with a JSON body holding an expert query, the fields to return, a limit and a page number."),
+        ("How do I get daily alerts for new TED tenders?", "Either store the publication numbers you've seen and compare each day, or use the Pandapi feed with onlyNew and a stateKey and schedule it daily on Apify, so each run returns only new notices."),
+        ("Can I filter TED tenders by CPV code?", "Yes. Use classification-cpv in a TED query, or pass CPV prefixes such as 72 (IT services) in cpvCodes to the Pandapi feed."),
+    ],
+    related=["government-tenders-api", "sam-gov-api-alternative"],
+    free_tools=["json-to-excel", "csv-to-json"],
 )

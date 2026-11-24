@@ -14,3 +14,4 @@ Copied unchanged from npm. Each keeps its own license.
 | pdfmake-fonts.js | pdfmake 0.2.23 (build/vfs_fonts.js): Roboto | Apache-2.0, Google |
 | pdfmake-mono.js | JetBrains Mono Regular, base64 (written for this site) | Apache-2.0, JetBrains s.r.o. |
 | highlight.min.js | @highlightjs/cdn-assets 11.11.1 (highlight.min.js, common languages) | BSD-3-Clause, Ivan Sagalaev and contributors |
+| mammoth.min.js | mammoth 1.13.0 (mammoth.browser.min.js) | BSD-2-Clause, Michael Williamson |
