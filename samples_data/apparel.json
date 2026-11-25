@@ -1,0 +1,233 @@
+{
+ "kind": "price",
+ "run": "ZzxHjohCkQbkbLrLl",
+ "dataset": "p6ArXavmSVR7bb4LE",
+ "date": "2026-11-25",
+ "stores": [
+  {
+   "store": "www.tentree.com",
+   "name": "Tentree",
+   "productsRead": 250,
+   "reported": 1798,
+   "complete": false,
+   "priceMin": 4.5,
+   "priceMedian": 58.5,
+   "priceMax": 261,
+   "onSale": 0.804,
+   "avgDiscount": 24.5,
+   "outOfStock": 0.04,
+   "types": [
+    "Mens",
+    "Womens",
+    "Accessories"
+   ],
+   "newest": [
+    {
+     "title": "Lake Tentree Summit Hat",
+     "price": 31.5,
+     "url": "https://www.tentree.com/products/lake-tentree-summit-hat-timber-clay",
+     "published": "2026-11-24"
+    },
+    {
+     "title": "Vintage Sunset T-Shirt",
+     "price": 31.5,
+     "url": "https://www.tentree.com/products/vintage-sunset-t-shirt-warm-oak-heather-terra",
+     "published": "2026-11-19"
+    },
+    {
+     "title": "Seaforestation Logo T-Shirt",
+     "price": 31.5,
+     "url": "https://www.tentree.com/products/seaforestation-logo-t-shirt-deep-coral-sea-blue",
+     "published": "2026-11-12"
+    }
+   ],
+   "discounts": [
+    {
+     "title": "Lake Tentree Summit Hat",
+     "url": "https://www.tentree.com/products/lake-tentree-summit-hat-timber-clay",
+     "price": 31.5,
+     "compareAt": 45,
+     "pct": 30
+    },
+    {
+     "title": "Vintage Sunset T-Shirt",
+     "url": "https://www.tentree.com/products/vintage-sunset-t-shirt-warm-oak-heather-terra",
+     "price": 31.5,
+     "compareAt": 45,
+     "pct": 30
+    },
+    {
+     "title": "Seaforestation Logo T-Shirt",
+     "url": "https://www.tentree.com/products/seaforestation-logo-t-shirt-deep-coral-sea-blue",
+     "price": 31.5,
+     "compareAt": 45,
+     "pct": 30
+    },
+    {
+     "title": "The Everyday Thong",
+     "url": "https://www.tentree.com/products/womens-thong",
+     "price": 14,
+     "compareAt": 20,
+     "pct": 30
+    },
+    {
+     "title": "InMotion Latitude Short Light",
+     "url": "https://www.tentree.com/products/mens-destination-latitude-shorts-light",
+     "price": 61.6,
+     "compareAt": 88,
+     "pct": 30
+    }
+   ]
+  },
+  {
+   "store": "www.allbirds.com",
+   "name": "Allbirds",
+   "productsRead": 250,
+   "reported": 356,
+   "complete": false,
+   "priceMin": 4,
+   "priceMedian": 74.25,
+   "priceMax": 500,
+   "onSale": 0.612,
+   "avgDiscount": 46,
+   "outOfStock": 0.008,
+   "types": [
+    "Shoes",
+    "Socks",
+    "Apparel"
+   ],
+   "newest": [
+    {
+     "title": "Men's Wool Runner NZ Mid Waterproof - Natural Black (Natural Black Sole)",
+     "price": 112,
+     "url": "https://www.allbirds.com/products/mens-wool-runner-nz-mid-waterproof-natural-black",
+     "published": "2026-11-23"
+    },
+    {
+     "title": "Women's Tree Breezer - Warm Camel (Dark Anthracite Sole)",
+     "price": 73.5,
+     "url": "https://www.allbirds.com/products/womens-tree-breezer-warm-camel-dark",
+     "published": "2026-11-23"
+    },
+    {
+     "title": "Women's Tree Glider - Warm White/Multi (Natural White Sole)",
+     "price": 98,
+     "url": "https://www.allbirds.com/products/womens-tree-glider-warm-white-burnt-olive",
+     "published": "2026-11-23"
+    }
+   ],
+   "discounts": [
+    {
+     "title": "Trino\u00ae Tubers - Navy Night",
+     "url": "https://www.allbirds.com/products/trino-tubers-navy-night",
+     "price": 4,
+     "compareAt": 16,
+     "pct": 75
+    },
+    {
+     "title": "Men's Allbirds Slide - Verdant Green",
+     "url": "https://www.allbirds.com/products/mens-allbirds-slide-verdant-green",
+     "price": 16.5,
+     "compareAt": 55,
+     "pct": 70
+    },
+    {
+     "title": "Women's Varsity Strap - Multi (Natural White Sole)",
+     "url": "https://www.allbirds.com/products/womens-varsity-strap",
+     "price": 34.5,
+     "compareAt": 115,
+     "pct": 70
+    },
+    {
+     "title": "Women's Allbirds Slide Terry - Ochre/Warm White (Ochre Sole)",
+     "url": "https://www.allbirds.com/products/womens-allbirds-slide-terry-ochre-warm-white",
+     "price": 18,
+     "compareAt": 60,
+     "pct": 70
+    },
+    {
+     "title": "Men's Allbirds Slide - Spice",
+     "url": "https://www.allbirds.com/products/mens-allbirds-slide",
+     "price": 16.5,
+     "compareAt": 55,
+     "pct": 70
+    }
+   ]
+  },
+  {
+   "store": "rothys.com",
+   "name": "Rothy's",
+   "productsRead": 250,
+   "reported": 752,
+   "complete": false,
+   "priceMin": 29,
+   "priceMedian": 119,
+   "priceMax": 299,
+   "onSale": 0.924,
+   "avgDiscount": 26.2,
+   "outOfStock": 0.028,
+   "types": [
+    "The Point III",
+    "The Point II",
+    "The Penny Loafer"
+   ],
+   "newest": [
+    {
+     "title": "The Point III - ReVelvet\u2122 Cobalt",
+     "price": 119,
+     "url": "https://rothys.com/products/womens-point-flat-iii-revelvet-cobalt",
+     "published": "2026-11-11"
+    },
+    {
+     "title": "The Cozy Clog - ReVelvet\u2122 Cream Herringbone",
+     "price": 119,
+     "url": "https://rothys.com/products/womens-cozy-clog-revelvet-cream-herringbone",
+     "published": "2026-11-05"
+    },
+    {
+     "title": "The Cozy Clog - ReVelvet\u2122 Slate Herringbone",
+     "price": 119,
+     "url": "https://rothys.com/products/womens-cozy-clog-revelvet-slate-herringbone",
+     "published": "2026-11-05"
+    }
+   ],
+   "discounts": [
+    {
+     "title": "The Mini Loafer (for Kids) - ReVelvet\u2122 Peapod",
+     "url": "https://rothys.com/products/kids-mini-loafer-revelvet-peapod",
+     "price": 29,
+     "compareAt": 55,
+     "pct": 47.3
+    },
+    {
+     "title": "The Mini Loafer (for Kids) - ReVelvet\u2122 Sailor",
+     "url": "https://rothys.com/products/kids-mini-loafer-revelvet-sailor",
+     "price": 29,
+     "compareAt": 55,
+     "pct": 47.3
+    },
+    {
+     "title": "The Mini Loafer (for Kids) - ReVelvet\u2122 Sweetpea",
+     "url": "https://rothys.com/products/kids-mini-loafer-revelvet-sweetpea",
+     "price": 29,
+     "compareAt": 55,
+     "pct": 47.3
+    },
+    {
+     "title": "The Mini Loafer (for Kids) - ReVelvet\u2122 Heartbeat",
+     "url": "https://rothys.com/products/kids-mini-loafer-revelvet-heartbeat",
+     "price": 29,
+     "compareAt": 55,
+     "pct": 47.3
+    },
+    {
+     "title": "The Mini Loafer (for Kids) - ReVelvet\u2122 Black",
+     "url": "https://rothys.com/products/kids-mini-loafer-revelvet-black",
+     "price": 29,
+     "compareAt": 55,
+     "pct": 47.3
+    }
+   ]
+  }
+ ]
+}

@@ -293,6 +293,7 @@ def page_html(p, head, foot, site_url):
 <section class="content prose">
 <h2>{p['sample_title']}</h2>
 {p['sample']()}
+{__import__('sample_pages').links_for(slug)}
 <h2>{p['alert_title']}</h2>
 <ul>{''.join(f'<li>{x}</li>' for x in p['alert'])}</ul>
 <h2>Set it up in 3 minutes, no code</h2>

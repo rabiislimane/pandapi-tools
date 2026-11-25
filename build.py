@@ -710,6 +710,7 @@ from seo_content_tools import PAGES as _API_PAGES  # noqa: E402
 from seo_content_compare import PAGES as _COMPARE_PAGES  # noqa: E402
 SEO_PAGES = _API_PAGES + _COMPARE_PAGES
 import outcome_pages  # noqa: E402  (outcome pages for non-technical buyers, strategy v3)
+import sample_pages  # noqa: E402  (free sample reports, proof pages)
 import policy_pages  # noqa: E402  (privacy, terms, refunds, cookies, report emails, contact)
 HOME_GUIDES = ["export-app-store-reviews", "extract-tables-from-pdf-to-excel", "website-to-markdown-api", "government-tenders-api", "firecrawl-alternative", "tableconvert-alternative"]
 assert len({p["slug"] for p in SEO_PAGES}) == len(SEO_PAGES), "duplicate SEO page slug"
@@ -721,7 +722,7 @@ assert not set(policy_pages.BY_SLUG) & ({p["slug"] for p in SEO_PAGES} | set(BY_
 def head(title, description, path, icon, extra=""):
     canon = f'<link rel="canonical" href="{SITE_URL}/{path}">' if SITE_URL else ""
     og_img = f'<meta property="og:image" content="{SITE_URL}/assets/icons/{icon}">' if SITE_URL else ""
-    depth = "../" if path else ""
+    depth = "../" * path.strip("/").count("/") + "../" if path else ""  # samples/<slug>/ is two levels deep
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -815,7 +816,7 @@ def home():
     return (head("Pandapi Tools: free converters that run in your browser", desc, "", "tool-html-to-markdown.png")
             + f"""<main><div class="wrap">
 <h1>Free tools that run in your browser</h1>
-<div class="card cta" style="margin-top:0"><p><b>New: alerts you can set up in 3 minutes, no code.</b> {' · '.join(f'<a href="{p["slug"]}/">{E(p["short"])}</a>' for p in outcome_pages.PAGES)}</p></div>
+<div class="card cta" style="margin-top:0"><p><b>New: alerts you can set up in 3 minutes, no code.</b> {' · '.join(f'<a href="{p["slug"]}/">{E(p["short"])}</a>' for p in outcome_pages.PAGES)} · <a href="samples/">See real sample reports</a></p></div>
 <p class="lede">Small, careful converters for everyday data jobs. No sign-up, no limits, no upload: your files never leave your computer. When you need the same job done in bulk or through an API, each tool links to the matching Pandapi API.</p>
 <div class="grid">{''.join(tile(t, '') for t in TOOLS)}</div>
 <h2 style="margin-top:32px">Guides: do the same job in bulk</h2>
@@ -839,6 +840,9 @@ if __name__ == "__main__":
         write(f"{p['slug']}/index.html", seo_pages.page_html(p, head, foot, BY_SLUG, SEO_PAGES, SITE_URL))
     for p in outcome_pages.PAGES:
         write(f"{p['slug']}/index.html", outcome_pages.page_html(p, head, foot, SITE_URL))
+    for r in sample_pages.REPORTS:
+        write(f"samples/{r['slug']}/index.html", sample_pages.page_html(r, head, foot, SITE_URL))
+    write("samples/index.html", sample_pages.hub_html(head, foot, SITE_URL))
     write("guides/index.html", seo_pages.hub_html(head, foot, SEO_PAGES, SITE_URL, outcome_pages))
     write("index.html", home())
     for p in policy_pages.PAGES:
@@ -852,6 +856,9 @@ if __name__ == "__main__":
         for p in outcome_pages.PAGES:
             lastmod[p["slug"] + "/"] = outcome_pages.UPDATED
             urls.append(p["slug"] + "/")
+        for u in ["samples/"] + [f"samples/{r['slug']}/" for r in sample_pages.REPORTS]:
+            lastmod[u] = sample_pages.UPDATED
+            urls.append(u)
         for p in policy_pages.PAGES:
             lastmod[p["slug"] + "/"] = policy_pages.UPDATED
             urls.append(p["slug"] + "/")

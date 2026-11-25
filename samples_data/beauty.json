@@ -1,0 +1,197 @@
+{
+ "kind": "price",
+ "run": "jccWvPlqee2QAVa6P",
+ "dataset": "1NV6LdA1tZ7HPug3V",
+ "date": "2026-11-25",
+ "stores": [
+  {
+   "store": "kyliecosmetics.com",
+   "name": "Kylie Cosmetics",
+   "productsRead": 236,
+   "reported": 236,
+   "complete": true,
+   "priceMin": 0,
+   "priceMedian": 29,
+   "priceMax": 300,
+   "onSale": 0.708,
+   "avgDiscount": 22.4,
+   "outOfStock": 0.017,
+   "types": [
+    "Bundle",
+    "Set",
+    "Sample"
+   ],
+   "newest": [
+    {
+     "title": "Vanity Case",
+     "price": 25,
+     "url": "https://kyliecosmetics.com/products/vanity-case",
+     "published": "2026-11-25"
+    },
+    {
+     "title": "Cosmic Holiday Puffer Tote Bag",
+     "price": 25,
+     "url": "https://kyliecosmetics.com/products/cosmic-holiday-puffer-tote-bag",
+     "published": "2026-11-24"
+    },
+    {
+     "title": "Cosmic Holiday Puffer Pouch",
+     "price": 25,
+     "url": "https://kyliecosmetics.com/products/cosmic-holiday-puffer-pouch",
+     "published": "2026-11-24"
+    }
+   ],
+   "discounts": [
+    {
+     "title": "Lip Butter Bundle",
+     "url": "https://kyliecosmetics.com/products/lip-butter-bundle",
+     "price": 85.68,
+     "compareAt": 126,
+     "pct": 32
+    },
+    {
+     "title": "King Kylie Palette + Matte Lip Kit Duo",
+     "url": "https://kyliecosmetics.com/products/king-kylie-palette-matte-lip-kit-duo",
+     "price": 48.28,
+     "compareAt": 71,
+     "pct": 32
+    },
+    {
+     "title": "Pressed Blush Powder & Brush Duo",
+     "url": "https://kyliecosmetics.com/products/pressed-blush-powder-blush-brush-duo",
+     "price": 31.96,
+     "compareAt": 47,
+     "pct": 32
+    },
+    {
+     "title": "Lip Butter & Precision Pout Lip Liner Duo",
+     "url": "https://kyliecosmetics.com/products/lip-butter-precision-pout-lip-liner-duo",
+     "price": 27.2,
+     "compareAt": 40,
+     "pct": 32
+    },
+    {
+     "title": "Glow Balm & Lip Butter Duo",
+     "url": "https://kyliecosmetics.com/products/lip-butter-lip-and-cheek-glow-balm-duo",
+     "price": 29.24,
+     "compareAt": 43,
+     "pct": 32
+    }
+   ]
+  },
+  {
+   "store": "colourpop.com",
+   "name": "ColourPop",
+   "productsRead": 250,
+   "reported": 1105,
+   "complete": false,
+   "priceMin": 0,
+   "priceMedian": 12,
+   "priceMax": 159,
+   "onSale": 0,
+   "avgDiscount": null,
+   "outOfStock": 0.064,
+   "types": [
+    "Hyper Shine Glossy Lipstick",
+    "Lippie Gloss",
+    "Jelly Much Eyeshadow Stick"
+   ],
+   "newest": [
+    {
+     "title": "Pumpkin Spice",
+     "price": 0,
+     "url": "https://colourpop.com/products/pumpkin-spice",
+     "published": "2026-11-23"
+    },
+    {
+     "title": "Mini Fresh Kiss Glossy Lip Balm Kit",
+     "price": 19,
+     "url": "https://colourpop.com/products/mini-treats-kit",
+     "published": "2026-11-21"
+    },
+    {
+     "title": "Rainbow All the Way",
+     "price": 77,
+     "url": "https://colourpop.com/products/rainbow-all-the-way",
+     "published": "2026-11-19"
+    }
+   ],
+   "discounts": []
+  },
+  {
+   "store": "www.skims.com",
+   "name": "SKIMS",
+   "productsRead": 250,
+   "reported": 4393,
+   "complete": false,
+   "priceMin": 10,
+   "priceMedian": 61,
+   "priceMax": 278,
+   "onSale": 0.204,
+   "avgDiscount": 38.8,
+   "outOfStock": 0.388,
+   "types": [
+    "ACTIVE TOPS",
+    "ACTIVE BRAS",
+    "ACTIVE BOTTOMS"
+   ],
+   "newest": [
+    {
+     "title": "NikeSKIMS FOOTWEAR WAFFLE RACER | THUNDER BLUE AND MUSLIN",
+     "price": 130,
+     "url": "https://www.skims.com/products/nikeskims-footwear-waffle-racer-thunder-blue-and-muslin",
+     "published": "2026-11-23"
+    },
+    {
+     "title": "NikeSKIMS FOOTWEAR WAFFLE RACER | LT BONE AND VARSITY RED",
+     "price": 130,
+     "url": "https://www.skims.com/products/nikeskims-footwear-waffle-racer-lt-bone-and-varsity-red",
+     "published": "2026-11-23"
+    },
+    {
+     "title": "NikeSKIMS FOOTWEAR WAFFLE RACER | BAROQUE BROWN AND VELVET BROWN",
+     "price": 130,
+     "url": "https://www.skims.com/products/nikeskims-footwear-waffle-racer-baroque-brown-and-velvet-brown",
+     "published": "2026-11-23"
+    }
+   ],
+   "discounts": [
+    {
+     "title": "RELAXED TEES LONG SLEEVE T-SHIRT | ONYX",
+     "url": "https://www.skims.com/products/relaxed-tees-long-sleeve-t-shirt-onyx",
+     "price": 15,
+     "compareAt": 44,
+     "pct": 65.9
+    },
+    {
+     "title": "FITS EVERYBODY THONG | ARCTIC",
+     "url": "https://www.skims.com/products/fits-everybody-thong-arctic",
+     "price": 10,
+     "compareAt": 20,
+     "pct": 50
+    },
+    {
+     "title": "MATERNITY SCULPTING SHORT MID THIGH | ONYX",
+     "url": "https://www.skims.com/products/maternity-sculpting-short-mid-thigh-onyx",
+     "price": 20,
+     "compareAt": 40,
+     "pct": 50
+    },
+    {
+     "title": "MATERNITY NURSING SCULPTING BRA | ONYX",
+     "url": "https://www.skims.com/products/maternity-nursing-sculpting-bra-onyx",
+     "price": 22,
+     "compareAt": 44,
+     "pct": 50
+    },
+    {
+     "title": "FITS EVERYBODY TUBE TOP | ONYX",
+     "url": "https://www.skims.com/products/fits-everybody-tube-top-onyx",
+     "price": 22,
+     "compareAt": 44,
+     "pct": 50
+    }
+   ]
+  }
+ ]
+}

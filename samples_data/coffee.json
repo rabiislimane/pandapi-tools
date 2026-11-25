@@ -1,0 +1,169 @@
+{
+ "kind": "price",
+ "run": "OCFlEH5VfLGgiUipV",
+ "dataset": "mwnuQWIVHbGoDet3u",
+ "date": "2026-11-25",
+ "stores": [
+  {
+   "store": "www.stumptowncoffee.com",
+   "name": "Stumptown Coffee",
+   "productsRead": 125,
+   "reported": 125,
+   "complete": true,
+   "priceMin": 3,
+   "priceMedian": 23,
+   "priceMax": 299,
+   "onSale": 0,
+   "avgDiscount": null,
+   "outOfStock": 0.224,
+   "types": [
+    "Gear/Merch",
+    "Coffee/Blends",
+    "Coffee/Latin America"
+   ],
+   "newest": [
+    {
+     "title": "WILDWOOD Sticker Bike",
+     "price": 3,
+     "url": "https://www.stumptowncoffee.com/products/wildwood-sticker-bike",
+     "published": "2026-11-24"
+    },
+    {
+     "title": "Honduras El Puente Extended Fermentation",
+     "price": 27,
+     "url": "https://www.stumptowncoffee.com/products/honduras-el-puente-extended-fermentation",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "El Puente Bundle",
+     "price": 48,
+     "url": "https://www.stumptowncoffee.com/products/el-puente-bundle",
+     "published": "2026-11-17"
+    }
+   ],
+   "discounts": []
+  },
+  {
+   "store": "onyxcoffeelab.com",
+   "name": "Onyx Coffee Lab",
+   "productsRead": 249,
+   "reported": 1036,
+   "complete": true,
+   "priceMin": 0,
+   "priceMedian": 25,
+   "priceMax": 5737.5,
+   "onSale": 0.004,
+   "avgDiscount": 9.5,
+   "outOfStock": 0.333,
+   "types": [
+    "Coffee",
+    "Merchandise",
+    "Warehouse"
+   ],
+   "newest": [
+    {
+     "title": "Onyx 16oz Aluminum Water Bottle",
+     "price": 45,
+     "url": "https://onyxcoffeelab.com/products/onyx-16oz-aluminum-water-bottle",
+     "published": "2026-11-24"
+    },
+    {
+     "title": "Guatemala Finca Libano Pacamara",
+     "price": 0,
+     "url": "https://onyxcoffeelab.com/products/guatemala-finca-libana-pacamara",
+     "published": "2026-11-24"
+    },
+    {
+     "title": "Krampus - Cafe Only",
+     "price": 160,
+     "url": "https://onyxcoffeelab.com/products/krampus-cafe-only",
+     "published": "2026-11-23"
+    }
+   ],
+   "discounts": [
+    {
+     "title": "2026 Advent Calendar",
+     "url": "https://onyxcoffeelab.com/products/2026-advent-calendar",
+     "price": 199,
+     "compareAt": 220,
+     "pct": 9.5
+    }
+   ]
+  },
+  {
+   "store": "www.deathwishcoffee.com",
+   "name": "Death Wish Coffee",
+   "productsRead": 155,
+   "reported": 155,
+   "complete": true,
+   "priceMin": 5.71,
+   "priceMedian": 23.57,
+   "priceMax": 149.95,
+   "onSale": 0.348,
+   "avgDiscount": 25.6,
+   "outOfStock": 0.039,
+   "types": [
+    "Apparel",
+    "Coffee",
+    "Accessories"
+   ],
+   "newest": [
+    {
+     "title": "Triple Threat Chocolate Bark Bundle",
+     "price": 45,
+     "url": "https://www.deathwishcoffee.com/products/triple-threat-chocolate-bark-bundle",
+     "published": "2026-11-18"
+    },
+    {
+     "title": "Valhalla Java Brewed for Battle Klean Kanteen Bundle",
+     "price": 50.99,
+     "url": "https://www.deathwishcoffee.com/products/brewed-for-battle-klean-kanteen-bundle",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Valhalla Java Dark Chocolate Bark",
+     "price": 15,
+     "url": "https://www.deathwishcoffee.com/products/valhalla-java-dark-chocolate-bark",
+     "published": "2026-11-11"
+    }
+   ],
+   "discounts": [
+    {
+     "title": "Peppermint Mocha Kitchen Set",
+     "url": "https://www.deathwishcoffee.com/products/peppermint-mocha-kitchen-set",
+     "price": 10.71,
+     "compareAt": 30,
+     "pct": 64.3
+    },
+    {
+     "title": "Society Insignia Tee",
+     "url": "https://www.deathwishcoffee.com/products/new-society-tee",
+     "price": 10.71,
+     "compareAt": 30,
+     "pct": 64.3
+    },
+    {
+     "title": "Bone Dry Cycling Jersey",
+     "url": "https://www.deathwishcoffee.com/products/bone-dry-cycling-jersey",
+     "price": 12.5,
+     "compareAt": 35,
+     "pct": 64.3
+    },
+    {
+     "title": "Death Wish Doctrine Banner",
+     "url": "https://www.deathwishcoffee.com/products/death-wish-doctrine-banner",
+     "price": 10.71,
+     "compareAt": 30,
+     "pct": 64.3
+    },
+    {
+     "title": "Signature Standard Tee",
+     "url": "https://www.deathwishcoffee.com/products/signature-standard-tee",
+     "price": 10.71,
+     "compareAt": 30,
+     "pct": 64.3
+    }
+   ]
+  }
+ ]
+}

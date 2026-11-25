@@ -1,0 +1,87 @@
+{
+ "kind": "tenders",
+ "run": "C0k3XcBWbtfQfCmah",
+ "dataset": "JGwiRk93bLCYuWRh3",
+ "date": "2026-11-25",
+ "headline": "27 new tenders on your keywords (US 8, RO 3, BE 3, IE 2, ?? 2, CA 1, DE 1, MT 1, IT 1, SY 1, CH 1, XK 1, GB 1, LB 1), 4 closing within 7 days; not checked this time: Find a Tender (UK)",
+ "total": 27,
+ "notices": [
+  {
+   "title": "PCI DSS Compliance Validation, Penetration Testing, and ASV Vulnerability Scanning Services",
+   "buyer": "W6QK ACC-APG CONT CT SW SECTOR",
+   "country": "US",
+   "deadline": "2026-12-07",
+   "daysLeft": 12,
+   "valueUsd": null,
+   "url": "https://sam.gov/opp/5ed6173d3e954a7e824b7e2513930985/view",
+   "source": "SAM.gov (US federal)",
+   "type": "Sources Sought"
+  },
+  {
+   "title": "Achizitie Digital Cyber Forensic System in cadrul Proiectului \u201eSetting up a Cyber Security Operational Center for the Ministry of Internal Affairs of Republic of Moldova\u201d, cod proiect ROMD00049, finan\u021bat \u00een cadrul Programului Interreg NEXT VI-A Rom\u00e2nia \u2013 Republica Moldova 2021\u20132027",
+   "buyer": "Direc\u021bia General\u0103 de Protec\u021bie Intern\u0103",
+   "country": "RO",
+   "deadline": "2027-01-04",
+   "daysLeft": 39,
+   "valueUsd": 157890,
+   "url": "https://ted.europa.eu/en/notice/-/detail/810385-2026",
+   "source": "TED (European Union)",
+   "type": "Contract notice"
+  },
+  {
+   "title": "Provision of Cyber Security Services - T045/26",
+   "buyer": "Malta Information Technology Agency (MITA)",
+   "country": "MT",
+   "deadline": "2027-01-05",
+   "daysLeft": 40,
+   "valueUsd": 578462,
+   "url": "https://ted.europa.eu/en/notice/-/detail/817289-2026",
+   "source": "TED (European Union)",
+   "type": "Contract notice"
+  },
+  {
+   "title": "Renewal and Support of the Darktrace Cybersecurity Platform",
+   "buyer": "Tusla Child and Family Agency",
+   "country": "IE",
+   "deadline": "2027-01-08",
+   "daysLeft": 43,
+   "valueUsd": 6561000,
+   "url": "https://ted.europa.eu/en/notice/-/detail/816280-2026",
+   "source": "TED (European Union)",
+   "type": "Contract notice"
+  },
+  {
+   "title": "Information Technology and Operational Technology Cybersecurity Source List",
+   "buyer": "Defence Construction Canada / Construction de D\u00e9fense Canada",
+   "country": "CA",
+   "deadline": "2027-01-12",
+   "daysLeft": 48,
+   "valueUsd": null,
+   "url": "https://www.merx.com/public/solicitations/4207909153/abstract?language=EN",
+   "source": "CanadaBuys (Canada federal)",
+   "type": "tender"
+  },
+  {
+   "title": "Cybersecurity - soluzioni e servizi per la protezione e resilienza di reti e sistemi informativi (ID 2733)",
+   "buyer": "CONSIP SPA",
+   "country": "IT",
+   "deadline": "2027-01-14",
+   "daysLeft": 49,
+   "valueUsd": 499050655,
+   "url": "https://ted.europa.eu/en/notice/-/detail/816801-2026",
+   "source": "TED (European Union)",
+   "type": "Contract notice"
+  },
+  {
+   "title": "ENSOC Hosting Site PT ICT Infrastructure (Computing, Storage, Networking, Cybersecurity)",
+   "buyer": "European Cybersecurity Industrial, Technology and Research Competence Centre",
+   "country": "RO",
+   "deadline": "",
+   "daysLeft": null,
+   "valueUsd": 601425,
+   "url": "https://ted.europa.eu/en/notice/-/detail/809779-2026",
+   "source": "TED (European Union)",
+   "type": "Contract notice"
+  }
+ ]
+}
