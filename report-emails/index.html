@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report emails: how they work and how to stop them · Pandapi</title>
+<meta name="description" content="How Pandapi report emails work (sent by Apify to your own account address, only when something changed) and how to stop them in two clicks.">
+<link rel="canonical" href="https://rabiislimane.github.io/pandapi-tools/report-emails/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Report emails: how they work and how to stop them · Pandapi">
+<meta property="og:description" content="How Pandapi report emails work (sent by Apify to your own account address, only when something changed) and how to stop them in two clicks.">
+<meta property="og:image" content="https://rabiislimane.github.io/pandapi-tools/assets/icons/tool-html-to-markdown.png">
+<meta name="theme-color" content="#4d7c0f">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../"><img src="../assets/mark.png" alt="" width="32" height="32"><span>Pandapi <b>Tools</b></span></a>
+  <nav class="site-nav" aria-label="Tools"><a href="../html-to-markdown/">HTML to Markdown</a><a href="../pdf-to-markdown/">PDF to Markdown</a><a href="../json-to-excel/">JSON to Excel</a><a href="../html-table-to-excel/">HTML Table to Excel</a><a href="../link-extractor/">Link Extractor</a><a href="../email-extractor/">Email Extractor</a><a href="../word-to-markdown/">Word to Markdown</a><a href="../csv-to-json/">CSV &amp; Excel to JSON</a><a href="../markdown-to-pdf/">Markdown to PDF</a><a href="../guides/">API guides</a></nav>
+</div></header>
+<main><div class="wrap"><section class="content policy" style="margin-top:0">
+<h1>Report emails: how they work and how to stop them</h1>
+<p class="updated">Last updated 25 November 2026</p>
+
+<div class="card"><p><b>The short version.</b> Report emails only go to the email address of your own Apify account, and only if you typed it into your task. To stop them, empty the <b>Email me the report at</b> field in your Apify task and click <b>Save</b>.</p></div>
+
+<h2>Which emails are these?</h2>
+<p>Two of our APIs can send a short report by email after each run:</p>
+<ul>
+<li><a href="../competitor-price-monitoring/">Competitor price alerts</a> (the Shopify &amp; WooCommerce price monitor): price drops and increases, stock changes, new and removed products.</li>
+<li><a href="../government-tender-alerts/">Government tender alerts</a>: new tenders that match your words, with their deadlines.</li>
+</ul>
+<p>The email is plain text: a one-line headline, one line per change, and a link to the full results.</p>
+
+<h2>Who sends them, and to whom</h2>
+<ul>
+<li>They're sent by <b>Apify's own Send Email tool, inside your Apify account</b>. We don't run an email service and we don't have a mailing list.</li>
+<li>Apify only lets this tool send to <b>the email address of the account that runs it</b>. So the report can only reach you, the account owner. Nobody can use our APIs to send these emails to someone else.</li>
+<li>We don't receive or store your email address.</li>
+<li>By default, you only get an email when something changed. Days with no changes send nothing, unless you chose <b>After every run</b>.</li>
+<li>Each email is a tiny run in your Apify account and costs well under a cent.</li>
+</ul>
+
+<h2>How to stop the emails</h2>
+<ol>
+<li>Sign in at <a href="https://console.apify.com">console.apify.com</a>.</li>
+<li>In the left menu, click <b>Saved tasks</b> and open your task (for example "competitor-price-alerts").</li>
+<li>Empty the <b>Email me the report at</b> field.</li>
+<li>Click <b>Save</b>. The next runs won't send an email.</li>
+</ol>
+<p>Every report email ends with these same steps, so you always have them at hand.</p>
+
+<h2>How to stop the runs too</h2>
+<p>The emails come from runs that you scheduled. To stop everything, open <b>Schedules</b> in the Apify left menu and switch your schedule off, or delete it. No runs means no emails and no charges.</p>
+
+<h2>Get emails less often, or only when it matters</h2>
+<ul>
+<li>Set <b>Send the email</b> to "only when something changed" (the default).</li>
+<li>Change your schedule from daily to weekly in <b>Schedules</b>.</li>
+</ul>
+
+<h2>Other emails you might get</h2>
+<p>Apify itself sends account emails, such as invoices, usage warnings and failed-run notices. Those come from Apify, not from us. You can choose which ones you get under <b>Settings</b>, <b>Notifications</b> in Apify Console.</p>
+
+<h2>Got an email you didn't expect?</h2>
+<p>If a report email reached you and you never set one up, someone with access to your Apify account added it. Follow the steps above to stop it, check who has access to your account, and <a href="../contact/">tell us</a> if you need help.</p>
+
+<p class="updated" style="margin-top:32px">Other policies: <a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../refunds/">Billing and refunds</a> · <a href="../cookies/">Cookies</a> · <a href="../contact/">Contact</a></p>
+</section></div></main>
+<footer class="site-footer"><div class="wrap">
+  <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
+  <span><a href="../guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a></span>
+  <nav class="footer-policies" aria-label="Policies"><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../refunds/">Billing and refunds</a> · <a href="../cookies/">Cookies</a> · <a href="../report-emails/">Report emails</a> · <a href="../contact/">Contact</a></nav>
+</div></footer>
+</body>
+</html>

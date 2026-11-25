@@ -144,3 +144,9 @@ details p { margin: 8px 0 0; color: var(--muted); }
 .notes:empty { display: none; }
 .tool > .card { min-width: 0; }
 .shot { display: block; max-width: 100%; height: auto; margin: 10px 0 4px; border: 1px solid var(--border); border-radius: 10px; }
+
+/* Policy pages and footer policy links */
+.policy .updated { color: var(--muted); font-size: 14px; }
+.policy ol, .policy ul { padding-left: 1.3em; }
+.policy li { margin: 4px 0; }
+.footer-policies { flex-basis: 100%; }

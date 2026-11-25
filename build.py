@@ -710,10 +710,12 @@ from seo_content_tools import PAGES as _API_PAGES  # noqa: E402
 from seo_content_compare import PAGES as _COMPARE_PAGES  # noqa: E402
 SEO_PAGES = _API_PAGES + _COMPARE_PAGES
 import outcome_pages  # noqa: E402  (outcome pages for non-technical buyers, strategy v3)
+import policy_pages  # noqa: E402  (privacy, terms, refunds, cookies, report emails, contact)
 HOME_GUIDES = ["export-app-store-reviews", "extract-tables-from-pdf-to-excel", "website-to-markdown-api", "government-tenders-api", "firecrawl-alternative", "tableconvert-alternative"]
 assert len({p["slug"] for p in SEO_PAGES}) == len(SEO_PAGES), "duplicate SEO page slug"
 assert not {p["slug"] for p in SEO_PAGES} & set(BY_SLUG), "SEO page slug clashes with a tool"
 assert not set(outcome_pages.BY_SLUG) & ({p["slug"] for p in SEO_PAGES} | set(BY_SLUG)), "outcome page slug clashes"
+assert not set(policy_pages.BY_SLUG) & ({p["slug"] for p in SEO_PAGES} | set(BY_SLUG) | set(outcome_pages.BY_SLUG) | {"guides"}), "policy page slug clashes"
 
 
 def head(title, description, path, icon, extra=""):
@@ -751,7 +753,8 @@ def head(title, description, path, icon, extra=""):
 def foot(depth):
     return f"""<footer class="site-footer"><div class="wrap">
   <span>🐼 Pandapi Tools: free tools that run in your browser. Nothing you use here is uploaded or stored.</span>
-  <span><a href="{depth}guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a> · <a href="{depth}privacy.html">Privacy</a></span>
+  <span><a href="{depth}guides/">Guides</a> · <a href="https://apify.com/blueberry_rainstorm">Pandapi data APIs</a></span>
+  <nav class="footer-policies" aria-label="Policies">{' · '.join(f'<a href="{depth}{slug}/">{E(label)}</a>' for slug, label in policy_pages.FOOTER)}</nav>
 </div></footer>
 </body>
 </html>
@@ -822,17 +825,6 @@ def home():
 """ + foot(""))
 
 
-def privacy():
-    return (head("Privacy · Pandapi Tools", "Pandapi Tools run in your browser. We don't upload, store or track what you convert.", "privacy.html", "tool-html-to-markdown.png")
-            + """<main><div class="wrap"><section class="content" style="margin-top:0">
-<h1>Privacy</h1>
-<p>Every Pandapi Tool runs entirely in your web browser. The text and files you paste or drop are processed on your device and are never uploaded, stored or shared. The pages load no ads, no analytics and no third-party scripts, and they set no cookies.</p>
-<p>The site is hosted as static files. Like any web host, the host may keep standard server logs (such as IP address and the page requested) for security; we don't use them to track you.</p>
-<p>Questions: open an issue on the Pandapi profile at <a href="https://apify.com/blueberry_rainstorm">apify.com/blueberry_rainstorm</a>.</p>
-</section></div></main>
-""" + foot(""))
-
-
 def write(rel, text):
     path = os.path.join(ROOT, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -849,7 +841,9 @@ if __name__ == "__main__":
         write(f"{p['slug']}/index.html", outcome_pages.page_html(p, head, foot, SITE_URL))
     write("guides/index.html", seo_pages.hub_html(head, foot, SEO_PAGES, SITE_URL, outcome_pages))
     write("index.html", home())
-    write("privacy.html", privacy())
+    for p in policy_pages.PAGES:
+        write(f"{p['slug']}/index.html", policy_pages.page_html(p, head, foot, SITE_URL))
+    write("privacy.html", policy_pages.redirect_html("privacy/", SITE_URL))  # old address, kept for links already out there
     write(".nojekyll", "")
     if SITE_URL:
         urls = [""] + [t["slug"] + "/" for t in TOOLS] + ["guides/"]
@@ -858,7 +852,10 @@ if __name__ == "__main__":
         for p in outcome_pages.PAGES:
             lastmod[p["slug"] + "/"] = outcome_pages.UPDATED
             urls.append(p["slug"] + "/")
+        for p in policy_pages.PAGES:
+            lastmod[p["slug"] + "/"] = policy_pages.UPDATED
+            urls.append(p["slug"] + "/")
         write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
               + "".join(f"<url><loc>{SITE_URL}/{u}</loc>" + (f"<lastmod>{lastmod[u]}</lastmod>" if u in lastmod else "") + "</url>" for u in urls) + "</urlset>\n")
         write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
-    print("built", len(TOOLS), "tools,", len(SEO_PAGES), "guide pages and", len(outcome_pages.PAGES), "outcome pages")
+    print("built", len(TOOLS), "tools,", len(SEO_PAGES), "guide pages,", len(outcome_pages.PAGES), "outcome pages and", len(policy_pages.PAGES), "policy pages")
