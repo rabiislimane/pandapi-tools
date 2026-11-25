@@ -26,3 +26,16 @@ ol.steps { counter-reset: none; }
   .article .lede { font-size: 16px; }
   .cta .btn { width: 100%; text-align: center; }
 }
+/* Outcome pages (outcome_pages.py, 2026-11-25) */
+.outcome .setup .btn { font-size: 17px; padding: 12px 20px; }
+.setup-note { flex: 1 1 100%; font-size: 13.5px; color: var(--muted); }
+.offer { margin: 24px 0; border-color: var(--accent); }
+.offer h2 { margin-top: 0; }
+.offer .btn { text-decoration: none; display: inline-block; margin: 4px 8px 4px 0; }
+.prose > p > .btn { text-decoration: none; display: inline-block; }
+.devbox { margin: 28px 0 8px; font-size: 14.5px; background: var(--surface-2); box-shadow: none; }
+.devbox h2 { font-size: 16px; margin: 0 0 6px; }
+.devbox p { margin: 0; }
+@media (max-width: 480px) {
+  .offer .btn, .prose > p > .btn { width: 100%; text-align: center; box-sizing: border-box; }
+}

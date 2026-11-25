@@ -169,7 +169,7 @@ def tool_tile(t, depth="../"):
             f'<div><h3>{E(t["name"])} (free)</h3><p>{E(t["description"].split(". ")[0])}.</p></div></a>')
 
 
-def hub_html(head, foot, all_pages, site_url):
+def hub_html(head, foot, all_pages, site_url, outcomes=None):
     desc = "Guides to Pandapi's data APIs: how to export app reviews, extract PDF tables to Excel, turn websites into Markdown for RAG, track government tenders and more, plus honest comparisons with Firecrawl, Hunter, ScreenshotOne and others."
     extra = '<link rel="stylesheet" href="../assets/guides.css">'
     apis = [p for p in all_pages if p["kind"] == "api"]
@@ -179,6 +179,7 @@ def hub_html(head, foot, all_pages, site_url):
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <span>Guides</span></nav>
 <h1>Guides: get the data you need, then automate it</h1>
 <p class="lede">Each guide starts with the free way to do the job, then shows how to do it in bulk or on a schedule with a Pandapi API. You pay per result, failed items are free, and Apify's free plan gives you $5 of credit every month to try them.</p>
+{('<h2 id="alerts">Alerts you can set up in 3 minutes, no code</h2><div class="grid">' + ''.join(outcomes.tile(p) for p in outcomes.PAGES) + '</div>') if outcomes else ''}
 <h2>How to do the job</h2>
 <div class="grid">{''.join(guide_tile(p) for p in apis)}</div>
 <h2>Comparisons and alternatives</h2>
