@@ -47,6 +47,9 @@ API = {
         example="50,000 comments cost $10", free="about 25,000 texts a month"),
     "postal-code-lookup": dict(name="ZIP & Postal Code API", price="$0.30 per 1,000 results (not found = free)", unit="result",
         example="10,000 ZIP lookups cost $3", free="about 16,000 results a month"),
+    "shopify-products-price-monitor": dict(name="Competitor Price Monitor", price="$0.50 per 1,000 products on the first run, then $1 per 1,000 changes (unchanged products free)", unit="product",
+        example="3 competitor stores of 100 products checked daily cost about $0.30 a month", free="several competitor stores checked every day",
+        cta_line="<b>Competitor Price Monitor</b>: watching 3 competitor stores of 100 products every day costs about $0.30 a month. Unchanged products are free, and Apify's free plan gives you $5 of credit every month."),
     "pandapi-mcp-server": dict(name="Pandapi MCP Server", price="free server; each tool call costs that API's own price", unit="call",
         example="converting 20 pages to Markdown from Claude costs $0.02", free="the same $5 of monthly credit"),
 }
@@ -95,7 +98,7 @@ def steps(items):
 
 def cta(actor, page, line=None, button=None):
     t = API[actor]
-    line = line or f"<b>{t['name']}</b>: {t['price']}. Apify's free plan gives you $5 of credit every month, which covers {t['free']}. No start fee; failed items are free."
+    line = line or t.get("cta_line") or f"<b>{t['name']}</b>: {t['price']}. Apify's free plan gives you $5 of credit every month, which covers {t['free']}. No start fee; failed items are free."
     button = button or f"Try {t['name']}"
     return (f'<div class="card cta"><img src="../assets/icons/api/{actor}.png" alt="" width="56" height="56" loading="lazy">'
             f'<p>{line}</p><a class="btn" href="{api_url(actor, page)}">{E(button)}</a></div>')
@@ -109,7 +112,7 @@ def page_html(p, head, foot, free_tools, all_pages, site_url):
     url = f"{site_url}/{path}" if site_url else ""
     ld = [
         {"@context": "https://schema.org", "@type": "TechArticle", "headline": p["h1"], "description": p["description"],
-         "datePublished": p.get("published", UPDATED), "dateModified": UPDATED,
+         "datePublished": p.get("published", UPDATED), "dateModified": max(p.get("published", UPDATED), UPDATED),
          "author": {"@type": "Organization", "name": "Pandapi"}, "publisher": {"@type": "Organization", "name": "Pandapi"},
          **({"mainEntityOfPage": url, "image": f"{site_url}/assets/icons/api/{actor}.png"} if site_url else {})},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -131,7 +134,7 @@ def page_html(p, head, foot, free_tools, all_pages, site_url):
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Pandapi Tools</a> › <a href="../guides/">Guides</a> › <span>{crumb_kind}</span></nav>
 <div class="hero"><img src="../assets/icons/api/{actor}.png" alt="" width="64" height="64"><h1>{E(p['h1'])}</h1></div>
 <p class="lede">{p['lede']}</p>
-<p class="byline">Updated {UPDATED_TEXT} · by the Pandapi team{' · We make one of the tools compared here, so we list where the others are better too.' if p['kind'] == 'compare' else ''}</p>
+<p class="byline">Updated {p.get('updated_text', UPDATED_TEXT)} · by the Pandapi team{' · We make one of the tools compared here, so we list where the others are better too.' if p['kind'] == 'compare' else ''}</p>
 {cta(actor, slug)}
 <section class="content prose">
 {p['body']}

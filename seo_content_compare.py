@@ -11,8 +11,8 @@ def page(**kw):
     PAGES.append(kw)
 
 
-def sources(*links):
-    return '<p class="sources">Sources, checked 21 November 2026: ' + ", ".join(
+def sources(*links, checked="21 November 2026"):
+    return f'<p class="sources">Sources, checked {checked}: ' + ", ".join(
         f'<a href="{u}" rel="nofollow noopener">{t}</a>' for t, u in links) + ". Prices change; check their pages before you buy.</p>"
 
 
@@ -743,4 +743,69 @@ page(
     ],
     related=["mcp-server-for-web-and-pdf", "firecrawl-alternative", "website-to-markdown-api"],
     free_tools=["html-to-markdown", "pdf-to-markdown"],
+)
+
+# Prisync (strategy v3: FOCUS product, written for store owners, no code) --------------------------------------
+S = "prisync-alternative"
+_TASK = "https://console.apify.com/create-task-from-example/Zhd4WMwiEeWgKkVXT"
+page(
+    slug=S, tool="shopify-products-price-monitor", published="2026-11-25", updated_text="25 November 2026",
+    title="Prisync Alternative for Shopify Competitors: Price Alerts for Cents",
+    h1="Prisync alternative: competitor price alerts for Shopify stores",
+    description="Prisync starts at $99 a month for 100 products. If your competitors sell on Shopify or WooCommerce, you can get daily price, stock and new-product alerts for about $0.30 a month. Honest comparison, real sample, no code.",
+    lede="Prisync is a solid price-tracking tool for retailers: you list your products, add each competitor's product URL, and it checks prices up to 3 times a day, from $99 a month. Many small Shopify brands only want one thing: an email when a competitor changes a price, launches a product or runs out of stock. That costs a few cents a month.",
+    body=f"""
+<h2>The short answer</h2>
+<ul>
+<li><b>Your competitors sell on Shopify or WooCommerce</b> (most direct-to-consumer brands do): paste their store links and get a daily change list for <b>about $0.30 a month</b>, with no product mapping. <a href="../competitor-price-monitoring/">See how it works</a>.</li>
+<li><b>You need Amazon, Walmart or big retailers, repricing rules or a team dashboard</b>: stay with Prisync or a similar tool. Ours can't do those.</li>
+</ul>
+
+<h2>Side by side</h2>
+{table(["", "Prisync", "Pandapi price alerts"], [
+    ["Price", "$99 a month for 100 products, $199 for 1,000, $399 for 5,000 (URL-based plans)", "<b>about $0.30 a month</b> for 3 stores of 100 products checked daily; unchanged products free"],
+    ["How you set it up", "Add your products, then each competitor's product URL", "Paste competitor store links; their whole catalog is watched"],
+    ["A competitor launches a new product", "Not seen until you add its URL", "In your next daily alert"],
+    ["Price, stock, new and removed product alerts", "Yes (email notifications on Premium)", "Yes, by email, Slack or Google Drive"],
+    ["How often", "Up to 3 times a day", "As often as you schedule it (daily is typical)"],
+    ["Which sites", "Any website, Amazon and marketplaces", "Shopify and WooCommerce stores only"],
+    ["Repricing, MAP, dashboard", "Yes", "No"],
+    ["Free to try", "Free trial", "Free: Apify's free plan includes $5 of credit every month, no card"],
+])}
+
+<h2>A real example</h2>
+<p>On 25 November 2026, before Black Friday, we read 250 products from each of three Shopify shoe and apparel stores. This is the free store summary every run gives you:</p>
+{table(["Store", "Products on sale", "Average discount", "Out of stock"], [
+    ["Allbirds", "61%", "46% off", "1%"],
+    ["Rothy's", "92%", "26% off", "3%"],
+    ["Tentree", "80%", "25% off", "4%"],
+])}
+<p>The next runs list only what changed: each price drop or increase (old price, new price, % change), new and removed products, and items going out of or back in stock. <a href="../samples/sustainable-shoes-apparel-black-friday-prices/">Full sample report</a>.</p>
+<p class="sources">Source: Apify run ZzxHjohCkQbkbLrLl, dataset p6ArXavmSVR7bb4LE, 25 Nov 2026. Nothing here is made up.</p>
+
+<h2>Set it up in 3 minutes, no code</h2>
+{steps([
+    f'<a href="{_TASK}">Open the ready-made task</a> and create a free Apify account (Google sign-in works).',
+    "Replace the example with your competitors' store links, one per line, and type your email in <b>Email me the report at</b>. Click <b>Save &amp; Start</b>.",
+    "Click <b>Schedules</b>, then <b>Create new</b>, then <b>Daily</b>, and add your task. Every morning you get the changes by email.",
+])}
+<p>The <a href="../competitor-price-monitoring/">step-by-step guide with screenshots</a> also shows the Slack option.</p>
+
+<h2>Want to see your own competitors first?</h2>
+<p>Send us a competitor's store link and we'll run a free sample report for you: open a <a href="https://github.com/rabroubx-coder/pandapi-examples/issues/new?title=Free%20sample%20report%3A%20Competitor%20price%20alerts&amp;labels=sample-report">short request form</a> or message <a href="https://x.com/PandapiDev">@PandapiDev on X</a>.</p>
+
+<h2>Where Prisync is the better choice</h2>
+<ul><li>You compete with Amazon, Walmart or retailers that don't run on Shopify or WooCommerce.</li><li>You want automatic repricing rules or MAP monitoring.</li><li>A team needs one dashboard with your products matched to competitors'.</li></ul>
+
+<div class="card"><p><b>For developers:</b> the same monitor is an API on Apify ({a('shopify-products-price-monitor', S, 'Competitor Price Monitor')}), with webhooks, n8n and Make integrations and an MCP server for AI agents.</p></div>
+{sources(("Prisync pricing", "https://prisync.com/pricing/"), ("Apify pricing", "https://apify.com/pricing"), checked="25 November 2026")}
+""",
+    faq=[
+        ("Is there a cheaper alternative to Prisync?", "If your competitors run on Shopify or WooCommerce, yes: a scheduled price monitor on Apify costs about $0.30 a month for 3 stores of 100 products checked daily, and Apify's free plan includes $5 of credit a month."),
+        ("How much does Prisync cost?", "Its URL-based plans are listed at $99 a month for 100 products, $199 for 1,000 and $399 for 5,000, with higher prices for its other plans (checked 25 November 2026)."),
+        ("Can I track competitor prices for free?", "Yes, within Apify's free $5 monthly credit: you pay $0.50 per 1,000 products on the first run and $1 per 1,000 changes after that, and unchanged products are free."),
+        ("Does it work on Amazon?", "No. It reads the public catalog of Shopify and WooCommerce stores. For Amazon and big retailers, Prisync or a similar tool is the better pick."),
+    ],
+    related=["competitor-price-monitoring"],
+    free_tools=[],
 )
