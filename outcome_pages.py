@@ -4,7 +4,7 @@ One page per outcome a non-technical buyer pays for ("get an alert when a compet
 not per API. Each page has: an H1 in the buyer's search words, a REAL sample report copied from an
 existing run dataset (dataset id noted next to it, never invented), the monthly price in plain money,
 a "Set it up in 3 minutes" button that opens a published Apify example task (prefilled input), a
-3-step no-code recipe (run, schedule, email/Slack/Sheets), the free custom sample report offer, an
+step-by-step no-code setup (account, inputs + email, start, schedule, Slack), the free custom sample report offer, an
 honest comparison with the SaaS buyers would otherwise pay for, links to the tutorial/alternative
 pages, and a small "for developers" box at the bottom.
 
@@ -74,9 +74,11 @@ PAGES = [
             "A free <b>summary</b> per store: number of each change and the biggest price drops, so the email reads like \"3 prices dropped, 1 product out of stock\".",
         ],
         steps=[
-            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b>, sign in to Apify (free, no card), replace the example store with your competitor's store link (add up to 10 stores, one per line) and click <b>Save &amp; Start</b>. The first run saves every product as your baseline.",
-            "<b>Schedule it.</b> On the task, click <b>Schedule</b>, pick <b>Daily</b> and a time (for example 7:00). Each run after the first returns only what changed.",
-            "<b>Get it by email, Slack or Google Sheets.</b> On the task, open <b>Integrations</b> and add <b>Send email</b> (or Slack, or Google Sheets). Pick \"Run succeeded\" and you'll get the changes every morning.",
+            "<b>Create a free Apify account (1 minute).</b> Click <b>Set it up in 3 minutes</b>. Apify opens with our ready-made task already attached. Click <b>Continue with Google</b> (or type your email). It's free: $5 of credit every month, no card.<br><img class=\"shot\" src=\"../assets/setup/signup-price-alerts.webp\" alt=\"Apify sign-up screen showing: Start with Get alerts when a competitor changes prices\" width=\"560\" height=\"620\" loading=\"lazy\">",
+            "<b>Fill in two things.</b> The task opens with an example filled in. Replace the example store with your competitors' store links, one per line (up to 10). Then type the email address you signed up with in <b>Email me the report at</b> (Apify only sends to your own account's address).",
+            "<b>Click Save &amp; Start.</b> About a minute later the first report is in your inbox. It lists the products it saved as the starting point; from then on you only hear about changes: price drops, price increases, out of stock, back in stock, new and removed products.",
+            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b> and a time, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b> (new schedules start switched off). Apify's guide with pictures: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
+            "<b>Optional: Slack.</b> On your task's <b>Integrations</b> tab add <b>Slack</b> and use this message: <code>{{resource.statusMessage}}</code>. It posts the report's first line (\"Allbirds: 3 prices dropped, 1 item out of stock\"). Apify's guide: <a href=\"https://docs.apify.com/platform/integrations/slack\">Slack integration</a>.",
         ],
         costs=[
             ["Product rows (first run, and any full run)", "$0.50 per 1,000 products"],
@@ -92,7 +94,7 @@ PAGES = [
             ["New products from a competitor", "✅ seen the day they appear", "only products you added", "only products you added"],
             ["Price, stock, new and removed alerts", "✅", "✅", "✅"],
             ["Any website, Amazon, big retailers", "❌ Shopify and WooCommerce stores only", "✅", "✅"],
-            ["Dashboard, repricing, MAP monitoring", "❌ (email, Slack, Sheets)", "✅", "✅"],
+            ["Dashboard, repricing, MAP monitoring", "❌ (email, Slack, Google Drive)", "✅", "✅"],
         ]) + '<p>Prisync and Price2Spy are the better pick if you need Amazon or big retailers, repricing rules or a dashboard for a team. If your competitors are Shopify or WooCommerce stores and you want the changes in your inbox, this costs a few cents.</p><p class="sources">Prices: Prisync plans listed at $99, $199 and $399 a month; Price2Spy figures differ between sources, so check their pricing page. Checked 24 November 2026.</p>',
         learn=[
             (APIFY + "shopify-products-price-monitor", "Full guide and all options on Apify (best sellers, collections, WooCommerce)"),
@@ -102,7 +104,7 @@ PAGES = [
             ("How much does it cost?", "About $0.30 a month for 3 stores of 100 products checked daily. You pay $0.50 per 1,000 products on the first run and $1 per 1,000 changes after that. Apify's free plan includes $5 of credit every month."),
             ("Do I need to know how to code?", "No. You open the ready-made task, paste store links, click Schedule and add the email integration. Everything is buttons."),
             ("Will I get an email when nothing changed?", "The run still finishes and you can choose to be emailed only when it succeeds. A day with no changes returns an empty list and costs nothing."),
-            ("Can I see the price history?", "Each daily run keeps its result in your Apify account, so the change rows add up to a price history you can export to Excel or Google Sheets."),
+            ("Can I see the price history?", "Yes. Each change row carries the product's price history (every price change the monitor has seen, up to 200) plus the lowest and highest price seen. Download any run as Excel or CSV to open it in Google Sheets."),
             ("Is this allowed?", "The tool reads the public product catalog every Shopify and WooCommerce store publishes for browsers and search engines, at a polite rate, without logging in."),
         ],
     ),
@@ -140,9 +142,11 @@ PAGES = [
             "Filters you can add: <b>exclude words</b>, <b>countries</b>, <b>CPV or NAICS codes</b>, <b>minimum value</b>, tenders only or pre-notices too.",
         ],
         steps=[
-            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b>, sign in to Apify (free, no card), put your own keywords in <b>Keywords</b> (for example \"cleaning services\" or \"cybersecurity\"), give the alert a name and click <b>Save &amp; Start</b>.",
-            "<b>Schedule it.</b> On the task, click <b>Schedule</b> and pick <b>Daily</b>. Each run returns only tenders you haven't seen.",
-            "<b>Get it by email, Slack or Google Sheets.</b> On the task, open <b>Integrations</b> and add <b>Send email</b> (or Slack, or Google Sheets) on \"Run succeeded\". New tenders land in your inbox every morning.",
+            "<b>Create a free Apify account (1 minute).</b> Click <b>Set it up in 3 minutes</b>. Apify opens with our ready-made task already attached. Click <b>Continue with Google</b> (or type your email). It's free: $5 of credit every month, no card.<br><img class=\"shot\" src=\"../assets/setup/signup-tender-alerts.webp\" alt=\"Apify sign-up screen showing: Start with Daily government tender alerts on your keywords\" width=\"560\" height=\"620\" loading=\"lazy\">",
+            "<b>Fill in two things.</b> The task opens with an example filled in. Put your own words in <b>Keywords</b> (for example \"cleaning services\" or \"cybersecurity\") and give the alert a name. Then type the email address you signed up with in <b>Email me the report at</b> (Apify only sends to your own account's address).",
+            "<b>Click Save &amp; Start.</b> About a minute later the first report is in your inbox. It lists the matching tenders, soonest deadline first, with buyer, value and link; from then on you only get tenders you haven't seen.",
+            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b> and a time, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b> (new schedules start switched off). Apify's guide with pictures: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
+            "<b>Optional: Slack.</b> On your task's <b>Integrations</b> tab add <b>Slack</b> and use this message: <code>{{resource.statusMessage}}</code>. It posts the report's first line (\"4 new tenders on your keywords (US 3, GB 1)\"). Apify's guide: <a href=\"https://docs.apify.com/platform/integrations/slack\">Slack integration</a>.",
         ],
         costs=[
             ["Each notice returned", "$2 per 1,000 ($0.002 each)"],
@@ -206,7 +210,7 @@ PAGES = [
         steps=[
             "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b>, sign in to Apify (free, no card), replace allbirds.com with your competitors' websites or names (one per line) and click <b>Save &amp; Start</b>. The first run lists every ad and saves them.",
             "<b>Schedule it.</b> On the task, click <b>Schedule</b> and pick <b>Weekly</b> (or daily in a busy season). Each later run returns only ads that started or stopped.",
-            "<b>Get it by email, Slack or Google Sheets.</b> On the task, open <b>Integrations</b> and add <b>Send email</b> (or Slack, or Google Sheets) on \"Run succeeded\".",
+            "<b>Get it in Slack or Google Drive.</b> On the task, open <b>Integrations</b> and add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a>, so each run's ads arrive where you already look.",
         ],
         costs=[
             ["Each ad returned", "$1.20 per 1,000 ($0.0012 each)"],
