@@ -809,3 +809,70 @@ page(
     related=["competitor-price-monitoring"],
     free_tools=[],
 )
+
+# GovWin IQ (strategy v3: FOCUS tender alerts, written for small bid teams, no code) -----------------------------
+S = "govwin-alternative"
+_TASK = "https://console.apify.com/create-task-from-example/hdv8OVr0yH8q0Oqhg"
+page(
+    slug=S, tool="public-tenders-feed", published="2026-11-26", updated_text="26 November 2026",
+    title="GovWin IQ Alternative for Small Bid Teams: Daily Tender Alerts for Cents",
+    h1="GovWin alternative: daily tender alerts on your keywords for small bid teams",
+    description="GovWin IQ is an annual, quote-based subscription. If you mainly need new tenders on your keywords every morning from SAM.gov, the EU, the UK, Canada and the World Bank, a daily alert costs about $0.60 a month. Honest comparison, real sample, no code.",
+    lede="Deltek GovWin IQ is the heavyweight of government market intelligence: analyst research, forecasts, contract history and buyer contacts across US federal, state and local and Canadian markets, sold as an annual subscription on quote. Many small bid teams use only one part of it: a morning list of new tenders that match their keywords. That part costs cents.",
+    body=f"""
+<h2>The short answer</h2>
+<ul>
+<li><b>You want new tenders on your keywords every morning</b>, from US federal (SAM.gov), the EU (TED), the UK, Canada and World Bank projects: a daily alert costs <b>about $0.60 a month</b>. <a href="../government-tender-alerts/">See how it works</a>.</li>
+<li><b>You sell to US state and local government, or you need forecasts before solicitation, contract history, analyst reports and buyer contacts</b>: GovWin IQ (or GovSpend) is the right tool. Ours does none of that.</li>
+</ul>
+
+<h2>Side by side</h2>
+{table(["", "GovWin IQ", "Pandapi tender alerts"], [
+    ["Price", "No public price. Annual subscription, quoted by market, seats and modules (third-party estimates start around $5,000 a year)", "<b>about $0.60 a month</b> for a daily alert that finds about 10 new tenders a day"],
+    ["US federal (SAM.gov)", "Yes", "Yes"],
+    ["US state, local and education", "Yes (separate package)", "No"],
+    ["Canada", "Yes (federal, provincial and local)", "Federal (CanadaBuys)"],
+    ["EU (TED), UK (Contracts Finder, Find a Tender), World Bank", "Not its focus", "Yes, in the same list"],
+    ["Daily email with only new tenders", "Yes", "Yes, by email, Slack or Google Drive"],
+    ["Forecasts, contract history, buyer contacts, analyst research", "Yes", "No"],
+    ["Contract and setup", "Annual contract, sales call", "No contract. Apify's free plan includes $5 of credit every month, no card"],
+])}
+
+<h2>A real example</h2>
+<p>On 25 November 2026 we ran the alert for a cybersecurity firm (keywords: cybersecurity, cyber security, penetration testing). The email headline: <b>27 new tenders on your keywords, 4 closing within 7 days</b>. A few rows:</p>
+{table(["Tender", "Buyer", "Where", "Deadline", "Value"], [
+    ['<a href="https://ted.europa.eu/en/notice/-/detail/817289-2026">Provision of Cyber Security Services</a>', "Malta Information Technology Agency", "Malta · TED", "5 Jan 2027", "about $578,462"],
+    ['<a href="https://ted.europa.eu/en/notice/-/detail/816280-2026">Renewal and support of the Darktrace cybersecurity platform</a>', "Tusla Child and Family Agency", "Ireland · TED", "8 Jan 2027", "about $6,561,000"],
+    ['<a href="https://www.merx.com/public/solicitations/4207909153/abstract?language=EN">IT and OT Cybersecurity Source List</a>', "Defence Construction Canada", "Canada · CanadaBuys", "12 Jan 2027", "not published"],
+    ['<a href="https://sam.gov/opp/5ed6173d3e954a7e824b7e2513930985/view">PCI DSS compliance validation, penetration testing and ASV scanning</a>', "US Army (W6QK ACC-APG)", "US · SAM.gov", "7 Dec 2026", "not published"],
+])}
+<p>Each row also has the notice type, days left, CPV or NAICS codes and a link to the official notice. <a href="../samples/cybersecurity-government-tenders/">Full sample report</a>, or the <a href="../samples/janitorial-cleaning-government-tenders/">cleaning services one</a> (43 new tenders the same morning).</p>
+<p class="sources">Source: Apify run C0k3XcBWbtfQfCmah, dataset JGwiRk93bLCYuWRh3, 25 Nov 2026. Values are converted to US dollars from the currency the buyer published. Nothing here is made up.</p>
+
+<h2>Set it up in 3 minutes, no code</h2>
+{steps([
+    f'<a href="{_TASK}">Open the ready-made task</a> and create a free Apify account (Google sign-in works).',
+    "Type your keywords (and words to exclude, countries or NAICS/CPV codes if you like) and your email in <b>Email me the report at</b>. Click <b>Save &amp; Start</b>.",
+    "Click <b>Schedules</b>, then <b>Create new</b>, then <b>Daily</b>, and add your task. Every morning you get only the tenders you haven't seen.",
+])}
+<p>The <a href="../government-tender-alerts/">step-by-step guide with screenshots</a> also shows the Slack option.</p>
+
+<h2>Want to see your own keywords first?</h2>
+<p>Tell us your keywords and countries and we'll run a free sample report for you: open a <a href="https://github.com/rabroubx-coder/pandapi-examples/issues/new?title=Free%20sample%20report%3A%20Tender%20alerts&amp;labels=sample-report">short request form</a> or message <a href="https://x.com/PandapiDev">@PandapiDev on X</a>.</p>
+
+<h2>Where GovWin IQ is the better choice</h2>
+<ul><li>You sell to US state, local or education buyers.</li><li>You want to hear about opportunities before the solicitation is published, from analyst research and forecasts.</li><li>You need past contract values, incumbents and buyer contacts to plan a bid.</li></ul>
+
+<div class="card"><p><b>For developers:</b> the same feed is an API on Apify ({a('public-tenders-feed', S, 'Government Tenders API')}) with one schema for all six portals, plus webhooks, n8n and Make integrations. See also the <a href="../government-tenders-api/">developer guide</a>.</p></div>
+{sources(("Deltek GovWin IQ", "https://www.deltek.com/en/govwin"), ("GovWin IQ for Canada", "https://www.deltek.com/en/government-contracting/govwin/canada"), ("Third-party GovWin pricing estimate (Tomba)", "https://tomba.io/blog/deltek-govwin-iq-pricing-reviews-pros-and-cons"), ("Apify pricing", "https://apify.com/pricing"), checked="26 November 2026")}
+""",
+    faq=[
+        ("Is there a cheaper alternative to GovWin IQ?", "For daily alerts on new tenders, yes: a scheduled alert covering SAM.gov, TED, the UK, CanadaBuys and the World Bank costs about $0.60 a month for about 10 new tenders a day, inside Apify's free $5 monthly credit. For forecasts, state and local coverage and contract history, GovWin IQ or GovSpend are still the tools to compare."),
+        ("How much does GovWin IQ cost?", "Deltek doesn't publish prices. It sells annual subscriptions quoted by market (federal, state and local, Canada), number of users and modules. Third-party estimates start around $5,000 a year."),
+        ("Can I get government tender alerts for free?", "Yes. SAM.gov, TED and CanadaBuys each have free saved-search emails for their own portal. The alert here puts all of them in one email for about $0.60 a month, which Apify's free credit covers."),
+        ("Does it cover US state and local bids?", "No. In the US it covers federal notices from SAM.gov."),
+    ],
+    related=["government-tender-alerts", "government-tenders-api"],
+    free_tools=[],
+    cta_line="<b>Tender alerts</b>: a daily alert with about 10 new tenders costs about $0.60 a month. Tenders filtered out or already sent are free, and Apify's free plan gives you $5 of credit every month.",
+)
