@@ -239,6 +239,268 @@ PAGES = [
             ("Do I need to know how to code?", "No. You open the ready-made task, type competitor websites, click Schedule and add the email integration."),
         ],
     ),
+    dict(
+        slug="domain-ssl-expiry-alerts",
+        actor="domain-intelligence",
+        task_id="HbeTglnLcJnVUOlc1",
+        task_name="domain-ssl-expiry-alerts",
+        updated=("2026-11-26", "26 November 2026"),
+        short="Domain and SSL expiry",
+        title="Domain and SSL expiry alerts for all your client domains",
+        meta="A weekly report on every domain you manage: domain expiry, SSL certificate expiry, SPF and DMARC problems, in plain words. No code, about $0.30 a month for 50 domains.",
+        h1="Domain and SSL expiry alerts: never let a client's domain or certificate lapse",
+        lede="Paste every domain you look after, yours or your clients'. Each week you get one row per domain with the <b>domain expiry date</b>, the <b>SSL certificate expiry</b>, the registrar, the email provider and <b>email security (SPF, DMARC, DKIM)</b>, and a plain list of problems like <b>\"SSL certificate expires in 6 days\"</b>.",
+        price_line="<b>About $0.30 a month</b> for a weekly report on 50 domains. Apify's free plan gives you $5 of credit every month, so this runs free.",
+        sample_title="A real sample report",
+        sample=lambda: (
+            "<p>Real rows from our run on 24 November 2026 on three domains: two well-known ones and one that isn't registered.</p>"
+            + table(["Domain", "Domain expires", "SSL expires", "Email security", "Problems found"], [
+                ["github.com", "9 Oct 2028 (684 days), MarkMonitor", "27 Jan 2027 (64 days), Sectigo", "Microsoft 365; SPF 10 of 10 lookups; DMARC quarantine; DKIM found", "none"],
+                ["bbc.co.uk", "13 Dec 2034 (2,940 days)", "24 Jan 2027 (60 days), GlobalSign", "Broadcom Email Security; SPF 4 lookups; DMARC reject", "No DKIM key found on common selectors"],
+                ["pandapi-nope-2026x.com", "not registered (available)", "", "", "none"],
+            ])
+            + "<p>github.com sits exactly at SPF's limit of 10 DNS lookups: one more include and its SPF fails at receivers. That's the kind of thing the problem list is there to catch.</p>"
+            + '<p class="sources">Source: Apify run agdNf1krwlCh4kmBT, dataset hqQLoQRapJczI4WlM, 24 Nov 2026. Expiry dates come from each registry\'s official RDAP service and each site\'s live certificate.</p>'
+        ),
+        alert_title="What the weekly report tells you",
+        alert=[
+            "<b>Domain expiry date and days left</b>, registrar and registry locks, straight from the registry (1,200+ extensions).",
+            "<b>SSL certificate</b>: issuer, expiry date, days left, and whether it covers the host and is trusted.",
+            "<b>Email security</b>: SPF with its DNS-lookup count (over 10 and mail fails), DMARC policy, DKIM keys, MTA-STS.",
+            "A plain <b>problem list</b> per domain: domain expires within 30 days, certificate expires within 14 days, no DMARC, too many SPF lookups.",
+            "Optional <b>change mode</b>: only domains where something changed (renewed, new certificate, new mail provider, DMARC changed).",
+        ],
+        steps=[
+            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b>, create a free Apify account (no card), replace the example domains with yours, one per line (links and email addresses work too), and click <b>Save &amp; Start</b>. The first report is ready in about a minute.",
+            "<b>Make it run every week.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Weekly</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b>. Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
+            "<b>Get it in Slack or Google Drive.</b> On the task, open <b>Integrations</b> and add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a>. Open the <b>Overview</b> tab of any run to sort by days left.",
+        ],
+        costs=[
+            ["Each domain checked (registered or available)", "$1.50 per 1,000 ($0.0015 each)"],
+            ["Invalid input, registry didn't answer", "Free"],
+            ["Example: 50 client domains, weekly", "<b>about $0.30 a month</b>"],
+            ["Example: 300 domains, weekly", "about $1.95 a month"],
+        ],
+        offer_what="the domains you manage",
+        compare=table(["", "Pandapi expiry report", "UptimeRobot", "Other Apify domain checkers"], [
+            ["Price", "<b>about $0.30 a month</b> for 50 domains weekly", "SSL and domain expiry on paid plans only", "$2 to $3 per 1,000 domains, most with a start fee"],
+            ["Domain expiry", "✅", "✅", "✅"],
+            ["SSL expiry", "✅ same row", "✅", "❌ separate tool"],
+            ["SPF lookup count, DMARC, DKIM", "✅", "❌", "presence only, or ❌"],
+            ["Plain problem list per domain", "✅", "❌", "❌"],
+            ["Uptime checks every minute, SMS alerts", "❌", "✅", "❌"],
+        ]) + '<p>UptimeRobot is the better pick if you also need uptime checks every minute and an SMS the moment something breaks. If you want one weekly table of every client domain with expiry dates and email-security problems, this costs cents.</p><p class="sources">UptimeRobot: SSL and domain expiry alerts are listed for paid plans on uptimerobot.com/pricing (checked 26 November 2026). Apify prices from each actor\'s Store page, 24 November 2026.</p>',
+        learn=[
+            (APIFY + "domain-intelligence", "Full guide and all options on Apify (availability checks, DKIM selectors, change mode)"),
+        ],
+        faq=[
+            ("Where do the expiry dates come from?", "Domain dates come from each registry's official RDAP service (WHOIS where a registry has none). SSL dates come from the certificate each site serves right now."),
+            ("How much does it cost?", "$1.50 per 1,000 domains checked. A weekly report on 50 domains is about $0.30 a month, inside Apify's free $5 monthly credit. Domains the registry didn't answer for are free."),
+            ("Will it email me 30 days before expiry?", "Each weekly report lists domains expiring within 30 days and certificates expiring within 14 days in its problem list (you can change both numbers). Send it to Slack or Google Drive so you see it."),
+            ("Some domains show no expiry date. Why?", "A few registries (for example .de) don't publish expiry dates. The report says so for those domains."),
+            ("Do I need to know how to code?", "No. You open the ready-made task, paste your domains, click Schedule and add Slack or Google Drive."),
+        ],
+    ),
+    dict(
+        slug="app-review-alerts",
+        actor="app-store-reviews-scraper",
+        task_id="uHrs9Rjcw3VtIOEUs",
+        task_name="app-store-review-alerts",
+        alt_setup=("Google Play version", "Y90LfxPgMSuWchgIf", "google-play-reviews-scraper", "google-play-review-alerts"),
+        updated=("2026-11-26", "26 November 2026"),
+        short="App review alerts",
+        title="App Store review monitoring: new reviews of any app daily",
+        meta="Get every new App Store or Google Play review of your app or a competitor's, daily, in Slack or a sheet, with a free summary of ratings and complaints. Cents a month.",
+        h1="App Store review monitoring: get every new review of any app, every morning",
+        lede="Paste your app, or a competitor's, from the <b>App Store</b> or <b>Google Play</b>. Every morning you get <b>only the reviews written since yesterday</b>: stars, title, text, country and app version, plus a free summary (average rating, share of 1 and 2 star reviews, the words people complain about). Catch a bad update the day it ships.",
+        price_line="<b>About $0.10 a month</b> to watch 5 apps in 3 countries that get 20 new reviews a day. Apify's free plan gives you $5 of credit every month, so this runs free.",
+        sample_title="A real sample report",
+        sample=lambda: (
+            "<p>Real rows from our run on 20 November 2026 on <b>Notion</b>'s iPhone and iPad app, US App Store, the 10 most recent reviews (5 shown).</p>"
+            + table(["Stars", "Review", "Date"], [
+                ["★★★☆☆", "<b>iPad App Needs Fixes</b>: \"The sidebar doesn't work properly at all, you can't access the right sidebar... A safari web app works better.\"", "18 Nov 2026"],
+                ["★☆☆☆☆", "<b>App crashes instantly every time it opens.</b> \"Newest version broke everything.\"", "18 Nov 2026"],
+                ["★★☆☆☆", "<b>Nav</b>: \"The navigation is confusing because of the repetition where it says recent...\"", "16 Nov 2026"],
+                ["★☆☆☆☆", "<b>Latest version keeps crashing</b>", "14 Nov 2026"],
+                ["★★★★☆", "<b>App won't open</b>: \"I've just run the update on the App Store for my iPad app and it crashes when I try to open the app.\"", "13 Nov 2026"],
+            ])
+            + "<p><b>Summary from the same run (free):</b> average rating of the 10 recent reviews 2.1 (the app's all-time rating is 4.8); 7 of 10 are 1 or 2 stars; most-used complaint words: \"version\", \"update\", \"latest\". A daily alert would have flagged this update within a day.</p>"
+            + '<p class="sources">Source: Apify run dAl4XyUduxobwOcPU, dataset vWsp1Ozki8ROC65os, 20 Nov 2026. Reviewer names are not collected.</p>'
+        ),
+        alert_title="What the daily alert tells you",
+        alert=[
+            "<b>Only new reviews</b> since the last run, remembered per alert name, so nothing arrives twice.",
+            "<b>Stars, title, text, date, country and app version</b> for each review; on Google Play also the developer's reply.",
+            "A free <b>summary</b>: average rating, rating split, share of negative reviews, top complaint words and ratings by app version.",
+            "Filters: <b>only 1 and 2 star reviews</b>, keywords (\"crash\", \"refund\"), several countries or languages at once.",
+            "Works for <b>competitors' apps</b> too: see what their users hate before you build the same thing.",
+        ],
+        steps=[
+            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b> (or the Google Play version), create a free Apify account (no card), replace the example app with your app's store link, pick countries, and click <b>Save &amp; Start</b>. The first run saves today's reviews as the starting point.",
+            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b>. Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
+            "<b>Get it in Slack or Google Drive.</b> On the task, open <b>Integrations</b> and add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a>, so new reviews land in your team channel or a spreadsheet.",
+        ],
+        costs=[
+            ["App Store review", "$0.15 per 1,000"],
+            ["Google Play review", "$0.10 per 1,000"],
+            ["Summary, apps not found", "Free"],
+            ["Example: 5 apps, 3 countries, 20 new reviews a day", "<b>about $0.10 a month</b>"],
+            ["Example: one big app, 500 new reviews a day", "about $2.25 a month"],
+        ],
+        offer_what="your app's store link (and a competitor's)",
+        compare=table(["", "Pandapi review alerts", "AppFollow", "Other Apify review scrapers"], [
+            ["Price", "<b>cents a month</b>, any number of apps", "free for 2 apps; paid plans from about $29 a month", "$0.10 to $0.15 per 1,000 reviews"],
+            ["App Store and Google Play", "✅", "✅", "usually one store per tool"],
+            ["Only new reviews since last time", "✅", "✅", "❌ most have no memory"],
+            ["Competitor apps", "✅", "paid plans", "✅"],
+            ["Rating and complaint summary", "✅ free", "✅ dashboards", "❌"],
+            ["Reply to reviews, tags, ASO tools", "❌", "✅", "❌"],
+        ]) + '<p>AppFollow is the better pick if your team replies to reviews from one inbox or needs ASO keyword tools. If you want new reviews of your apps and your competitors\' apps in Slack or a sheet, this costs cents.</p><p class="sources">AppFollow prices from third-party listings (Capterra, SoftwareSuggest), checked 26 November 2026; check appfollow.io for current plans.</p>',
+        learn=[
+            ("../export-app-store-reviews/", "Guide: export App Store reviews to CSV"),
+            ("../export-google-play-reviews/", "Guide: export Google Play reviews to CSV"),
+            ("../appfollow-alternative/", "AppFollow alternatives compared"),
+        ],
+        faq=[
+            ("Which apps can I watch?", "Any public app on the App Store or Google Play: yours or a competitor's. Paste the store link; add several apps, one per line."),
+            ("How much does it cost?", "$0.15 per 1,000 App Store reviews and $0.10 per 1,000 Google Play reviews. 5 apps in 3 countries with 20 new reviews a day is about $0.10 a month, inside Apify's free $5 monthly credit."),
+            ("Will I get the same review twice?", "No. The alert remembers the reviews it returned under your alert name and only returns new ones next time."),
+            ("Can I get only bad reviews?", "Yes. Set the maximum rating to 2 to get only 1 and 2 star reviews, or add keywords like \"crash\" or \"refund\"."),
+            ("Do you collect reviewer names?", "No. Rows have the review, rating, date, country and version, not the reviewer's name."),
+            ("Do I need to know how to code?", "No. You open the ready-made task, paste your app's link, click Schedule and add Slack or Google Drive."),
+        ],
+    ),
+    dict(
+        slug="hiring-alerts",
+        actor="company-jobs-tracker",
+        task_id="fYtUjoBZCBfpnO97F",
+        task_name="hiring-alerts-target-companies",
+        updated=("2026-11-26", "26 November 2026"),
+        short="Hiring alerts",
+        title="Hiring alerts: new jobs at your target companies",
+        meta="Get an alert when the companies you sell to or recruit for post new jobs, live from their career sites, with a free hiring summary. No code, cents a month.",
+        h1="Hiring signals: get an alert when your target companies post new jobs",
+        lede="Name the companies you sell to, recruit for or want to work at. Each morning you get <b>only the jobs they posted since yesterday</b>: title, department, location, remote or hybrid and <b>salary</b> where published, live from their own career sites. A company hiring 5 salespeople or its first data engineer is a buying signal.",
+        price_line="<b>About $0.13 a month</b> to watch 20 companies posting 30 new jobs a week (the first run, which lists every open job, costs about $1 per 1,000 jobs). Apify's free plan gives you $5 of credit every month.",
+        sample_title="A real sample report",
+        sample=lambda: (
+            "<p>Real rows from our run on 19 November 2026 on <b>Airbnb</b>, <b>Notion</b> and <b>Palantir</b>: the newest jobs.</p>"
+            + table(["Company", "Job", "Where", "Salary", "Posted"], [
+                ["Notion", '<a href="https://jobs.ashbyhq.com/notion/14879c7f-ded7-4e7f-932c-fb4a294afd68">Campaign Lead, Brand</a> (Marketing)', "San Francisco, hybrid", "$210,000 – $245,000", "18 Nov 2026"],
+                ["Notion", '<a href="https://jobs.ashbyhq.com/notion/a8143379-6693-4046-b8cf-1528178d0f0f">CX Systems &amp; Automation Lead</a> (Customer Experience)', "San Francisco, hybrid", "$179,000 - $200,000", "18 Nov 2026"],
+                ["Airbnb", '<a href="https://careers.airbnb.com/positions/8383877?gh_jid=8383877">Senior Connectivity Partner Manager</a> (Sales)', "United States, remote", "$139,000 — $163,000", "18 Nov 2026"],
+                ["Palantir", '<a href="https://jobs.lever.co/palantir/e8bfc01c-620c-4b6a-b3f8-cd275228db06">Information Systems Security Engineer</a>', "Palo Alto, onsite", "$100,000 - $174,000", "18 Nov 2026"],
+                ["Airbnb", '<a href="https://careers.airbnb.com/positions/8397762?gh_jid=8397762">Software Engineer, DevAI</a>', "United States, remote", "$162,000 — $190,000", "17 Nov 2026"],
+            ])
+            + "<p><b>Hiring summary from the same run (free):</b> Airbnb 197 open jobs, 97 posted in the last 30 days, 67% remote, top team Software Engineering (50). Notion 168 open, 60 in the last 30 days, top team Sales (66). Palantir 306 open, 20 in the last 30 days.</p>"
+            + '<p class="sources">Source: Apify run 8a5VJYduhTMdgBMWW, dataset FyfJAOkrfN7aDkLhr, 19 Nov 2026 (565 jobs). Job posts are public company listings; no personal data is collected.</p>'
+        ),
+        alert_title="What the daily alert tells you",
+        alert=[
+            "<b>New jobs</b> each target company posted since the last run, with a link to apply or read more.",
+            "<b>Title, department, location, remote/hybrid/onsite, salary range</b> where the company publishes it.",
+            "<b>Closed jobs</b> (free): roles that were filled or pulled.",
+            "A free <b>hiring summary</b> per company: open jobs, posted in the last 30 days, top departments, remote share.",
+            "Filters: keywords (\"sales\", \"data engineer\"), locations, departments, remote only, only jobs with a salary.",
+        ],
+        steps=[
+            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b>, create a free Apify account (no card), replace the example companies with yours (a name or their careers page link, one per line), and click <b>Save &amp; Start</b>. The first run lists every open job as the starting point.",
+            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b>. Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
+            "<b>Get it in Slack or Google Drive.</b> On the task, open <b>Integrations</b> and add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a>, so new jobs land where your team works.",
+        ],
+        costs=[
+            ["Each job returned", "$1 per 1,000 ($0.001 each)"],
+            ["Closed jobs, hiring summaries, companies not found", "Free"],
+            ["Example: first run on 20 companies with 2,000 open jobs", "about $2 once"],
+            ["Example: then 30 new jobs a week", "<b>about $0.13 a month</b>"],
+        ],
+        offer_what="the companies you want to watch",
+        compare=table(["", "Pandapi hiring alerts", "TheirStack", "Other Apify job scrapers"], [
+            ["Price", "<b>cents a month</b> after the first run", "free 200 credits; paid about $49 to $169 a month", "$5 to $12 per 1,000 jobs"],
+            ["The companies you name, live from their career site", "✅ 11 job-board systems", "its own crawl", "some"],
+            ["Only new jobs since last time", "✅", "✅", "some"],
+            ["Closed jobs", "✅ free", "❌", "❌"],
+            ["Find every company hiring for a role", "❌", "✅", "some"],
+            ["Workday, LinkedIn, Indeed", "❌", "✅", "some"],
+        ]) + '<p>TheirStack is the better pick when you want to discover companies hiring for a role across millions of firms. If you already know your target accounts and want their new jobs every morning, this costs cents.</p><p class="sources">TheirStack prices from its own comparison pages and third-party reviews, checked 26 November 2026. Apify prices from each actor\'s Store page, 18 November 2026.</p>',
+        learn=[
+            ("../company-jobs-api/", "Guide: every open job at the companies you name"),
+            ("../theirstack-alternative/", "TheirStack alternatives compared"),
+        ],
+        faq=[
+            ("Which career sites work?", "Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Recruitee, BambooHR, Rippling, Teamtailor, Personio and Breezy. Type a company name or paste its careers page. Workday sites aren't supported yet."),
+            ("How much does it cost?", "$1 per 1,000 jobs returned; closed jobs and summaries are free. The first run lists every open job, then 20 companies posting 30 new jobs a week cost about $0.13 a month."),
+            ("Why is hiring a sales signal?", "A company hiring for a team usually gets budget for that team's tools. New sales, data or security roles are a common trigger for outreach."),
+            ("Can I watch only some roles?", "Yes. Add keywords, locations or departments and only matching new jobs are returned."),
+            ("Do I need to know how to code?", "No. You open the ready-made task, type company names, click Schedule and add Slack or Google Drive."),
+        ],
+    ),
+    dict(
+        slug="website-technology-lookup",
+        actor="website-tech-stack-detector",
+        task_id="AKqawsQ9kzUwEccd2",
+        task_name="website-technology-lookup",
+        updated=("2026-11-26", "26 November 2026"),
+        short="Website tech lookup",
+        title="Website technology lookup in bulk, with change alerts",
+        meta="See what any list of websites is built with (Shopify, WordPress, HubSpot, analytics, ad pixels, hosting) and get an alert when a site changes. No code, $1.50 per 1,000 sites.",
+        h1="Website technology lookup: see what any list of websites is built with",
+        lede="Paste a list of websites, your prospects or competitors. You get one row per site with its <b>CMS, ecommerce platform, analytics, ad pixels, payments, hosting and email provider</b>, from 7,700 technologies, plus its <b>social links</b>. Put it on a weekly schedule and you hear when a prospect <b>switches platform or adds a tool</b>.",
+        price_line="<b>$1.50 per 1,000 websites</b>; a weekly watch on 500 prospects where 20 change is <b>about $0.13 a month</b> after the first run. Apify's free plan gives you $5 of credit every month.",
+        sample_title="A real sample report",
+        sample=lambda: (
+            "<p>Real row from our run on 24 November 2026 on <b>allbirds.com</b>.</p>"
+            + table(["What", "Found on allbirds.com"], [
+                ["Ecommerce", "Shopify"],
+                ["Payments", "Apple Pay, PayPal"],
+                ["Tag manager", "Google Tag Manager"],
+                ["CDN and security", "Cloudflare, HSTS, HTTP/3"],
+                ["Email provider (from DNS)", "Microsoft 365"],
+                ["Other tools (from DNS records)", "DocuSign, Miro, Cursor"],
+                ["Social links", "Facebook, Instagram, X, YouTube, TikTok, Pinterest"],
+            ])
+            + "<p>15 technologies in total. The tools a company verifies in its DNS (DocuSign, Miro, Cursor here) are often the best hint of what software it already buys.</p>"
+            + '<p class="sources">Source: Apify run G0g9p5S8dq8Hpj7yn, dataset kSnEvKBXXlnOWsr2I, 24 Nov 2026.</p>'
+        ),
+        alert_title="What each run tells you",
+        alert=[
+            "<b>CMS and ecommerce</b> (WordPress, Shopify, Webflow, WooCommerce...), <b>analytics and ad pixels</b>, <b>payments</b>, <b>live chat</b>, <b>CRM and marketing tools</b>.",
+            "<b>Hosting, CDN and email provider</b> from the site and its DNS records.",
+            "<b>Social links</b> (LinkedIn, Facebook, Instagram, X, YouTube, TikTok) in the same row.",
+            "With monitoring on: <b>only sites that changed</b>, with the technologies added and removed.",
+            "Evidence for each detection, so you can trust a lead list before you send it.",
+        ],
+        steps=[
+            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b>, create a free Apify account (no card), paste your list of websites, one per line, and click <b>Save &amp; Start</b>. Export the result to Excel or CSV from the run's <b>Overview</b> tab.",
+            "<b>Optional: watch them every week.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Weekly</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b>. Later runs return only sites that changed. Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
+            "<b>Get it in Slack or Google Drive.</b> On the task, open <b>Integrations</b> and add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a>.",
+        ],
+        costs=[
+            ["Site with at least one technology found", "$1.50 per 1,000 ($0.0015 each)"],
+            ["Unreachable or blocked sites, unchanged sites in monitoring", "Free"],
+            ["Example: a lead list of 2,000 websites", "<b>$3 once</b>"],
+            ["Example: weekly watch on 500 prospects, 20 change a week", "<b>about $0.13 a month</b>"],
+        ],
+        offer_what="your list of websites (up to 20)",
+        compare=table(["", "Pandapi tech lookup", "BuiltWith", "Other Apify tech detectors"], [
+            ["Price", "<b>$1.50 per 1,000 sites</b>, no subscription", "single lookups free; lists from $295 a month", "$2 to $10 per 1,000"],
+            ["Your own list of sites in bulk", "✅", "✅ paid", "✅"],
+            ["Alert when a site changes stack", "✅", "✅ paid", "❌"],
+            ["Social links and email provider in the same row", "✅", "❌", "❌"],
+            ["Find every site using a technology", "❌ (bring your list)", "✅", "❌"],
+            ["Years of history", "❌", "✅", "❌"],
+        ]) + '<p>BuiltWith is the better pick if you need it to find every site that uses a technology, or years of history. If you already have a list of prospects and want to know what they run, and when that changes, this costs a few dollars at most.</p><p class="sources">BuiltWith plans $295, $495 and $995 a month (builtwith.com/plans, checked 26 November 2026). Apify prices from each actor\'s Store page, 21 November 2026.</p>',
+        learn=[
+            (APIFY + "website-tech-stack-detector", "Full guide and all options on Apify (confidence, evidence, contacts)"),
+        ],
+        faq=[
+            ("How does it know what a site is built with?", "It reads the site's home page, scripts, headers and cookies and its DNS records, and matches them against 7,700 known technologies."),
+            ("How much does it cost?", "$1.50 per 1,000 sites where something is found; unreachable sites are free. A 2,000-site list costs $3, and a weekly watch on 500 prospects is about $0.13 a month."),
+            ("Can it find all websites using Shopify?", "No. You bring the list of websites (from your CRM, a directory or a search) and it tells you what each one runs."),
+            ("Can I see when a prospect changes platform?", "Yes. Turn on monitoring and schedule it weekly: later runs return only the sites that changed, with what was added and removed."),
+            ("Do I need to know how to code?", "No. You open the ready-made task, paste websites, click Start, and download the result as Excel or CSV."),
+        ],
+    ),
 ]
 
 BY_SLUG = {p["slug"]: p for p in PAGES}
@@ -281,8 +543,9 @@ def page_html(p, head, foot, site_url):
     setup = (f'<div class="card cta setup"><img src="../assets/icons/api/{actor}.png" alt="" width="56" height="56">'
              f'<p>{p["price_line"]}</p>'
              f'<a class="btn" href="{setup_url(p)}" rel="nofollow">Set it up in 3 minutes</a>'
-             f'<span class="setup-note">Opens a ready-made Apify task with the example filled in. Free account, no card. '
-             f'<a href="{task_url(p)}">See the task first</a>.</span></div>')
+             + (f' <a class="btn secondary" href="https://console.apify.com/create-task-from-example/{p["alt_setup"][1]}" rel="nofollow">{E(p["alt_setup"][0])}</a>' if p.get("alt_setup") else '')
+             + f'<span class="setup-note">Opens a ready-made Apify task with the example filled in. Free account, no card. '
+             + f'<a href="{task_url(p)}">See the task first</a>.</span></div>')
     others = [q for q in PAGES if q["slug"] != slug]
     out = [head(p["title"], p["meta"], path, f"api/{actor}.png", extra)]
     out.append(f"""<main><div class="wrap article outcome">
@@ -319,7 +582,7 @@ def page_html(p, head, foot, site_url):
 <h2>For developers</h2>
 <p>The same engine is an Apify Actor with an HTTP API, webhooks and Python/JavaScript clients: <a href="{utm(APIFY + actor + '/api', actor, slug)}">API docs</a>. It's also in the <a href="{utm(APIFY + 'pandapi-mcp-server', actor, slug)}">Pandapi MCP server</a> for Claude and Cursor, and in the <a href="https://www.npmjs.com/package/n8n-nodes-pandapi">n8n node</a>.</p>
 </aside>
-<p class="byline">Updated {UPDATED_TEXT} · by the Pandapi team</p>
+<p class="byline">Updated {p.get("updated", (UPDATED, UPDATED_TEXT))[1]} · by the Pandapi team</p>
 </div></main>
 """)
     out.append(foot("../"))

@@ -854,7 +854,7 @@ if __name__ == "__main__":
         lastmod = {p["slug"] + "/": seo_pages.UPDATED for p in SEO_PAGES}
         urls += list(lastmod)
         for p in outcome_pages.PAGES:
-            lastmod[p["slug"] + "/"] = outcome_pages.UPDATED
+            lastmod[p["slug"] + "/"] = p.get("updated", (outcome_pages.UPDATED,))[0]
             urls.append(p["slug"] + "/")
         for u in ["samples/"] + [f"samples/{r['slug']}/" for r in sample_pages.REPORTS]:
             lastmod[u] = sample_pages.UPDATED

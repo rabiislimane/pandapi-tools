@@ -12,7 +12,7 @@ const ROOT = path.join(__dirname, '..');
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.ico': 'image/x-icon', '.json': 'application/json' };
 const SHOTS = process.env.SHOTS_DIR || path.join(os.tmpdir(), 'pandapi-outcome-shots');
 fs.mkdirSync(SHOTS, { recursive: true });
-const PAGES = ['competitor-price-monitoring/', 'government-tender-alerts/', 'see-competitors-google-ads/', '', 'guides/'];
+const PAGES = ['competitor-price-monitoring/', 'government-tender-alerts/', 'see-competitors-google-ads/', 'domain-ssl-expiry-alerts/', 'app-review-alerts/', 'hiring-alerts/', 'website-technology-lookup/', '', 'guides/'];
 
 let failures = 0;
 function check(cond, msg) { if (cond) console.log('  ok  ' + msg); else { failures++; console.log('  FAIL ' + msg); } }
