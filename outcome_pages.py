@@ -246,7 +246,7 @@ PAGES = [
         actor="domain-intelligence",
         task_id="HbeTglnLcJnVUOlc1",
         task_name="domain-ssl-expiry-alerts",
-        updated=("2026-11-26", "26 November 2026"),
+        updated=("2026-11-27", "27 November 2026"),
         short="Domain and SSL expiry",
         title="Domain and SSL expiry alerts for all your client domains",
         meta="A weekly report on every domain you manage: domain expiry, SSL certificate expiry, SPF and DMARC problems, in plain words. No code, about $0.30 a month for 50 domains.",
@@ -270,7 +270,7 @@ PAGES = [
             "<b>SSL certificate</b>: issuer, expiry date, days left, and whether it covers the host and is trusted.",
             "<b>Email security</b>: SPF with its DNS-lookup count (over 10 and mail fails), DMARC policy, DKIM keys, MTA-STS.",
             "A plain <b>problem list</b> per domain: domain expires within 30 days, certificate expires within 14 days, no DMARC, too many SPF lookups.",
-            "Optional <b>change mode</b>: only domains where something changed (renewed, new certificate, new mail provider, DMARC changed).",
+            "Optional <b>change mode</b> (<b>Only changes since my last run</b>): later runs return only domains where something changed, and unchanged domains cost nothing. A domain or certificate entering its warning window counts as a change, so you hear about it once when it gets within 30 days, again in its last week, and on the day it expires, not every week. Renewals, new certificates, new mail providers and DMARC changes show up too.",
         ],
         steps=[
             "<b>Create a free Apify account (1 minute).</b> Click <b>Set it up in 3 minutes</b>. Apify opens with our ready-made task attached. Click <b>Continue with Google</b> (or type your email). It's free: $5 of credit every month, no card.",
@@ -282,6 +282,7 @@ PAGES = [
         costs=[
             ["Each domain checked (registered or available)", "$1.50 per 1,000 ($0.0015 each)"],
             ["Invalid input, registry didn't answer", "Free"],
+            ["Unchanged domain in change mode", "Free"],
             ["Example: 50 client domains, weekly", "<b>about $0.30 a month</b>"],
             ["Example: 300 domains, weekly", "about $1.95 a month"],
         ],
@@ -301,6 +302,7 @@ PAGES = [
             ("Where do the expiry dates come from?", "Domain dates come from each registry's official RDAP service (WHOIS where a registry has none). SSL dates come from the certificate each site serves right now."),
             ("How much does it cost?", "$1.50 per 1,000 domains checked. A weekly report on 50 domains is about $0.30 a month, inside Apify's free $5 monthly credit. Domains the registry didn't answer for are free."),
             ("Will it email me 30 days before expiry?", "Yes. Type your Apify account email in \"Email me the report at\". The weekly email comes when a domain expires within 30 days or a certificate within 14 days (you can change both numbers), with one line per domain and the expiry date. A week with nothing to report sends nothing."),
+            ("Will it remind me every week about the same domain?", "Not in change mode. Switch on \"Only changes since my last run\" and a domain is reported once when it enters the 30-day window, once in its last week and once when it expires. In the plain weekly report every domain is listed every week."),
             ("Some domains show no expiry date. Why?", "A few registries (for example .de) don't publish expiry dates. The report says so for those domains."),
             ("Do I need to know how to code?", "No. You open the ready-made task, paste your domains, type your email and add a weekly schedule."),
         ],
@@ -364,6 +366,7 @@ PAGES = [
             ("../export-app-store-reviews/", "Guide: export App Store reviews to CSV"),
             ("../export-google-play-reviews/", "Guide: export Google Play reviews to CSV"),
             ("../appfollow-alternative/", "AppFollow alternatives compared"),
+            ("../shopify-app-review-alerts/", "Shopify apps: Shopify App Store review alerts"),
         ],
         faq=[
             ("Which apps can I watch?", "Any public app on the App Store or Google Play: yours or a competitor's. Paste the store link; add several apps, one per line."),
@@ -503,6 +506,76 @@ PAGES = [
             ("Can it find all websites using Shopify?", "No. You bring the list of websites (from your CRM, a directory or a search) and it tells you what each one runs."),
             ("Can I see when a prospect changes platform?", "Yes. Turn on monitoring and schedule it weekly: later runs return only the sites that changed, with what was added and removed."),
             ("Do I need to know how to code?", "No. You open the ready-made task, paste websites, click Start, and download the result as Excel or CSV."),
+        ],
+    ),
+    dict(
+        slug="shopify-app-review-alerts",
+        actor="shopify-app-store-reviews",
+        task_id="NA2oUfvAr1tIuaFQ9",
+        task_name="shopify-app-review-alerts",
+        updated=("2026-11-27", "27 November 2026"),
+        short="Shopify app reviews",
+        title="Shopify App Store review alerts for app makers, and fake-review checks",
+        meta="Every new Shopify App Store review of your app and your competitors' apps, daily, in Slack or a sheet, with a free check for suspicious 5-star bursts. About $0.05 a month.",
+        h1="Shopify App Store reviews: get every new review of your app and your competitors', daily",
+        lede="Paste your Shopify app and the apps you compete with. Every morning you get <b>only the reviews posted since yesterday</b>: stars, text, the merchant's country, <b>how long they had used the app</b> and the developer's reply. A free summary per app adds the reply rate and a <b>suspicious-review check</b> (bursts of short 5-star reviews from stores that installed the app the same day). This is about merchant reviews on apps.shopify.com, not Shopify's app approval review.",
+        price_line="<b>About $0.05 a month</b> to watch your app and 4 competitors that get a few new reviews a day. No start fee. Apify's free plan gives you $5 of credit every month, so this runs free.",
+        sample_title="A real sample report",
+        sample=lambda: (
+            "<p>Real rows from our run on 21 November 2026 on <b>Judge.me Product Reviews</b>, the 20 newest reviews (5 shown). Merchant store names are not collected.</p>"
+            + table(["Stars", "Review", "Country", "Used the app for", "Date"], [
+                ["★★★☆☆", "\"The support team has been very helpful. We use the WhatsApp API to send review requests to customers. We'd like the 'Leave a Review' button in each message to automatically open the page for the specific product the customer purchased. The app doesn't currently offer this feature.\"", "India", "Over 1 year", "21 Nov 2026"],
+                ["★★★★★", "\"This is a well rounded but easy to use app. Easily imported my reviews from Etsy to my Shopify store.\"", "United States", "5 months", "21 Nov 2026"],
+                ["★★★★★", "\"Support is great\"", "South Africa", "About 1 year", "21 Nov 2026"],
+                ["★★★★★", "\"还不错\" (\"not bad\")", "United States", "2 days", "21 Nov 2026"],
+                ["★★★★★", "(stars only, no text)", "United States", "not shown", "20 Nov 2026"],
+            ])
+            + "<p><b>Summary from the same run (free):</b> 20 reviews in 2 days, average 4.9 (the listing shows 5.0 from 50,565 reviews); the one 3-star review is a feature request, a lead for any competitor that has that feature; 3 of the 20 came in the merchant's first week with the app; 4 are stars only, and 47% of the 5-star reviews with text are under 25 characters. The developer had not replied to any of them yet. The suspicious-review score needs 30 or more reviews in one run, so for a competitor check run the task once with 300 reviews per app (about 3 cents an app).</p>"
+            + '<p class="sources">Source: Apify run gjdaJMLyFSqvEtkvI, dataset 68CVHtwhh6hbthM0Q, 21 Nov 2026. Reviews that name the developer\'s support staff or a store are left out of this sample.</p>'
+        ),
+        alert_title="What the daily alert tells you",
+        alert=[
+            "<b>Only new reviews</b> since the last run, remembered under your alert name, so nothing arrives twice.",
+            "<b>Stars, text, date, country</b>, how long the merchant had used the app, and <b>the developer's reply</b> with its date.",
+            "A free <b>summary per app</b>: average rating next to the listing's, reply rate and median reply time, ratings by country and by how long merchants used the app, top complaint words.",
+            "A free <b>suspicious-review check</b>: review bursts, 5-star reviews after less than a day of use, repeated wording, very short 5-star reviews, as a 0 to 100 score with plain reasons.",
+            "Filters: <b>only 1 and 2 star reviews</b> (a competitor's unhappy merchants are your best leads), a start date, or keywords like \"billing\" or \"support\".",
+        ],
+        steps=[
+            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b> and create a free Apify account (Continue with Google, no card).",
+            "<b>Paste your apps.</b> Replace the two example apps with your app and your competitors', one link per line (for example <code>https://apps.shopify.com/judgeme</code>). Want complaints only? Set <b>Maximum stars</b> to 2. Click <b>Save &amp; Start</b>: the first run saves the newest reviews as the starting point.",
+            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b> (new schedules start switched off). Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
+            "<b>Get it in Slack or Google Drive.</b> On the task's <b>Integrations</b> tab add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> with the message <code>{{resource.statusMessage}}</code> (it posts \"Done: 6 reviews, 5 summaries\" or \"no new reviews since the last run\"), or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a> to keep every new review in a spreadsheet.",
+        ],
+        costs=[
+            ["Each review", "$0.10 per 1,000 ($0.0001 each)"],
+            ["App details row (rating, histogram, pricing plans), optional", "$2 per 1,000"],
+            ["Summary and suspicious-review check, apps not found", "Free"],
+            ["Example: your app + 4 competitors, a few new reviews a day", "<b>about $0.05 a month</b>"],
+            ["Example: 20 apps with 10 new reviews a day each", "about $0.60 a month"],
+        ],
+        offer_what="your app's Shopify App Store link and up to 2 competitors",
+        compare=table(["", "Pandapi review alerts", "Shopify Partner Dashboard", "AppNavigator", "Other Apify scrapers"], [
+            ["Price", "<b>cents a month</b>, no start fee", "free", "free website", "$0.06 to $50 per 1,000 reviews, most with a start fee"],
+            ["Your own app's new reviews", "✅", "✅ by email", "browse only", "✅"],
+            ["Competitors' new reviews", "✅", "❌ your apps only", "browse only, no alerts", "✅"],
+            ["Only new since last time", "✅", "✅", "❌", "one actor, with a start fee each run"],
+            ["Suspicious-review score with reasons", "✅ free", "❌", "❌", "❌"],
+            ["Reply rate, by country and by usage time", "✅ free", "❌", "partly", "❌"],
+            ["Merchant store names", "off by default", "shown", "shown", "always collected"],
+        ]) + '<p>For your own app only, the Partner Dashboard emails are free and enough. AppNavigator is good for browsing rankings and review history by hand. If you want your competitors\' new reviews too, in Slack or a sheet every morning, with a check for review bursts, this costs cents.</p><p class="sources">AppNavigator: appnavigator.io home page, checked 27 November 2026 (no paid plan found). Apify prices from each actor\'s Store page, 27 November 2026.</p>',
+        learn=[
+            ("../shopify-app-reviews-export/", "Guide: export Shopify App Store reviews and spot suspicious ones"),
+            ("../app-review-alerts/", "Mobile apps: App Store and Google Play review alerts"),
+            (APIFY + "shopify-app-store-reviews", "Full guide and all options on Apify (app details, pricing plans, filters)"),
+        ],
+        faq=[
+            ("Which apps can I watch?", "Any public app on the Shopify App Store: yours or a competitor's. Paste the app's link or its handle, one per line."),
+            ("How much does it cost?", "$0.10 per 1,000 reviews, no start fee. Your app and 4 competitors with a few new reviews a day is about $0.05 a month, inside Apify's free $5 monthly credit."),
+            ("Will I get the same review twice?", "No. The alert remembers the reviews it returned under your alert name and returns only new ones next time."),
+            ("Can it tell if a competitor's reviews are fake?", "It flags patterns worth a look, with reasons: bursts of reviews on one day, 5-star reviews from stores that had the app for less than a day, repeated wording. These are signals, not proof: some apps honestly ask for a review right after install."),
+            ("Is this about Shopify's app approval review?", "No. This watches the reviews merchants leave on your app's App Store listing, not Shopify's review of your app submission."),
+            ("Do I need to know how to code?", "No. You open the ready-made task, paste app links, click Start and add a daily schedule."),
         ],
     ),
 ]
