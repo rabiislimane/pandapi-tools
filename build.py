@@ -712,6 +712,7 @@ SEO_PAGES = _API_PAGES + _COMPARE_PAGES
 import outcome_pages  # noqa: E402  (outcome pages for non-technical buyers, strategy v3)
 import sample_pages  # noqa: E402  (free sample reports, proof pages)
 import policy_pages  # noqa: E402  (privacy, terms, refunds, cookies, report emails, contact)
+import tender_digest  # noqa: E402  (free weekly IT tenders list, refreshed by GitHub Actions)
 HOME_GUIDES = ["export-app-store-reviews", "extract-tables-from-pdf-to-excel", "website-to-markdown-api", "government-tenders-api", "firecrawl-alternative", "tableconvert-alternative"]
 assert len({p["slug"] for p in SEO_PAGES}) == len(SEO_PAGES), "duplicate SEO page slug"
 assert not {p["slug"] for p in SEO_PAGES} & set(BY_SLUG), "SEO page slug clashes with a tool"
@@ -843,6 +844,7 @@ if __name__ == "__main__":
     for r in sample_pages.REPORTS:
         write(f"samples/{r['slug']}/index.html", sample_pages.page_html(r, head, foot, SITE_URL))
     write("samples/index.html", sample_pages.hub_html(head, foot, SITE_URL))
+    digest = tender_digest.render_all(head, foot, SITE_URL, write)
     write("guides/index.html", seo_pages.hub_html(head, foot, SEO_PAGES, SITE_URL, outcome_pages))
     write("index.html", home())
     for p in policy_pages.PAGES:
@@ -859,6 +861,9 @@ if __name__ == "__main__":
         for u in ["samples/"] + [f"samples/{r['slug']}/" for r in sample_pages.REPORTS]:
             lastmod[u] = sample_pages.UPDATED
             urls.append(u)
+        if digest:
+            lastmod[digest[0]] = digest[1]
+            urls.append(digest[0])
         for p in policy_pages.PAGES:
             lastmod[p["slug"] + "/"] = policy_pages.UPDATED
             urls.append(p["slug"] + "/")

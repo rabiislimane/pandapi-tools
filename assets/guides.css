@@ -39,3 +39,4 @@ ol.steps { counter-reset: none; }
 @media (max-width: 480px) {
   .offer .btn, .prose > p > .btn { width: 100%; text-align: center; box-sizing: border-box; }
 }
+.prose .muted { font-size: 13px; color: var(--muted); font-weight: 400; }

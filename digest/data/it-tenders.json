@@ -1,0 +1,1272 @@
+{
+ "slug": "it-tenders",
+ "keywords": [
+  "software",
+  "cloud",
+  "IT services",
+  "cybersecurity",
+  "data centre",
+  "data center"
+ ],
+ "postedSince": "2026-11-21",
+ "generatedAt": "2026-11-27T05:57:09.385Z",
+ "currencyRatesDate": "2026-11-26",
+ "sources": {
+  "canadabuys": {
+   "name": "CanadaBuys (Canada federal)",
+   "ok": true,
+   "kept": 9,
+   "scanned": 80,
+   "seconds": 1
+  },
+  "uk-cf": {
+   "name": "Contracts Finder (UK)",
+   "ok": true,
+   "kept": 0,
+   "scanned": 3,
+   "seconds": 1
+  },
+  "ted": {
+   "name": "TED (European Union)",
+   "ok": true,
+   "kept": 40,
+   "scanned": 65,
+   "seconds": 2
+  },
+  "worldbank": {
+   "name": "World Bank (projects worldwide)",
+   "ok": true,
+   "kept": 4,
+   "scanned": 68,
+   "seconds": 2
+  },
+  "sam": {
+   "name": "SAM.gov (US federal)",
+   "ok": true,
+   "kept": 27,
+   "scanned": 241,
+   "seconds": 7
+  },
+  "uk-fts": {
+   "name": "Find a Tender (UK)",
+   "ok": true,
+   "kept": 9,
+   "scanned": 1191,
+   "seconds": 33
+  }
+ },
+ "notices": [
+  {
+   "title": "MachineStudio MBE Control Software Upgrade",
+   "buyerName": "NAVAL RESEARCH LABORATORY",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-11-30T13:00:00.000Z",
+   "daysLeft": 3,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-24T14:52:52.000Z",
+   "url": "https://sam.gov/opp/ca0b444a56b64cb8816e4f889e98dd0c/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:ca0b444a56b64cb8816e4f889e98dd0c",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "MicroFocus Software Subscriptions",
+   "buyerName": null,
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-11-30T22:00:00.000Z",
+   "daysLeft": 3,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-24T15:07:31.000Z",
+   "url": "https://sam.gov/opp/dcdb63f1180e40ac863cd91b3ca0be28/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:dcdb63f1180e40ac863cd91b3ca0be28",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "ManageEngine Software Support",
+   "buyerName": "NAVSUP FLT LOG CTR PEARL HARBOR",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-02T22:00:00.000Z",
+   "daysLeft": 5,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-23T23:23:57.000Z",
+   "url": "https://sam.gov/opp/e8d10433106145dc80de0ed92597563d/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:e8d10433106145dc80de0ed92597563d",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Einführung und Betrieb eines zentralen Lernmanagementsystems",
+   "buyerName": "Stadt Dorsten",
+   "country": "DE",
+   "countryName": "Germany",
+   "deadline": "2026-12-03T09:59:00.000Z",
+   "daysLeft": 6,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827616-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827616-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "cloud"
+   ]
+  },
+  {
+   "title": "Hardware/Software Upgrades for Zeiss Confocal Microscopy Systems",
+   "buyerName": "NATIONAL INSTITUTES OF HEALTH OLAO",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-04T12:00:00.000Z",
+   "daysLeft": 7,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-25T19:49:19.000Z",
+   "url": "https://sam.gov/opp/d0ddd352361f428ba9a3c148bb58ca78/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:d0ddd352361f428ba9a3c148bb58ca78",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Pilot Training Transformation Device Support Services IV (PTT DSS IV)",
+   "buyerName": "FA3002  338 ESS CC",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-04T18:00:00.000Z",
+   "daysLeft": 7,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-23T22:34:13.000Z",
+   "url": "https://sam.gov/opp/410adbee96db4119a3a44e0fa600cf2c/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:410adbee96db4119a3a44e0fa600cf2c",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "GUATEMALA Software Development Services for GIO Information Exchange Platform",
+   "buyerName": "U.S.EMBASSY GUATEMALA CITY",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-04T23:00:00.000Z",
+   "daysLeft": 7,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-24T22:35:50.000Z",
+   "url": "https://sam.gov/opp/b272f6859a494e2fb934818354255118/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:b272f6859a494e2fb934818354255118",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "eFOIA",
+   "buyerName": "FA8770  AFLCMC GBK",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-05T04:55:00.000Z",
+   "daysLeft": 7,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-23T19:16:12.000Z",
+   "url": "https://sam.gov/opp/ae3cfc4358d443409000fd3eb83d3376/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:ae3cfc4358d443409000fd3eb83d3376",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "cloud"
+   ]
+  },
+  {
+   "title": "Cykliczna usługa konfiguracji bazy cyfrowej Repozytorium wraz z usługą wsparcia technicznego oraz opieki serwisowej i godzin rozwojowych",
+   "buyerName": "Polskie Wydawnictwo Muzyczne",
+   "country": "PL",
+   "countryName": "Poland",
+   "deadline": "2026-12-07T09:00:00.000Z",
+   "daysLeft": 10,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827192-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827192-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "GE Positive Sequence Flow Software (PSLF)",
+   "buyerName": "FEDERAL ENERGY REGULATORY COMM",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-07T18:00:00.000Z",
+   "daysLeft": 10,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-25T17:43:55.000Z",
+   "url": "https://sam.gov/opp/91030026a5814b699d5075e6a986c36c/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:91030026a5814b699d5075e6a986c36c",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "JamF Software Licenses",
+   "buyerName": "FDA OFFICE OF ACQ  GRANT SVCS",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-07T18:00:00.000Z",
+   "daysLeft": 10,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-25T12:38:21.000Z",
+   "url": "https://sam.gov/opp/323fe6cee8094b908c47a40c6203ded1/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:323fe6cee8094b908c47a40c6203ded1",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "cybersecurity"
+   ]
+  },
+  {
+   "title": "Servicii de de dezvoltare, testare și pilotare a soluțiilor digitale, inclusiv instruirea personalului și a utilizatorilor în cadrul proiectului „Dezvoltarea digitală în cadrul parteneriatului între Comuna Căpâlnița și Comuna Lueta”",
+   "buyerName": "COMUNA CAPÎLNITA",
+   "country": "RO",
+   "countryName": "Romania",
+   "deadline": "2026-12-08T13:00:00.000Z",
+   "daysLeft": 11,
+   "valueAmount": 1278924.86,
+   "valueCurrency": "RON",
+   "valueUsd": 262653,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826799-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826799-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "36C25527Q0049 - IVX & Cerner to Interface with EHRM",
+   "buyerName": "255-NETWORK CONTRACT OFFICE 15 (36C255)",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-08T17:00:00.000Z",
+   "daysLeft": 11,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-23T14:42:19.000Z",
+   "url": "https://sam.gov/opp/ef0438d3bd8f46a6bbb2e5085994e346/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:ef0438d3bd8f46a6bbb2e5085994e346",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Fornitura di prodotti e servizi RedHat",
+   "buyerName": "Terna S.p.A.",
+   "country": "IT",
+   "countryName": "Italy",
+   "deadline": "2026-12-09T11:00:00.000Z",
+   "daysLeft": 12,
+   "valueAmount": 37200000,
+   "valueCurrency": "EUR",
+   "valueUsd": 40827000,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827774-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827774-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Dostawa oraz wdrożenie Systemu do Elektronicznego Obiegu Dokumentów",
+   "buyerName": "Uniwersyteckie Centrum Kliniczne im. prof. K. Gibińskiego Śląskiego Uniwersytetu Medycznego w Katowicach",
+   "country": "PL",
+   "countryName": "Poland",
+   "deadline": "2026-12-10T09:00:00.000Z",
+   "daysLeft": 13,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827863-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827863-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Media Suite - Media Monitoring & Social Media Content Management",
+   "buyerName": "Berlin Partner für Wirtschaft und Technologie GmbH",
+   "country": "DE",
+   "countryName": "Germany",
+   "deadline": "2026-12-11T12:00:00.000Z",
+   "daysLeft": 14,
+   "valueAmount": 252000,
+   "valueCurrency": "EUR",
+   "valueUsd": 276570,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827543-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827543-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Software for CCGS Science vessel Naalak Nappaaluk",
+   "buyerName": "Department of National Defence (DND)",
+   "country": "CA",
+   "countryName": "Canada",
+   "deadline": "2026-12-11T19:00:00.000Z",
+   "daysLeft": 14,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-25T05:00:00.000Z",
+   "url": "https://canadabuys.canada.ca/en/tender-opportunities?search_filter=cb-122-56186569",
+   "source": "canadabuys",
+   "sourceName": "CanadaBuys (Canada federal)",
+   "id": "canadabuys:cb-122-56186569",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "MX Relay & Functional Tests Software",
+   "buyerName": "FA8227  AFMC OL H PZIMB",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-11T22:00:00.000Z",
+   "daysLeft": 14,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-24T17:31:52.000Z",
+   "url": "https://sam.gov/opp/c335d3351b824f6aa42a78eab31a3d2e/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:c335d3351b824f6aa42a78eab31a3d2e",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Talousjärjestelmäuudistus Mico Botnialle",
+   "buyerName": "Mico Botnia Oy Ab",
+   "country": "FI",
+   "countryName": "Finland",
+   "deadline": "2026-12-14T09:00:00.000Z",
+   "daysLeft": 17,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826570-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826570-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "IT services"
+   ]
+  },
+  {
+   "title": "FORNITURA DELLE LICENZE E DELLA MANUTENZIONE SOFTWARE NEO4J E ACQUISIZIONE DEI SERVIZI SPECIALISTICI",
+   "buyerName": "CINECA Consorzio Interuniversitario",
+   "country": "IT",
+   "countryName": "Italy",
+   "deadline": "2026-12-15T17:00:00.000Z",
+   "daysLeft": 18,
+   "valueAmount": 1725000,
+   "valueCurrency": "EUR",
+   "valueUsd": 1893187,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826961-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826961-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Fourniture de denrées alimentaires, de services d'aide à la gestion de cuisine et de logiciel(s) de gestion de la production des repas et des commandes avec un engagement dans l'alimentation durable",
+   "buyerName": "CPAS de Forest",
+   "country": "BE",
+   "countryName": "Belgium",
+   "deadline": "2026-12-16T15:00:00.000Z",
+   "daysLeft": 19,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826906-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826906-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Logiciel SIRH",
+   "buyerName": "CRP Les Marronniers",
+   "country": "BE",
+   "countryName": "Belgium",
+   "deadline": "2026-12-17T10:00:00.000Z",
+   "daysLeft": 20,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827993-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827993-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "IT Solution for UIN",
+   "buyerName": "ACQUISITIONS - AQM MOMENTUM",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2026-12-18T23:00:00.000Z",
+   "daysLeft": 21,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-24T18:30:42.000Z",
+   "url": "https://sam.gov/opp/fcc1c370419a4458b58cf00b4de1fe65/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:fcc1c370419a4458b58cf00b4de1fe65",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Renewal of our Microsoft Enterprise Agreement and licensing",
+   "buyerName": "COTTSWAY HOUSING ASSOCIATION LIMITED",
+   "country": "GB",
+   "countryName": "United Kingdom",
+   "deadline": "2026-12-21T12:00:00.000Z",
+   "daysLeft": 24,
+   "valueAmount": 200000,
+   "valueCurrency": "GBP",
+   "valueUsd": 262074,
+   "publishedAt": "2026-11-25T12:06:17.000Z",
+   "url": "https://www.find-tender.service.gov.uk/Notice/111589-2026",
+   "source": "uk-fts",
+   "sourceName": "Find a Tender (UK)",
+   "id": "uk-fts:ocds-h6vhtk-07c370",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "cloud"
+   ]
+  },
+  {
+   "title": "Provision of a White Label Jobs Board Solution for WMjobs.co.uk (W198)",
+   "buyerName": "West Midlands Employers",
+   "country": "GB",
+   "countryName": "United Kingdom",
+   "deadline": "2026-12-21T12:00:00.000Z",
+   "daysLeft": 24,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-24T15:22:33.000Z",
+   "url": "https://www.find-tender.service.gov.uk/Notice/111276-2026",
+   "source": "uk-fts",
+   "sourceName": "Find a Tender (UK)",
+   "id": "uk-fts:ocds-h6vhtk-0778e6",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Servicii pentru obiectivul de investiții „Furnizarea, implementarea și operaționalizarea de soluții digitale integrate pentru digitalizarea serviciilor publice în cadrul proiectului DigitalConnect Primăriile Avrămești, Săcel și Secuieni”",
+   "buyerName": "COMUNA AVRAMESTI",
+   "country": "RO",
+   "countryName": "Romania",
+   "deadline": "2026-12-21T13:00:00.000Z",
+   "daysLeft": 24,
+   "valueAmount": 1861763.03,
+   "valueCurrency": "RON",
+   "valueUsd": 382351,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827242-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827242-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "cloud"
+   ]
+  },
+  {
+   "title": "Provision of Support and Maintenance of the CUH Data Centre",
+   "buyerName": "CAMBRIDGE UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+   "country": "GB",
+   "countryName": "United Kingdom",
+   "deadline": "2026-12-21T13:00:00.000Z",
+   "daysLeft": 24,
+   "valueAmount": 250000,
+   "valueCurrency": "GBP",
+   "valueUsd": 327592,
+   "publishedAt": "2026-11-25T13:33:15.000Z",
+   "url": "https://www.find-tender.service.gov.uk/Notice/111650-2026",
+   "source": "uk-fts",
+   "sourceName": "Find a Tender (UK)",
+   "id": "uk-fts:ocds-h6vhtk-07c392",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "data centre"
+   ]
+  },
+  {
+   "title": "Mise à disposition d’un flux prépresse automatisé de la chaîne graphique de la Direction de l’information légale et administrative (DILA)",
+   "buyerName": "DSAF",
+   "country": "FR",
+   "countryName": "France",
+   "deadline": "2026-12-26T11:00:00.000Z",
+   "daysLeft": 29,
+   "valueAmount": 196000,
+   "valueCurrency": "EUR",
+   "valueUsd": 215110,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826717-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826717-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "OIT – OSI SW OS2 (RedHat)",
+   "buyerName": "Národní úřad pro kybernetickou a informační bezpečnost",
+   "country": "CZ",
+   "countryName": "Czechia",
+   "deadline": "2026-12-28T09:00:00.000Z",
+   "daysLeft": 31,
+   "valueAmount": 15000000,
+   "valueCurrency": "CZK",
+   "valueUsd": 673230,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827112-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827112-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Suscripciones Elastic para la plataforma corporativa de Lantik",
+   "buyerName": "LANTIK - LANTIK",
+   "country": "ES",
+   "countryName": "Spain",
+   "deadline": "2026-12-28T11:00:00.000Z",
+   "daysLeft": 31,
+   "valueAmount": 330495,
+   "valueCurrency": "EUR",
+   "valueUsd": 362718,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827903-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827903-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Świadczenie usług: serwisu, Hotline i modyfikacji eksploatowanego Systemu Elektronicznego Zarządzania Dokumentacją",
+   "buyerName": "Gmina Wrocław - Urząd Miejski Wrocławia",
+   "country": "PL",
+   "countryName": "Poland",
+   "deadline": "2026-12-28T11:00:00.000Z",
+   "daysLeft": 31,
+   "valueAmount": 568554.9,
+   "valueCurrency": "PLN",
+   "valueUsd": 139165,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827449-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827449-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "AQUISIÇÃO DE CONTADORES DE ÁGUA INTELIGENTES, MÓDULOS DE COMUNICAÇÃO E SOFTWARE DE GESTÃO DE DADOS – 2ª FASE",
+   "buyerName": "Penafiel Verde, EM",
+   "country": "PT",
+   "countryName": "Portugal",
+   "deadline": "2026-12-28T23:59:59.000Z",
+   "daysLeft": 31,
+   "valueAmount": 859636.21,
+   "valueCurrency": "EUR",
+   "valueUsd": 943451,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826914-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826914-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Rahmenvertrag für IT-Sicherheitsuntersuchungen (Penetrationstests)",
+   "buyerName": "Deutsche Bundesbank, Zentralbereich Beschaffungen",
+   "country": "DE",
+   "countryName": "Germany",
+   "deadline": "2026-12-29T10:00:00.000Z",
+   "daysLeft": 32,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826634-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826634-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "IT services"
+   ]
+  },
+  {
+   "title": "PROCEDURA APERTA AI SENSI DELL’ART. 71 DEL D.LGS N. 36/2023 PER L’AFFIDAMENTO DELLA FORNITURA DELLA MANUTENZIONE DELLE LICENZE MASTER DATA MANAGEMENT 360 E NUOVE SUBSCRIPTIONS PER CDP",
+   "buyerName": "Cassa Depositi e Prestiti S.p.A.",
+   "country": "IT",
+   "countryName": "Italy",
+   "deadline": "2026-12-29T11:00:00.000Z",
+   "daysLeft": 32,
+   "valueAmount": 268000,
+   "valueCurrency": "EUR",
+   "valueUsd": 294130,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827485-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827485-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "PROCEDURA APERTA AI SENSI DELL’ART. 71 DEL D.LGS N. 36/2023 PER L’AFFIDAMENTO DELLA FORNITURA DELLE LICENZE TABLEAU PER CDP SPA",
+   "buyerName": "Cassa Depositi e Prestiti S.p.A.",
+   "country": "IT",
+   "countryName": "Italy",
+   "deadline": "2026-12-29T11:00:00.000Z",
+   "daysLeft": 32,
+   "valueAmount": 599320,
+   "valueCurrency": "EUR",
+   "valueUsd": 657754,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826662-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826662-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Fourniture de droits d'usage de licences Microsoft 365 pour la ville de Douai",
+   "buyerName": "Mairie de Douai",
+   "country": "FR",
+   "countryName": "France",
+   "deadline": "2026-12-31T11:00:00.000Z",
+   "daysLeft": 34,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826483-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826483-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Evolutions applicatives et maintien en conditions opérationnelles du logiciel libre « Bien VU » pour la gestion des signalements avec son framework Lutèce",
+   "buyerName": "Etablissement Public Territorial Plaine Commune",
+   "country": "FR",
+   "countryName": "France",
+   "deadline": "2027-01-04T11:00:00.000Z",
+   "daysLeft": 38,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826576-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826576-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Oracle User Productivity Kit (UPK) Replacement Commercial Solutions Opening (CSO)",
+   "buyerName": "FA8770  AFLCMC GBK",
+   "country": "US",
+   "countryName": "United States",
+   "deadline": "2027-01-06T21:00:00.000Z",
+   "daysLeft": 40,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-23T15:45:56.000Z",
+   "url": "https://sam.gov/opp/128c7a4d4b3045acaa49131bcb77a800/view",
+   "source": "sam",
+   "sourceName": "SAM.gov (US federal)",
+   "id": "sam:128c7a4d4b3045acaa49131bcb77a800",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Setting up of State Data Centre 2.0 (SDC 2.0)",
+   "buyerName": "Cyber Corporation Manipur Limited",
+   "country": "IN",
+   "countryName": "India",
+   "deadline": "2027-01-07T13:00:00.000Z",
+   "daysLeft": 41,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-23T00:00:00.000Z",
+   "url": "https://projects.worldbank.org/en/projects-operations/procurement-detail/OP00483086",
+   "source": "worldbank",
+   "sourceName": "World Bank (projects worldwide)",
+   "id": "worldbank:OP00483086",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "data centre"
+   ]
+  },
+  {
+   "title": "UCL SA 2026.27 - ACCORD-CADRE RELATIF A LA SOUSCRIPTION LOGICIELLE ET AUX SERVICES DE SUPPORT POUR LE PRODUIT WSO2 API MANAGER ÉDITÉ PAR LA SOCIÉTÉ CHOREO LABS",
+   "buyerName": "Université catholique de Louvain",
+   "country": "BE",
+   "countryName": "Belgium",
+   "deadline": "2027-01-08T10:00:00.000Z",
+   "daysLeft": 42,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826854-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826854-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "OFICINA DE AUTOMATOZACIÓN DE PROCESOS",
+   "buyerName": "Administrador de Infraestructuras Ferroviarias",
+   "country": "ES",
+   "countryName": "Spain",
+   "deadline": "2027-01-08T12:00:00.000Z",
+   "daysLeft": 42,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827424-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827424-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Servicio del desarrollo, instalación, configuración, despliegue y soporte post despliegue de una Historia Clínica Electrónica para el Servicio Canario de la Salud - MAGE HCE -",
+   "buyerName": "Consejería de Sanidad del Gobierno de Canarias",
+   "country": "ES",
+   "countryName": "Spain",
+   "deadline": "2027-01-08T22:59:00.000Z",
+   "daysLeft": 42,
+   "valueAmount": 35839142.53,
+   "valueCurrency": "EUR",
+   "valueUsd": 39333459,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827615-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827615-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "IT services"
+   ]
+  },
+  {
+   "title": "COMMON OPEN RECONFIGURABLE ENVIRONMENT MULTI PURPOSE RECONFIGURABLE TRAINER NAVY SIMULATOR V3",
+   "buyerName": "Department of Public Works and Government Services (PSPC)",
+   "country": "CA",
+   "countryName": "Canada",
+   "deadline": "2027-01-11T07:00:00.000Z",
+   "daysLeft": 45,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-25T05:00:00.000Z",
+   "url": "https://portal.us.bn.cloud.ariba.com/dashboard/public/appext/comsapsbncdiscoveryui#/RfxEvent/preview/1110032433?anId=ANONYMOUS",
+   "source": "canadabuys",
+   "sourceName": "CanadaBuys (Canada federal)",
+   "id": "canadabuys:WS5915405812-Doc6007156060",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "cloud"
+   ]
+  },
+  {
+   "title": "Managed Maintenance Service for Data Centres",
+   "buyerName": "University of St Andrews",
+   "country": "GB",
+   "countryName": "United Kingdom",
+   "deadline": "2027-01-11T12:00:00.000Z",
+   "daysLeft": 45,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-25T11:27:31.000Z",
+   "url": "https://www.find-tender.service.gov.uk/Notice/111530-2026",
+   "source": "uk-fts",
+   "sourceName": "Find a Tender (UK)",
+   "id": "uk-fts:ocds-h6vhtk-07c349",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "data centre"
+   ]
+  },
+  {
+   "title": "Servicii de dezvoltare, testare și pilotare a soluțiilor digitale, inclusiv instruirea personalului implicat în operare / administrarea soluțiilor digitale.",
+   "buyerName": "COMUNA GHIDFALAU",
+   "country": "RO",
+   "countryName": "Romania",
+   "deadline": "2027-01-11T13:00:00.000Z",
+   "daysLeft": 45,
+   "valueAmount": 1789384.05,
+   "valueCurrency": "RON",
+   "valueUsd": 367487,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826910-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826910-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Financiële administratie, Purchase-to-Pay (P2P), Contractbeheer (CB) en Contractmanagement (CM)",
+   "buyerName": "gemeente Westland",
+   "country": "NL",
+   "countryName": "Netherlands",
+   "deadline": "2027-01-12T08:00:00.000Z",
+   "daysLeft": 46,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827907-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827907-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Subsidievolgsysteem gemeente Hengelo",
+   "buyerName": "Gemeente Hengelo",
+   "country": "NL",
+   "countryName": "Netherlands",
+   "deadline": "2027-01-12T10:00:40.000Z",
+   "daysLeft": 46,
+   "valueAmount": 590000,
+   "valueCurrency": "EUR",
+   "valueUsd": 647525,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826591-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826591-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Achiziționarea unor licențe necesare extinderii capacității soluției de securitate cibernetică",
+   "buyerName": "Ministerul Justitiei",
+   "country": "RO",
+   "countryName": "Romania",
+   "deadline": "2027-01-12T13:00:00.000Z",
+   "daysLeft": 46,
+   "valueAmount": 1732000,
+   "valueCurrency": "RON",
+   "valueUsd": 355702,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827362-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827362-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "cloud"
+   ]
+  },
+  {
+   "title": "Information Technology and Operational Technology Cybersecurity Source List",
+   "buyerName": "Defence Construction Canada / Construction de Défense Canada",
+   "country": "CA",
+   "countryName": "Canada",
+   "deadline": "2027-01-12T19:00:00.000Z",
+   "daysLeft": 46,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-24T05:00:00.000Z",
+   "url": "https://www.merx.com/public/solicitations/4207909153/abstract?language=EN",
+   "source": "canadabuys",
+   "sourceName": "CanadaBuys (Canada federal)",
+   "id": "canadabuys:MX-243100884220",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "cybersecurity"
+   ]
+  },
+  {
+   "title": "CRM platform licences and support – competitive call-off under G-Cloud 15",
+   "buyerName": "Waste & Resources Action Programme",
+   "country": "GB",
+   "countryName": "United Kingdom",
+   "deadline": "2027-01-12T23:45:00.000Z",
+   "daysLeft": 46,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T09:36:10.000Z",
+   "url": "https://www.find-tender.service.gov.uk/Notice/Attachment/A-26343",
+   "source": "uk-fts",
+   "sourceName": "Find a Tender (UK)",
+   "id": "uk-fts:ocds-h6vhtk-07c440",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "cloud"
+   ]
+  },
+  {
+   "title": "Bereitstellung eines CMS und Implementierung der Vergabehandbücher des BMV",
+   "buyerName": "Bundesministerium für Verkehr",
+   "country": "DE",
+   "countryName": "Germany",
+   "deadline": "2027-01-18T08:00:00.000Z",
+   "daysLeft": 52,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826794-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826794-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "cloud"
+   ]
+  },
+  {
+   "title": "Bezwaarbehandelsysteem",
+   "buyerName": "Provincie Noord-Brabant",
+   "country": "NL",
+   "countryName": "Netherlands",
+   "deadline": "2027-01-18T11:00:00.000Z",
+   "daysLeft": 52,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827457-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827457-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "IT services"
+   ]
+  },
+  {
+   "title": "Rahmenvertrag für Bereitstellung und Betrieb einer Veranstaltungssoftware",
+   "buyerName": "Deutscher Akademischer Austauschdienst e. V.",
+   "country": "DE",
+   "countryName": "Germany",
+   "deadline": "2027-01-21T11:00:00.000Z",
+   "daysLeft": 55,
+   "valueAmount": 600000,
+   "valueCurrency": "EUR",
+   "valueUsd": 658500,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827786-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827786-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "IT services"
+   ]
+  },
+  {
+   "title": "Upphandling gällande Ramavtal IT-konsulttjänster Ledning och styrning",
+   "buyerName": "Regeringskansliet",
+   "country": "SE",
+   "countryName": "Sweden",
+   "deadline": "2027-01-28T11:00:58.000Z",
+   "daysLeft": 62,
+   "valueAmount": 40000000,
+   "valueCurrency": "SEK",
+   "valueUsd": 3918768,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827927-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827927-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "IT services"
+   ]
+  },
+  {
+   "title": "Application Programming Interface (API Manager) – Dossier de Soins Partagé – New Generation (DSP NG)",
+   "buyerName": "Agence eSanté G.I.E.",
+   "country": "LU",
+   "countryName": "Luxembourg",
+   "deadline": "2027-01-30T22:00:00.000Z",
+   "daysLeft": 64,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826851-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826851-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Planningssoftware gemeente Breda",
+   "buyerName": "Gemeente Breda",
+   "country": "NL",
+   "countryName": "Netherlands",
+   "deadline": "2027-02-10T12:00:00.000Z",
+   "daysLeft": 75,
+   "valueAmount": 4500000,
+   "valueCurrency": "EUR",
+   "valueUsd": 4938750,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827394-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827394-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "cloud"
+   ]
+  },
+  {
+   "title": "Geo-viewer",
+   "buyerName": "Gemeente Lansingerland",
+   "country": "NL",
+   "countryName": "Netherlands",
+   "deadline": "2027-03-08T11:00:00.000Z",
+   "daysLeft": 101,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826870-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826870-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "Bedrijfsvoering systemen (HR & ERP)",
+   "buyerName": "Tilburg University",
+   "country": "NL",
+   "countryName": "Netherlands",
+   "deadline": null,
+   "daysLeft": null,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827847-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827847-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software",
+    "IT services"
+   ]
+  },
+  {
+   "title": "Fachanwendung - IT-System LfL-EDAS",
+   "buyerName": "Freistaat Bayern, vertr. durch die Bayerische Landesanstalt für Landwirtschaft (LfL)",
+   "country": "DE",
+   "countryName": "Germany",
+   "deadline": null,
+   "daysLeft": null,
+   "valueAmount": 919372,
+   "valueCurrency": "EUR",
+   "valueUsd": 1009011,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/827019-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:827019-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  },
+  {
+   "title": "De implementatie, het onderhoud en de ondersteuning van een integraal platform voor personenalarm en een raamovereenkomst voor hardware-, sensor- en detectieoplossingen",
+   "buyerName": "ZORGBEDRIJF ANTWERPEN, Welzijnsvereniging",
+   "country": "BE",
+   "countryName": "Belgium",
+   "deadline": null,
+   "daysLeft": null,
+   "valueAmount": null,
+   "valueCurrency": null,
+   "valueUsd": null,
+   "publishedAt": "2026-11-26T23:00:00.000Z",
+   "url": "https://ted.europa.eu/en/notice/-/detail/826657-2026",
+   "source": "ted",
+   "sourceName": "TED (European Union)",
+   "id": "ted:826657-2026",
+   "noticeType": "tender",
+   "matchedKeywords": [
+    "software"
+   ]
+  }
+ ]
+}

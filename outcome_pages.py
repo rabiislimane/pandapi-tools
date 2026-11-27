@@ -168,6 +168,7 @@ PAGES = [
             ("../sam-gov-api-alternative/", "SAM.gov alternatives compared"),
             ("../ted-tenders-api/", "TED tenders: the free way and the daily feed"),
             ("../contracts-finder-api/", "UK Contracts Finder: the free way and the daily feed"),
+            ("../government-it-tenders/", "Free weekly list: government IT tenders this week"),
         ],
         faq=[
             ("Which portals are covered?", "SAM.gov (US federal), TED (EU and EEA), Contracts Finder and Find a Tender (UK), CanadaBuys and World Bank procurement. All official, public sources."),
