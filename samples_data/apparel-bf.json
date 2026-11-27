@@ -1,0 +1,616 @@
+{
+ "run": "AjuzoIwqz4ND0DFe5",
+ "dataset": "xpm1HG3aKSMeH8R3r",
+ "date": "2026-11-27",
+ "stores": [
+  {
+   "store": "www.allbirds.com",
+   "name": "Allbirds",
+   "dropVariants": 0,
+   "dropProducts": 0,
+   "medianDrop": null,
+   "topDrops": [],
+   "soldOut": [
+    {
+     "title": "Men's Wool Runner NZ Mid Waterproof - Natural Black (Natural Black Sole)",
+     "url": "https://www.allbirds.com/products/mens-wool-runner-nz-mid-waterproof-natural-black",
+     "price": 112
+    },
+    {
+     "title": "Women's Tree Breezer - Warm Camel (Dark Anthracite Sole)",
+     "url": "https://www.allbirds.com/products/womens-tree-breezer-warm-camel-dark",
+     "price": 73.5
+    },
+    {
+     "title": "Anytime Ankle Sock - Blizzard/Royal Blue",
+     "url": "https://www.allbirds.com/products/anytime-ankle-sock-blizzard-royal-blue",
+     "price": 8
+    },
+    {
+     "title": "Anytime No Show Sock - Natural Grey Heather/Deep Navy",
+     "url": "https://www.allbirds.com/products/anytime-no-show-sock-natural-grey-heather-deep-navy",
+     "price": 7
+    },
+    {
+     "title": "Anytime Ankle Sock 3-Pack - Natural Black",
+     "url": "https://www.allbirds.com/products/anytime-ankle-sock-3-pack-natural-black",
+     "price": 19
+    },
+    {
+     "title": "Anytime No Show Sock 3-Pack  - Natural Black",
+     "url": "https://www.allbirds.com/products/anytime-no-show-sock-3-pack-natural-black",
+     "price": 17.5
+    },
+    {
+     "title": "Anytime No Show Sock - Rugged Beige",
+     "url": "https://www.allbirds.com/products/anytime-no-show-sock-rugged-beige",
+     "price": 7
+    },
+    {
+     "title": "Anytime Ankle Sock - Medium Grey",
+     "url": "https://www.allbirds.com/products/anytime-ankle-sock-medium-grey",
+     "price": 8
+    },
+    {
+     "title": "Anytime Crew Sock - Rugged Beige",
+     "url": "https://www.allbirds.com/products/anytime-crew-sock-rugged-beige",
+     "price": 9
+    },
+    {
+     "title": "Anytime Ankle Sock - Natural Black",
+     "url": "https://www.allbirds.com/products/anytime-ankle-sock",
+     "price": 8
+    },
+    {
+     "title": "Anytime Crew Sock - Calm Teal",
+     "url": "https://www.allbirds.com/products/anytime-crew-sock-calm-teal",
+     "price": 9
+    },
+    {
+     "title": "Anytime Crew Sock - Blizzard",
+     "url": "https://www.allbirds.com/products/anytime-crew-sock",
+     "price": 9
+    },
+    {
+     "title": "Trino\u00ae Quarters - Onyx",
+     "url": "https://www.allbirds.com/products/trino-quarters-onyx",
+     "price": 7
+    },
+    {
+     "title": "Women's Wool Cruiser Slip On - Shadow Blue (Natural White Sole)",
+     "url": "https://www.allbirds.com/products/womens-wool-cruiser-slip-on-shadow-blue-natural-white-sole",
+     "price": 110
+    },
+    {
+     "title": "Men's Cruiser Slip On - Natural Black (Blizzard Sole)",
+     "url": "https://www.allbirds.com/products/mens-cruiser-slip-on-natural-black",
+     "price": 100
+    },
+    {
+     "title": "Women's Canvas Cruiser - Deep Navy Stripes (Blizzard Sole)",
+     "url": "https://www.allbirds.com/products/womens-canvas-cruiser-deep-navy-stripes",
+     "price": 37.5
+    },
+    {
+     "title": "Men's Cruiser Slip On - Mist (Blizzard Sole)",
+     "url": "https://www.allbirds.com/products/mens-cruiser-slip-on-mist",
+     "price": 100
+    },
+    {
+     "title": "Women's Varsity Strap - Multi (Natural White Sole)",
+     "url": "https://www.allbirds.com/products/womens-varsity-strap",
+     "price": 34.5
+    },
+    {
+     "title": "Men's Tree Runner - Jet Black (Black Sole)",
+     "url": "https://www.allbirds.com/products/mens-tree-runners-jet-black",
+     "price": 100
+    },
+    {
+     "title": "Women's Allbirds Slide Terry - Warm White",
+     "url": "https://www.allbirds.com/products/womens-allbirds-slide-terry",
+     "price": 18
+    },
+    {
+     "title": "Men's Tree Runner - Navy Night (White Sole)",
+     "url": "https://www.allbirds.com/products/mens-tree-runners-navy-night",
+     "price": 70
+    },
+    {
+     "title": "Women's Wool Cruiser Waterproof - Dark Grey (Light Grey Sole)",
+     "url": "https://www.allbirds.com/products/womens-wool-cruiser-waterproof-dark-grey",
+     "price": 140
+    },
+    {
+     "title": "Men's Canvas Cruiser Slip On - Warm White (Natural White Sole)",
+     "url": "https://www.allbirds.com/products/mens-cruiser-slip-on-canvas-warm-white",
+     "price": 45
+    },
+    {
+     "title": "Allbirds Wool Slipper - Light Tan",
+     "url": "https://www.allbirds.com/products/allbirds-slipper",
+     "price": 15.6
+    },
+    {
+     "title": "Women's Wool Runner NZ - Natural White (Natural White Sole)",
+     "url": "https://www.allbirds.com/products/womens-wool-runner-nz-natural-white",
+     "price": 77
+    },
+    {
+     "title": "Women's Wool Cruiser Slip On - Rugged Beige (Stony Cream Sole)",
+     "url": "https://www.allbirds.com/products/womens-wool-cruiser-slip-on-rugged-beige",
+     "price": 100
+    },
+    {
+     "title": "Men's Canvas Cruiser - Port (Natural White Sole)",
+     "url": "https://www.allbirds.com/products/mens-cruiser-canvas-port",
+     "price": 45
+    },
+    {
+     "title": "Women's Wool Runner NZ Waterproof - Dark Grey (Light Grey Sole)",
+     "url": "https://www.allbirds.com/products/womens-wool-runner-nz-waterproof",
+     "price": 75
+    },
+    {
+     "title": "Women's Wool Runner NZ Waterproof - Natural Black (Natural Black Sole)",
+     "url": "https://www.allbirds.com/products/womens-wool-runner-nz-waterproof-natural-black",
+     "price": 75
+    }
+   ],
+   "backInStock": [],
+   "new": [
+    {
+     "title": "Men's Varsity - Ochre (Natural White Sole)",
+     "url": "https://www.allbirds.com/products/mens-varsity-ochre",
+     "price": 84
+    },
+    {
+     "title": "Women's Cruiser - Verdant Green (Blizzard Sole)",
+     "url": "https://www.allbirds.com/products/womens-cruiser-verdant-green",
+     "price": 73.5
+    },
+    {
+     "title": "Women's Tree Breezer - Verdant Green (Verdant Green Sole)",
+     "url": "https://www.allbirds.com/products/womens-tree-breezer-verdant-green",
+     "price": 105
+    },
+    {
+     "title": "Women's Dasher NZ Relay - Ochre (Weathered White Sole)",
+     "url": "https://www.allbirds.com/products/womens-dasher-nz-relay-ochre",
+     "price": 81
+    }
+   ],
+   "removed": []
+  },
+  {
+   "store": "www.tentree.com",
+   "name": "Tentree",
+   "dropVariants": 477,
+   "dropProducts": 135,
+   "medianDrop": -12.5,
+   "topDrops": [
+    {
+     "title": "Moray Sweater",
+     "url": "https://www.tentree.com/products/moray-sweater-pacific-teal-heather-dark-grey-heather-harbour-grey-heather",
+     "old": 148,
+     "new": 118.4,
+     "pct": -20
+    },
+    {
+     "title": "Wool Kurt Beanie",
+     "url": "https://www.tentree.com/products/wool-kurt-beanie-pacific-teal",
+     "old": 45,
+     "new": 36,
+     "pct": -20
+    },
+    {
+     "title": "Alden Beanie",
+     "url": "https://www.tentree.com/products/alden-beanie-pacific-teal",
+     "old": 35,
+     "new": 28,
+     "pct": -20
+    },
+    {
+     "title": "Alden Beanie",
+     "url": "https://www.tentree.com/products/alden-beanie-hazelnut",
+     "old": 35,
+     "new": 28,
+     "pct": -20
+    },
+    {
+     "title": "Cork Icon Elevation Hat",
+     "url": "https://www.tentree.com/products/cork-icon-elevation-hat-pacific-teal",
+     "old": 45,
+     "new": 36,
+     "pct": -20
+    }
+   ],
+   "soldOut": [
+    {
+     "title": "Forest Flannel Shirt",
+     "url": "https://www.tentree.com/products/forest-flannel-shirt-deep-burgundy-creekside-plaid",
+     "price": 58.8
+    },
+    {
+     "title": "Juniper T-Shirt",
+     "url": "https://www.tentree.com/products/juniper-t-shirt-pacific-teal-heather-white",
+     "price": 36
+    },
+    {
+     "title": "Tentree Vintage Mountain Patch T-Shirt",
+     "url": "https://www.tentree.com/products/tentree-vintage-mountain-patch-t-shirt-cider-mountain-patch",
+     "price": 31.5
+    },
+    {
+     "title": "Lawrence Sweater",
+     "url": "https://www.tentree.com/products/lawrence-sweater-harbour-grey-heather-fjord",
+     "price": 94.4
+    },
+    {
+     "title": "Rooted T-Shirt",
+     "url": "https://www.tentree.com/products/rooted-t-shirt-pacific-teal-white-oak",
+     "price": 31.5
+    },
+    {
+     "title": "Morrell Fleck Sweater",
+     "url": "https://www.tentree.com/products/morrell-fleck-sweater-cider-fleck",
+     "price": 78.4
+    },
+    {
+     "title": "Floral Heritage Crew",
+     "url": "https://www.tentree.com/products/floral-heritage-crew-blue-horizon-meteorite-black",
+     "price": 54.6
+    },
+    {
+     "title": "Howson Hoodie",
+     "url": "https://www.tentree.com/products/howson-hoodie-dark-forest-green-pine-green",
+     "price": 78.4
+    },
+    {
+     "title": "Juniper Zip Hoodie",
+     "url": "https://www.tentree.com/products/juniper-zip-hoodie-plum-royale-heather-white",
+     "price": 78.4
+    },
+    {
+     "title": "Evergreen Jacket",
+     "url": "https://www.tentree.com/products/evergreen-jacket-ashwood",
+     "price": 159.6
+    },
+    {
+     "title": "Have You Seen Him T-Shirt",
+     "url": "https://www.tentree.com/products/have-you-seen-him-t-shirt-hazelnut-heather-meteorite-black",
+     "price": 36
+    },
+    {
+     "title": "Think Outside T-Shirt",
+     "url": "https://www.tentree.com/products/think-outside-t-shirt-dark-forest-green-vintage-white",
+     "price": 36
+    },
+    {
+     "title": "Spokane Sweater",
+     "url": "https://www.tentree.com/products/spokane-sweater-pine-green",
+     "price": 86.4
+    },
+    {
+     "title": "Collins Vest",
+     "url": "https://www.tentree.com/products/collins-vest-dark-forest-green-dark-forest-green",
+     "price": 124.6
+    },
+    {
+     "title": "TreeBlend Baker T-Shirt",
+     "url": "https://www.tentree.com/products/treeblend-baker-t-shirt-mauve-stone-heather",
+     "price": 31.5
+    }
+   ],
+   "backInStock": [],
+   "new": [
+    {
+     "title": "Women's Mystery Box (5 Items)",
+     "url": "https://www.tentree.com/products/womens-mystery-bag",
+     "price": 150
+    },
+    {
+     "title": "Women's Mini Mystery Box (3 Items)",
+     "url": "https://www.tentree.com/products/womens-mini-mystery-box-3-items-multi",
+     "price": 88
+    },
+    {
+     "title": "Men's Mini Mystery Box (3 Items)",
+     "url": "https://www.tentree.com/products/mens-mini-mystery-box-3-items-multi",
+     "price": 88
+    }
+   ],
+   "removed": []
+  },
+  {
+   "store": "rothys.com",
+   "name": "Rothy's",
+   "dropVariants": 227,
+   "dropProducts": 18,
+   "medianDrop": -16.8,
+   "topDrops": [
+    {
+     "title": "The Cozy Clog - ReVelvet\u2122 Cream Herringbone",
+     "url": "https://rothys.com/products/womens-cozy-clog-revelvet-cream-herringbone",
+     "old": 119,
+     "new": 99,
+     "pct": -16.8
+    },
+    {
+     "title": "The Cozy Clog - ReVelvet\u2122 Slate Herringbone",
+     "url": "https://rothys.com/products/womens-cozy-clog-revelvet-slate-herringbone",
+     "old": 119,
+     "new": 99,
+     "pct": -16.8
+    },
+    {
+     "title": "The Apr\u00e8s Clog - ReVelvet\u2122 Dove",
+     "url": "https://rothys.com/products/womens-apres-clog-revelvet-dove",
+     "old": 119,
+     "new": 99,
+     "pct": -16.8
+    },
+    {
+     "title": "The Apr\u00e8s Clog - ReVelvet\u2122 Pecan",
+     "url": "https://rothys.com/products/womens-apres-clog-revelvet-pecan",
+     "old": 119,
+     "new": 99,
+     "pct": -16.8
+    },
+    {
+     "title": "The Apr\u00e8s Clog - ReVelvet\u2122 Slate Herringbone",
+     "url": "https://rothys.com/products/womens-apres-clog-revelvet-slate-herringbone",
+     "old": 119,
+     "new": 99,
+     "pct": -16.8
+    }
+   ],
+   "soldOut": [
+    {
+     "title": "The Cozy Clog - ReVelvet\u2122 Slate Herringbone",
+     "url": "https://rothys.com/products/womens-cozy-clog-revelvet-slate-herringbone",
+     "price": 99
+    },
+    {
+     "title": "The Teddy Kids Clog - ReVelvet\u2122 Cozy Kitty",
+     "url": "https://rothys.com/products/kids-teddy-clog-revelvet-cozy-kitty",
+     "price": 49
+    },
+    {
+     "title": "The Teddy Kids Clog",
+     "url": "https://rothys.com/products/the-teddy-kids-clog",
+     "price": 49
+    },
+    {
+     "title": "The Kids Big Bow Mary Jane - ReVelvet\u2122 Black",
+     "url": "https://rothys.com/products/kids-big-bow-mary-jane-revelvet-black",
+     "price": 39
+    },
+    {
+     "title": "The Point II - Deep Navy",
+     "url": "https://rothys.com/products/womens-pointed-toe-flat-deep-navy",
+     "price": 99
+    },
+    {
+     "title": "The Point II - Lollipop Red",
+     "url": "https://rothys.com/products/womens-pointed-toe-flat-lollipop-red",
+     "price": 99
+    },
+    {
+     "title": "The Kids Tux Bow Mary Jane - ReVelvet\u2122 Black",
+     "url": "https://rothys.com/products/kids-tux-bow-mary-jane-revelvet-black",
+     "price": 39
+    },
+    {
+     "title": "The Kids Tux Bow Mary Jane - ReVelvet\u2122 Mulberry",
+     "url": "https://rothys.com/products/kids-tux-bow-mary-jane-revelvet-mulberry",
+     "price": 39
+    },
+    {
+     "title": "The Kids Tux Bow Mary Jane - ReVelvet\u2122 Deep Navy",
+     "url": "https://rothys.com/products/kids-tux-bow-mary-jane-revelvet-deep-navy",
+     "price": 39
+    },
+    {
+     "title": "The Men's Court Sneaker - ReVelvet\u2122 Deep Navy",
+     "url": "https://rothys.com/products/mens-court-sneaker-revelvet-deep-navy",
+     "price": 119
+    },
+    {
+     "title": "The Men's Court Sneaker - ReVelvet\u2122 Sparrow",
+     "url": "https://rothys.com/products/mens-court-sneaker-revelvet-sparrow",
+     "price": 119
+    },
+    {
+     "title": "The Bow Point II - Conch",
+     "url": "https://rothys.com/products/womens-bow-pointed-toe-flat-conch",
+     "price": 99
+    },
+    {
+     "title": "The Jodhpur Boot - ReVelvet\u2122 Bistro",
+     "url": "https://rothys.com/products/womens-jodhpur-block-heel-boot-revelvet-bistro",
+     "price": 219
+    },
+    {
+     "title": "The Jodhpur Boot",
+     "url": "https://rothys.com/products/the-jodhpur-boot",
+     "price": 219
+    },
+    {
+     "title": "The Teddy Kids Slipper - Wren",
+     "url": "https://rothys.com/products/kids-teddy-slipper-wren",
+     "price": 29
+    },
+    {
+     "title": "The Teddy Men's Slipper - Newsprint",
+     "url": "https://rothys.com/products/mens-teddy-slipper-newsprint",
+     "price": 49
+    },
+    {
+     "title": "The Teddy Men's Slipper - Cocoa Spice",
+     "url": "https://rothys.com/products/mens-teddy-slipper-cocoa-spice",
+     "price": 49
+    },
+    {
+     "title": "The Block Heel Loafer - Black",
+     "url": "https://rothys.com/products/womens-block-heel-loafer-black",
+     "price": 149
+    },
+    {
+     "title": "The Almond Mary Jane - ReVelvet\u2122 Caramel",
+     "url": "https://rothys.com/products/womens-almond-mary-jane-flat-revelvet-caramel",
+     "price": 129
+    },
+    {
+     "title": "The Almond Mary Jane - ReVelvet\u2122 Toasted Torte",
+     "url": "https://rothys.com/products/womens-almond-mary-jane-flat-revelvet-toasted-torte",
+     "price": 129
+    },
+    {
+     "title": "The Block Heel Loafer",
+     "url": "https://rothys.com/products/the-block-heel-loafer",
+     "price": 149
+    },
+    {
+     "title": "The Almond Mary Jane",
+     "url": "https://rothys.com/products/the-almond-mary-jane",
+     "price": 129
+    },
+    {
+     "title": "The Teddy Kids Slipper",
+     "url": "https://rothys.com/products/the-teddy-kids-slipper",
+     "price": 29
+    },
+    {
+     "title": "The Apr\u00e8s Clog - ReVelvet\u2122 Slate Herringbone",
+     "url": "https://rothys.com/products/womens-apres-clog-revelvet-slate-herringbone",
+     "price": 99
+    },
+    {
+     "title": "The Apr\u00e8s Clog - ReVelvet\u2122 Cinnamon",
+     "url": "https://rothys.com/products/womens-apres-clog-revelvet-cinnamon",
+     "price": 99
+    },
+    {
+     "title": "The Teddy Slipper - Wren",
+     "url": "https://rothys.com/products/womens-teddy-slipper-wren",
+     "price": 49
+    },
+    {
+     "title": "The Teddy Slipper - Sugar Cookie",
+     "url": "https://rothys.com/products/womens-teddy-slipper-sugar-cookie",
+     "price": 49
+    },
+    {
+     "title": "The Teddy Men's Slipper",
+     "url": "https://rothys.com/products/the-teddy-mens-slipper",
+     "price": 49
+    },
+    {
+     "title": "The Teddy Slipper",
+     "url": "https://rothys.com/products/the-teddy-slipper",
+     "price": 49
+    },
+    {
+     "title": "The Apr\u00e8s Clog",
+     "url": "https://rothys.com/products/the-apres-clog",
+     "price": 99
+    },
+    {
+     "title": "The Mini Loafer (for Kids) - ReVelvet\u2122 Black",
+     "url": "https://rothys.com/products/kids-mini-loafer-revelvet-black",
+     "price": 29
+    },
+    {
+     "title": "The Cruiser Mary Jane - ReVelvet\u2122 Woodland",
+     "url": "https://rothys.com/products/womens-cruiser-mary-jane-revelvet-woodland",
+     "price": 99
+    },
+    {
+     "title": "The Penny Loafer - ReVelvet\u2122 Woodland",
+     "url": "https://rothys.com/products/womens-penny-loafer-revelvet-woodland",
+     "price": 109
+    },
+    {
+     "title": "The Apr\u00e8s Loafer Mule - ReVelvet\u2122 Black",
+     "url": "https://rothys.com/products/womens-apres-loafer-mule-revelvet-black",
+     "price": 119
+    },
+    {
+     "title": "The Daily Driver - Navy",
+     "url": "https://rothys.com/products/womens-daily-driver-navy",
+     "price": 150
+    },
+    {
+     "title": "The Daily Driver - Fig",
+     "url": "https://rothys.com/products/womens-daily-driver-fig",
+     "price": 150
+    },
+    {
+     "title": "The Apr\u00e8s Loafer Mule",
+     "url": "https://rothys.com/products/the-apres-loafer-mule",
+     "price": 119
+    },
+    {
+     "title": "The Daily Flat - Wild Berry",
+     "url": "https://rothys.com/products/womens-daily-flat-wild-berry",
+     "price": 100
+    },
+    {
+     "title": "The Max Square Ballerina - ReVelvet\u2122 Navy",
+     "url": "https://rothys.com/products/womens-max-square-ballerina-revelvet-navy",
+     "price": 89
+    },
+    {
+     "title": "The Ivy Sneaker - ReVelvet\u2122 Black",
+     "url": "https://rothys.com/products/womens-ivy-sneaker-revelvet-black",
+     "price": 119
+    },
+    {
+     "title": "The Ivy Sneaker",
+     "url": "https://rothys.com/products/the-ivy-sneaker",
+     "price": 119
+    },
+    {
+     "title": "The Men's Clog - ReVelvet\u2122 Bistro",
+     "url": "https://rothys.com/products/mens-clog-revelvet-bistro",
+     "price": 119
+    },
+    {
+     "title": "The Casual Clog - ReVelvet\u2122 Khaki Cat",
+     "url": "https://rothys.com/products/womens-casual-clog-revelvet-khaki-cat",
+     "price": 99
+    },
+    {
+     "title": "The Casual Clog - ReVelvet\u2122 Russet",
+     "url": "https://rothys.com/products/womens-casual-clog-revelvet-russet",
+     "price": 99
+    },
+    {
+     "title": "The Double Buckle Mary Jane - ReVelvet\u2122 Bistro",
+     "url": "https://rothys.com/products/double-buckle-mary-janes-revelvet-bistro",
+     "price": 119
+    },
+    {
+     "title": "The Double Buckle Mary Jane - ReVelvet\u2122 Mulberry",
+     "url": "https://rothys.com/products/double-buckle-mary-janes-revelvet-mulberry",
+     "price": 119
+    },
+    {
+     "title": "The Casual Clog - ReVelvet\u2122 Portobello",
+     "url": "https://rothys.com/products/womens-casual-clog-revelvet-portobello",
+     "price": 99
+    }
+   ],
+   "backInStock": [
+    {
+     "title": "The D'Orsay Point - Conch Raffia-Knit",
+     "url": "https://rothys.com/products/womens-d-orsay-point-flat-conch-raffia-knit",
+     "price": 99
+    }
+   ],
+   "new": [],
+   "removed": []
+  }
+ ]
+}

@@ -16,7 +16,7 @@ import os
 E = html.escape
 HERE = os.path.dirname(os.path.abspath(__file__))
 APIFY = "https://apify.com/blueberry_rainstorm/"
-UPDATED = "2026-11-25"
+UPDATED = "2026-11-27"
 EXAMPLES_REPO = "https://github.com/rabroubx-coder/pandapi-examples"
 X_PROFILE = "https://x.com/PandapiDev"
 
@@ -83,6 +83,36 @@ def offer(r):
     return what, f"{EXAMPLES_REPO}/issues/new?title={title}&amp;body={body}&amp;labels=sample-report"
 
 
+def bf_update(r):
+    """Black Friday re-run (same monitorKey): real changes since the 25 Nov snapshot, from samples_data/<key>-bf.json."""
+    f = os.path.join(HERE, "samples_data", r["key"] + "-bf.json")
+    if not os.path.exists(f):
+        return ""
+    with open(f) as fh:
+        u = json.load(fh)
+    rows = [[E(s["name"]), (f'{s["dropProducts"]} products' + (f' (median {abs(s["medianDrop"]):g}% off)' if s["medianDrop"] else "")) if s["dropProducts"] else "none",
+             str(len(s["soldOut"])) if s["soldOut"] else "none", str(len(s["new"])) if s["new"] else "none",
+             str(len(s["removed"])) if s["removed"] else "none"] for s in u["stores"]]
+    out = [f"<h2>Black Friday update ({u['date'][8:]} November 2026): what actually changed</h2>",
+           "<p>We ran the same watch again on Black Friday morning. These are the only rows it returned: everything that changed since the 25 November snapshot.</p>",
+           table(["Store", "Prices cut", "Sold out", "New products", "Removed"], rows)]
+    for s in u["stores"]:
+        bits = []
+        if s["topDrops"]:
+            bits.append(table(["Product", "Was", "Now", "Change"], [
+                [f'<a href="{E(x["url"])}" rel="nofollow">{E(x["title"])}</a>', f'${x["old"]:g}', f'${x["new"]:g}', f'{x["pct"]:g}%'] for x in s["topDrops"]]))
+        for key, label in (("soldOut", "Sold out"), ("new", "New"), ("backInStock", "Back in stock"), ("removed", "Removed")):
+            if s[key]:
+                names = [E(x["title"]) for x in s[key][:5]]
+                more = len(s[key]) - len(names)
+                bits.append(f"<p><b>{label}:</b> " + "; ".join(names) + (f"; and {more} more" if more > 0 else "") + ".</p>")
+        if bits:
+            out.append(f'<h3>{E(s["name"])}: Black Friday changes</h3>' + "".join(bits))
+    out.append('<p class="note">Product feeds show list prices, so discounts given only at checkout with a code don&#39;t appear here. '
+               f"Black Friday run {E(u['run'])} (dataset {E(u['dataset'])}). Next update after Cyber Monday.</p>")
+    return "".join(out)
+
+
 def price_body(r, d):
     rows = []
     for s in d["stores"]:
@@ -104,10 +134,9 @@ def price_body(r, d):
         if s["newest"]:
             out.append("<p><b>Newest products:</b> " + "; ".join(
                 f'<a href="{E(n["url"])}" rel="nofollow">{E(n["title"])}</a> (${n["price"]:g}, {n["published"]})' for n in s["newest"]) + ".</p>")
-    out.append("<h2>What happens next</h2><p>Monitoring is on for these 3 stores. We run the same watch again after the Black Friday deals go live "
-               "(Friday 27 November) and after Cyber Monday (30 November), and add every real change here: price drops and increases with the old "
-               "price, new price and % change, new products, removed products, and items that sold out. That's exactly the short list you'd get "
-               "by email every morning for your own competitors.</p>")
+    out.append("<h2>How this works</h2><p>Monitoring is on for these 3 stores. The first run (25 November) saved the snapshot above; every later run "
+               "returns only what changed: price drops and increases with the old price, new price and % change, new products, removed products, and items "
+               "that sold out. That's exactly the short list you'd get by email every morning for your own competitors.</p>")
     return "".join(out)
 
 
@@ -136,7 +165,7 @@ def page_html(r, head, foot, site_url):
     if site_url:
         ld["url"] = f"{site_url}/{path}"
     extra = '<link rel="stylesheet" href="../../assets/guides.css">\n' + f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
-    body = price_body(r, d) if d["kind"] == "price" else tender_body(r, d)
+    body = (bf_update(r) + price_body(r, d)) if d["kind"] == "price" else tender_body(r, d)
     price = ("About $0.30 a month to watch 3 competitor stores every day, inside Apify's free $5 monthly credit." if d["kind"] == "price"
              else "About $0.30 a month for a daily alert on your keywords, inside Apify's free $5 monthly credit.")
     return "".join([head(r["h1"], r["meta"], path, f"api/{r['actor']}.png", extra), f"""<main><div class="wrap article outcome">

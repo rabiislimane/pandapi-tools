@@ -1,0 +1,330 @@
+{
+ "run": "eHxVRcjll7YmXybW7",
+ "dataset": "zicTv8e2t4qHNXHKc",
+ "date": "2026-11-27",
+ "stores": [
+  {
+   "store": "colourpop.com",
+   "name": "ColourPop",
+   "dropVariants": 0,
+   "dropProducts": 0,
+   "medianDrop": null,
+   "topDrops": [],
+   "soldOut": [
+    {
+     "title": "How the Grinch Stole Christmas",
+     "url": "https://colourpop.com/products/how-the-grinch-stole-christmas-shadow-palette",
+     "price": 25
+    },
+    {
+     "title": "Who-Hash",
+     "url": "https://colourpop.com/products/who-hash-glitter-gel",
+     "price": 11
+    }
+   ],
+   "backInStock": [
+    {
+     "title": "Daybreak and Moonlight",
+     "url": "https://colourpop.com/products/daybreak-and-moonlight-fresh-kiss-trio",
+     "price": 32
+    },
+    {
+     "title": "Umbreon",
+     "url": "https://colourpop.com/products/umbreon-fresh-kiss-glossy-lip-balm",
+     "price": 12
+    },
+    {
+     "title": "Espeon",
+     "url": "https://colourpop.com/products/espeon-fresh-kiss-glossy-lip-balm",
+     "price": 12
+    },
+    {
+     "title": "Eevee",
+     "url": "https://colourpop.com/products/eevee-fresh-kiss-glossy-lip-balm",
+     "price": 12
+    }
+   ],
+   "new": [
+    {
+     "title": "Bright Nights",
+     "url": "https://colourpop.com/products/bright-nights-shadow-palette-and-brush-set",
+     "price": 74
+    },
+    {
+     "title": "Berry Blended",
+     "url": "https://colourpop.com/products/berry-blended",
+     "price": 74
+    },
+    {
+     "title": "Berry Much So",
+     "url": "https://colourpop.com/products/berry-much-so",
+     "price": 35
+    },
+    {
+     "title": "Blend Necessities",
+     "url": "https://colourpop.com/products/blend-necessities",
+     "price": 74
+    },
+    {
+     "title": "Colour Me Happy",
+     "url": "https://colourpop.com/products/colour-me-happy-1",
+     "price": 74
+    },
+    {
+     "title": "Metal to the Max",
+     "url": "https://colourpop.com/products/metal-to-the-max",
+     "price": 74
+    }
+   ],
+   "removed": []
+  },
+  {
+   "store": "kyliecosmetics.com",
+   "name": "Kylie Cosmetics",
+   "dropVariants": 51,
+   "dropProducts": 16,
+   "medianDrop": -30,
+   "topDrops": [
+    {
+     "title": "Skin Tint Blurring Elixir",
+     "url": "https://kyliecosmetics.com/products/skin-tint-blurring-elixir",
+     "old": 35,
+     "new": 23.8,
+     "pct": -32
+    },
+    {
+     "title": "Plumping Matte Lip Kit",
+     "url": "https://kyliecosmetics.com/products/plumping-lip-kit",
+     "old": 35,
+     "new": 24.5,
+     "pct": -30
+    },
+    {
+     "title": "Supple Glaze Hydrating Primer",
+     "url": "https://kyliecosmetics.com/products/supple-glaze-hydrating-primer",
+     "old": 29,
+     "new": 20.3,
+     "pct": -30
+    },
+    {
+     "title": "Precise Sculpting Complexion Brush 05",
+     "url": "https://kyliecosmetics.com/products/precise-sculpting-complexion-brush-05",
+     "old": 25,
+     "new": 17.5,
+     "pct": -30
+    },
+    {
+     "title": "Natural Blur Brightening Powder",
+     "url": "https://kyliecosmetics.com/products/natural-blur-brightening-powder",
+     "old": 24,
+     "new": 16.8,
+     "pct": -30
+    }
+   ],
+   "soldOut": [],
+   "backInStock": [],
+   "new": [],
+   "removed": []
+  },
+  {
+   "store": "www.skims.com",
+   "name": "SKIMS",
+   "dropVariants": 0,
+   "dropProducts": 0,
+   "medianDrop": null,
+   "topDrops": [],
+   "soldOut": [
+    {
+     "title": "NikeSKIMS FOOTWEAR WAFFLE RACER | THUNDER BLUE AND MUSLIN",
+     "url": "https://www.skims.com/products/nikeskims-footwear-waffle-racer-thunder-blue-and-muslin",
+     "price": 130
+    },
+    {
+     "title": "NikeSKIMS FOOTWEAR WAFFLE RACER | BAROQUE BROWN AND VELVET BROWN",
+     "url": "https://www.skims.com/products/nikeskims-footwear-waffle-racer-baroque-brown-and-velvet-brown",
+     "price": 130
+    },
+    {
+     "title": "SHEER RIB T-SHIRT | CARMINE",
+     "url": "https://www.skims.com/products/sheer-rib-t-shirt-carmine",
+     "price": 37
+    },
+    {
+     "title": "FITS EVERYBODY THONG | ARCTIC",
+     "url": "https://www.skims.com/products/fits-everybody-thong-arctic",
+     "price": 10
+    },
+    {
+     "title": "SOFT LOUNGE SLEEP SET | BABY BLUE",
+     "url": "https://www.skims.com/products/soft-lounge-sleep-set-baby-blue",
+     "price": 89
+    },
+    {
+     "title": "COTTON JERSEY MINI BOXER 3-PACK | HOLIDAY ANIMAL MULTI",
+     "url": "https://www.skims.com/products/cotton-jersey-mini-boxer-3-pack-holiday-animal-multi",
+     "price": 68
+    },
+    {
+     "title": "SOFT LOUNGE LONG SLIP DRESS | COCOA",
+     "url": "https://www.skims.com/products/soft-lounge-long-slip-dress-cocoa",
+     "price": 56
+    },
+    {
+     "title": "FITS EVERYBODY TUBE TOP | ONYX",
+     "url": "https://www.skims.com/products/fits-everybody-tube-top-onyx",
+     "price": 22
+    },
+    {
+     "title": "SMOOTH LAYERS SKORT | OBSIDIAN",
+     "url": "https://www.skims.com/products/smooth-layers-mini-skort-obsidian",
+     "price": 64
+    },
+    {
+     "title": "NikeSKIMS SHINE BONDED WAIST 26\" LEGGING | NAVY",
+     "url": "https://www.skims.com/products/nikeskims-shine-bonded-waist-26-inch-legging-navy",
+     "price": 108
+    },
+    {
+     "title": "NikeSKIMS AIRY LOW RISE MINI FLARE PANT | DEEP ROYAL",
+     "url": "https://www.skims.com/products/nikeskims-airy-low-rise-mini-flare-pant-deep-royal",
+     "price": 74
+    },
+    {
+     "title": "NikeSKIMS MATTE SHINE MIX STRAIGHT NECK BRA | OBSIDIAN AND IGNEOUS",
+     "url": "https://www.skims.com/products/nikeskims-matte-shine-mix-straight-neck-bra-obsidian-and-igneous",
+     "price": 54
+    },
+    {
+     "title": "NikeSKIMS MATTE SHINE MIX 29\" LEGGING | OBSIDIAN AND IGNEOUS",
+     "url": "https://www.skims.com/products/nikeskims-matte-shine-mix-29-inch-legging-obsidian-and-igneous",
+     "price": 128
+    },
+    {
+     "title": "RELAXED TEES LONG SLEEVE T-SHIRT | ONYX",
+     "url": "https://www.skims.com/products/relaxed-tees-long-sleeve-t-shirt-onyx",
+     "price": 15
+    },
+    {
+     "title": "SKIMS SLEEP SHORT SLEEVE BUTTON UP SET | BLUE QUARTZ SNOWFLAKE",
+     "url": "https://www.skims.com/products/skims-sleep-short-sleeve-button-up-set-blue-quartz-snowflake",
+     "price": 88
+    },
+    {
+     "title": "SKIMS SLEEP LONG SLEEVE BUTTON UP SET | BLUE QUARTZ SNOWFLAKE",
+     "url": "https://www.skims.com/products/skims-sleep-long-sleeve-button-up-set-blue-quartz-snowflake",
+     "price": 98
+    },
+    {
+     "title": "COTTON RIB LACE CAMI AND BOXER SET | LIGHT HEATHER GREY",
+     "url": "https://www.skims.com/products/cotton-rib-lace-cami-and-boxer-set-light-heather-grey",
+     "price": 78
+    },
+    {
+     "title": "COTTON RIB LACE CAMI AND BOXER SET | WISTERIA",
+     "url": "https://www.skims.com/products/cotton-rib-lace-cami-and-boxer-set-wisteria",
+     "price": 78
+    },
+    {
+     "title": "JERSEY SLEEP MENS SLEEP SET | DARK ROAST",
+     "url": "https://www.skims.com/products/jersey-sleep-mens-sleep-set-dark-roast",
+     "price": 128
+    },
+    {
+     "title": "COTTON JERSEY LONG SLEEVE T-SHIRT | OAT ARCHED SKIMS PLAID",
+     "url": "https://www.skims.com/products/cotton-jersey-long-sleeve-t-shirt-oat-arched-skims-plaid",
+     "price": 64
+    },
+    {
+     "title": "COTTON RIB LACE CAMI AND BOXER SET | CHERRY BLOSSOM KITTEN BELLS",
+     "url": "https://www.skims.com/products/cotton-rib-lace-cami-and-boxer-set-cherry-blossom-kitten-bells",
+     "price": 78
+    },
+    {
+     "title": "COTTON FLEECE REVERSIBLE ZIP UP HOODIE | LIGHT HEATHER GREY BUFF MONTGOMERY CHECK",
+     "url": "https://www.skims.com/products/cotton-fleece-reversible-zip-up-hoodie-light-heather-grey-buff-montgomery-check",
+     "price": 148
+    },
+    {
+     "title": "SKIMS SLEEP CARDIGAN AND PANT SLEEP SET | BLUE QUARTZ SNOWFLAKE",
+     "url": "https://www.skims.com/products/skims-sleep-cardigan-and-pant-sleep-set-blue-quartz-snowflake",
+     "price": 98
+    },
+    {
+     "title": "SKIMS SLEEP LACE CAMI AND PANT SLEEP SET | BLUE QUARTZ SNOWFLAKE",
+     "url": "https://www.skims.com/products/skims-sleep-lace-cami-and-pant-sleep-set-blue-quartz-snowflake",
+     "price": 98
+    },
+    {
+     "title": "COTTON JERSEY BOY SHORT | OAT ARCHED SKIMS PLAID",
+     "url": "https://www.skims.com/products/cotton-jersey-boy-short-oat-arched-skims-plaid",
+     "price": 24
+    },
+    {
+     "title": "COTTON JERSEY FOLDOVER PANT | OAT ARCHED SKIMS PLAID",
+     "url": "https://www.skims.com/products/cotton-jersey-foldover-pant-oat-arched-skims-plaid",
+     "price": 78
+    },
+    {
+     "title": "NikeSKIMS ACCESSORIES LOGO CLAW CLIP | COLLEGIATE BLUE",
+     "url": "https://www.skims.com/products/nikeskims-accessories-logo-claw-clip-collegiate-blue",
+     "price": 30
+    },
+    {
+     "title": "NikeSKIMS STRETCH KNIT OVERSIZED LONG SLEEVE TOP | DARK PEWTER AND OBSIDIAN",
+     "url": "https://www.skims.com/products/nikeskims-stretch-knit-oversized-long-sleeve-top-dark-pewter-and-obsidian",
+     "price": 84
+    },
+    {
+     "title": "NikeSKIMS STRETCH KNIT OVERSIZED LONG SLEEVE TOP | NATURAL AND BLUE ECLIPSE",
+     "url": "https://www.skims.com/products/nikeskims-stretch-knit-oversized-long-sleeve-top-natural-and-blue-eclipse",
+     "price": 84
+    },
+    {
+     "title": "NikeSKIMS MATTE SQUARE NECK TANK | COLLEGIATE BLUE",
+     "url": "https://www.skims.com/products/nikeskims-matte-square-neck-tank-collegiate-blue",
+     "price": 68
+    },
+    {
+     "title": "NikeSKIMS CRUNCHY NYLON CROPPED JACKET | BLUE ECLIPSE",
+     "url": "https://www.skims.com/products/nikeskims-crunchy-nylon-cropped-jacket-blue-eclipse",
+     "price": 198
+    },
+    {
+     "title": "NikeSKIMS OUTERWEAR HALF ZIP COACHES JACKET | OBSIDIAN",
+     "url": "https://www.skims.com/products/nikeskims-outerwear-half-zip-coaches-jacket-obsidian",
+     "price": 278
+    },
+    {
+     "title": "NikeSKIMS PERFORMANCE COTTON BLEND SHORT SLEEVE CROP TOP | OBSIDIAN",
+     "url": "https://www.skims.com/products/nikeskims-performance-cotton-blend-short-sleeve-crop-top-obsidian",
+     "price": 58
+    }
+   ],
+   "backInStock": [
+    {
+     "title": "NikeSKIMS MATTE MICRO SCOOP BRA | COLLEGIATE BLUE",
+     "url": "https://www.skims.com/products/nikeskims-matte-micro-scoop-bra-collegiate-blue",
+     "price": 48
+    },
+    {
+     "title": "NikeSKIMS VINTAGE SPORT FLEECE ZIP UP HOODIE | OBSIDIAN",
+     "url": "https://www.skims.com/products/nikeskims-vintage-sport-fleece-zip-up-hoodie-obsidian",
+     "price": 108
+    }
+   ],
+   "new": [
+    {
+     "title": "MENS DOPP KIT | ESPRESSO",
+     "url": "https://www.skims.com/products/mens-dopp-kit-espresso",
+     "price": 48
+    },
+    {
+     "title": "MENS DOPP KIT | ONYX",
+     "url": "https://www.skims.com/products/mens-dopp-kit-onyx",
+     "price": 48
+    }
+   ],
+   "removed": []
+  }
+ ]
+}

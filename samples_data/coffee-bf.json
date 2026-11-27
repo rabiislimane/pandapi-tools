@@ -1,0 +1,148 @@
+{
+ "run": "Ygcx0NiagpVU9KUO3",
+ "dataset": "Iofkytg3XZCctkTlN",
+ "date": "2026-11-27",
+ "stores": [
+  {
+   "store": "onyxcoffeelab.com",
+   "name": "Onyx Coffee Lab",
+   "dropVariants": 0,
+   "dropProducts": 0,
+   "medianDrop": null,
+   "topDrops": [],
+   "soldOut": [
+    {
+     "title": "Tattoo Sticker",
+     "url": "https://onyxcoffeelab.com/products/tattoo-sticker",
+     "price": 3
+    }
+   ],
+   "backInStock": [
+    {
+     "title": "NotNeutral Lino 10oz Mug, Dark Gray (Lakeside Only)",
+     "url": "https://onyxcoffeelab.com/products/notneutral-lino-10oz-mug-dark-gray-lakeside-only",
+     "price": 120
+    }
+   ],
+   "new": [
+    {
+     "title": "Costa Rica Las Lajas Anaerobic Honey",
+     "url": "https://onyxcoffeelab.com/products/costa-rica-las-lajas-honey",
+     "price": 10
+    }
+   ],
+   "removed": [
+    {
+     "title": "Honduras Edgardo Reyes",
+     "url": "https://onyxcoffeelab.com/products/honduras-edgardo-reyes-26",
+     "price": null
+    }
+   ]
+  },
+  {
+   "store": "www.deathwishcoffee.com",
+   "name": "Death Wish Coffee",
+   "dropVariants": 0,
+   "dropProducts": 0,
+   "medianDrop": null,
+   "topDrops": [],
+   "soldOut": [
+    {
+     "title": "Knit Happens Holiday Sweater",
+     "url": "https://www.deathwishcoffee.com/products/knit-happens-holiday-sweater",
+     "price": 59.99
+    },
+    {
+     "title": "Signature Shadow Hoodie",
+     "url": "https://www.deathwishcoffee.com/products/signature-shadow-hoodie",
+     "price": 38.57
+    },
+    {
+     "title": "Signature Hoodie",
+     "url": "https://www.deathwishcoffee.com/products/signature-hoodie",
+     "price": 38.57
+    }
+   ],
+   "backInStock": [],
+   "new": [
+    {
+     "title": "Friend or Foe Mug",
+     "url": "https://www.deathwishcoffee.com/products/friend-or-foe-mug",
+     "price": 38
+    }
+   ],
+   "removed": [
+    {
+     "title": "Back to Campus Tee Bundle",
+     "url": "https://www.deathwishcoffee.com/products/back-to-campus-tee-bundle",
+     "price": null
+    },
+    {
+     "title": "Back to Campus Hoodie Bundle",
+     "url": "https://www.deathwishcoffee.com/products/back-to-campus-hoodie-bundle",
+     "price": null
+    },
+    {
+     "title": "Sidekick Cocktail Shaker",
+     "url": "https://www.deathwishcoffee.com/products/sidekick-cocktail-shaker",
+     "price": null
+    },
+    {
+     "title": "Rise Again Collectible Gift Box",
+     "url": "https://www.deathwishcoffee.com/products/rise-again-collectible-gift-box",
+     "price": null
+    }
+   ]
+  },
+  {
+   "store": "www.stumptowncoffee.com",
+   "name": "Stumptown Coffee",
+   "dropVariants": 0,
+   "dropProducts": 0,
+   "medianDrop": null,
+   "topDrops": [],
+   "soldOut": [
+    {
+     "title": "WILDWOOD Sticker Bike",
+     "url": "https://www.stumptowncoffee.com/products/wildwood-sticker-bike",
+     "price": 3
+    }
+   ],
+   "backInStock": [
+    {
+     "title": "Camp Coffee Tumbler",
+     "url": "https://www.stumptowncoffee.com/products/camp-coffee-tumbler",
+     "price": 39
+    },
+    {
+     "title": "Cold Brew with Oatly Variety Pack",
+     "url": "https://www.stumptowncoffee.com/products/cold-brew-with-oatly-variety-pack",
+     "price": 15
+    },
+    {
+     "title": "Original Cold Brew with Oatly 12 pack",
+     "url": "https://www.stumptowncoffee.com/products/original-cold-brew-with-oatly-12-pack",
+     "price": 60
+    },
+    {
+     "title": "Original Cold Brew with Oatly",
+     "url": "https://www.stumptowncoffee.com/products/original-coldbrew-with-oatly",
+     "price": 5
+    }
+   ],
+   "new": [
+    {
+     "title": "Cold Brew Copilot - 12 Pack",
+     "url": "https://www.stumptowncoffee.com/products/cold-brew-copilot-12-pack",
+     "price": 60
+    },
+    {
+     "title": "Cold Brew Copilot",
+     "url": "https://www.stumptowncoffee.com/products/copilot-cold-brew",
+     "price": 5
+    }
+   ],
+   "removed": []
+  }
+ ]
+}
