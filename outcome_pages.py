@@ -343,9 +343,11 @@ PAGES = [
             "Works for <b>competitors' apps</b> too: see what their users hate before you build the same thing.",
         ],
         steps=[
-            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b> (or the Google Play version), create a free Apify account (no card), replace the example app with your app's store link, pick countries, and click <b>Save &amp; Start</b>. The first run saves today's reviews as the starting point.",
-            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b>. Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
-            "<b>Get it in Slack or Google Drive.</b> On the task, open <b>Integrations</b> and add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a>, so new reviews land in your team channel or a spreadsheet.",
+            "<b>Create a free Apify account (1 minute).</b> Click <b>Set it up in 3 minutes</b> (or the Google Play version). Apify opens with our ready-made task attached. Click <b>Continue with Google</b> (or type your email). It's free: $5 of credit every month, no card.",
+            "<b>Fill in two things.</b> Replace the example app with your app and your competitors' apps, one per line (a store link or just the name), and pick your countries. Then type the email address you signed up with in <b>Email me the report at</b> (Apify only sends to your own account's address). Want complaints only? Set <b>Maximum stars</b> to 2.",
+            "<b>Click Save &amp; Start.</b> About a minute later the first report is in your inbox: the latest reviews, saved as the starting point. From then on you only hear about new reviews, worst rating first.",
+            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b> and a time, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b> (new schedules start switched off). Apify's guide with pictures: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>. Days with no new reviews send no email.",
+            "<b>Optional: Slack.</b> On your task's <b>Integrations</b> tab add <b>Slack</b> and use this message: <code>{{resource.statusMessage}}</code>. It posts the report's first line (\"6 new reviews (Notion 4, Slack 2), average 3.2 stars, 2 of them 1-2 stars\"). Apify's guide: <a href=\"https://docs.apify.com/platform/integrations/slack\">Slack integration</a>.",
         ],
         costs=[
             ["App Store review", "$0.15 per 1,000"],
@@ -375,7 +377,7 @@ PAGES = [
             ("Will I get the same review twice?", "No. The alert remembers the reviews it returned under your alert name and only returns new ones next time."),
             ("Can I get only bad reviews?", "Yes. Set the maximum rating to 2 to get only 1 and 2 star reviews, or add keywords like \"crash\" or \"refund\"."),
             ("Do you collect reviewer names?", "No. Rows have the review, rating, date, country and version, not the reviewer's name."),
-            ("Do I need to know how to code?", "No. You open the ready-made task, paste your app's link, click Schedule and add Slack or Google Drive."),
+            ("Do I need to know how to code?", "No. You open the ready-made task, paste your app's link, type your email and add a daily schedule."),
         ],
     ),
     dict(
@@ -543,10 +545,11 @@ PAGES = [
             "Filters: <b>only 1 and 2 star reviews</b> (a competitor's unhappy merchants are your best leads), a start date, or keywords like \"billing\" or \"support\".",
         ],
         steps=[
-            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b> and create a free Apify account (Continue with Google, no card).",
-            "<b>Paste your apps.</b> Replace the two example apps with your app and your competitors', one link per line (for example <code>https://apps.shopify.com/judgeme</code>). Want complaints only? Set <b>Maximum stars</b> to 2. Click <b>Save &amp; Start</b>: the first run saves the newest reviews as the starting point.",
-            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b> (new schedules start switched off). Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
-            "<b>Get it in Slack or Google Drive.</b> On the task's <b>Integrations</b> tab add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> with the message <code>{{resource.statusMessage}}</code> (it posts \"Done: 6 reviews, 5 summaries\" or \"no new reviews since the last run\"), or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a> to keep every new review in a spreadsheet.",
+            "<b>Create a free Apify account (1 minute).</b> Click <b>Set it up in 3 minutes</b>. Apify opens with our ready-made task attached. Click <b>Continue with Google</b> (or type your email). It's free: $5 of credit every month, no card.",
+            "<b>Fill in two things.</b> Replace the two example apps with your app and your competitors', one link per line (for example <code>https://apps.shopify.com/judgeme</code>). Then type the email address you signed up with in <b>Email me the report at</b> (Apify only sends to your own account's address). Want complaints only? Set <b>Maximum stars</b> to 2.",
+            "<b>Click Save &amp; Start.</b> About a minute later the first report is in your inbox: the latest reviews, saved as the starting point. From then on you only hear about new reviews, worst rating first, with the merchant's country.",
+            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b> and a time, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b> (new schedules start switched off). Apify's guide with pictures: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>. Days with no new reviews send no email.",
+            "<b>Optional: Slack.</b> On your task's <b>Integrations</b> tab add <b>Slack</b> and use this message: <code>{{resource.statusMessage}}</code>. It posts the report's first line (\"6 new reviews (Judge.me 4, Loox 2), average 3.2 stars, 2 of them 1-2 stars\"). Apify's guide: <a href=\"https://docs.apify.com/platform/integrations/slack\">Slack integration</a>.",
         ],
         costs=[
             ["Each review", "$0.10 per 1,000 ($0.0001 each)"],

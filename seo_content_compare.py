@@ -876,3 +876,69 @@ page(
     free_tools=[],
     cta_line="<b>Tender alerts</b>: a daily alert with about 10 new tenders costs about $0.60 a month. Tenders filtered out or already sent are free, and Apify's free plan gives you $5 of credit every month.",
 )
+
+# Price2Spy (strategy v3: FOCUS price monitor, written for store owners, no code; real Black Friday changes) ------
+S = "price2spy-alternative"
+_TASK = "https://console.apify.com/create-task-from-example/Zhd4WMwiEeWgKkVXT"
+page(
+    slug=S, tool="shopify-products-price-monitor", published="2026-11-27", updated_text="27 November 2026",
+    title="Price2Spy Alternative for Shopify Competitors: Daily Price Alerts",
+    h1="Price2Spy alternative: daily competitor price alerts for Shopify stores",
+    description="Price2Spy no longer lists its plan prices publicly. If your competitors sell on Shopify or WooCommerce, daily price, stock and new-product alerts cost about $0.30 a month. Honest comparison with real Black Friday changes.",
+    lede="Price2Spy is a mature price-monitoring tool for retailers and brands: it matches your products to competitors' pages on almost any site, including marketplaces, and adds repricing and MAP monitoring. Since spring 2026 it asks you to start a trial or contact sales instead of listing prices. If your competitors run on Shopify or WooCommerce and you just want an email when they cut prices, launch products or sell out, that costs a few cents a month.",
+    body=f"""
+<h2>The short answer</h2>
+<ul>
+<li><b>Your competitors sell on Shopify or WooCommerce</b>: paste their store links and get a daily list of what changed for <b>about $0.30 a month</b>, with no product matching. <a href="../competitor-price-monitoring/">See how it works</a>.</li>
+<li><b>You compete on Amazon or marketplaces, or you need repricing, MAP checks or several price checks a day</b>: Price2Spy (or Prisync) is the better tool.</li>
+</ul>
+
+<h2>Side by side</h2>
+{table(["", "Price2Spy", "Pandapi price alerts"], [
+    ["Price", "Not listed publicly since spring 2026 (Starter and Basic were $39.95 and $157.95 a month before that); Premium on request; free trial", "<b>about $0.30 a month</b> for 3 stores of 100 products checked daily; unchanged products free"],
+    ["How you set it up", "Import your products, then match each one to competitors' pages (Quick match, Automatch on higher tiers)", "Paste competitor store links; their whole catalog is watched"],
+    ["A competitor launches a new product", "Not seen until it is matched", "In your next daily alert"],
+    ["Price drops and increases, stock, new and removed products", "Yes (daily digest on Starter, instant alerts on Basic)", "Yes, by email, Slack or Google Drive"],
+    ["Which sites", "Almost any website and marketplaces", "Shopify and WooCommerce stores only"],
+    ["Repricing, MAP monitoring, dashboard", "Yes", "No"],
+    ["Contract", "Monthly plans, sales contact for larger tiers", "None. Apify's free plan includes $5 of credit every month, no card"],
+])}
+
+<h2>A real example: Black Friday 2026</h2>
+<p>We set up daily alerts on six well-known Shopify brands on 25 November and checked again on Black Friday morning, 27 November. This is what the second alert reported:</p>
+{table(["Store", "What changed", "Example"], [
+    ["Tentree", "Prices cut on <b>135 products</b> (median 12.5% off, up to 20%)", "Moray Sweater 148 to 118.40, 20% off"],
+    ["Kylie Cosmetics", "Prices cut on <b>16 products</b> (median 30% off)", "Skin Tint Blurring Elixir $35 to $23.80, 32% off"],
+    ["Rothy's", "Prices cut on <b>18 clogs</b> (16.8% off) and sizes sold out on 47 products", "The Cozy Clog $119 to $99"],
+    ["SKIMS", "No price cuts; <b>33 items</b> sold out", "NikeSKIMS Waffle Racer sold out"],
+    ["Allbirds", "No new cuts (it was already on sale); sizes sold out on 29 products", ""],
+])}
+<p>Every price row has the old price, the new price and the % change, with a link to the product. Prices are in each store's own currency. Full reports: <a href="../samples/sustainable-shoes-apparel-black-friday-prices/">shoes and apparel</a> and <a href="../samples/beauty-fashion-black-friday-prices/">beauty and fashion</a>.</p>
+<p class="sources">Source: Apify runs AjuzoIwqz4ND0DFe5 (dataset xpm1HG3aKSMeH8R3r) and eHxVRcjll7YmXybW7 (dataset zicTv8e2t4qHNXHKc), 27 Nov 2026, compared with the 25 Nov baseline. Nothing here is made up.</p>
+
+<h2>Set it up in 3 minutes, no code</h2>
+{steps([
+    f'<a href="{_TASK}">Open the ready-made task</a> and create a free Apify account (Google sign-in works).',
+    "Replace the example with your competitors' store links, one per line, and type your email in <b>Email me the report at</b>. Click <b>Save &amp; Start</b>.",
+    "Click <b>Schedules</b>, then <b>Create new</b>, then <b>Daily</b>, and add your task. Every morning you get only what changed.",
+])}
+<p>The <a href="../competitor-price-monitoring/">step-by-step guide with screenshots</a> also shows the Slack option.</p>
+
+<h2>Want to see your own competitors first?</h2>
+<p>Send us a competitor's store link and we'll run a free sample report for you: open a <a href="https://github.com/rabroubx-coder/pandapi-examples/issues/new?title=Free%20sample%20report%3A%20Competitor%20price%20alerts&amp;labels=sample-report">short request form</a> or message <a href="https://x.com/PandapiDev">@PandapiDev on X</a>.</p>
+
+<h2>Where Price2Spy is the better choice</h2>
+<ul><li>Your competitors sell on Amazon, eBay or sites that don't run on Shopify or WooCommerce.</li><li>You want repricing rules, MAP monitoring or up to 8 price checks a day.</li><li>A team needs a dashboard with your products matched to competitors' and an account manager.</li></ul>
+
+<div class="card"><p><b>For developers:</b> the same monitor is an API on Apify ({a('shopify-products-price-monitor', S, 'Competitor Price Monitor')}), with webhooks, n8n and Make integrations and an MCP server for AI agents. See also our <a href="../prisync-alternative/">Prisync comparison</a>.</p></div>
+{sources(("Price2Spy pricing tiers", "https://www.price2spy.com/pricing.html"), ("Price2Spy pricing history (PricingSaaS)", "https://pricingsaas.com/companies/price2spy"), ("Apify pricing", "https://apify.com/pricing"), checked="27 November 2026")}
+""",
+    faq=[
+        ("Is there a cheaper alternative to Price2Spy?", "If your competitors run on Shopify or WooCommerce, yes: a scheduled price monitor on Apify costs about $0.30 a month for 3 stores of 100 products checked daily, inside Apify's free $5 monthly credit."),
+        ("How much does Price2Spy cost?", "Price2Spy stopped listing plan prices publicly in spring 2026; you start a free trial or ask for a quote. Before that, its Starter plan was listed at $39.95 a month and Basic at $157.95 (checked 27 November 2026)."),
+        ("Do I have to match my products to competitors' products?", "No. You paste a competitor's store link and every product in its catalog is watched. The daily alert lists price changes, new and removed products and stock changes."),
+        ("Does it work on Amazon?", "No. It reads the public catalog of Shopify and WooCommerce stores. For Amazon and marketplaces, Price2Spy or Prisync is the better pick."),
+    ],
+    related=["prisync-alternative"],
+    free_tools=[],
+)
