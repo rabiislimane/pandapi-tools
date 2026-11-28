@@ -942,3 +942,69 @@ page(
     related=["prisync-alternative"],
     free_tools=[],
 )
+
+# SpyFu (strategy v3: FOCUS competitor ad alerts, written for marketers and small PPC teams, no code) -----------
+S = "spyfu-alternative"
+_TASK = "https://console.apify.com/create-task-from-example/6Xf915hfsjdfEU7BO"
+page(
+    slug=S, tool="google-ads-transparency-scraper", published="2026-11-28", updated_text="28 November 2026",
+    title="SpyFu Free Alternative: See Every Google Ad a Competitor Runs",
+    h1="SpyFu alternative: see every Google ad a competitor runs, and get told about new ones",
+    description="SpyFu starts at $39 a month and estimates competitors' search ads from its own crawl. To see every ad a competitor runs on Google, straight from Google's Ads Transparency Center, with weekly new-ad alerts, pay a few cents a month. Honest comparison, real sample.",
+    lede="SpyFu is a keyword research tool first: it shows which keywords a competitor bids on, estimated ad spend and years of search ad history, from its own crawl of Google results. If what you really want is simpler, \"what ads is this competitor running right now, and tell me when they launch a new one\", Google already publishes that in its Ads Transparency Center. A weekly alert on top of it costs a few cents a month.",
+    body=f"""
+<h2>The short answer</h2>
+<ul>
+<li><b>You want to see a competitor's current Google ads</b> (Search, YouTube, Shopping, Maps and Play), with the ad text and the dates they were shown, and a weekly email when they start new ones: about <b>$0.40 for the first look at 3 competitors, then a few cents a month</b>. <a href="../see-competitors-google-ads/">See how it works</a>.</li>
+<li><b>You need the keywords they bid on, estimated ad spend or SEO data</b>: SpyFu (or a similar keyword tool) is the right choice. Google's Transparency Center doesn't show keywords or spend, so we can't either.</li>
+</ul>
+
+<h2>Side by side</h2>
+{table(["", "SpyFu", "Pandapi competitor ad alerts"], [
+    ["Price", "Basic $39 a month ($29 billed yearly); Pro + AI $119 a month ($89 yearly), per third-party price trackers", "<b>$1.20 per 1,000 ads</b>: about $0.40 for a first look at 3 competitors, then a few cents a month"],
+    ["Where the ads come from", "SpyFu's own crawl of Google search results", "Google's Ads Transparency Center (Google's own record of every ad)"],
+    ["Ad formats", "Mainly search ads", "Text, image and video ads across Search, YouTube, Shopping, Maps and Play"],
+    ["First and last shown dates", "History view by month", "Exact dates for every ad"],
+    ["Email when a competitor starts new ads", "No", "Yes, weekly or daily, by email or Slack"],
+    ["Keywords they bid on, estimated spend, SEO data", "Yes", "No"],
+    ["Contract", "Monthly or yearly plan", "None. Apify's free plan includes $5 of credit every month, no card"],
+])}
+
+<h2>A real example</h2>
+<p>On 26 November 2026 we ran the alert on <b>allbirds.com</b>, limited to 8 ads for the demo (Google lists several hundred for Allbirds). The email's first line: <b>"8 ads from 1 competitor, 1 started in the last 30 days."</b></p>
+{table(["Ad", "Format", "First shown", "Last shown"], [
+    ['<a href="https://adstransparency.google.com/advertiser/AR01371945870127267841/creative/CR06808320902795624449">Allbirds: Comfortable, Sustainable Shoes &amp; Apparel</a> (the new one)', "Text (Search)", "12 Nov 2026", "26 Nov 2026"],
+    ['<a href="https://adstransparency.google.com/advertiser/AR01371945870127267841/creative/CR01031185956591370241">Video ad</a>', "Video (YouTube)", "20 Oct 2026", "26 Nov 2026"],
+    ['<a href="https://adstransparency.google.com/advertiser/AR01371945870127267841/creative/CR06883584947618054145">Image ad</a>', "Image", "17 Sep 2026", "26 Nov 2026"],
+    ['<a href="https://adstransparency.google.com/advertiser/AR01371945870127267841/creative/CR15179610838743908353">Video ad</a>', "Video (YouTube)", "29 Jan 2026", "26 Nov 2026"],
+])}
+<p>The 8 ads were 3 text, 2 image and 3 video ads, all still running. Each row links to the ad on Google, so you see the creative itself. On a weekly schedule, the next emails list only the ads that started or stopped.</p>
+<p class="sources">Source: Apify run Fj3NmqYWFuM7Mem0e, dataset 1SWv069UJqBwhTQ84, 26 Nov 2026. Nothing here is made up.</p>
+
+<h2>Set it up in 3 minutes, no code</h2>
+{steps([
+    f'<a href="{_TASK}">Open the ready-made task</a> and create a free Apify account (Google sign-in works).',
+    "Type your competitors' websites (for example <code>competitor.com</code>), one per line, and your email in <b>Email me the report at</b>. Click <b>Save &amp; Start</b>.",
+    "Click <b>Schedules</b>, then <b>Create new</b>, then <b>Weekly</b>, and add your task. Every week you get only the new and stopped ads.",
+])}
+<p>The <a href="../see-competitors-google-ads/">step-by-step guide with screenshots</a> also shows the Slack option.</p>
+
+<h2>Want to see your own competitors first?</h2>
+<p>Send us up to 3 competitor websites and we'll run a free sample report for you: open a <a href="https://github.com/rabroubx-coder/pandapi-examples/issues/new?title=Free%20sample%20report%3A%20Competitor%20Google%20ads&amp;labels=sample-report">short request form</a> or message <a href="https://x.com/PandapiDev">@PandapiDev on X</a>.</p>
+
+<h2>Where SpyFu is the better choice</h2>
+<ul><li>You want the keywords a competitor bids on and how much they likely spend.</li><li>You do SEO research too: rankings, backlinks, keyword ideas.</li><li>You want years of search ad history in one dashboard.</li></ul>
+<p>The free way, for one competitor once: open <a href="https://adstransparency.google.com/">Google's Ads Transparency Center</a>, type the company's name and scroll. It has no alerts or export, which is what the tool above adds.</p>
+
+<div class="card"><p><b>For developers:</b> the same tracker is an API on Apify ({a('google-ads-transparency-scraper', S, 'Competitor Google Ads Tracker')}), with webhooks, n8n and Make integrations and an MCP server for AI agents.</p></div>
+{sources(("SpyFu pricing", "https://www.spyfu.com/pricing"), ("SpyFu plans (CostBench, third party)", "https://costbench.com/software/seo-tools/spyfu/"), ("Google Ads Transparency Center", "https://adstransparency.google.com/"), ("Apify pricing", "https://apify.com/pricing"), checked="28 November 2026")}
+""",
+    faq=[
+        ("Is there a free alternative to SpyFu?", "For seeing a competitor's ads, yes: Google's Ads Transparency Center is free to browse. For a weekly email with only new ads, a scheduled tracker costs a few cents a month inside Apify's free $5 monthly credit. For keyword and spend data there is no free equivalent."),
+        ("How much does SpyFu cost?", "Third-party price trackers list Basic at $39 a month ($29 a month billed yearly) and Pro + AI at $119 a month ($89 billed yearly), checked 28 November 2026. SpyFu's own page has the current prices."),
+        ("Can I see which keywords a competitor bids on?", "Not with this tool. Google's Transparency Center doesn't publish keywords, so you need a keyword tool like SpyFu for that."),
+        ("Which ads does it find?", "Every ad Google lists for that advertiser in the Ads Transparency Center: text, image and video ads on Search, YouTube, Shopping, Maps and Play, with the first and last date each was shown."),
+    ],
+    related=["see-competitors-google-ads"],
+    free_tools=[],
+)

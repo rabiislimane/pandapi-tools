@@ -30,6 +30,7 @@ META = {
     "prisync-alternative": "Prisync starts at $99 a month. For Shopify and WooCommerce competitors, daily price, stock and new-product alerts cost about $0.30 a month. Honest comparison.",
     "govwin-alternative": "GovWin IQ is a yearly quote-based subscription. For daily tender alerts from SAM.gov, the EU, UK, Canada and World Bank, pay about $0.60 a month.",
     "price2spy-alternative": "Price2Spy no longer lists its prices. For Shopify and WooCommerce competitors, daily price, stock and new-product alerts cost about $0.30 a month.",
+    "spyfu-alternative": "SpyFu starts at $39 a month. To see every Google ad a competitor runs, with weekly new-ad alerts, pay a few cents a month. Honest comparison.",
     "appfollow-alternative": "Need app reviews in a spreadsheet, not a review inbox? AppFollow vs pay-per-review APIs for App Store and Google Play.",
     "google-play-scraper-alternative": "google-play-scraper vs hosted Google Play review scrapers: maintenance, languages, monitoring, and Apify options by users and price.",
     "sam-gov-api-alternative": "SAM.gov's API allows 10 requests a day without a role. Alternatives for contract opportunities, including one feed with EU, UK and Canada.",

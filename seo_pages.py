@@ -50,6 +50,9 @@ API = {
     "shopify-products-price-monitor": dict(name="Competitor Price Monitor", price="$0.50 per 1,000 products on the first run, then $1 per 1,000 changes (unchanged products free)", unit="product",
         example="3 competitor stores of 100 products checked daily cost about $0.30 a month", free="several competitor stores checked every day",
         cta_line="<b>Competitor Price Monitor</b>: watching 3 competitor stores of 100 products every day costs about $0.30 a month. Unchanged products are free, and Apify's free plan gives you $5 of credit every month."),
+    "google-ads-transparency-scraper": dict(name="Competitor Google Ads Tracker", price="$1.20 per 1,000 ads", unit="ad",
+        example="a first look at 3 competitors costs about $0.40, then a few cents a month for weekly new-ad alerts", free="weekly ad alerts on several competitors",
+        cta_line="<b>Competitor Google Ads Tracker</b>: a first look at 3 competitors costs about $0.40, then a few cents a month for weekly alerts on new ads. Apify's free plan gives you $5 of credit every month."),
     "pandapi-mcp-server": dict(name="Pandapi MCP Server", price="free server; each tool call costs that API's own price", unit="call",
         example="converting 20 pages to Markdown from Claude costs $0.02", free="the same $5 of monthly credit"),
 }
