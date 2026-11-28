@@ -113,6 +113,13 @@ PAGES = [
         actor="public-tenders-feed",
         task_id="hdv8OVr0yH8q0Oqhg",
         task_name="daily-government-tender-alerts",
+        presets=[
+            ("Janitorial and cleaning contracts", "vL3c6D3WuwjOmD4PU", "janitorial-cleaning-contract-alerts", "janitorial, custodial and office cleaning contracts"),
+            ("Landscaping and grounds maintenance", "lY3kzKNsOEGf4PAKF", "landscaping-grounds-contract-alerts", "landscaping, lawn care, mowing and tree services"),
+            ("Construction and building works", "XrXAzDcvuHGgesSBi", "construction-tender-alerts", "construction, building works, refurbishment and renovation"),
+            ("Cybersecurity", "v3HjsW4O1fD38CeY1", "cybersecurity-tender-alerts", "penetration testing, SOC and security services"),
+            ("Translation and interpreting", "9dQcmkWBdrpl3ErOY", "translation-tender-alerts", "translation and interpreting services"),
+        ],
         short="Tender alerts",
         title="Government tender alerts on your keywords: US, EU, UK, Canada",
         meta="Daily government tender alerts on your keywords from SAM.gov, TED, Contracts Finder, Find a Tender, CanadaBuys and the World Bank. No code, under $1 a month.",
@@ -602,6 +609,18 @@ def offer_links(p):
     return gh, X_PROFILE
 
 
+def presets_html(p):
+    """Optional ready-made variants of the outcome (more published Apify tasks), one click each."""
+    if not p.get("presets"):
+        return ""
+    actor, slug = p["actor"], p["slug"]
+    items = "".join(
+        f'<li><a href="https://console.apify.com/create-task-from-example/{tid}" rel="nofollow"><b>{E(label)}</b></a>: {E(what)} '
+        f'(<a href="{utm(APIFY + actor + "/examples/" + name, actor, slug)}">see the task</a>)</li>'
+        for label, tid, name, what in p["presets"])
+    return f'<h2>Ready-made alerts for your trade</h2><p>Same alert, with the keywords for your trade already filled in. Open one, add your email, and change any keyword you like.</p><ul>{items}</ul>'
+
+
 def page_html(p, head, foot, site_url):
     slug, actor = p["slug"], p["actor"]
     path = slug + "/"
@@ -642,7 +661,7 @@ def page_html(p, head, foot, site_url):
 <ul>{''.join(f'<li>{x}</li>' for x in p['alert'])}</ul>
 <h2>Set it up in 3 minutes, no code</h2>
 <ol class="steps">{''.join(f'<li>{s}</li>' for s in p['steps'])}</ol>
-<p><a class="btn" href="{setup_url(p)}" rel="nofollow">Set it up in 3 minutes</a></p>
+<p><a class="btn" href="{setup_url(p)}" rel="nofollow">Set it up in 3 minutes</a></p>{presets_html(p)}
 <h2>What it costs</h2>
 {table(["What", "Price"], p['costs'])}
 <p>No subscription and no start fee. Apify's free plan gives you $5 of credit every month, and you can set a maximum cost per run so a run never spends more than you allow.</p>
