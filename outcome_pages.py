@@ -421,9 +421,11 @@ PAGES = [
             "Filters: keywords (\"sales\", \"data engineer\"), locations, departments, remote only, only jobs with a salary.",
         ],
         steps=[
-            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b>, create a free Apify account (no card), replace the example companies with yours (a name or their careers page link, one per line), and click <b>Save &amp; Start</b>. The first run lists every open job as the starting point.",
-            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b>. Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
-            "<b>Get it in Slack or Google Drive.</b> On the task, open <b>Integrations</b> and add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a>, so new jobs land where your team works.",
+            "<b>Create a free Apify account (1 minute).</b> Click <b>Set it up in 3 minutes</b>. Apify opens with our ready-made task attached. Click <b>Continue with Google</b> (or type your email). It's free: $5 of credit every month, no card.",
+            "<b>Fill in two things.</b> Replace the example companies with yours, one per line (a name, a website or their careers page link). Then type the email address you signed up with in <b>Email me the report at</b> (Apify only sends to your own account's address).",
+            "<b>Click Save &amp; Start.</b> About a minute later the first report is in your inbox: how many jobs each company has open, saved as the starting point. From then on you only hear about new jobs, with title, location, salary and link.",
+            "<b>Make it run every morning.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Daily</b> and a time, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b> (new schedules start switched off). Apify's guide with pictures: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>. Days with no new jobs send no email.",
+            "<b>Optional: Slack.</b> On your task's <b>Integrations</b> tab add <b>Slack</b> and use this message: <code>{{resource.statusMessage}}</code>. It posts the report's first line (\"7 new jobs at your companies (Airbnb 4, Notion 3), 2 closed\"). Apify's guide: <a href=\"https://docs.apify.com/platform/integrations/slack\">Slack integration</a>.",
         ],
         costs=[
             ["Each job returned", "$1 per 1,000 ($0.001 each)"],
@@ -449,7 +451,7 @@ PAGES = [
             ("How much does it cost?", "$1 per 1,000 jobs returned; closed jobs and summaries are free. The first run lists every open job, then 20 companies posting 30 new jobs a week cost about $0.13 a month."),
             ("Why is hiring a sales signal?", "A company hiring for a team usually gets budget for that team's tools. New sales, data or security roles are a common trigger for outreach."),
             ("Can I watch only some roles?", "Yes. Add keywords, locations or departments and only matching new jobs are returned."),
-            ("Do I need to know how to code?", "No. You open the ready-made task, type company names, click Schedule and add Slack or Google Drive."),
+            ("Do I need to know how to code?", "No. You open the ready-made task, type company names and your email, and add a daily schedule."),
         ],
     ),
     dict(
@@ -488,9 +490,11 @@ PAGES = [
             "Evidence for each detection, so you can trust a lead list before you send it.",
         ],
         steps=[
-            "<b>Open the ready-made task.</b> Click <b>Set it up in 3 minutes</b>, create a free Apify account (no card), paste your list of websites, one per line, and click <b>Save &amp; Start</b>. Export the result to Excel or CSV from the run's <b>Overview</b> tab.",
-            "<b>Optional: watch them every week.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Weekly</b>, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b>. Later runs return only sites that changed. Apify's guide: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>.",
-            "<b>Get it in Slack or Google Drive.</b> On the task, open <b>Integrations</b> and add <a href=\"https://docs.apify.com/platform/integrations/slack\" rel=\"noopener\">Slack</a> or <a href=\"https://docs.apify.com/platform/integrations/drive\" rel=\"noopener\">Google Drive</a>.",
+            "<b>Create a free Apify account (1 minute).</b> Click <b>Set it up in 3 minutes</b>. Apify opens with our ready-made task attached. Click <b>Continue with Google</b> (or type your email). It's free: $5 of credit every month, no card.",
+            "<b>Fill in two things.</b> Paste your list of websites, one per line (a domain like allbirds.com is enough). Then type the email address you signed up with in <b>Email me the report at</b> (Apify only sends to your own account's address).",
+            "<b>Click Save &amp; Start.</b> About a minute later the first report is in your inbox: one line per site with its platform, analytics, ad pixels, email tools, chat and payments. Export the full table to Excel or CSV from the run's <b>Overview</b> tab.",
+            "<b>Make it run every week.</b> In Apify's left menu click <b>Schedules</b>, then <b>Create new</b>. Choose <b>Weekly</b> and a time, click <b>Add</b> &gt; <b>Task</b> and pick your task, then <b>Save</b> and <b>Enable</b> (new schedules start switched off). Apify's guide with pictures: <a href=\"https://docs.apify.com/platform/schedules\">Schedules</a>. Later runs return only sites that added or removed a technology; quiet weeks send no email.",
+            "<b>Optional: Slack.</b> On your task's <b>Integrations</b> tab add <b>Slack</b> and use this message: <code>{{resource.statusMessage}}</code>. It posts the report's first line (\"2 of 50 websites changed their technology: allbirds.com, rothys.com\"). Apify's guide: <a href=\"https://docs.apify.com/platform/integrations/slack\">Slack integration</a>.",
         ],
         costs=[
             ["Site with at least one technology found", "$1.50 per 1,000 ($0.0015 each)"],
@@ -515,7 +519,7 @@ PAGES = [
             ("How much does it cost?", "$1.50 per 1,000 sites where something is found; unreachable sites are free. A 2,000-site list costs $3, and a weekly watch on 500 prospects is about $0.13 a month."),
             ("Can it find all websites using Shopify?", "No. You bring the list of websites (from your CRM, a directory or a search) and it tells you what each one runs."),
             ("Can I see when a prospect changes platform?", "Yes. Turn on monitoring and schedule it weekly: later runs return only the sites that changed, with what was added and removed."),
-            ("Do I need to know how to code?", "No. You open the ready-made task, paste websites, click Start, and download the result as Excel or CSV."),
+            ("Do I need to know how to code?", "No. You open the ready-made task, paste websites, type your email and click Start. Add a weekly schedule to hear when a site changes."),
         ],
     ),
     dict(
